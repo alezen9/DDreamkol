@@ -1,0 +1,14 @@
+{
+  "name": "alex_ddreamkol",
+  "version": "1.0.0",
+  "description": "website to store and share infos about Dolni Drimkol",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aleksandar Gjoreski",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
