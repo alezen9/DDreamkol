@@ -1,0 +1,19 @@
+div
+	nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4
+		img.mr-2(src='images/demo/shards-logo.svg', alt='Example Navbar 1', height='30px')
+		a.navbar-brand(href='index.html') Shards
+		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown-2', aria-controls='navbarNavDropdown-2', aria-expanded='false', aria-label='Toggle navigation')
+			span.navbar-toggler-icon
+		#navbarNavDropdown-2.collapse.navbar-collapse.mr-auto
+			ul.navbar-nav.mr-auto
+				li.nav-item.active
+					a.nav-link(href='index.html')
+						| Home
+						span.sr-only (current)
+				li.nav-item
+					a.nav-link(href='tournament.html') Tournament
+			div
+				a(href='upload.html')
+					button.btn.btn-pill.btn-outline-success(type='button', href='upload.html')
+						i.fa.fa-upload.mr-1
+						|  Contribute with pictures or some history
