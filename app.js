@@ -1,7 +1,9 @@
-var express = require('express');
-var app = express();
-var route = require('./routes/route');
-var path = require('path'); 
+let express = require('express');
+let app = express();
+let route = require('./routes/route');
+let path = require('path'); 
+let bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('public'));
 app.set("view engine", "pug");

@@ -9,15 +9,15 @@ head
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
   link(rel='stylesheet' href='/css/shards.min.css', type='text/css')
   link(rel='stylesheet' href='/css/shards-demo.css?v=1.1.0', type='text/css')
-  link(rel='shortcut icon' type='image/png' href='images/favico/favico.png')
+  link(rel='shortcut icon' type='image/png' href='/images/favico/favicon.ico')
 // loader
 .loader
   .page-loader
 // Navbar
 div
-  script(src='js/scripts/navbar.js')
+  include includes/navbar.pug
 // Floating Shards
-img.shard(src='images/demo/shard-1-5x-3.png' alt='Shard')
+img.shard(src='/images/demo/shard-1-5x-3.png' alt='Shard')
 // Welcome Section
 .welcome.d-flex.justify-content-center.flex-column
   .inner-wrapper.mt-auto.mb-auto
@@ -191,7 +191,7 @@ img.shard(src='images/demo/shard-1-5x-3.png' alt='Shard')
                     i.fa.fa-book.mr-1
                     |  History
 // Footer
-script(src='js/scripts/footer.js')
+script(src='/js/scripts/footer.js')
 // JavaScript
 #fb-root
 script(async='' defer='' src='https://buttons.github.io/buttons.js')
