@@ -7,6 +7,8 @@ let pug = require('pug');
 let util = require('util');
 let fsExtra  = require('fs-extra');
 
+var new_location = __dirname + '/upload/';
+
 router.get("/", (req, res) => {
     res.render("homepage");
 });
@@ -30,22 +32,16 @@ router.post('/upload', function (req, res) {
     //res.end(util.inspect({fields: fields, files: files}));
   });
 
+      /* this is where the renaming happens */
+  form.on ('fileBegin', function(name, file){
+        //rename the incoming file to the file's name
+        file.path = new_location + file.name;
+})
+
   form.on('end', function(fields, files) {
-    /* Temporary location of our uploaded file */
-    var temp_path = this.openedFiles[0].path;
-    /* The file name of the uploaded file */
-    var file_name = this.openedFiles[0].name;
-    /* Location where we want to copy the uploaded file */
-    var new_location = __dirname + '/upload/';
-    fsExtra.copy(temp_path, new_location + file_name, function(err) {  
-        if (err) {
-            console.error(err);
-        } else {
             console.log("success!");
             res.redirect('/');
-        }
-      });
-  });
+        });
 
 });
 
