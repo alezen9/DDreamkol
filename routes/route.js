@@ -32,7 +32,7 @@ var new_location = __dirname + '/upload/';
 var village = "";
 var right_loc;
 
-
+//--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
 router.get("/", (req, res) => {
     res.render("homepage");
@@ -43,7 +43,8 @@ router.get("/", (req, res) => {
 router.get("/upload", (req, res) => {
   res.render("upload");
 });
-
+//--------------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------------
 //route nerezi_pic page
 router.get("/nerezi_pic", (req, res) => {
   res.render("nerezi_pic");
@@ -54,7 +55,7 @@ router.get("/modric_pic", (req, res) => {
   res.render("modric_pic");
 });
 
-//route bezevo page
+//route bezevo_pic page
 router.get("/bezevo_pic", (req, res) => {
   res.render("bezevo_pic");
 });
@@ -93,8 +94,59 @@ router.get("/lakavica_pic", (req, res) => {
 router.get("/piskupshtina_pic", (req, res) => {
   res.render("piskupshtina_pic");
 });
+//--------------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------------
+//route nerezi_h page
+router.get("/nerezi_h", (req, res) => {
+  res.render("nerezi_h");
+});
 
+//route modric_h page
+router.get("/modric_h", (req, res) => {
+  res.render("modric_h");
+});
 
+//route bezevo_h page
+router.get("/bezevo_h", (req, res) => {
+  res.render("bezevo_h");
+});
+
+//route borovec_h page
+router.get("/borovec_h", (req, res) => {
+  res.render("borovec_h");
+});
+
+//route d_lukovo_h page
+router.get("/d_lukovo_h", (req, res) => {
+  res.render("d_lukovo_h");
+});
+
+//route g_lukovo_h page
+router.get("/g_lukovo_h", (req, res) => {
+  res.render("g_lukovo_h");
+});
+
+//route drenok_h page
+router.get("/drenok_h", (req, res) => {
+  res.render("drenok_h");
+});
+
+//route jablanica_h page
+router.get("/jablanica_h", (req, res) => {
+  res.render("jablanica_h");
+});
+
+//route lakavica_h page
+router.get("/lakavica_h", (req, res) => {
+  res.render("lakavica_h");
+});
+
+//route piskupshtina_h page
+router.get("/piskupshtina_h", (req, res) => {
+  res.render("piskupshtina_h");
+});
+//--------------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------------
 //handling upload page form
 router.post('/upload', function (req, res) {
   //village = req.body.village;
