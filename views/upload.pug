@@ -19,13 +19,13 @@ div
   h1 Upload
 .container
   .row.justify-content-md-center
-    .col-md-6.mb-3(style='padding-right: 50px')
+    .col-md-8.mb-3(style='padding-right: 50px')
       div(style='text-align: center;')
         br
-        h5 I want to contribuite with a picture
+        h5 I want to contribuite to this village:
         br
       form.was-validated(method='post' enctype='multipart/form-data')
-        label(for='form-2-first-name') The picture is of this village:
+        label(for='form-2-first-name') Village:
         select#form-3-select.custom-select.w-100(name='village' required='')
           option(value='nerezi') Nerezi
           option(value='d_Lukovo') Dolno Lukovo
@@ -38,36 +38,7 @@ div
           option(value='bezevo') Bezevo
           option(value='borovec') Borovec
         br
-        label(for='form-file-4') Picture
-        label.custom-file.w-100
-          input#form-file-4.custom-file-input(type='file' name='file' multiple='multiple' required='')
-          span.custom-file-control
-        div(style='text-align: center;')
-          br
-          br
-          button.btn.btn-pill.btn-success(type='submit')
-            i.fa.fa-upload.mr-1
-            |  Upload
-    .col-md-6.mb-3(style='padding-left: 50px')
-      div(style='text-align: center;')
-        br
-        h5 I want to contribuite to the history with a pdf
-        br
-      form.was-validated(method='post' enctype='multipart/form-data')
-        label(for='form-2-first-name') I wrote something about this village:
-        select#form-3-select.custom-select.w-100(name='village' required='')
-          option(value='nerezi') Nerezi
-          option(value='d_Lukovo') Dolno Lukovo
-          option(value='g_Lukovo') Gorno Lukovo
-          option(value='modric') Modric
-          option(value='piskupshtina') Piskupshtina
-          option(value='jablanica') Jablanica
-          option(value='drenok') Drenok
-          option(value='lakavica') Lakavica
-          option(value='bezevo') Bezevo
-          option(value='borovec') Borovec
-        br
-        label(for='form-file-4') File
+        label(for='form-file-4') Picture/s or file/s
         label.custom-file.w-100
           input#form-file-4.custom-file-input(type='file' name='file' multiple='multiple' required='')
           span.custom-file-control
@@ -92,9 +63,9 @@ br
         | every submitted file will be firstly reviewed by the moderators, which will decide the quality of the content and to publish it or not.
         br
         br
-        | Allowed extensions for picture: &emsp; JPG, JPEG and PNG
+        | Accepted extensions for picture: &emsp; JPG, JPEG and PNG
         br
-        | Allowed extensions for File: &emsp; PDF
+        | Accepted extensions for File: &emsp; PDF
 // footer
 br
 br

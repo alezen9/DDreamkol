@@ -11,8 +11,26 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 
 
+var file_a;
+var exists = fs.existsSync('data.json');
+if (exists) {
+  // Read the file
+  console.log('loading database');
+  var txt = fs.readFileSync('data.json', 'utf8');
+  // Parse it  back to object
+  file_a = JSON.parse(txt);
+} else {
+  // Otherwise start with blank list
+  console.log('empty database');
+  file_a = {
+			  "id": 0
+			};
+}
+
+
 var new_location = __dirname + '/upload/';
 var village = "";
+var right_loc;
 
 router.get("/", (req, res) => {
     res.render("homepage");
@@ -44,15 +62,23 @@ router.post('/upload', function (req, res) {
     console.log('Got a field:', field);
     console.log('Got a field name:', name);
     village = field;
-    console.log('village: ',village)
+    console.log('village: ',village);
     //console.log(field.name);
   });
 
       /* this is where the renaming happens */
   form.on ('fileBegin', function(name, file){
         console.log('filebegin here');
+        right_loc = new_location + village + '/';
         //rename the incoming file to the file's name
-        file.path = new_location + uniqid(village + "-") + file.name;
+        file.path = right_loc + file_a.id + "-" + file.name;
+        file_a.id = file_a.id +1;
+        // update json
+        fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
+          if (err) throw err;
+          
+        });
+        //file.path = new_location + uniqid(village + "-") + file.name;
 });
 
   form.on('end', function(fields, files) {
