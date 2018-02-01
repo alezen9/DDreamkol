@@ -10,6 +10,7 @@ let uniqid = require('uniqid');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 
+
 // json vreating or reading with pic/file number
 var file_a;
 var exists = fs.existsSync('data.json');
@@ -28,10 +29,14 @@ if (exists) {
 }
 
 // global variables
-var new_location = __dirname + '/upload/';
+var lc = path.join(__dirname + '/..');
+//console.log(lc);
+var new_location = lc + '/public/images/';
+//console.log(new_location);
 var village = "";
 var right_loc;
-
+var list_pics = [];
+//--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
 router.get("/", (req, res) => {
@@ -43,56 +48,122 @@ router.get("/", (req, res) => {
 router.get("/upload", (req, res) => {
   res.render("upload");
 });
+
+
+//route upload_succ page
+router.get("/upload_succ", (req, res) => {
+  res.render("upload_succ");
+});
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route nerezi_pic page
 router.get("/nerezi_pic", (req, res) => {
-  res.render("nerezi_pic");
+  var testFolder = new_location + 'nerezi/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/nerezi/img/' + file);
+      //console.log(file);
+    });
+  res.render("nerezi_pic",{arr: list_pics});
+  list_pics = [];
 });
 
 //route modric_pic page
 router.get("/modric_pic", (req, res) => {
-  res.render("modric_pic");
+  var testFolder = new_location + 'modric/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/modric/img/' + file);
+      //console.log(file);
+    });
+  res.render("modric_pic",{arr: list_pics});
+  list_pics = [];
 });
 
 //route bezevo_pic page
 router.get("/bezevo_pic", (req, res) => {
-  res.render("bezevo_pic");
+  var testFolder = new_location + 'bezevo/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/bezevo/img/' + file);
+      //console.log(file);
+    });
+  res.render("bezevo_pic",{arr: list_pics});
+  list_pics = [];
 });
 
 //route borovec_pic page
 router.get("/borovec_pic", (req, res) => {
-  res.render("borovec_pic");
+  var testFolder = new_location + 'borovec/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/borovec/img/' + file);
+      //console.log(file);
+    });
+  res.render("borovec_pic",{arr: list_pics});
+  list_pics = [];
 });
 
 //route d_lukovo_pic page
 router.get("/d_lukovo_pic", (req, res) => {
-  res.render("d_lukovo_pic");
+  var testFolder = new_location + 'd_lukovo/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/d_lukovo/img/' + file);
+      //console.log(file);
+    });
+  res.render("d_lukovo_pic",{arr: list_pics});
+  list_pics = [];
 });
 
 //route g_lukovo_pic page
 router.get("/g_lukovo_pic", (req, res) => {
-  res.render("g_lukovo_pic");
+  var testFolder = new_location + 'g_lukovo/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/g_lukovo/img/' + file);
+      //console.log(file);
+    });
+  res.render("g_lukovo_pic",{arr: list_pics});
+  list_pics = [];
 });
 
 //route drenok_pic page
 router.get("/drenok_pic", (req, res) => {
-  res.render("drenok_pic");
+  var testFolder = new_location + 'drenok/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/drenok/img/' + file);
+      //console.log(file);
+    });
+  res.render("drenok.pdf",{arr: list_pics});
+  list_pics = [];
 });
 
 //route jablanica_pic page
 router.get("/jablanica_pic", (req, res) => {
-  res.render("jablanica_pic");
+  var testFolder = new_location + 'jablanica/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/jablanica/img/' + file);
+      //console.log(file);
+    });
+  res.render("jablanica_pic",{arr: list_pics});
+  list_pics = [];
 });
 
 //route lakavica_pic page
 router.get("/lakavica_pic", (req, res) => {
-  res.render("lakavica_pic");
+  var testFolder = new_location + 'lakavica/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/lakavica/img/' + file);
+      //console.log(file);
+    });
+  res.render("lakavica_pic",{arr: list_pics});
+  list_pics = [];
 });
 
 //route piskupshtina_pic page
 router.get("/piskupshtina_pic", (req, res) => {
-  res.render("piskupshtina_pic");
+  var testFolder = new_location + 'piskupshtina/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/piskupshtina/img/' + file);
+      //console.log(file);
+    });
+  res.render("piskupshtina_pic",{arr: list_pics});
+  list_pics = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -170,7 +241,10 @@ router.post('/upload', function (req, res) {
       /* this is where the renaming happens */
   form.on ('fileBegin', function(name, file){
         console.log('filebegin here');
-        right_loc = new_location + village + '/';
+        var fileType = path.extname(file.name);
+        console.log(fileType);
+        if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
+        right_loc = new_location + village + '/img/';
         //rename the incoming file to the file's name
         file.path = right_loc + file_a.id + "-" + file.name;
         file_a.id = file_a.id +1;
@@ -179,12 +253,23 @@ router.post('/upload', function (req, res) {
           if (err) throw err;
           
         });
+      }else if(fileType == '.pdf' ){
+        right_loc = new_location + village + '/h/';
+        //rename the incoming file to the file's name
+        file.path = right_loc + file_a.id + "-" + file.name;
+        file_a.id = file_a.id +1;
+        // update json
+        fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
+          if (err) throw err;
+          
+        });
+      }
         //file.path = new_location + uniqid(village + "-") + file.name;
 });
 
   form.on('end', function(fields, files) {
             console.log("success!");
-            res.redirect('/');
+            res.redirect('/upload_succ');            
         });
 
 });

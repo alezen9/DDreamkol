@@ -40,60 +40,11 @@ html.no-js(lang='en')
 			#cards.container.mb-2(style='padding-bottom: 1px')
 				.example.col-md-12.ml-auto.mr-auto
 					.row
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/1.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/1.jpg', alt='Card image cap')
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/2.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/2.jpg', alt='Card image cap')
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/3.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/3.jpg', alt='Card image cap')
-				.example.col-md-12.ml-auto.mr-auto
-					.row
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/2.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/2.jpg', alt='Card image cap')
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/3.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/3.jpg', alt='Card image cap')
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/1.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/1.jpg', alt='Card image cap')
-				.example.col-md-12.ml-auto.mr-auto
-					.row
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/3.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/3.jpg', alt='Card image cap')
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/2.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/2.jpg', alt='Card image cap')
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/1.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/1.jpg', alt='Card image cap')
-				.example.col-md-12.ml-auto.mr-auto
-					.row
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/3.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/3.jpg', alt='Card image cap')
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/1.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/1.jpg', alt='Card image cap')
-						.col-lg-4.col-md-6.col-sm-12.mb-4
-							a(href='images/demo/stock-photos/2.jpg', data-lightbox='roadtrip')
-								.card
-									img(src='images/demo/stock-photos/2.jpg', alt='Card image cap')
+						each val in arr
+							.col-lg-4.col-md-6.col-sm-12.mb-4
+								a(href=val, data-lightbox='roadtrip')
+									.card
+										img(src=val, alt='Card image cap', style='height: 500px')
 			// Footer
 			div
 				br
