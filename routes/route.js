@@ -33,9 +33,11 @@ var lc = path.join(__dirname + '/..');
 //console.log(lc);
 var new_location = lc + '/public/images/';
 //console.log(new_location);
+var invalid_up_loc = path.join(lc + '/upload_invalid/');
 var village = "";
 var right_loc;
 var list_pics = [];
+var inv_files = [];
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
@@ -246,32 +248,42 @@ router.post('/upload', function (req, res) {
         if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
         right_loc = new_location + village + '/img/';
         //rename the incoming file to the file's name
-        file.path = right_loc + file_a.id + "-" + file.name;
-        file_a.id = file_a.id +1;
+        file.path = right_loc + uniqid() + fileType;
+        //file.path = right_loc + file_a.id + "-" + file.name;
+        //file_a.id = file_a.id +1;
         // update json
-        fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
+        /*fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
           if (err) throw err;
           
-        });
+        });*/
       }else if(fileType == '.pdf' ){
         right_loc = new_location + village + '/h/';
         //rename the incoming file to the file's name
-        file.path = right_loc + file_a.id + "-" + file.name;
-        file_a.id = file_a.id +1;
+        file.path = right_loc + uniqid() + fileType;
+        //file.path = right_loc + file_a.id + "-" + file.name;
+        //file_a.id = file_a.id +1;
         // update json
-        fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
+        /*fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
           if (err) throw err;
           
-        });
+        });*/
+      }else{
+        file.path = invalid_up_loc + uniqid() + fileType;
       }
         //file.path = new_location + uniqid(village + "-") + file.name;
 });
 
   form.on('end', function(fields, files) {
+            var testFolder = invalid_up_loc;
+            fs.readdirSync(testFolder).forEach(file=>{
+              var filePath = invalid_up_loc + file;
+              fs.unlinkSync(filePath);
+                //inv_files.push(invalid_up_loc + file);
+                console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
+              });
             console.log("success!");
             res.redirect('/upload_succ');            
         });
-
 });
 
 
