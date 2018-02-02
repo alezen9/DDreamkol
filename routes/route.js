@@ -10,24 +10,6 @@ var uniqid = require('uniqid');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 
-
-// json creating or reading with pic/file number
-var file_a;
-var exists = fs.existsSync('data.json');
-if (exists) {
-  // Read the file
-  console.log('loading database');
-  var txt = fs.readFileSync('data.json', 'utf8');
-  // Parse it  back to object
-  file_a = JSON.parse(txt);
-} else {
-  // Otherwise start with blank list
-  console.log('empty database');
-  file_a = {
-			  "id": 0
-			};
-}
-
 //global variables
 var lc = path.join(__dirname + '/..');
 var new_location = lc + '/public/images/';
@@ -249,22 +231,18 @@ router.get("/piskupshtina_h", (req, res) => {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //handling upload page form
 router.post('/upload', function (req, res) {
-  //village = req.body.village;
-  //console.log(village);
   var form = new formidable.IncomingForm();
 
   form.parse(req, function (err, fields, files){
     console.log('trying to upload');
     console.log('upload recived');
-    //console.log(village);
   });
 
   form.on('field', function(name, field) {
     console.log('Got a field:', field);
     console.log('Got a field name:', name);
     village = field;
-    console.log('village: ',village);
-    //console.log(field.name);
+    console.log('village: ' + village);
   });
 
       /* this is where the renaming happens */
@@ -273,31 +251,16 @@ router.post('/upload', function (req, res) {
         var fileType = path.extname(file.name);
         console.log(fileType);
         if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
-        right_loc = new_location + village + '/img/';
-        //rename the incoming file to the file's name
-        file.path = right_loc + uniqid() + fileType;
-        //file.path = right_loc + file_a.id + "-" + file.name;
-        //file_a.id = file_a.id +1;
-        // update json
-        /*fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
-          if (err) throw err;
-          
-        });*/
-      }else if(fileType == '.pdf' ){
-        right_loc = new_location + village + '/h/';
-        //rename the incoming file to the file's name
-        file.path = right_loc + uniqid() + fileType;
-        //file.path = right_loc + file_a.id + "-" + file.name;
-        //file_a.id = file_a.id +1;
-        // update json
-        /*fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
-          if (err) throw err;
-          
-        });*/
+          right_loc = new_location + village + '/img/';
+          //rename the incoming file to the file's name
+          file.path = right_loc + uniqid() + fileType;
+        }else if(fileType == '.pdf' ){
+          right_loc = new_location + village + '/h/';
+          //rename the incoming file to the file's name
+          file.path = right_loc + uniqid() + fileType;
       }else{
         file.path = invalid_up_loc + uniqid() + fileType;
       }
-        //file.path = new_location + uniqid(village + "-") + file.name;
 });
 
   form.on('end', function(fields, files) {
@@ -305,7 +268,6 @@ router.post('/upload', function (req, res) {
             fs.readdirSync(testFolder).forEach(file=>{
               var filePath = invalid_up_loc + file;
               fs.unlinkSync(filePath);
-                //inv_files.push(invalid_up_loc + file);
                 console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
               });
             console.log("success!");
