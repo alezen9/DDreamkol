@@ -140,7 +140,7 @@ router.get("/drenok_pic", (req, res) => {
       list_pics.push('images/drenok/img/' + file);
       //console.log(file);
     });
-  res.render("drenok.pic",{arr: list_pics});
+  res.render("drenok_pic",{arr: list_pics});
   list_pics = [];
 });
 
