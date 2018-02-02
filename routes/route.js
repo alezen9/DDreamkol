@@ -37,6 +37,7 @@ var invalid_up_loc = path.join(lc + '/upload_invalid/');
 var village = "";
 var right_loc;
 var list_pics = [];
+var list_files = [];
 var inv_files = [];
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -55,6 +56,24 @@ router.get("/upload", (req, res) => {
 //route upload_succ page
 router.get("/upload_succ", (req, res) => {
   res.render("upload_succ");
+});
+
+
+//route v_manager page
+router.get("/1234v_manager", (req, res) => {
+  var testFolder = new_location + 'nerezi/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      list_pics.push('images/nerezi/img/' + file);
+      //console.log(file);
+    });
+    var testFolder2 = new_location + 'nerezi/h/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        list_pics.push('images/nerezi/h/' + file);
+        //console.log(file);
+      });
+  res.render("v_manager",{paese: "Nerezi", arr_pics: list_pics, arr_files: list_files});
+  list_pics = [];
+  list_files = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
