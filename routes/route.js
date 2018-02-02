@@ -1,12 +1,12 @@
-let express = require('express');
-let router = express.Router();
-let path = require('path'); 
-let fs = require('fs');
-let formidable = require('formidable');
-let pug = require('pug');
-let util = require('util');
-let fsExtra  = require('fs-extra');
-let uniqid = require('uniqid');
+var express = require('express');
+var router = express.Router();
+var path = require('path'); 
+var fs = require('fs');
+var formidable = require('formidable');
+var pug = require('pug');
+var util = require('util');
+var fsExtra  = require('fs-extra');
+var uniqid = require('uniqid');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 
