@@ -9,6 +9,7 @@ var fsExtra  = require('fs-extra');
 var uniqid = require('uniqid');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
+var gitkeep = '.gitkeep';
 
 //global variables
 var lc = path.join(__dirname + '/..');
@@ -51,12 +52,14 @@ router.get("/1234v_manager", (req, res) => {
   var init_path = path.join('images/' + village + '/h/init.pdf')
   var testFolder = new_location + 'nerezi/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/nerezi/img/' + file);
       //console.log(file);
+    }
     });
     var testFolder2 = new_location + 'nerezi/h/';
     fs.readdirSync(testFolder2).forEach(file=>{
-        if(file != 'init.pdf'){
+        if((file != 'init.pdf')&&(file != gitkeep)) {
         list_files.push('images/nerezi/h/' + file);
         //console.log(file);
         }
@@ -71,8 +74,10 @@ router.get("/1234v_manager", (req, res) => {
 router.get("/nerezi_pic", (req, res) => {
   var testFolder = new_location + 'nerezi/img/';
   fs.readdirSync(testFolder).forEach(file=>{
-      list_pics.push('images/nerezi/img/' + file);
-      //console.log(file);
+      if(file != gitkeep){
+        list_pics.push('images/nerezi/img/' + file);
+        //console.log(file);
+      }
     });
   res.render("nerezi_pic",{arr: list_pics});
   list_pics = [];
@@ -82,8 +87,10 @@ router.get("/nerezi_pic", (req, res) => {
 router.get("/modric_pic", (req, res) => {
   var testFolder = new_location + 'modric/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/modric/img/' + file);
       //console.log(file);
+    }
     });
   res.render("modric_pic",{arr: list_pics});
   list_pics = [];
@@ -93,8 +100,10 @@ router.get("/modric_pic", (req, res) => {
 router.get("/bezevo_pic", (req, res) => {
   var testFolder = new_location + 'bezevo/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/bezevo/img/' + file);
       //console.log(file);
+    }
     });
   res.render("bezevo_pic",{arr: list_pics});
   list_pics = [];
@@ -104,8 +113,10 @@ router.get("/bezevo_pic", (req, res) => {
 router.get("/borovec_pic", (req, res) => {
   var testFolder = new_location + 'borovec/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/borovec/img/' + file);
       //console.log(file);
+    }
     });
   res.render("borovec_pic",{arr: list_pics});
   list_pics = [];
@@ -115,8 +126,10 @@ router.get("/borovec_pic", (req, res) => {
 router.get("/d_lukovo_pic", (req, res) => {
   var testFolder = new_location + 'd_lukovo/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/d_lukovo/img/' + file);
       //console.log(file);
+    }
     });
   res.render("d_lukovo_pic",{arr: list_pics});
   list_pics = [];
@@ -126,8 +139,10 @@ router.get("/d_lukovo_pic", (req, res) => {
 router.get("/g_lukovo_pic", (req, res) => {
   var testFolder = new_location + 'g_lukovo/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/g_lukovo/img/' + file);
       //console.log(file);
+    }
     });
   res.render("g_lukovo_pic",{arr: list_pics});
   list_pics = [];
@@ -137,8 +152,10 @@ router.get("/g_lukovo_pic", (req, res) => {
 router.get("/drenok_pic", (req, res) => {
   var testFolder = new_location + 'drenok/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/drenok/img/' + file);
       //console.log(file);
+    }
     });
   res.render("drenok_pic",{arr: list_pics});
   list_pics = [];
@@ -148,8 +165,10 @@ router.get("/drenok_pic", (req, res) => {
 router.get("/jablanica_pic", (req, res) => {
   var testFolder = new_location + 'jablanica/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/jablanica/img/' + file);
       //console.log(file);
+    }
     });
   res.render("jablanica_pic",{arr: list_pics});
   list_pics = [];
@@ -159,8 +178,10 @@ router.get("/jablanica_pic", (req, res) => {
 router.get("/lakavica_pic", (req, res) => {
   var testFolder = new_location + 'lakavica/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/lakavica/img/' + file);
       //console.log(file);
+    }
     });
   res.render("lakavica_pic",{arr: list_pics});
   list_pics = [];
@@ -170,8 +191,10 @@ router.get("/lakavica_pic", (req, res) => {
 router.get("/piskupshtina_pic", (req, res) => {
   var testFolder = new_location + 'piskupshtina/img/';
   fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
       list_pics.push('images/piskupshtina/img/' + file);
       //console.log(file);
+    }
     });
   res.render("piskupshtina_pic",{arr: list_pics});
   list_pics = [];
