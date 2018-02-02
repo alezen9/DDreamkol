@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 
 
-// json vreating or reading with pic/file number
+// json creating or reading with pic/file number
 var file_a;
 var exists = fs.existsSync('data.json');
 if (exists) {
@@ -65,6 +65,8 @@ router.get("/upload_succ", (req, res) => {
 
 //route v_manager page
 router.get("/1234v_manager", (req, res) => {
+  village = "nerezi";
+  var init_path = path.join('images/' + village + '/h/init.pdf')
   var testFolder = new_location + 'nerezi/img/';
   fs.readdirSync(testFolder).forEach(file=>{
       list_pics.push('images/nerezi/img/' + file);
@@ -72,10 +74,12 @@ router.get("/1234v_manager", (req, res) => {
     });
     var testFolder2 = new_location + 'nerezi/h/';
     fs.readdirSync(testFolder2).forEach(file=>{
-        list_pics.push('images/nerezi/h/' + file);
+        if(file != 'init.pdf'){
+        list_files.push('images/nerezi/h/' + file);
         //console.log(file);
+        }
       });
-  res.render("v_manager",{paese: "Nerezi", arr_pics: list_pics, arr_files: list_files});
+  res.render("v_manager",{paese: "Nerezi", arr_pics: list_pics, arr_files: list_files, in_p: init_path});
   list_pics = [];
   list_files = [];
 });
@@ -311,7 +315,11 @@ router.post('/upload', function (req, res) {
 
 //handling manager page form
 router.post('/1234v_manager', function (req, res) {
+  if(req.body.pic){
   lista = req.body.pic;
+  }else if(req.body.h){
+    lista = req.body.h;
+  }
   console.log("lista: " + lista);
   lista.forEach(function(element){
     console.log("ready to delete: " + path.join(delete_path + element));
