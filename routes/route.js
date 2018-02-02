@@ -13,7 +13,7 @@ router.use(bodyParser.urlencoded({extended: true}));
 //global variables
 var lc = path.join(__dirname + '/..');
 var new_location = lc + '/public/images/';
-var invalid_up_loc = path.join(lc + '/upload_invalid/');
+var invalid_up_loc = path.join(lc + '/upload_invalid');
 var village = "";
 var right_loc;
 //used to render village_pic page
@@ -251,20 +251,47 @@ router.post('/upload', function (req, res) {
         var fileType = path.extname(file.name);
         console.log(fileType);
         if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
-          right_loc = new_location + village + '/img/';
+          right_loc = new_location + village + '/img';
+          var exists = fs.existsSync(right_loc);
+          if(exists){
+            console.log('folder exists!');
           //rename the incoming file to the file's name
-          file.path = right_loc + uniqid() + fileType;
+            file.path = right_loc + '/' + uniqid() + fileType;
+          }else{
+            console.log('folder does not exists');
+            console.log('making that directory');
+            fsExtra.mkdir(right_loc);
+            file.path = right_loc + '/' + uniqid() + fileType;
+          }
         }else if(fileType == '.pdf' ){
-          right_loc = new_location + village + '/h/';
+          right_loc = new_location + village + '/h';
+          var exists2 = fs.existsSync(right_loc);
+          if(exists2){
+            console.log('folder exists!');
           //rename the incoming file to the file's name
-          file.path = right_loc + uniqid() + fileType;
+          file.path = right_loc + '/' + uniqid() + fileType;
+          }else{
+            console.log('folder does not exists');
+            console.log('making that directory');
+            fsExtra.mkdir(right_loc);
+            file.path = right_loc + '/' + uniqid() + fileType;
+          }
       }else{
-        file.path = invalid_up_loc + uniqid() + fileType;
+        var exists3 = fs.existsSync(invalid_up_loc);
+          if(exists3){
+            console.log('folder exists!');
+            file.path = invalid_up_loc + '/' + uniqid() + fileType;
+          }else{
+            console.log('folder does not exists');
+            console.log('making that directory');
+            fsExtra.mkdir(invalid_up_loc);
+            file.path = invalid_up_loc + '/' + uniqid() + fileType;
+          }
       }
 });
 
   form.on('end', function(fields, files) {
-            var testFolder = invalid_up_loc;
+            var testFolder = path.join(invalid_up_loc + '/');
             fs.readdirSync(testFolder).forEach(file=>{
               var filePath = invalid_up_loc + file;
               fs.unlinkSync(filePath);
