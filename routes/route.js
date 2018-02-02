@@ -28,17 +28,21 @@ if (exists) {
 			};
 }
 
-// global variables
+//global variables
 var lc = path.join(__dirname + '/..');
-//console.log(lc);
 var new_location = lc + '/public/images/';
-//console.log(new_location);
 var invalid_up_loc = path.join(lc + '/upload_invalid/');
 var village = "";
 var right_loc;
+//used to render village_pic page
 var list_pics = [];
 var list_files = [];
+//list invalid extension files
 var inv_files = [];
+//list to store checked images in v_manager
+var lista = [];
+//path used in v_manager 
+var delete_path = path.join(lc + "/public/");
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
@@ -305,5 +309,18 @@ router.post('/upload', function (req, res) {
         });
 });
 
+//handling manager page form
+router.post('/1234v_manager', function (req, res) {
+  lista = req.body.pic;
+  console.log("lista: " + lista);
+  lista.forEach(function(element){
+    console.log("ready to delete: " + path.join(delete_path + element));
+    fs.unlinkSync(path.join(delete_path + element));
+    console.log("file deleted");
+    });
+  lista = [];
+  res.redirect("/");
+
+});
 
   module.exports = router;

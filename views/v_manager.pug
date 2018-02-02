@@ -32,28 +32,27 @@ html.no-js(lang='en')
                     div
                         h5 Pictures:
                     br
-                    form.checkbox(method='post')
+                    form.checkbox(method='post', name='p_check')
                         .row
                             each val in arr_pics
                                 div
                                     .checkbox
                                         fieldset
                                             label.custom-control.custom-checkbox.d-block.my-2
-                                                input.custom-control-input(type='checkbox')
+                                                input.custom-control-input(type='checkbox', name='pic', value=val)
                                                 span.custom-control-indicator
-                                                span.custom-control-description Pizza
                                     div(style='padding-right: 20px; padding-bottom: 30px')
                                         a(href=val, data-lightbox='roadtrip')
                                             div
                                                 img(src=val, alt='Card image cap', style='height: 200px; width: 200px')
-                    .row.justify-content-md-center
-                        .col-md-6.mb-3
-                            div(style='text-align: center;')
-                                br
-                                br
-                                button.btn.btn-pill.btn-danger(type='submit')
-                                    i.fa.fa-close.mr-1
-                                    |  Delete selectced pictures
+                        .row.justify-content-md-center
+                            .col-md-6.mb-3
+                                div(style='text-align: center;')
+                                    br
+                                    br
+                                    button.btn.btn-pill.btn-danger(type='submit')
+                                        i.fa.fa-close.mr-1
+                                        |  Delete selectced pictures
             br
             br
             br
