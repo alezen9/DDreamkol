@@ -318,9 +318,11 @@ router.post('/upload', function (req, res) {
       if(exists4){
             var testFolder = path.join(invalid_up_loc + '/');
             fs.readdirSync(testFolder).forEach(file=>{
+              if(file != gitkeep){
               var filePath = invalid_up_loc + file;
               fs.unlinkSync(filePath);
                 console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
+              }
               });
             }
             console.log("success!");
