@@ -1,8 +1,8 @@
-let express = require('express');
-let app = express();
-let route = require('./routes/route');
-let path = require('path'); 
-let bodyParser = require('body-parser');
+var express = require('express');
+var app = express();
+var route = require('./routes/route');
+var path = require('path'); 
+var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('public'));
