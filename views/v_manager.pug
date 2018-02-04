@@ -32,7 +32,7 @@ html.no-js(lang='en')
                     div
                         h5 Pictures:
                     br
-                    form.checkbox(method='post', name='p_check')
+                    form.checkbox(method='post', id='p_check')
                         .row
                             each val in arr_pics
                                 div
@@ -61,7 +61,7 @@ html.no-js(lang='en')
                     div
                         h5 History:
                     br
-                    form.checkbox(method='post')
+                    form.checkbox(method='post', id='h_check')
                         .row
                             each val2 in arr_files
                                 div
@@ -95,6 +95,18 @@ html.no-js(lang='en')
                             a(href=in_p, download='')
                                 div
                                     img(src='images/demo/pdf_thumbnail.png', alt='Card image cap', style='height: 200px; width: 200px')
+                        span
+                        form.was-validated(method='post')
+                            label(for='form-file-4') Load your updated init.pdf for this specific village here
+                            label.custom-file.w-100
+                                input#form-file-4.custom-file-input(type='file', required='')
+                                span.custom-file-control
+                            div(style='text-align: center;')
+                                br
+                                br
+                                button.btn.btn-pill.btn-success(type='submit')
+                                    i.fa.fa-upload.mr-1
+                                    |  Update
         br
         br
         br

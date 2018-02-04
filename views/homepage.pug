@@ -19,9 +19,19 @@ div
 // Welcome Section
 .welcome.d-flex.justify-content-center.flex-column
     // Floating Shards
-    img.shard(src='images/demo/shard-1-5x-3.png', alt='Shard')
+    img.shard(src='images/demo/shard-1-5x-3.png', alt='DDreamKol')
     .inner-wrapper.mt-auto.mb-auto
-        h1.slide-in DDreamkol
+        script(type='text/javascript').
+            var x = screen.width;
+            if (x<1081){
+            var d = '<h2 class="slide-in">DDreamKol</h2>';
+            document.write(d);
+            }else{
+            var d = '<h1 class="slide-in">DDreamKol</h1>';
+            document.write(d);
+            }
+        //
+            h1.slide-in DDreamkol
         p.slide-in just the database you weren't expecting
         .action-links.slide-in
             a#scroll-to-content.btn.btn-success.btn-pill.align-self-center(href='#', data-scroll-to='#introduction') Continue
