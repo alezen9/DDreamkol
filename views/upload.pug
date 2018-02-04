@@ -1,70 +1,114 @@
 doctype html
 head
-  meta(charset='utf-8')
-  meta(http-equiv='x-ua-compatible' content='ie=edge')
-  title DDreamKol
-  meta(name='description' content='Elegant website for storing data about some villages based on Bootstrap 4')
-  meta(name='viewport' content='width=device-width, initial-scale=1')
-  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css' integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M' crossorigin='anonymous')
-  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-  //link(href='/css/lightbox/css/lightbox.min.css' rel='stylesheet')
-  link(rel='stylesheet' href='/css/shards.min.css')
-  link(rel='stylesheet' href='/css/shards-demo.css?v=1.1.0')
-  link(rel='shortcut icon' type='/image/png' href='/images/favico/favico.png')
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    title DDreamKol
+    meta(name='description' content='Elegant website for storing data about some villages based on Bootstrap 4')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css' integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M' crossorigin='anonymous')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    //link(href='/css/lightbox/css/lightbox.min.css' rel='stylesheet')
+    link(rel='stylesheet' href='/css/shards.min.css')
+    link(rel='stylesheet' href='/css/shards-demo.css?v=1.1.0')
+    link(rel='shortcut icon' type='/image/png' href='/images/favico/favico.png')
+    style.
+      @-webkit-keyframes glowing {
+      0% { background-color: #ffc100; -webkit-box-shadow: 0 0 3px #ffc100; }
+      50% { background-color: #ffde00; -webkit-box-shadow: 0 0 40px #ffde00; }
+      100% { background-color: #ffc100; -webkit-box-shadow: 0 0 3px #ffc100; }
+      }
+      @-moz-keyframes glowing {
+      0% { background-color: #ffc100; -moz-box-shadow: 0 0 3px #ffc100; }
+      50% { background-color: #ffde00; -moz-box-shadow: 0 0 40px #ffde00; }
+      100% { background-color: #ffc100; -moz-box-shadow: 0 0 3px #ffc100; }
+      }
+      @-o-keyframes glowing {
+      0% { background-color: #ffc100; box-shadow: 0 0 3px #ffc100; }
+      50% { background-color: #ffde00; box-shadow: 0 0 40px #ffde00; }
+      100% { background-color: #ffc100; box-shadow: 0 0 3px #ffc100; }
+      }
+      @keyframes glowing {
+      0% { background-color: #ffc100; box-shadow: 0 0 3px #ffc100; }
+      50% { background-color: #ffde00; box-shadow: 0 0 40px #ffde00; }
+      100% { background-color: #ffc100; box-shadow: 0 0 3px #ffc100; }
+      }
+      .button {
+      -webkit-animation: glowing 3000ms infinite;
+      -moz-animation: glowing 3000ms infinite;
+      -o-animation: glowing 3000ms infinite;
+      animation: glowing 3000ms infinite;
+      }
 // Navbar
 div
-  include includes/navbar2.pug
+    include includes/navbar2.pug
+.mb-5
+    // Trigger
+    button.button.btn.btn-warning.btn-pill.btn-lg.d-table.ml-auto.mr-auto(type='button', data-toggle='modal', data-target='#exampleModal')
+        | ✋ Click me for instructions!
+    // Modal Body
+    .container
+        #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        h5#exampleModalLabel.modal-title 🤔 What and how can i upload...
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                    .modal-body(style='text-align: center;')
+                        | You can upload pictures in these formats:
+                        br
+                        strong   JPG, JPEG and PNG
+                        br
+                        br
+                        | You can contribuite to the history by downloading, filling and uploading this template:
+                        br
+                        br
+                        div(style='text-align: center;')
+                            a(href='images/demo/stock-photos/1.jpg', download='')
+                                div
+                                    img(src='http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-Word-icon.png', alt='template', style='height: 70px; width: 70px')
+                    .modal-footer
+                        | To download the template just click on the thumbnail!
 // Page Content
 .text-center.mb-4
-  h1 Upload
+    h1 Upload
 br
 .container
-  .btn.btn-outline-warning
     .row.justify-content-md-center
-      h3 Note:
-      h6
-        | every submitted file will be reviewed by the moderators, which will decide the quality of the content and to keep it published it or not.
-        br
-        br
-        | Accepted extensions for picture: &emsp; JPG, JPEG and PNG (max 1920x1080 pixels)
-        br
-        | Accepted extensions for File: &emsp; PDF
-.container
-  .row.justify-content-md-center
-    .col-md-8.mb-3(style='padding-right: 50px')
-      div(style='text-align: center;')
-        br
-        h5 I want to contribuite to this village:
-      form.was-validated(method='post' enctype='multipart/form-data')
-        label(for='form-2-first-name') Village:
-        select#form-3-select.custom-select.w-100(name='village' required='')
-          option(value='nerezi') Nerezi
-          option(value='d_Lukovo') Dolno Lukovo
-          option(value='g_Lukovo') Gorno Lukovo
-          option(value='modric') Modric
-          option(value='piskupshtina') Piskupshtina
-          option(value='jablanica') Jablanica
-          option(value='drenok') Drenok
-          option(value='lakavica') Lakavica
-          option(value='bezevo') Bezevo
-          option(value='borovec') Borovec
-        br
-        br
-        label(for='form-file-4') Picture/s or file/s
-        label.custom-file.w-100
-          input#form-file-4.custom-file-input(type='file' name='file' multiple='multiple' required='')
-          span.custom-file-control
-        div(style='text-align: center;')
-          br
-          br
-          button.btn.btn-pill.btn-success(type='submit')
-            i.fa.fa-upload.mr-1
-            |  Upload
+        .col-md-8.mb-3(style='padding-right: 50px')
+            div(style='text-align: center;')
+                br
+                h5 I want to contribuite to this village:
+            form.was-validated(method='post' enctype='multipart/form-data')
+                label(for='form-2-first-name') Village:
+                select#form-3-select.custom-select.w-100(name='village' required='')
+                    option(value='nerezi') Nerezi
+                    option(value='d_Lukovo') Dolno Lukovo
+                    option(value='g_Lukovo') Gorno Lukovo
+                    option(value='modric') Modric
+                    option(value='piskupshtina') Piskupshtina
+                    option(value='jablanica') Jablanica
+                    option(value='drenok') Drenok
+                    option(value='lakavica') Lakavica
+                    option(value='bezevo') Bezevo
+                    option(value='borovec') Borovec
+                br
+                br
+                label(for='form-file-4') Picture/s or file/s
+                label.custom-file.w-100
+                    input#form-file-4.custom-file-input(type='file' name='file' multiple='multiple' required='')
+                    span.custom-file-control
+                div(style='text-align: center;')
+                    br
+                    br
+                    button.btn.btn-pill.btn-success(type='submit')
+                        i.fa.fa-upload.mr-1
+                        |  Upload
 // footer
 br
 br
 div
-  p.text-muted.text-center.small.p-0.mb-4 &copy; Copyright 2018 &mdash; Aleksandar Gjoreski
+    p.text-muted.text-center.small.p-0.mb-4 &copy; Copyright 2018 &mdash; Aleksandar Gjoreski
 // JavaScript
 #fb-root
 script(async='' defer='' src='https://buttons.github.io/buttons.js')

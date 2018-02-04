@@ -1,16 +1,16 @@
 div
 	nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4
 		img.mr-2(src='images/demo/shards-logo.svg', alt='Example Navbar 1', height='30px')
-		a.navbar-brand(href='/') DDreamKol
+		a.navbar-brand(style='margin-right: inherit; margin-left: 1rem;', href='/') DDreamKol
 		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown-2', aria-controls='navbarNavDropdown-2', aria-expanded='false', aria-label='Toggle navigation')
 			span.navbar-toggler-icon
-		#navbarNavDropdown-2.collapse.navbar-collapse.mr-auto
+		#navbarNavDropdown-2.collapse.navbar-collapse.mr-auto(style='text-align: center; style=', margin-left:='')
 			ul.navbar-nav.mr-auto
 				li.nav-item.active
 					a.nav-link(href='/')
 						| Home
 						span.sr-only (current)
-			div
+			div(style='text-align: center;')
 				a(href='/upload')
 					button.btn.btn-pill.btn-outline-success(type='button', href='/upload')
 						i.fa.fa-upload.mr-1
