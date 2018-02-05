@@ -56,6 +56,7 @@ var new_location = lc + '/public/images/';
 var invalid_up_loc = path.join(lc + '/upload_invalid');
 var village = "";
 var right_loc;
+var selo = "";
 //used to render village_pic page
 var list_pics = [];
 var list_files = [];
@@ -85,25 +86,32 @@ router.get("/upload_succ", (req, res) => {
 });
 
 
+//route upload_succ page
+router.get("/man/:a", (req, res) => {
+  selo = String(req.params.a);
+  res.redirect("/1234v_manager");
+});
+
+
 //route v_manager page
 router.get("/1234v_manager", (req, res) => {
-  village = "nerezi";
-  var init_path = path.join('images/' + village + '/h/init.pdf')
-  var testFolder = new_location + 'nerezi/img/';
+  
+  var init_path = path.join('images/' + selo + '/h/init.pdf')
+  var testFolder = new_location + selo + '/img/';
   fs.readdirSync(testFolder).forEach(file=>{
     if(file != gitkeep){
-      list_pics.push('images/nerezi/img/' + file);
+      list_pics.push('images/' + selo + '/img/' + file);
       //console.log(file);
     }
     });
-    var testFolder2 = new_location + 'nerezi/h/';
+    var testFolder2 = new_location + selo + '/h/';
     fs.readdirSync(testFolder2).forEach(file=>{
         if((file != 'init.pdf')&&(file != gitkeep)) {
-        list_files.push('images/nerezi/h/' + file);
+        list_files.push('images/' + selo + '/h/' + file);
         //console.log(file);
         }
       });
-  res.render("v_manager",{paese: "Nerezi", arr_pics: list_pics, arr_files: list_files, in_p: init_path});
+  res.render("v_manager",{paese: selo, arr_pics: list_pics, arr_files: list_files, in_p: init_path});
   list_pics = [];
   list_files = [];
 });
@@ -368,7 +376,7 @@ router.post('/upload', function (req, res) {
             res.redirect('/upload_succ');            
         });
 });
-
+//---------------------------------------------------------------------------------------------------------------------------------------
 //handling manager page form
 router.post('/1234v_manager', function (req, res) {
   lista = req.body;

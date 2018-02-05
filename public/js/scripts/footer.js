@@ -3,7 +3,7 @@ var footer = '\
         <div class="container my-5">\
             <div class="py-5">\
                 <div class="text-center">\
-                    <h3 class="text-white">Share it!</h3>\
+                    <h3 class="text-white">Help us improve!</h3>\
                 </div>\
                 <div class="share d-table ml-auto mr-auto mt-5">\
                     <a style="margin-left: 1.5rem;" href="https://goo.gl/forms/vFWb1KEqR7bV8g4H3" class="btn btn-pill btn-primary mr-4" title="Share Shards on Twitter">\
