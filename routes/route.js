@@ -57,6 +57,7 @@ var invalid_up_loc = path.join(lc + '/upload_invalid');
 var village = "";
 var right_loc;
 var selo = "";
+var in_path;
 //used to render village_pic page
 var list_pics = [];
 var list_files = [];
@@ -86,17 +87,25 @@ router.get("/upload_succ", (req, res) => {
 });
 
 
-//route upload_succ page
+//route for managing a village content
 router.get("/man/:a", (req, res) => {
   selo = String(req.params.a);
   res.redirect("/1234v_manager");
 });
 
 
+//route updating init.pdf of a village
+router.get("/update_init", (req, res) => {
+  var z = 'images/demo/pdf_thumbnail.png'
+  res.render("update_init",{paesino: selo, in_p: in_path});
+});
+
+
 //route v_manager page
 router.get("/1234v_manager", (req, res) => {
   
-  var init_path = path.join('images/' + selo + '/h/init.pdf')
+  var init_path = path.join('images/' + selo + '/h/init.pdf');
+  in_path = init_path;
   var testFolder = new_location + selo + '/img/';
   fs.readdirSync(testFolder).forEach(file=>{
     if(file != gitkeep){
@@ -376,6 +385,52 @@ router.post('/upload', function (req, res) {
             res.redirect('/upload_succ');            
         });
 });
+//---------------------------------------------------------------------------------------------------------------------------------------
+//handling updating init.pdf of a village
+router.post("/update_init", (req, res) => {
+  var form = new formidable.IncomingForm();
+  form.parse(req, function (err, fields, files) {
+    var nuovo_path;
+    var vecchio_path = files.filetoupload.path;
+    console.log(vecchio_path);
+    var ext = path.extname(files.filetoupload.name);
+    console.log("file extension: " + ext);
+    if(ext == '.pdf'){
+      right_loc = new_location + selo + '/h';
+      var exists5 = fs.existsSync(right_loc);
+      if(exists5){
+        console.log('folder exists!');
+        //delete old init.pdf
+        var inpdf = path.join(right_loc + '/init.pdf');
+        fs.unlinkSync(inpdf);
+        //rename the incoming file to the file's name
+        nuovo_path = right_loc + '/init.pdf';
+      }else{
+        console.log('folder does not exists');
+        console.log('making that directory');
+        fsExtra.mkdir(right_loc);
+        nuovo_path = right_loc + '/init.pdf';
+      }
+      fs.rename(vecchio_path, nuovo_path, function (err) {
+        if (err) throw err;
+        console.log('File uploaded and moved!');
+      });
+    }else{
+      nuovo_path = lc + '/upload_invalid/' + files.filetoupload.name;
+      fs.rename(vecchio_path, nuovo_path, function (err) {
+        if (err) throw err;
+        fs.unlinkSync(nuovo_path);
+        console.log('File not valid, moved and deleted!');
+      });
+     }
+    res.redirect('/');
+    res.end();
+  });
+});
+
+
+
+
 //---------------------------------------------------------------------------------------------------------------------------------------
 //handling manager page form
 router.post('/1234v_manager', function (req, res) {

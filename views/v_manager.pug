@@ -82,31 +82,13 @@ html.no-js(lang='en')
                                     button.btn.btn-pill.btn-danger(type='submit')
                                         i.fa.fa-close.mr-1
                                         |  Delete selectced files
-            br
-            br
-            div
-                .col-sm-12
-                    div
-                        h5 init.pdf, latest version:
-                        h6 click the thumbnail to download
-                    br
-                    .row
-                        div(style='padding-right: 20px; padding-bottom: 30px')
-                            a(href=in_p, download='')
-                                div
-                                    img(src='images/demo/pdf_thumbnail.png', alt='Card image cap', style='height: 200px; width: 200px')
-                        span
-                        form.was-validated(method='post')
-                            label(for='form-file-4') Load your updated init.pdf for this specific village here
-                            label.custom-file.w-100
-                                input#form-file-4.custom-file-input(type='file', required='')
-                                span.custom-file-control
-                            div(style='text-align: center;')
-                                br
-                                br
-                                button.btn.btn-pill.btn-success(type='submit')
-                                    i.fa.fa-upload.mr-1
-                                    |  Update
+                br
+                br
+                div(style='text-align: center;')
+                    a(href='/update_init')
+                        button.btn.btn-pill.btn-outline-success(type='button', href='/update_init')
+                            i.fa.fa-upload.mr-1
+                            |  Update init.pdf file
         br
         br
         br
