@@ -88,7 +88,7 @@ router.get("/upload_succ", (req, res) => {
 
 
 //route for managing a village content
-router.get("/man/:a", (req, res) => {
+router.get("/manage/:a", (req, res) => {
   selo = String(req.params.a);
   res.redirect("/1234v_manager");
 });
