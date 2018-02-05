@@ -11,6 +11,45 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 var gitkeep = '.gitkeep';
 
+
+
+
+function splitString(stringToSplit, separator) {
+  var arr = [];
+  var arrayOfStrings = stringToSplit.split(separator);
+  var b;
+  //console.log('The original string is: "' + stringToSplit + '"');
+  //console.log('The separator is: "' + separator + '"');
+  //console.log('The array has ' + arrayOfStrings.length + ' elements: ');
+  if(arrayOfStrings.length == 1){
+    b = arrayOfStrings[0].substring(9);
+    b = b.slice(0, -3);
+    arr.push(b);
+  }else{  
+    for(var i=0;i<arrayOfStrings.length;i++){
+      if(i==0){
+        //console.log(arrayOfStrings[i].substring(8));
+        b = arrayOfStrings[i].substring(9);
+        b = b.slice(0,-1);
+        arr.push(b);
+        //console.log("b pushed into array: " + b);
+      }else if(i==arrayOfStrings.length-1){
+        b = arrayOfStrings[i].substring(1);
+        b = b.slice(0, -3);
+        arr.push(b);
+        //console.log("b pushed into array: " + b);
+      }else{
+        b = arrayOfStrings[i].substring(1);
+        b = b.slice(0, -1);
+        arr.push(b);
+        //console.log("b pushed into array: " + b);
+      }
+    }
+  }
+  return arr;
+}
+
+
 //global variables
 var lc = path.join(__dirname + '/..');
 var new_location = lc + '/public/images/';
@@ -23,7 +62,7 @@ var list_files = [];
 //list invalid extension files
 var inv_files = [];
 //list to store checked images in v_manager
-var lista = {};
+var lista = [];
 //path used in v_manager 
 var delete_path = path.join(lc + "/public/");
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -332,75 +371,24 @@ router.post('/upload', function (req, res) {
 
 //handling manager page form
 router.post('/1234v_manager', function (req, res) {
-  //console.log(req.body);
   lista = req.body;
   //console.log(lista);
-  /*
-  var p;
-  for (var property in lista) {
-    if (lista.hasOwnProperty(property)) {
-      p = property;
-        console.log(p);
-    }
-}*/
-  //console.log(Object.entries(lista));
-/*
-  var arr = Object.keys(lista).map(function (key) { return lista[key]; });
-console.log(arr);
-*/
-var arr2 =[];
-for( var i in lista ) {
-    if (lista.hasOwnProperty(i)){
-       arr2.push(lista[i]);
-    }
-}
-console.log(arr2);
-/*
-if(typeof arr2[1] != 'undefined' ){
-  console.log("arr2 ha più di un elemento");
-}else{
-  console.log("arr2 ha un elemento");
-}*/
-//console.log("arr2 un elemento: " + arr2[1]);
-var qFoto;
-for(var j in arr2[1]){
-  qFoto = j;
-  //var y = path.join(delete_path + arr2[0][j]);
-  //console.log("ready to delete: " + y);
-  //fs.unlinkSync(y);
-  //console.log("file deleted: " + arr2[0][j]);
-}
-console.log(qFoto);
+  var a = JSON.stringify(lista);
+  //console.log(JSON.stringify(lista));
+  var l;
+  var comma = ',';
+  l = splitString(a,comma);
+  console.log("array l: " + l);
+  console.log("array l has " + l.length + " elements");
 
-
-/*
-  var l = [];
-  for (var key of Object.keys(lista)) {  
-    var picName = lista[key];
-    // ... do something with mealName
-    //console.log(picName);
-    l.push(toString(picName));  
-  }
-  console.log("print array l:");
-  l.forEach(function(el){
-    console.log(el);
-  });
-  /*
-  if(req.body.pic){
-  lista = req.body.pic;
-  }else if(req.body.h){
-    lista = req.body.h;
-  }
-  console.log("lista: " + lista);
-  lista.forEach(function(element){
-    console.log("ready to delete: " + path.join(delete_path + element));
-    fs.unlinkSync(path.join(delete_path + element));
+  for(var j=0;j<l.length;j++){
+    console.log("ready to delete: " + path.join(delete_path + l[j]));
+    fs.unlinkSync(path.join(delete_path + l[j]));
     console.log("file deleted");
-    });*/
-  lista = {};
-  arr2 = [];
+  }
+  l = "";
+  lista = [];
   res.redirect("/");
-
 });
 
   module.exports = router;
