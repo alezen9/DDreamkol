@@ -96,7 +96,7 @@ router.get("/man/:a", (req, res) => {
 
 //route updating init.pdf of a village
 router.get("/update_init", (req, res) => {
-  var z = 'images/demo/pdf_thumbnail.png'
+  var z = 'images/demo/pdf_thumbnail.png';
   res.render("update_init",{paesino: selo, in_p: in_path});
 });
 
