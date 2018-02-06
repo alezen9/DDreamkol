@@ -26,14 +26,19 @@ html.no-js(lang='en')
 		br
 		br
 		br
-		.text-center.mb-4
+		.container(style='text-align: center;')
 			button.btn.btn-success(type='button')
 				i.fa.fa-check.mr-1
 					br
-					br
-					br
-				h3 You have successfully uploaded your files, thank you for the contribution!
-				br
+				script(type='text/javascript').
+					var x = screen.width;
+					if (x>1300){
+					var d = '<br><br><h3>You have successfully uploaded your files, thank you for the contribution!</h3><br>';
+					document.write(d);
+					}else{
+					var c = '<h4>Done!</h4>';
+					document.write(c);
+					}
 			br
 			br
 			h6 You will be redrected to the homepage in a moment...

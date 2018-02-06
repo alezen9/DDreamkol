@@ -33,27 +33,26 @@ html.no-js(lang='en')
                         h6 click the thumbnail to download
                         br
                         .container
-                            .row.justify-content-md-center
-                                div(style='padding-right: 20px; padding-bottom: 30px; text-align: center;')
-                                    a(href=in_p, download='')
-                                        div
-                                            img(src='images/demo/pdf_thumbnail.png', alt='Card image cap', style='height: 100px; width: 100px')
-                                    br
-                                    br
-                                    div(style='text-align: center;')
-                                        label(for='form-file-4') Load your updated init.pdf for this specific village here
-                                            br
-                                            br
-                                            form.was-validated(method='post', enctype='multipart/form-data')
-                                                label.custom-file.w-100
-                                                    input#form-file-4.custom-file-input(type='file',name='filetoupload', required='')
-                                                    span.custom-file-control
-                                                div(style='text-align: center;')
-                                                    br
-                                                    br
-                                                    button.btn.btn-pill.btn-success(type='submit')
-                                                        i.fa.fa-upload.mr-1
-                                                        |  Update
+                            div(style='padding-bottom: 30px; text-align: center;')
+                                a(href=in_p, download='')
+                                    div
+                                        img(src='images/demo/pdf_thumbnail.png', alt='Card image cap', style='height: 100px; width: 100px')
+                                br
+                                br
+                                div(style='text-align: center;')
+                                    label(for='form-file-4') Load your updated init.pdf for this specific village here
+                                        br
+                                        br
+                                        form.was-validated(method='post', enctype='multipart/form-data')
+                                            label.custom-file.w-100
+                                                input#form-file-4.custom-file-input(type='file',name='filetoupload', required='')
+                                                span.custom-file-control
+                                            div(style='text-align: center;')
+                                                br
+                                                br
+                                                button.btn.btn-pill.btn-success(type='submit')
+                                                    i.fa.fa-upload.mr-1
+                                                    |  Update
             br
         br
         br
