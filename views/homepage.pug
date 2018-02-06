@@ -48,32 +48,22 @@ div
         #cards.container.mb-2(style='padding-bottom: 1px')
             .example.col-md-12.ml-auto.mr-auto
                 .row
-                    script(type='text/javascript').
-                        var w = screen.width;
-                        if (w>359){
-                        var d = '<div class="row justify-content-center">\\
-                        <a href="/bezevo_pic" title="bezevo_pic" class="btn btn-pill btn-primary mr-4">\\
-                        <i class="fa fa-image mr-1"></i> Pictures\\
-                        </a>\\
-                        <span>&nbsp;</span>\\
-                        <a href="bezevo_h" title="bezevo_h" class="btn btn-pill btn-primary mr-4">\\
-                        <i class="fa fa-book mr-1"></i> History\\
-                        </a>\\
-                        </div>';
-                        document.write(d);
-                        }else{
-                        var c = '<div style="text-align: center;">\\
-                        <a href="/bezevo_pic" title="bezevo_pic" class="btn btn-pill btn-primary mr-4">\\
-                        <i class="fa fa-image mr-1"></i> Pictures\\
-                        </a>\\
-                        <br>\\
-                        <br>\\
-                        <a href="bezevo_h" title="bezevo_h" class="btn btn-pill btn-primary mr-4">\\
-                        <i class="fa fa-book mr-1"></i> History\\
-                        </a>\\
-                        </div>';
-                        document.write(c);
-                        }
+                    .col-lg-4.col-md-6.col-sm-12.mb-4
+                        .card
+                            img.card-img-top(src='http://emax.bid/media/img/no-image-available.png', height='200')
+                            .card-body(style='text-align: center;')
+                                h4.card-title Bezevo
+                                p.card-text
+                                    | He seems sinking under the evidence could not only grieve and a
+                                    | visit. The father is to bless and placed
+                                    | in his length hid...
+                                .row.justify-content-center
+                                    a.btn.btn-pill.btn-primary.mr-4(href='/bezevo_pic' title='bezevo_pic')
+                                        i.fa.fa-image.mr-1
+                                        |  Pictures
+                                    a.btn.btn-pill.btn-primary.mr-4(href='bezevo_h' title='bezevo_h')
+                                        i.fa.fa-book.mr-1
+                                        |  History
                     .col-lg-4.col-md-6.col-sm-12.mb-4
                         .card
                             img.card-img-top(src='http://emax.bid/media/img/no-image-available.png', alt='Card image cap',height='200')

@@ -21,21 +21,28 @@ function splitString(stringToSplit, separator) {
   //console.log('The original string is: "' + stringToSplit + '"');
   //console.log('The separator is: "' + separator + '"');
   //console.log('The array has ' + arrayOfStrings.length + ' elements: ');
+  console.log(arrayOfStrings);
   if(arrayOfStrings.length == 1){
-    b = arrayOfStrings[0].substring(9);
+    console.log(arrayOfStrings[0]);
+    b = arrayOfStrings[0].substring(7);
     b = b.slice(0, -3);
+    console.log(b);
     arr.push(b);
   }else{  
     for(var i=0;i<arrayOfStrings.length;i++){
       if(i==0){
         //console.log(arrayOfStrings[i].substring(8));
-        b = arrayOfStrings[i].substring(9);
+        console.log(arrayOfStrings[0]);
+        b = arrayOfStrings[i].substring(7);
+        console.log(b);
         b = b.slice(0,-1);
         arr.push(b);
         //console.log("b pushed into array: " + b);
       }else if(i==arrayOfStrings.length-1){
+        console.log(arrayOfStrings[i]);
         b = arrayOfStrings[i].substring(1);
         b = b.slice(0, -3);
+        console.log(b);
         arr.push(b);
         //console.log("b pushed into array: " + b);
       }else{
