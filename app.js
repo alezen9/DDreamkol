@@ -10,5 +10,10 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 app.use('/', route);
 
+app.get('/tac', function(req, res){
+    res.sendFile("tac.html", { root : "public"})
+});
+
+
 // to make it visible to the rest of the programm
 module.exports = app;
