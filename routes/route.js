@@ -88,6 +88,12 @@ router.get("/upload", (req, res) => {
 });
 
 
+//route tac page
+router.get("/tac", (req, res) => {
+  res.sendFile(path.join(lc + '/public/tac.html'));
+});
+
+
 //route upload_succ page
 router.get("/upload_succ", (req, res) => {
   res.render("upload_succ");

@@ -8,32 +8,20 @@ var navbar = '\
 	        </button>\
 	        <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown-2">\
 	            <ul class="navbar-nav mr-auto">\
-	                <li class="nav-item active">\
-	                    <a class="nav-link" href="index.html">Home\
+	                <li class="nav-item">\
+	                    <a class="nav-link" href="/">Home\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
 	                </li>\
 	                <li class="nav-item">\
-	                    <a class="nav-link" href="tournament.html">Tournament</a>\
-	                </li>\
-	                <!--\
-	                <li class="nav-item">\
-	                    <a class="nav-link" href="#">Donate</a>\
-	                </li>\
-	                <li class="nav-item dropdown">\
-	                    <a class="nav-link dropdown-toggle" href="https://designrevision.com" id="navbarDropdownMenuLink-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Services\
+	                    <a class="nav-link" href="#">Terms and conditions\
+	                        <span class="sr-only">(current)</span>\
 	                    </a>\
-	                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-2">\
-	                        <a class="dropdown-item" href="#">Design</a>\
-	                        <a class="dropdown-item" href="#">Development</a>\
-	                        <a class="dropdown-item" href="#">Marketing</a>\
-	                    </div>\
-	                    -->\
 	                </li>\
 	            </ul>\
 	            <div>\
-	            <a href="upload.html">\
-	        	    <button type="button" class="btn btn-pill btn-outline-success" href="upload.html"><i class="fa fa-upload mr-1"></i> Contribute with pictures or some history</button>\
+	            <a href="/upload">\
+	        	    <button type="button" class="btn btn-pill btn-outline-success" href="/upload"><i class="fa fa-upload mr-1"></i> Contribute</button>\
 	            </a>\
 	            </div>\
 	        </div>\

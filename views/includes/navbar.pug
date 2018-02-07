@@ -6,9 +6,13 @@ div
 			span.navbar-toggler-icon
 		#navbarNavDropdown-2.collapse.navbar-collapse.mr-auto(style='text-align: center; style=', margin-left:='')
 			ul.navbar-nav.mr-auto
-				li.nav-item.active
+				li.nav-item
 					a.nav-link(href='/')
 						| Home
+						span.sr-only (current)
+				li.nav-item
+					a.nav-link(href='/tac')
+						| Terms and Conditions
 						span.sr-only (current)
 			div(style='text-align: center;')
 				a(href='/upload')
