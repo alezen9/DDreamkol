@@ -2,7 +2,7 @@ var navbar2 = '\
 	<div>\
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">\
 		    <img src="images/demo/shards-logo.svg" alt="Example Navbar 1" class="mr-2" height="30px">\
-	        <a class="navbar-brand" href="index.html">Shards</a>\
+	        <a class="navbar-brand" style="margin-right: inherit; margin-left: 1rem;" href="/">DDreamKol</a>\
 	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-2" aria-controls="navbarNavDropdown-2" aria-expanded="false" aria-label="Toggle navigation">\
 	            <span class="navbar-toggler-icon"></span>\
 	        </button>\
@@ -14,7 +14,7 @@ var navbar2 = '\
 						</a>\
 					</li>\
 					<li class="nav-item">\
-						<a class="nav-link" href="#">Terms and conditions\
+						<a class="nav-link" href="/tac">Terms and conditions\
 							<span class="sr-only">(current)</span>\
 						</a>\
 					</li>\
