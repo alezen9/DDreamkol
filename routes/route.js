@@ -78,7 +78,8 @@ var delete_path = path.join(lc + "/public/");
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
 router.get("/", (req, res) => {
-    res.render("homepage");
+   // res.render("homepage");
+   res.sendFile(path.join(delete_path + 'homepage.html'));
 });
 
 
@@ -142,7 +143,7 @@ router.get("/nerezi_pic", (req, res) => {
         //console.log(file);
       }
     });
-  res.render("nerezi_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Nerezi',h_page: '/nerezi_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -155,7 +156,7 @@ router.get("/modric_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("modric_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Modric',h_page: '/modric_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -168,7 +169,7 @@ router.get("/bezevo_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("bezevo_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Bezevo',h_page: '/bezevo_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -181,7 +182,7 @@ router.get("/borovec_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("borovec_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Borovec',h_page: '/borovec_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -194,7 +195,7 @@ router.get("/d_lukovo_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("d_lukovo_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Dolno Lukovo',h_page: '/d_lukovo_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -207,7 +208,7 @@ router.get("/g_lukovo_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("g_lukovo_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Gorno Lukovo',h_page: '/g_lukovo_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -220,7 +221,7 @@ router.get("/drenok_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("drenok_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Drenok',h_page: '/drenok_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -233,7 +234,7 @@ router.get("/jablanica_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("jablanica_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Jablanica',h_page: '/jablanica_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -246,7 +247,7 @@ router.get("/lakavica_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("lakavica_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Lakavica',h_page: '/lakavica_h',arr: list_pics});
   list_pics = [];
 });
 
@@ -259,7 +260,7 @@ router.get("/piskupshtina_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("piskupshtina_pic",{arr: list_pics});
+  res.render("pic_page",{nome: 'Piskupshtina',h_page: '/piskupshtina_h',arr: list_pics});
   list_pics = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------

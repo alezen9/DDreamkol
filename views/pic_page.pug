@@ -22,11 +22,11 @@ html.no-js(lang='en')
 		div
 			include includes/navbar.pug
 		.text-center.mb-4
-			h1 Lakavica
+			h1 #{nome}
 			br
 			div
-				a(href='/lakavica_h')
-					button.btn.btn-pill.btn-outline-info(type='button', href='/lakavica_h')
+				a(href= h_page)
+					button.btn.btn-pill.btn-outline-info(type='button', href=h_page)
 						i.fa.fa-book.mr-1
 						|  Read the history
 		// Page Content

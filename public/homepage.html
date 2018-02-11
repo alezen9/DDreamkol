@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>DDreamKol</title>
+  <meta name="description" content="Elegant website for storing data about some villages based on Bootstrap 4">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/shards.min.css" type="text/css">
+  <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0" type="text/css">
+  <link rel="shortcut icon" type="image/png" href="images/favico/favicon.ico">
+  <link rel="stylesheet" href="css/flip.css">
+  <style>
+    #ale{
+      filter:drop-shadow(8px 8px 10px gray);
+      object-fit: cover;
+      border-radius: 2%;
+    }
+    .text-block {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      opacity: 1;
+
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .btn-block {
+      position: absolute;
+      text-align: center;
+      bottom: 130px;
+      opacity: 1;
+    }
+    .al {
+      height: 50px;
+      width: 200px;
+      filter:drop-shadow(8px 8px 10px gray);
+    }
+  </style>
+</head>
+<body>
+<!-- loader-->
+<div class="loader">
+  <div class="page-loader"></div>
+</div>
+<!--Navbar-->
+<div>
+  <script src="js/scripts/navbar.js"></script>
+</div>
+<!-- Welcome Section-->
+<div class="welcome d-flex justify-content-center flex-column">
+  <!-- Floating Shards--><img src="images/demo/shard-1-5x-3.png" alt="DDreamKol" class="shard"/>
+  <div class="inner-wrapper mt-auto mb-auto">
+    <script type="text/javascript">
+        var x = screen.width;
+        if (x<813){
+            var d = '<h2 class="slide-in">DDreamKol</h2>';
+            document.write(d);
+        }else{
+            var d = '<h1 class="slide-in">DDreamKol</h1>';
+            document.write(d);
+        }
+    </script>
+    <!--h1.slide-in DDreamkol-->
+    <p class="slide-in">just the database you weren't expecting</p>
+    <div class="action-links slide-in"><a id="scroll-to-content" href="#" data-scroll-to="#introduction" class="btn btn-success btn-pill align-self-center">Continue</a></div>
+  </div>
+</div>
+<!-- Page Content-->
+<div class="page-content">
+  <!-- Content-->
+  <div class="content clearfix">
+    <div id="introduction" class="container mb-5">
+      <div align="text-center" class="section-title col-lg-8 col-md-10 ml-auto mr-auto">
+        <p style="text-align: center;" class="lead">DDreamkol is a place where you can find pictures and hisotory information about villages of Dolni Drimkol. It's a database filled for the folk, by the folk and you can contribute too.</p>
+      </div>
+    </div>
+    <!--da qi iniziano i paesi-->
+    <div id="cards" class="container mb-2" style="padding-bottom: 1px">
+    <div class="example col-md-12 ml-auto mr-auto">
+    <div class="row">
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Bezevo</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back3.jpg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/bezevo_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/bezevo_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/bezevo_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/bezevo_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Borovec</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back2.jpg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/borovec_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/borovec_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/borovec_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/borovec_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Drenok</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back.jpeg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/drenok_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/drenok_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/drenok_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/drenok_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Dolno Lukovo</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back4.jpg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/d_lukovo_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/d_lukovo_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/d_lukovo_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/d_lukovo_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Gorno Luovo</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back.jpeg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/g_lukovo_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/g_lukovo_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/g_lukovo_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/g_lukovo_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Jablanica</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back2.jpg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/jablanica_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/jablanica_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/jablanica_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/jablanica_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Lakavica</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back3.jpg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/lakavica_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/lakavica_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/lakavica_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/lakavica_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Modric</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back5.jpg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/modric_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/modric_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/modric_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/modric_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Nerezi</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back6.jpg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/nerezi_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/nerezi_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/nerezi_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/nerezi_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--paese_____________________________________________________________________________________________________________________________________-->
+    <div class="flip-container">
+      <div class="flipper">
+        <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">
+          <div class="text-block">
+            <h3 style="color: white;">Piskupshtina</h3>
+          </div>
+        </div>
+        <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/back4.jpg" width="321" height="449" style="filter:blur(0px);">
+          <div class="btn-block">
+            <a href="/piskupshtina_h">
+              <button type="button" class="btn btn-pill btn-primary al" href="/piskupshtina_h"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>
+            </a>
+            <br>
+            <br>
+            <a href="/piskupshtina_pic">
+              <button type="button" class="btn btn-pill btn-primary al" href="/piskupshtina_pic"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>
+            </a>
+            <br>
+            <br>
+            <a href="#">
+              <button type="button" class="btn btn-pill btn-primary al" href="#"><img src="https://png.icons8.com/ios/25/ffffff/football2.png">&nbsp;&nbsp; Sport</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+
+
+<!-- Footer-->
+<script src="js/scripts/footer.js"></script>
+<!-- JavaScript-->
+<div id="fb-root"></div>
+<script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script src="js/shards.min.js"></script>
+<script src="js/demo.min.js"></script>
+</body>
+</html>

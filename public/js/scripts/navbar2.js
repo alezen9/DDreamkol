@@ -14,7 +14,7 @@ var navbar2 = '\
 						</a>\
 					</li>\
 					<li class="nav-item">\
-						<a class="nav-link" href="/tac">Terms and conditions\
+						<a class="nav-link" href="tac.html">Terms and conditions\
 							<span class="sr-only">(current)</span>\
 						</a>\
 					</li>\
