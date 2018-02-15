@@ -32,12 +32,12 @@ html.no-js(lang='en')
 		// Page Content
 		.page-content
 			#cards.container.mb-2(style='padding-bottom: 1px')
-				.example.col-md-12.ml-auto.mr-auto
+				.example.col-md-12.ml-auto.mr-auto(style='width: 100%;')
 					.row
 						each val in arr
-							.col-lg-4.col-md-6.col-sm-12.mb-4(style='text-align: center;')
+							div(style='margin: auto; padding: 10px;')
 								a(href=val, data-lightbox='roadtrip')
-									img(src=val, alt='Card image cap', style='height: 400px; width: 315px;')
+									img(src=val, alt='Card image cap', width='100' height='150' style='filter:drop-shadow(4px 4px 6px gray);')
 			// Footer
 			div
 				br
