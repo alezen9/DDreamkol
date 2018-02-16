@@ -12,12 +12,19 @@ var navbar = '\
 	                    <a class="nav-link" href="/">Home\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
-	                </li>\
+					</li>\
+					<li class="nav-item">\
+	                    <a class="nav-link" href="page_in_development.html">Tournament\
+	                        <span class="sr-only">(current)</span>\
+	                    </a>\
+					</li>\
+					<!--\
 	                <li class="nav-item">\
 	                    <a class="nav-link" href="tac.html">Terms and conditions\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
-	                </li>\
+					</li>\
+					-->\
 	            </ul>\
 	            <div>\
 	            <a href="/upload">\

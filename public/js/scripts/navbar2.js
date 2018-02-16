@@ -14,10 +14,17 @@ var navbar2 = '\
 						</a>\
 					</li>\
 					<li class="nav-item">\
+	                    <a class="nav-link" href="page_in_development.html">Tournament\
+	                        <span class="sr-only">(current)</span>\
+	                    </a>\
+					</li>\
+					<!--\
+					<li class="nav-item">\
 						<a class="nav-link" href="tac.html">Terms and conditions\
 							<span class="sr-only">(current)</span>\
 						</a>\
 					</li>\
+					-->\
 	            </ul>\
 	        </div>\
 	    </nav>\
