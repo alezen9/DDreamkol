@@ -18,8 +18,8 @@
 .flip-container,
 .front,
 .back {
-    width: 321px;
-    height: 449px;
+    width: 150px;
+    height: 200px;
 }
 /* impostare velocità di transizione */
 .flipper {

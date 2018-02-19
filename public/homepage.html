@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="css/shards.min.css" type="text/css">
     <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0" type="text/css">
     <link rel="shortcut icon" type="image/png" href="images/favico/favicon.ico">
-    <link rel="stylesheet" href="css/flip.css">
+    <link rel="stylesheet" media="screen and (min-width: 813px)"  href="css/flip.css">
+    <link rel="stylesheet" media="screen and (max-width: 812px)" href="css/flip_small.css">
     <style>
         #ale{
             filter:drop-shadow(8px 8px 10px gray);
@@ -29,7 +30,6 @@
         .btn-block {
             position: absolute;
             text-align: center;
-            bottom: 130px;
             opacity: 1;
         }
         .al {
@@ -91,6 +91,22 @@
                 <div class="row">
                     <!--paesi_____________________________________________________________________________________________________________________________________-->
                     <script type="text/javascript">
+                        var x = screen.width;
+                        var w;
+                        var h;
+                        var n;
+                        var a;
+                        if (x<813){
+                            w=150;
+                            h=200;
+                            n=5;
+                           a = "transform: scale(0.5,0.5); bottom: 50px;";
+                        }else{
+                            w=321;
+                            h=449;
+                            n=3;
+                            a = "bottom: 130px;";
+                        }
                         var paese = ['Bezevo','Borovec','Drenok','Dolno Lukovo','Gorno Lukovo','Jablanica','Lakavica','Modric','Nerezi','Piskupshtina'];
                         var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
                         var h_page =  ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modric_h','/nerezi_h','/piskupshtina_h'];
@@ -100,13 +116,13 @@
                             var dad = '\
                               <div class="flip-container">\
                                   <div class="flipper">\
-                                    <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="321" height="449">\
+                                    <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="' + w + '" height="' + h + '">\
                                       <div class="text-block">\
-                                        <h3 style="color: white;">' + paese[i] + '</h3>\
+                                        <h' + n + ' style="color: white;">' + paese[i] + '</h' + n + '>\
                                       </div>\
                                     </div>\
-                                    <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/' + back[Math.floor(Math.random()*5)] + '" width="321" height="449" style="filter:blur(0px);">\
-                                      <div class="btn-block">\
+                                    <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/' + back[Math.floor(Math.random()*5)] + '" width="' + w + '" height="' + h + '" style="filter:blur(0px);">\
+                                      <div class="btn-block"  style="' + a + '">\
                                         <a href="' + h_page[i] + '">\
                                           <button type="button" class="btn btn-pill btn-primary al" href="' + h_page[i] + '"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>\
                                         </a>\
@@ -119,7 +135,6 @@
                                     </div>\
                                   </div>\
                                 </div>';
-                            //document.write('this is a number: ' + 8);
                             document.write(dad);
                         }
                     </script>
