@@ -137,7 +137,7 @@ router.get("/1234v_manager", (req, res) => {
         //console.log(file);
         }
       });
-  res.render("v_manager",{paese: selo, arr_pics: list_pics, arr_files: list_files, in_p: init_path, arr_pics_rev: list_to_review});
+  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arr_files: list_files, in_p: init_path});
   list_pics = [];
   list_to_review = [];
   list_files = [];
