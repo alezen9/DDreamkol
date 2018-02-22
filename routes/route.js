@@ -147,6 +147,7 @@ router.get("/1234v_manager", (req, res) => {
   list_pics = [];
   list_to_review = [];
   list_files = [];
+  selo = "";
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -344,13 +345,7 @@ router.post('/upload', function (req, res) {
   form.on('field', function(name, field) {
     console.log('Got a field:', field);
     console.log('Got a field name:', name);
-    if(field == 'dlukovo'){
-      village = 'd_lukovo';
-    }else if(field == 'glukovo'){
-      village = 'g_lukovo';
-    }else{
-      village = field;
-    }
+    village = field;
     console.log('village: ' + village);
   });
 
