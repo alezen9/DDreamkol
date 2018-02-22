@@ -23,9 +23,16 @@
             bottom: 20px;
             right: 20px;
             opacity: 1;
-
             padding-left: 20px;
             padding-right: 20px;
+        }
+        .text-block2 {
+            position: absolute;
+            bottom: 10px;
+            right: 5px;
+            opacity: 1;
+            padding-left: 10px;
+            padding-right: 10px;
         }
         .btn-block {
             position: absolute;
@@ -47,15 +54,6 @@
 <!--Navbar-->
 <div>
     <script src="js/scripts/navbar.js"></script>
-</div>
-<div id="modal" class="modal hide fade">
-    <div class="modal-body">
-        <div id="map-canvas"></div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" data-dismiss="modal" class="btn btn-primary" data-value="1">Continue</button>
-        <button type="button" data-dismiss="modal" class="btn" data-value="0">Cancel</button>
-    </div>
 </div>
 <!-- Welcome Section-->
 <div class="welcome d-flex justify-content-center flex-column">
@@ -96,16 +94,21 @@
                         var h;
                         var n;
                         var a;
+                        var b = " ";
+                        var c = " ";
                         if (x<813){
                             w=150;
                             h=200;
-                            n=5;
-                           a = "transform: scale(0.5,0.5); bottom: 50px;";
+                            n=6;
+                           a = "transform: scale(0.5,0.5); bottom: 50px; right: 13px;";
+                           b = "text-block2";
+                           c = "text-align: right; padding-right: 5px; padding-bottom: 15px";
                         }else{
                             w=321;
                             h=449;
                             n=3;
                             a = "bottom: 130px;";
+                            b = "text-block";
                         }
                         var paese = ['Bezevo','Borovec','Drenok','Dolno Lukovo','Gorno Lukovo','Jablanica','Lakavica','Modric','Nerezi','Piskupshtina'];
                         var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
@@ -117,7 +120,7 @@
                               <div class="flip-container">\
                                   <div class="flipper">\
                                     <div class="front" style="border-radius: 2%"><img id="ale" src="images/homepage/cover.jpg" width="' + w + '" height="' + h + '">\
-                                      <div class="text-block">\
+                                      <div class="' + b + '">\
                                         <h' + n + ' style="color: white;">' + paese[i] + '</h' + n + '>\
                                       </div>\
                                     </div>\

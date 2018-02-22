@@ -23,33 +23,34 @@ function splitString(stringToSplit, separator) {
   //console.log('The array has ' + arrayOfStrings.length + ' elements: ');
   console.log(arrayOfStrings);
   if(arrayOfStrings.length == 1){
-    console.log(arrayOfStrings[0]);
-    b = arrayOfStrings[0].substring(7);
-    b = b.slice(0, -3);
-    console.log(b);
+    //console.log(arrayOfStrings[0]);
+    b = arrayOfStrings[0].substring(2);
+    b = b.slice(0, -2);
+    //console.log(b);
     arr.push(b);
+    console.log("b pushed into array: " + b);
   }else{  
     for(var i=0;i<arrayOfStrings.length;i++){
       if(i==0){
         //console.log(arrayOfStrings[i].substring(8));
-        console.log(arrayOfStrings[0]);
-        b = arrayOfStrings[i].substring(7);
-        console.log(b);
+        //console.log(arrayOfStrings[0]);
+        b = arrayOfStrings[i].substring(2);
+        //console.log(b);
         b = b.slice(0,-1);
         arr.push(b);
-        //console.log("b pushed into array: " + b);
+        console.log("b pushed into array: " + b);
       }else if(i==arrayOfStrings.length-1){
-        console.log(arrayOfStrings[i]);
+        //console.log(arrayOfStrings[i]);
         b = arrayOfStrings[i].substring(1);
-        b = b.slice(0, -3);
-        console.log(b);
+        b = b.slice(0, -2);
+        //console.log(b);
         arr.push(b);
-        //console.log("b pushed into array: " + b);
+        console.log("b pushed into array: " + b);
       }else{
         b = arrayOfStrings[i].substring(1);
         b = b.slice(0, -1);
         arr.push(b);
-        //console.log("b pushed into array: " + b);
+        console.log("b pushed into array: " + b);
       }
     }
   }
@@ -67,19 +68,20 @@ var selo = "";
 var in_path;
 //used to render village_pic page
 var list_pics = [];
+var list_to_review = [];
 var list_files = [];
 //list invalid extension files
 var inv_files = [];
 //list to store checked images in v_manager
 var lista = [];
 //path used in v_manager 
-var delete_path = path.join(lc + "/public/");
+var public_path = path.join(lc + "/public/");
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
 router.get("/", (req, res) => {
    // res.render("homepage");
-   res.sendFile(path.join(delete_path + 'homepage.html'));
+   res.sendFile(path.join(public_path + 'homepage.html'));
 });
 
 
@@ -121,6 +123,13 @@ router.get("/1234v_manager", (req, res) => {
       //console.log(file);
     }
     });
+    var testFolder3 = new_location + selo + '/to_review/';
+  fs.readdirSync(testFolder3).forEach(file=>{
+    if(file != gitkeep){
+      list_to_review.push('images/' + selo + '/to_review/' + file);
+      //console.log(file);
+    }
+    });
     var testFolder2 = new_location + selo + '/h/';
     fs.readdirSync(testFolder2).forEach(file=>{
         if((file != 'init.pdf')&&(file != gitkeep)) {
@@ -128,8 +137,9 @@ router.get("/1234v_manager", (req, res) => {
         //console.log(file);
         }
       });
-  res.render("v_manager",{paese: selo, arr_pics: list_pics, arr_files: list_files, in_p: init_path});
+  res.render("v_manager",{paese: selo, arr_pics: list_pics, arr_files: list_files, in_p: init_path, arr_pics_rev: list_to_review});
   list_pics = [];
+  list_to_review = [];
   list_files = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -338,7 +348,7 @@ router.post('/upload', function (req, res) {
         var fileType = path.extname(file.name);
         console.log(fileType);
         if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
-          right_loc = new_location + village + '/img';
+          right_loc = new_location + village + '/to_review';
           var exists = fs.existsSync(right_loc);
           if(exists){
             console.log('folder exists!');
@@ -383,7 +393,7 @@ router.post('/upload', function (req, res) {
             var testFolder = path.join(invalid_up_loc + '/');
             fs.readdirSync(testFolder).forEach(file=>{
               if(file != gitkeep){
-              var filePath = invalid_up_loc + file;
+              var filePath = path.join(invalid_up_loc  + '/' + file);
               fs.unlinkSync(filePath);
                 console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
               }
@@ -442,20 +452,33 @@ router.post("/update_init", (req, res) => {
 //---------------------------------------------------------------------------------------------------------------------------------------
 //handling manager page form
 router.post('/1234v_manager', function (req, res) {
-  lista = req.body;
-  //console.log(lista);
+  var decision = req.body.sub;
+  console.log(req.body.sub);
+  lista = req.body.p;
+  //console.log("lista: " + lista);
   var a = JSON.stringify(lista);
-  //console.log(JSON.stringify(lista));
+  console.log("a = " + JSON.stringify(lista));
   var l;
   var comma = ',';
   l = splitString(a,comma);
   console.log("array l: " + l);
   console.log("array l has " + l.length + " elements");
-
-  for(var j=0;j<l.length;j++){
-    console.log("ready to delete: " + path.join(delete_path + l[j]));
-    fs.unlinkSync(path.join(delete_path + l[j]));
-    console.log("file deleted");
+  if(decision == 'pub'){
+    for(var j=0;j<l.length;j++){
+      var da = path.join(public_path + l[j]);
+      console.log("before: " + da);
+      var a = da.replace(/to_review/gi, "img");
+      console.log("after: " + a);
+      console.log("ready to move: " + da);
+      fsExtra.moveSync(da, a);
+      console.log("file moved");
+    }
+  }else if(decision == 'del'){
+    for(var j=0;j<l.length;j++){
+      console.log("ready to delete: " + path.join(public_path + l[j]));
+      fs.unlinkSync(path.join(public_path + l[j]));
+      console.log("file deleted");
+    }
   }
   l = "";
   lista = [];

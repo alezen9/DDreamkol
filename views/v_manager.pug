@@ -30,18 +30,18 @@ html.no-js(lang='en')
             div
                 .col-sm-12
                     div
-                        h5 Pictures:
+                        h5 Pictures to not published:
                     br
                     form.checkbox(method='post', id='p_check')
                         .row
-                            each val in arr_pics
+                            each val in arr_pics_rev
                                 div
                                     .checkbox
                                         fieldset
                                             label.custom-control.custom-checkbox.d-block.my-2
                                                 input.custom-control-input(type='checkbox', name='p[]', value=val)
                                                 span.custom-control-indicator
-                                    div(style='padding-right: 20px; padding-bottom: 30px')
+                                    div(style='margin: auto; padding: 10px;')
                                         a(href=val, data-lightbox='roadtrip')
                                             div
                                                 img(src=val, alt='Card image cap', style='height: 100px; width: 100px')
@@ -50,9 +50,43 @@ html.no-js(lang='en')
                                 div(style='text-align: center;')
                                     br
                                     br
-                                    button.btn.btn-pill.btn-danger(type='submit')
+                                    div(style='margin: auto; padding: 5px;')
+                                        button.btn.btn-pill.btn-danger(type='submit', name='sub', value='del')
+                                            i.fa.fa-close.mr-1
+                                            |  Delete selected pictures
+                                    div(style='margin: auto; padding: 5px;')
+                                        button.btn.btn-pill.btn-success(type='submit', name='sub',value='pub')
+                                            i.fa.fa-upload.mr-1
+                                            |  Publish selected pictures
+            br
+            br
+            br
+            div
+                .col-sm-12
+                    div
+                        h5 Pictures published:
+                    br
+                    form.checkbox(method='post', id='p_check')
+                        .row
+                            each val in arr_pics
+                                div
+                                    .checkbox(style='margin: auto; padding: 10px;')
+                                        fieldset
+                                            label.custom-control.custom-checkbox.d-block.my-2
+                                                input.custom-control-input(type='checkbox', name='p[]', value=val)
+                                                span.custom-control-indicator
+                                    div(style='margin: auto; padding: 10px;')
+                                        a(href=val, data-lightbox='roadtrip')
+                                            div
+                                                img(src=val, alt='Card image cap', style='height: 100px; width: 100px')
+                        .row.justify-content-md-center
+                            .col-md-6.mb-3
+                                div(style='text-align: center;')
+                                    br
+                                    br
+                                    button.btn.btn-pill.btn-danger(type='submit', name='sub', value='del')
                                         i.fa.fa-close.mr-1
-                                        |  Delete selectced pictures
+                                        |  Delete selected pictures
             br
             br
             br
@@ -81,7 +115,7 @@ html.no-js(lang='en')
                                     br
                                     button.btn.btn-pill.btn-danger(type='submit')
                                         i.fa.fa-close.mr-1
-                                        |  Delete selectced files
+                                        |  Delete selected files
                 br
                 br
                 div(style='text-align: center;')

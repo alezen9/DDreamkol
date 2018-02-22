@@ -18,13 +18,16 @@ var navbar = '\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
 					</li>\
-					<!--\
 	                <li class="nav-item">\
-	                    <a class="nav-link" href="tac.html">Terms and conditions\
+	                    <a class="nav-link" href="page_in_development.html">About Dolni Drimkol\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
 					</li>\
-					-->\
+					<li class="nav-item">\
+	                    <a class="nav-link" href="page_in_development.html">People say...\
+	                        <span class="sr-only">(current)</span>\
+	                    </a>\
+					</li>\
 	            </ul>\
 	            <div>\
 	            <a href="/upload">\
