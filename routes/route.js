@@ -99,7 +99,13 @@ router.get("/upload_succ", (req, res) => {
 
 //route for managing a village content
 router.get("/manage/:a", (req, res) => {
-  selo = String(req.params.a);
+  if(String(req.params.a) == 'dlukovo'){
+    selo = 'd_lukovo';
+  }else if(String(req.params.a) == 'glukovo'){
+    selo = 'g_lukovo';
+  }else{
+    selo = String(req.params.a);
+  }
   res.redirect("/1234v_manager");
 });
 
@@ -338,7 +344,13 @@ router.post('/upload', function (req, res) {
   form.on('field', function(name, field) {
     console.log('Got a field:', field);
     console.log('Got a field name:', name);
-    village = field;
+    if(field == 'dlukovo'){
+      village = 'd_lukovo';
+    }else if(field == 'glukovo'){
+      village = 'g_lukovo';
+    }else{
+      village = field;
+    }
     console.log('village: ' + village);
   });
 
@@ -353,12 +365,12 @@ router.post('/upload', function (req, res) {
           if(exists){
             console.log('folder exists!');
           //rename the incoming file to the file's name
-            file.path = right_loc + '/' + uniqid() + fileType;
+            file.path = path.join(right_loc + '/' + uniqid() + fileType);
           }else{
             console.log('folder does not exists');
             console.log('making that directory');
             fsExtra.mkdir(right_loc);
-            file.path = right_loc + '/' + uniqid() + fileType;
+            file.path = path.join(right_loc + '/' + uniqid() + fileType);
           }
         }else if(fileType == '.pdf' ){
           right_loc = new_location + village + '/h';
@@ -366,7 +378,7 @@ router.post('/upload', function (req, res) {
           if(exists2){
             console.log('folder exists!');
           //rename the incoming file to the file's name
-          file.path = right_loc + '/' + uniqid() + fileType;
+          file.path = path.join(right_loc + '/' + uniqid() + fileType);
           }else{
             console.log('folder does not exists');
             console.log('making that directory');
