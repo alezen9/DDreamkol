@@ -55,7 +55,7 @@ html.no-js(lang='en')
                                             i.fa.fa-close.mr-1
                                             |  Delete selected pictures
                                     div(style='margin: auto; padding: 5px;')
-                                        button.btn.btn-pill.btn-success(type='submit', name='sub',value='pub')
+                                        button.btn.btn-pill.btn-success(type='submit', name='sub', value='pub')
                                             i.fa.fa-upload.mr-1
                                             |  Publish selected pictures
             br
@@ -68,17 +68,17 @@ html.no-js(lang='en')
                     br
                     form.checkbox(method='post', id='p_pub')
                         .row
-                            each val in arr_pics
+                            each val1 in arr_pics
                                 div
                                     .checkbox(style='margin: auto; padding: 10px;')
                                         fieldset
                                             label.custom-control.custom-checkbox.d-block.my-2
-                                                input.custom-control-input(type='checkbox', name='p[]', value=val)
+                                                input.custom-control-input(type='checkbox', name='p[]', value=val1)
                                                 span.custom-control-indicator
                                     div(style='margin: auto; padding: 10px;')
-                                        a(href=val, data-lightbox='roadtrip')
+                                        a(href=val1, data-lightbox='roadtrip')
                                             div
-                                                img(src=val, alt='Card image cap', style='height: 100px; width: 100px')
+                                                img(src=val1, alt='Card image cap', style='height: 100px; width: 100px')
                         .row.justify-content-md-center
                             .col-md-6.mb-3
                                 div(style='text-align: center;')
