@@ -284,7 +284,8 @@ router.get("/piskupshtina_pic", (req, res) => {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route nerezi_h page
 router.get("/nerezi_h", (req, res) => {
-  res.render("nerezi_h");
+  //res.render("nerezi_h");
+  res.sendFile(path.join(public_path + 'info_nerezi.html'));
 });
 
 //route modric_h page

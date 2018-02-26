@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DDreamKol</title>
+    <meta name="description" content="Elegant website for storing data about some villages based on Bootstrap 4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/shards.min.css">
+    <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0">
+    <link rel="stylesheet" href="css/hpage.css">
+    <link rel="shortcut icon" type="image/png" href="images/favico/favico.png">
+    <style type="text/css">
+      p{font-size: 20px;}
+    </style>
+  </head>
+  <body>
+    <!-- Navbar-->
+    <div>
+      <script src="js/scripts/navbar.js"></script>
+    </div>
+    <!-- Warning Dismissible Alert -->
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div style="text-align: center;">
+                      <i class="fa fa-warning"></i> <strong>Prototype of the info page!</strong>
+                    </div>
+                </div>
+    <div class="text-center mb-4">
+      <h1>Nerezi</h1>
+      <div>
+        <a href="/nerezi_pic" style="height: 25px;">
+          <button type="button" href="/nerezi_pic" class="btn btn-pill btn-info"><img src="https://png.icons8.com/wired/18/ffffff/picture.png">&nbsp;&nbsp; See the pictures</button></a>
+        </div>
+    </div>
+    <!-- Page Content-->
+      <div id="cards" class="container mb-2" style="padding-bottom: 40px; padding-left: 40px; padding-right: 40px;">
+        <div>
+          <details style="text-align: center;">
+            <summary class="btn btn-primary btn-pill">Click to open the map</summary>
+            <br>
+            <br>
+            <div style="border-radius: 2%">
+              <div id="googleMap" style="width:100%; height:550px; border-radius: 10px; box-shadow: 5px 10px 18px #888888;"></div>
+            </div>
+          </details>
+          <br>
+          <br>
+            <table class="table table-hover" style= "height: 100px; width: 60%; margin: auto;">
+              <tbody>
+                <tr>
+                  <th scope="row" style="text-align: center; width: 50%;"><img src="https://png.icons8.com/ios/25/000000/height.png">&nbsp; Altitude</th>
+                  <td style="text-align: center;">~870m</td>                  
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;"><img src="https://png.icons8.com/ios/25/000000/crowd.png">&nbsp;&nbsp;Population</th>
+                  <td style="text-align: center;">~120</td>                  
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;"><img src="https://png.icons8.com/ios/25/000000/mailbox-with-letter.png">&nbsp;&nbsp;Postal code</th>
+                  <td style="text-align: center;">6337</td>           
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <br>
+            <br>
+            <script type="text/javascript">
+              var x = screen.width;
+              if (x<813){
+                  var d = '<ul class="menu2">\
+                            <a href="#geo" style="text-decoration:none;">\
+                              <li class="submenu">Geographical characteristichs</li>\
+                            </a>\
+                            <a href="#pop" style="text-decoration:none;">\
+                              <li class="submenu">Population</li>\
+                            </a>\
+                            <a href="#h" style="text-decoration:none;">\
+                              <li class="submenu">Cultural-Historical features</li>\
+                            </a>\
+                            <a href="#his" style="text-decoration:none;">\
+                              <li class="submenu">A bit of history</li>\
+                            </a>\
+                          </ul>';
+              }else{
+                  var d = '<ul class="menu">\
+                            <a href="#geo" style="text-decoration:none;">\
+                              <li class="submenu" style="border-right: 1px solid #ccc;">Geographical characteristichs</li>\
+                            </a>\
+                            <a href="#pop" style="text-decoration:none;">\
+                              <li class="submenu" style="border-right: 1px solid #ccc;">Population</li>\
+                            </a>\
+                            <a href="#h" style="text-decoration:none;">\
+                              <li class="submenu">Cultural-Historical features</li>\
+                            </a>\
+                            </a>\
+                            <a href="#his" style="text-decoration:none;">\
+                              <li class="submenu">A bit of history</li>\
+                            </a>\
+                          </ul>';
+              }
+              document.write(d);
+            </script>
+          </div>
+          <div class="container mb-2" style="padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 100px;">
+            <div id="geo" style="padding-bottom: 80px;">
+              <h2 style="text-align: center;">Geographical characteristichs</h2><br>
+              <p>Nerezi is found in the north-western section of the Struga municipality. Until 2004 it was a part of the Lukovo municipality. It is located about 26 kilometres from the city of Struga. The highest point of the village is 1096. At just 25 km distance from Struga and about the Ohrid Lake, on above sea level of 870m lies the village of Nerezi. The village is situated on the mountain of Jablanica, surrounded with breathtaking nature, clean air and untouched springs of clean drinking water.</p>
+            </div>
+            <div id="pop" style="padding-bottom: 80px;">
+              <h2 style="text-align: center;">Population</h2><br>
+              <p>The village is populated by 213 inhabitants of whom 90 are Ethnic Macedonians and 123a are Albanians (ethnic). Today there are around hundred of houses and around 120 inhabitants living in the village.</p>
+            </div>
+            <div id="h" style="padding-bottom: 80px;">
+              <h2 style="text-align: center;">Cultural-Historical features</h2><br>
+              <p>Nerezi is a village of 6 churches, from which 2 are ruined, while the other 4 still exist. Those churches are: St. Nicholas, the church of Holy Salvation, the church of Holy Mother the Most Innocent and St. Georges – renovated in 1833.</p>
+            </div>
+            <div id="his" style="padding-bottom: 50px;">
+              <h2 style="text-align: center;">A bit of history</h2>
+              <p>Селото е воглавно на една висока тераса наведната кон Пискупска река. Над селото е планината Стрмница. Во селото има многу извори и тоа во близина на куќите. Во Нерези се малите: Чулкинска, Филкоска , Бајчевска, Нелчевска и Чавковска мала. Групата на куќи на Чавковци и Ѓоревци се викаат уште и Кошаре или Кошарци, а останатите се Поље или Пољани. Куќите се прилично расштркани поради нивите. До 1880/1900 биле збиени поради опасноста од качаците. Во селото има се на се'  60 домаќинства , 2 цигански и 58 православни. 
+              Во селото има две цркви: св. Спас на брдото над село ( подигната по кажување на селаните 1868) и св. Ѓорѓија градена некаде 1830 год. Селски слави се Спасовден и Прображвење. Гробиштата се кај црквата св.Ѓорѓија , а кога било селото во Горно Село имало и таму гробишта кои сега едвај се познаваат. Циганите имаат свое посебно место за гробишта на Старо Џаде.<br>
+              Нерези три пати се птреселувало. Прво било на местото кое се вика Старо или Горно Село, околу 2 км подалеку од денешната локација а непосредно испод планината , помеѓу ридовите на Чука и Добрава а до изворот Трап.<br>
+              На врвот на Добрава и сега стои црквата св.Спас, а на врвот на Чука биле црквата и гробиштата. Гробиштата сеуште постојат и сега а местото е "ваковско ". Поради албанските качаци селото од таму се преместило во Кошари или Јанкулов Трап на левата страна на Пискупска река а во близина на Дрим. Таму повторно се измачувале за вода и од тука во време на спахиите кога војувале Тоските и Гегите преминале на денешното место. Освен еѓупците ковачи никогаш немало муслимани на ова место.<br>
+              Едно место во селото се вика Латински Добје- св. Никола. Се кажува дека таму бил манастир. Сега има на тоа место многу мало "алтарче " ( капела) од дрво. Долгиот и широк дол кој се формира под св. Никола и оди до Мерсимбеговиот ан во синорот на Пискуштина и се вика Калуѓерец. Околу селото има растурени пооединечни гробишта на оние што починале од чума и се закопувани таму каде што ги наоѓале. На крајот на Калуѓерец е местото Чифлигаро . Имотот на Хаџи Леш од Омеж ( Албанија ) чии што татко Феро и стрикото Рамо биле сејмени , купувале земја и направиле чифлик.<br>
+              Староседелци во Нерези се рачунаат Раткушиновци (4 куќи, св Никола ). Двајца од овој род се преселиле во Јабланица еден 1835 и другиот 1930. - Ѓорески сој , Ѓорески ( 3 к св. Ѓорѓија) . Ѓорѓија , четвртиот предок на Спасе Ѓорески ( 71 год) и синот негов Никола живееле во Старо Село, Внукот Танаско бил на Дрим, а правнукот Вело ( татко на Спасе) дошол во Кошари. Еден брат на Ѓоре се одселил во Охрид.- Пејчиновци ( 1 к св.Ѓоѓија) , - Чавковци ( 5 к. св. Ѓорѓија ) . Нивни огранци се Мартиновци - Чулкинци ( 3к), Марковци (4 к), Башовци (1 к), и Феруковци ( 2 к).<br>
+              - Бајчевци ( 4 к) и Филковци ( 6 к) се еден род ( св. Никола). Латовци или Љатовци ( 4 к), Поповци со Трифуновци ( 4 к) и Глигуровци ( 1 к ) се еден род ( св. П етка , 7 ноември по старо) Од Латовци има еден во Бугарија.<br>
+              Нелчевци , некогашни Деспотовци (1 к св. Ѓорѓија) . Биле многу јака фамилија се додека не ги покосила чумата која го оставила само предак на таа фамилија  Деспот ( прадедо на Мило Нелчески 67год). И секогаш се на " една куќа" . Се мисли дека Деспот кој имал прекар Нелчо , или некој негов предак бил од Стеблево во Голо Брдо. <br>
+              - Секуловци (2 к св.Ѓорѓија ) мислат дека нивниот предак Секула бил од Подгорица , од каде побегнал пошто го убил на некој "турчин".
+              - Шопкиновци (2 К св. Ѓорѓија) Прадедото Ристо дошол од мешаното село Кошиште во Дебар. - Нелчевци- Младеновци (1 к св. Ѓорѓија) поранешни Ѓулинци се старинци од с. Нерези кај Прилеп од каде што дошол прадедото. Има и две фамилии без машки членови Црнијаној или Црнијановци (4 к, св. Ѓорѓија) се доселени но не се знае од каде. Се доселил нивниот прадедо или подалечен предок. Шапардановци ( 1 к ) Нивниот предок дошол 1835 како домназет од Модрич. Од Шапардановци нема маж во селото, само еден во Бугарија. - Наумовци - Бегалци ( 1к, св. Никола) Дедото Ристо кој бил од Вељановци во Безево дошол како домазет во Бегалци од кој што сега имаат само две деца кои живеат во Пискупштина. <br>
+              - Пупунцовски ( 1к св Ѓорѓија) дошол како домазет од Јабланица во Стојковци кои биле огранок на Чавковци . Инаку е од родот на Пеливановци кои се по потекло од Стеблево. Еден се род Радевци, Ковачевци и Јанкуловци. слават св. Никола. Потеклото не им се знае . Пошто Пандил Ковачески отишол во Бугарија , од тоа семејство останал во селото само Пандиловиот син кој живее кај Филип Филкоски. Дел изумреле а дел се раселиле Танасковци од кои има една фамилија во Бугарија , Костој можеби има во Румунија и Башовци ( св. Ѓорѓија)
+              Муратовци ( 2к) Таткото Мурат дошол од Скудриње. Дошол по мајка му која се премажила во Нерези.<br>
+              Илија Ѓонески 2016, Струга.</p>
+            </div>
+          </div>
+      </div>
+    
+
+
+
+        <!--prova Google maps funzionante-->
+          
+          <script>
+          function myMap() {
+          var mapProp= {
+              center:new google.maps.LatLng(41.338285, 20.599541),
+              zoom:14,
+              mapTypeId: google.maps.MapTypeId.HYBRID
+          };
+          var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+          }
+          </script>
+        
+      </div>
+      
+      <!-- Footer-->
+      <div><br><br>
+        <p style="position: relative; bottom: 0; width:100%;" class="text-muted text-center small p-0 mb-4">© Copyright 2018 — Aleksandar Gjoreski</p>
+      </div>
+    </div>
+    <!-- JavaScript-->
+    <div id="fb-root"></div>
+    <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="js/shards.min.js"></script>
+    <script src="js/demo.min.js"></script>
+    <script src="css/lightbox/js/lightbox-plus-jquery.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV5Dz9-60Z_Sij0kj-tq9DBsS-LcAEesY&callback=myMap"></script>
+  </body>
+</html>
+
