@@ -48,9 +48,10 @@
 </head>
 <body>
 <!-- loader-->
+<!--
 <div class="loader">
     <div class="page-loader"></div>
-</div>
+</div>-->
 <!--Navbar-->
 <div>
     <script src="js/scripts/navbar.js"></script>
@@ -62,16 +63,16 @@
         <script type="text/javascript">
             var x = screen.width;
             if (x<813){
-                var d = '<h2 class="slide-in">DDreamKol</h2>';
+                var d = '<h2>DDreamKol</h2>';
                 document.write(d);
             }else{
-                var d = '<h1 class="slide-in">DDreamKol</h1>';
+                var d = '<h1>DDreamKol</h1>';
                 document.write(d);
             }
         </script>
         <!--h1.slide-in DDreamkol-->
-        <p class="slide-in">just the database you weren't expecting</p>
-        <div class="action-links slide-in"><a id="scroll-to-content" href="#" data-scroll-to="#introduction" class="btn btn-success btn-pill align-self-center">Continue</a></div>
+        <p>just the database you weren't expecting</p>
+        <div class="action-links"><a id="scroll-to-content" href="#" data-scroll-to="#introduction" class="btn btn-success btn-pill align-self-center">Continue</a></div>
     </div>
 </div>
 <!-- Page Content-->
@@ -125,7 +126,7 @@
                                         <h' + n + ' style="color: white; filter:drop-shadow(8px 8px 10px black);">' + paese[i] + '</h' + n + '>\
                                       </div>\
                                     </div>\
-                                    <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/' + back[Math.floor(Math.random()*5)] + '" width="' + w + '" height="' + h + '" style="filter:blur(0px);">\
+                                    <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/' + back[Math.floor(Math.random()*5)] + '" width="' + w + '" height="' + h + '" style="filter:blur(10px);">\
                                       <div class="btn-block"  style="' + a + '">\
                                         <a href="' + h_page[i] + '">\
                                           <button type="button" class="btn btn-pill btn-primary al" href="' + h_page[i] + '"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>\
