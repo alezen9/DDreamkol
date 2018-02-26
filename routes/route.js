@@ -160,7 +160,7 @@ router.get("/nerezi_pic", (req, res) => {
         //console.log(file);
       }
     });
-  res.render("pic_page",{nome: 'Nerezi',h_page: 'info_nerezi.html',arr: list_pics});
+  res.render("pic_page",{nome: 'Nerezi',h_page: '/nerezi_h',arr: list_pics});
   list_pics = [];
 });
 
