@@ -1,6 +1,6 @@
 var navbar = '\
 	<div>\
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">\
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">\
 		    <img src="images/demo/shards-logo.svg" alt="Example Navbar 1" class="mr-2" height="30px">\
 	        <a class="navbar-brand" style="margin-right: inherit; margin-left: 1rem;" href="/">DDreamKol</a>\
 	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-2" aria-controls="navbarNavDropdown-2" aria-expanded="false" aria-label="Toggle navigation">\

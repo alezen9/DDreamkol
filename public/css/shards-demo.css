@@ -115,7 +115,7 @@
 }
 
 .welcome:before, .welcome:after {
-  content: '';
+  /*content: '';*/
   position: absolute;
   width: 50vw;
   height: 80vh;
