@@ -14,6 +14,7 @@
     <link rel="stylesheet" media="screen and (max-width: 812px)" href="css/flip_small.css">
     <link rel="stylesheet" href="css/sun.css">
     <link rel="stylesheet" href="css/snow.css">
+    <link rel="stylesheet" href="css/leaves.css">
     <style>
         #ale{
             filter:drop-shadow(8px 8px 10px gray);
@@ -54,6 +55,10 @@
             z-index: 1;
             background: linear-gradient(#212529, white);
         }
+        .autumn{
+            z-index: 1;
+            background: linear-gradient(#cc8400 15%, yellow 80%, white 100%);
+        }
     </style>
 </head>
 <body>
@@ -68,14 +73,15 @@
 </div>
 <script type="text/javascript">
     var date = new Date();
-    var month = date.getMonth();
-    //var month = 6;
+    //var month = date.getMonth();
+    var month = 10;
     //0=january-11=december
 </script>
 <!-- Welcome Section-->
 <script type="text/javascript">
-    var div = '<div class="welcome d-flex justify-content-center flex-column night-sky">';
-    var div2 = '<div class="welcome d-flex justify-content-center flex-column day-sky">';
+    var divNight = '<div class="welcome d-flex justify-content-center flex-column night-sky">';
+    var divDay = '<div class="welcome d-flex justify-content-center flex-column day-sky">';
+    var divAutumn = '<div class="welcome d-flex justify-content-center flex-column autumn">';
     var snow = '<div class="snow"></div>';
     var sun = '<div id="sun" style="transform-origin: 100% -145%; transform: scale(0.5,0.5);">\
                     <div id="rings">\
@@ -85,11 +91,44 @@
                         <div></div>\
                     </div>\
                 </div>';
-    if(month<4 || month>9){
-        document.write(div)
+    var leaves = '<div class="fallingLeaves">\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                    <span></span>\
+                </div>';
+    if(month<4 || month>11){
+        document.write(divNight)
         document.write(snow);
+    }else if(month<12 || month>9){
+        document.write(divAutumn)
+        document.write(leaves);
     }else{
-        document.write(div2)
+        document.write(divDay)
         document.write(sun);
     }
 </script>
@@ -98,12 +137,12 @@
         <script type="text/javascript">
             var x = screen.width;
             if (x<813){
-                var d = '<h2 class="slide-in">DDreamKol</h2>\
-                <p class="slide-in">just the database you weren\'t expecting</p>';
+                var d = '<h2>DDreamKol</h2>\
+                <p style="color: black;">just the database you weren\'t expecting</p>';
                 document.write(d);
             }else{
-                var d = '<h1 class="slide-in">DDreamKol</h1>\
-                <p class="slide-in">just the database you weren\'t expecting</p>';
+                var d = '<h1>DDreamKol</h1>\
+                <p style="color: black;">just the database you weren\'t expecting</p>';
                 document.write(d);
             }
         </script>
@@ -148,7 +187,7 @@
                             b = "text-block";
                         }
                         var paese = ['Bezevo','Borovec','Drenok','Dolno Lukovo','Gorno Lukovo','Jablanica','Lakavica','Modric','Nerezi','Piskupshtina'];
-                        var cover = ['cover.jpg','cover.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
+                        var cover = ['cover.jpg','cover.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','lakavica.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
                         var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
                         var h_page =  ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modric_h','info_nerezi.html','/piskupshtina_h'];
                         var back = ['back.jpeg','back2.jpg','back3.jpg','back4.jpg','back6.jpg'];
