@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/sun.css">
     <link rel="stylesheet" href="css/snow.css">
     <link rel="stylesheet" href="css/leaves.css">
+    <link rel="stylesheet" href="css/flower.css">
     <style>
         #ale{
             filter:drop-shadow(8px 8px 10px gray);
@@ -59,6 +60,30 @@
             z-index: 1;
             background: linear-gradient(#cc8400 15%, yellow 80%, white 100%);
         }
+        .spring{
+            z-index: 1;
+            background: linear-gradient(#87CEFA, white);
+        }
+        .fl1{
+            margin-left: 55%;
+            transform: scale(0.7,0.7);
+        }
+        .fl2{
+            margin-left: 25%;
+            margin-top: 10%;
+            transform: scale(0.5,0.5);
+        }
+        @media all and (max-width: 480px) {
+            .fl1 {
+                margin-left: 50%;
+                transform: scale(0.5,0.5);
+            }
+            .fl2 {
+                margin-left: 0%;
+                margin-top: 5%;
+                transform: scale(0.3,0.3);
+            }
+        }
     </style>
 </head>
 <body>
@@ -74,7 +99,7 @@
 <script type="text/javascript">
     var date = new Date();
     var month = date.getMonth();
-    //var month = 10;
+    //var month = 11;
     //0=january-11=december
 </script>
 <!-- Welcome Section-->
@@ -82,6 +107,7 @@
     var divNight = '<div class="welcome d-flex justify-content-center flex-column night-sky">';
     var divDay = '<div class="welcome d-flex justify-content-center flex-column day-sky">';
     var divAutumn = '<div class="welcome d-flex justify-content-center flex-column autumn">';
+    var divSpring = '<div class="welcome d-flex justify-content-center flex-column spring">';
     var snow = '<div class="snow"></div>';
     var sun = '<div id="sun" style="transform-origin: 100% -145%; transform: scale(0.5,0.5);">\
                     <div id="rings">\
@@ -121,12 +147,45 @@
                     <span></span>\
                     <span></span>\
                 </div>';
+    var flower = '<div class="petal-wrapper fl1">\
+                    <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                    </div>\
+                    <div class="core fl1"></div>\
+                    <div class="petal-wrapper fl2">\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                        <div class="petal"></div>\
+                    </div>\
+                    <div class="core fl2"></div>';
     if(month<4 || month>11){
         document.write(divNight)
         document.write(snow);
-    }else if(month<12 || month>9){
+    }else if(month<12 && month>9){
         document.write(divAutumn)
         document.write(leaves);
+    }else if(month<6 && month>3){
+        document.write(divSpring)
+        document.write(flower);
     }else{
         document.write(divDay)
         document.write(sun);
@@ -190,7 +249,8 @@
                         var cover = ['cover.jpg','cover.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','lakavica.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
                         var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
                         var h_page =  ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modric_h','info_nerezi.html','/piskupshtina_h'];
-                        var back = ['back.jpeg','back2.jpg','back3.jpg','back4.jpg','back6.jpg'];
+                        //var back = ['back.jpeg','back2.jpg','back3.jpg','back4.jpg','back6.jpg'];
+                        var back = ['cover.jpg','cover.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','lakavica.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
                         var i;
                         for(i = 0;i<10;i++){
                             var dad = '\
@@ -201,7 +261,7 @@
                                         <h' + n + ' style="color: white; filter:drop-shadow(8px 8px 10px black);">' + paese[i] + '</h' + n + '>\
                                       </div>\
                                     </div>\
-                                    <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/' + back[Math.floor(Math.random()*5)] + '" width="' + w + '" height="' + h + '" style="filter:blur(10px);">\
+                                    <div class="back" style="border-radius: 2%"><img id="ale" src="images/homepage/' + /*back[Math.floor(Math.random()*5)]*/ back[i] + '" width="' + w + '" height="' + h + '" style="filter:blur(5px);">\
                                       <div class="btn-block"  style="' + a + '">\
                                         <a href="' + h_page[i] + '">\
                                           <button type="button" class="btn btn-pill btn-primary al" href="' + h_page[i] + '"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>\
