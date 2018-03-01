@@ -290,47 +290,47 @@ router.get("/nerezi_h", (req, res) => {
 
 //route modric_h page
 router.get("/modric_h", (req, res) => {
-  res.render("modric_h");
+  res.sendFile(path.join(public_path + 'info_modric.html'));
 });
 
 //route bezevo_h page
 router.get("/bezevo_h", (req, res) => {
-  res.render("bezevo_h");
+  res.sendFile(path.join(public_path + 'info_bezevo.html'));
 });
 
 //route borovec_h page
 router.get("/borovec_h", (req, res) => {
-  res.render("borovec_h");
+  res.sendFile(path.join(public_path + 'info_borovec.html'));
 });
 
 //route d_lukovo_h page
 router.get("/d_lukovo_h", (req, res) => {
-  res.render("d_lukovo_h");
+  res.sendFile(path.join(public_path + 'info_d_lukovo.html'));
 });
 
 //route g_lukovo_h page
 router.get("/g_lukovo_h", (req, res) => {
-  res.render("g_lukovo_h");
+  res.sendFile(path.join(public_path + 'info_g_lukovo.html'));
 });
 
 //route drenok_h page
 router.get("/drenok_h", (req, res) => {
-  res.render("drenok_h");
+  res.sendFile(path.join(public_path + 'info_drenok.html'));
 });
 
 //route jablanica_h page
 router.get("/jablanica_h", (req, res) => {
-  res.render("jablanica_h");
+  res.sendFile(path.join(public_path + 'info_jablanica.html'));
 });
 
 //route lakavica_h page
 router.get("/lakavica_h", (req, res) => {
-  res.render("lakavica_h");
+  res.sendFile(path.join(public_path + 'info_lakavica.html'));
 });
 
 //route piskupshtina_h page
 router.get("/piskupshtina_h", (req, res) => {
-  res.render("piskupshtina_h");
+  res.sendFile(path.join(public_path + 'info_piskupshtina.html'));
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
