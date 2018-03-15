@@ -14,7 +14,7 @@ var navbar2 = '\
 						</a>\
 					</li>\
 					<li class="nav-item">\
-	                    <a class="nav-link" href="page_in_development.html">Tournament\
+	                    <a class="nav-link" href="tournament.html">Tournament\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
 					</li>\

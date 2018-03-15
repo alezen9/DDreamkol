@@ -1,0 +1,143 @@
+.car{
+	      margin: auto;
+	      top: 30px;
+	      width: 95%;
+	      height: 550px;
+	      object-fit: cover;
+	      border-radius: 10px;
+    }
+    .zoom
+    {
+        display:inline-block;
+        border:0;
+        width:150px;
+        height:150px;
+        position: relative;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(1); 
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(1); 
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1);
+        transition: all 200ms ease-in;
+        transform: scale(1);
+        margin: auto;
+        border-radius: 20%;  
+        object-fit: cover;
+        z-index: 1;
+
+    }
+    .zoom:hover
+    {
+        box-shadow: 0px 0px 30px #ccac00;
+        z-index: 2;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(1.4);
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(1.4);   
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1.4);
+        transition: all 200ms ease-in;
+        transform: scale(1.4);
+        border-radius: 8%;
+        z-index: 2;
+        background-color: white;
+    }
+    .bg{
+      position: relative;
+      height: 550px;
+      background: linear-gradient(#212529, white);
+      z-index: 0;
+    }
+    .text-block {
+            padding: 60px;
+            position: absolute;
+            bottom: -20px;
+            right: -10px;
+            left: 0;
+            color: white;
+            background-color: rgba(0,0,0,0.6);
+        }
+    .teams{
+    	padding: 30px;
+    	margin: auto;
+    	text-align: center;
+    }
+    .field{
+        text-align: center;
+        margin: auto;
+        filter:drop-shadow(0px 15px 5px #49311c);
+      }
+      .goalkeeper{
+        padding: 60px;
+        position: absolute;
+        bottom: -80px;
+        width: 99%;
+      }
+      .defence{
+        padding: 60px;
+        position: absolute;
+        top: 370px;
+        width: 99%;
+      }
+      .central{
+        padding: 60px;
+        position: absolute;
+        top: 275px;
+        width: 99%;
+      }
+      .central-f{
+        padding: 60px;
+        position: absolute;
+        top: 210px;
+        width: 99%;
+      }
+      .striker{
+        padding: 60px;
+        position: absolute;
+        top: 130px;
+        width: 99%;
+      }
+    @media all and (min-width: 500px){
+      .men{
+        border-right: 1px solid #ccc;
+      }
+    }
+    @media all and (max-width: 500px) {
+        .car{
+          height: 230px;
+          width: 95%;
+          margin: auto;
+        }
+        .bg{
+        	height: 230px;
+        }
+        .zoom{
+        	height: 80px;
+        	width: 80px;
+        }
+        .zoom:hover{
+	        -webkit-transform: scale(1.6);
+	        -ms-transform: scale(1.6);   
+	        -moz-transform: scale(1.6);
+	        transform: scale(1.6);
+	    }
+        .text-block {
+            font-size: 15px;
+            padding: 30px;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: -3px;
+            color: white;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .tname{
+        	font-size: 15px;
+        }
+    }
+    @media all and (max-width: 321px) {
+    	.tname{
+    		font-size: 10px;
+    	}
+    }
