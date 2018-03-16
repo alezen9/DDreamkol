@@ -172,6 +172,44 @@
             width: 99%;
           }
     }
+    @media all and (max-width: 800px) and (min-width: 501px) {
+      .bg{
+        height: 500px;
+      }
+      .foto{
+        height: 400px;
+      }
+      .goalkeeper{
+        padding: 60px;
+        position: absolute;
+        bottom: 20px;
+        width: 99%;
+      }
+      .defence{
+        padding: 60px;
+        position: absolute;
+        top: 250px;
+        width: 99%;
+      }
+      .central{
+        padding: 60px;
+        position: absolute;
+        top: 180px;
+        width: 99%;
+      }
+      .central-f{
+        padding: 60px;
+        position: absolute;
+        top: 130px;
+        width: 99%;
+      }
+      .striker{
+        padding: 60px;
+        position: absolute;
+        top: 60px;
+        width: 99%;
+      }
+    }
     @media all and (max-width: 321px) {
     	.tname{
     		font-size: 10px;

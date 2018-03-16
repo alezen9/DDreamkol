@@ -1,15 +1,21 @@
 #p1,#p2,#p3,#p4,#p5,#p6,#p7,#p8,#p9 {
 	width: 50px;
 	border-radius: 50%
-	background: #c14545;
 	visibility: hidden;
 	filter:drop-shadow(0px 5px 7px #ccac00);
+}
+@media all and (max-width: 800px) and (min-width: 501px) {
+	#p1,#p2,#p3,#p4,#p5,#p6,#p7,#p8,#p9 {
+	width: 30px;
+	border-radius: 50%
+	visibility: hidden;
+	filter:drop-shadow(0px 2px 3px #ccac00);
+	}
 }
 @media all and (max-width: 500px) {
 	#p1,#p2,#p3,#p4,#p5,#p6,#p7,#p8,#p9 {
 	width: 20px;
 	border-radius: 50%
-	background: #c14545;
 	visibility: hidden;
 	filter:drop-shadow(0px 2px 3px #ccac00);
 	}
