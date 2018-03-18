@@ -1,7 +1,7 @@
 .car{
 	      margin: auto;
 	      top: 30px;
-	      width: 95%;
+	      width: 85%;
 	      height: 550px;
 	      object-fit: cover;
 	      border-radius: 10px;
@@ -39,7 +39,7 @@
         -moz-transform: scale(1.4);
         transition: all 200ms ease-in;
         transform: scale(1.4);
-        border-radius: 8%;
+        border-radius: 2%;
         z-index: 2;
         background-color: white;
     }
@@ -97,9 +97,6 @@
         position: absolute;
         top: 130px;
         width: 99%;
-      }
-      .foto{
-        
       }
     @media all and (min-width: 500px){
       .men{
