@@ -13,6 +13,42 @@ var gitkeep = '.gitkeep';
 
 
 
+function formatDate(date) {
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  return day + ' ' + monthNames[monthIndex] + ' ' + year + ' ' + hour + ':' + minute + ':' + seconds;
+}
+
+
+var file_a;
+var exists = fs.existsSync('data.json');
+if (exists) {
+  // Read the file
+  console.log('loading database');
+  var txt = fs.readFileSync('data.json', 'utf8');
+  // Parse it  back to object
+  file_a = JSON.parse(txt);
+} else {
+  // Otherwise start with blank list
+  console.log('empty database');
+  file_a = {
+			"users": [],
+			  "id": 0
+			};
+}
+
 
 function splitString(stringToSplit, separator) {
   var arr = [];
@@ -88,6 +124,13 @@ router.get("/", (req, res) => {
 //route upload page
 router.get("/upload", (req, res) => {
   res.render("upload");
+});
+
+
+//route people say page
+router.get("/peopleSay", (req, res) => {
+  var reply2 = file_a.users;
+  res.render("peopleSay",{reply: reply2});
 });
 
 
@@ -410,6 +453,29 @@ router.post('/upload', function (req, res) {
             console.log("success!");
             res.redirect('/upload_succ');            
         });
+});
+//---------------------------------------------------------------------------------------------------------------------------------------
+//handling people say page form (DA FARE)
+router.post('/peopleSay', function (req, res) {
+  var utente_nome = req.body.nome;
+  var utente_cognome = req.body.cognome;
+  var utente_data = formatDate(new Date());
+	var utente_message = req.body.message;
+	file_a.id = file_a.id +1;
+	file_a.users.unshift({
+		nome: utente_nome,
+    cognome: utente_cognome,
+    data: utente_data,
+		message: utente_message,
+		id: file_a.id
+	})
+	// update json
+	fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
+		if (err) throw err;
+		console.log('Succesfully added message from ' + utente_nome + ' ' + utente_cognome + ' on ' + utente_data);
+	})
+  console.log("success!");
+  res.redirect('/peopleSay');
 });
 //---------------------------------------------------------------------------------------------------------------------------------------
 //handling updating init.pdf of a village
