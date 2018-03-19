@@ -134,6 +134,12 @@ router.get("/peopleSay", (req, res) => {
 });
 
 
+//route people say EDITING page
+router.get("/peopleSayEdit", (req, res) => {
+  var reply3 = file_a.users;
+  res.render("peopleSayEdit",{reply: reply3});
+});
+
 //route upload_succ page
 router.get("/upload_succ", (req, res) => {
   res.render("upload_succ");
@@ -455,7 +461,7 @@ router.post('/upload', function (req, res) {
         });
 });
 //---------------------------------------------------------------------------------------------------------------------------------------
-//handling people say page form (DA FARE)
+//handling people say page form
 router.post('/peopleSay', function (req, res) {
   var utente_nome = req.body.nome;
   var utente_cognome = req.body.cognome;
@@ -478,6 +484,29 @@ router.post('/peopleSay', function (req, res) {
   res.redirect('/peopleSay');
 });
 //---------------------------------------------------------------------------------------------------------------------------------------
+//delete mesage from database
+router.get("/peopleSayEdit/:id",function(req,res){
+	var reply;
+  var id = Number(req.params.id);
+	var index = file_a.users.findIndex(function(item, i){
+	  return item.id=== id;
+	});
+	if(index<0){
+		reply = 'message not found';
+		console.log(reply);
+	}
+	else{
+      var utente_nome = file_a.users[index].nome;
+      var utente_cognome = file_a.users[index].cognome;
+		file_a.users.splice(index,1);
+		fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
+			if (err) throw err;
+			console.log('Succesfully deleted message from ' + utente_nome + ' ' + utente_cognome);
+		})
+	}
+	res.redirect("/peopleSayEdit");
+});
+//----------------------------------------------------------------------------------------------------------------------------------------
 //handling updating init.pdf of a village
 router.post("/update_init", (req, res) => {
   var form = new formidable.IncomingForm();
