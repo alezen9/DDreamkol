@@ -9,108 +9,173 @@ head
     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
     //link(href='/css/lightbox/css/lightbox.min.css' rel='stylesheet')
     link(rel='stylesheet' href='/css/shards.min.css')
+    link(rel='stylesheet' href='/css/frost.css')
+    link(rel='stylesheet' href='/css/modal.css')
     link(rel='stylesheet' href='/css/shards-demo.css?v=1.1.0')
     link(rel='shortcut icon' type='/image/png' href='/images/favico/favico.png')
     style.
-      @-webkit-keyframes glowing {
-      0% { background-color: #00d2ff; -webkit-box-shadow: 0 0 3px #00d2ff; }
-      50% { background-color: #1e90ff; -webkit-box-shadow: 0 0 40px #1e90ff; }
-      100% { background-color: #00d2ff; -webkit-box-shadow: 0 0 3px #00d2ff; }
-      }
-      @-moz-keyframes glowing {
-      0% { background-color: #00d2ff; -moz-box-shadow: 0 0 3px #00d2ff; }
-      50% { background-color: #1e90ff; -moz-box-shadow: 0 0 40px #1e90ff; }
-      100% { background-color: #00d2ff; -moz-box-shadow: 0 0 3px #00d2ff; }
-      }
-      @-o-keyframes glowing {
-      0% { background-color: #00d2ff; box-shadow: 0 0 3px #00d2ff; }
-      50% { background-color: #1e90ff; box-shadow: 0 0 40px #1e90ff; }
-      100% { background-color: #00d2ff; box-shadow: 0 0 3px #00d2ff; }
-      }
-      @keyframes glowing {
-      0% { background-color: #00d2ff; box-shadow: 0 0 3px #00d2ff; }
-      50% { background-color: #1e90ff; box-shadow: 0 0 40px #1e90ff; }
-      100% { background-color: #00d2ff; box-shadow: 0 0 3px #00d2ff; }
-      }
-      .button {
-      -webkit-animation: glowing 3000ms infinite;
-      -moz-animation: glowing 3000ms infinite;
-      -o-animation: glowing 3000ms infinite;
-      animation: glowing 3000ms infinite;
-      }
-// Navbar
-div
-    include includes/navbar2.pug
-.mb-5
-    // Trigger
-    button.button.btn.btn-primary.btn-pill.btn-lg.d-table.ml-auto.mr-auto(type='button', data-toggle='modal', data-target='#exampleModal')
-        | ✋ Click me for instructions!
-    // Modal Body
+        @-webkit-keyframes glowing {
+            0% {
+                background-color: #00d2ff;
+                -webkit-box-shadow: 0 0 3px #00d2ff;
+            }
+            50% {
+                background-color: #1e90ff;
+                -webkit-box-shadow: 0 0 40px #1e90ff;
+            }
+            100% {
+                background-color: #00d2ff;
+                -webkit-box-shadow: 0 0 3px #00d2ff;
+            }
+        }
+
+        @-moz-keyframes glowing {
+            0% {
+                background-color: #00d2ff;
+                -moz-box-shadow: 0 0 3px #00d2ff;
+            }
+            50% {
+                background-color: #1e90ff;
+                -moz-box-shadow: 0 0 40px #1e90ff;
+            }
+            100% {
+                background-color: #00d2ff;
+                -moz-box-shadow: 0 0 3px #00d2ff;
+            }
+        }
+
+        @-o-keyframes glowing {
+            0% {
+                background-color: #00d2ff;
+                box-shadow: 0 0 3px #00d2ff;
+            }
+            50% {
+                background-color: #1e90ff;
+                box-shadow: 0 0 40px #1e90ff;
+            }
+            100% {
+                background-color: #00d2ff;
+                box-shadow: 0 0 3px #00d2ff;
+            }
+        }
+
+        @keyframes glowing {
+            0% {
+                background-color: #00d2ff;
+                box-shadow: 0 0 3px #00d2ff;
+            }
+            50% {
+                background-color: #1e90ff;
+                box-shadow: 0 0 40px #1e90ff;
+            }
+            100% {
+                background-color: #00d2ff;
+                box-shadow: 0 0 3px #00d2ff;
+            }
+        }
+
+        .button {
+            -webkit-animation: glowing 3000ms infinite;
+            -moz-animation: glowing 3000ms infinite;
+            -o-animation: glowing 3000ms infinite;
+            animation: glowing 3000ms infinite;
+        }
+
+        .message {
+            border-radius: 10px;
+            /*background-color: #F8F8FF;*/
+            text-align: left;
+            padding: 50px;
+            width: 100%;
+            box-shadow: inset 0 0 100px 300px rgba(57, 57, 57, 0.6);
+            color: black;
+        }
+body(style="background-image:url(../images/other/sunrise_transparent_blurry.png)")
+    // Navbar
+    div
+        include includes/navbar2.pug
+    .mb-5
+        //modal prova
+        #text.modalbox
+            .box
+                a.close(href='#') X
+                p.title(style='text-align: center;') Formats accepted
+                .content(style='text-align: center;')
+                    p
+                        | JPG
+                        br
+                        br
+                        | JPEG
+                        br
+                        br
+                        | PNG
+        #linkmodal.link-modal
+            a(href='#text') &nbsp;&nbsp; Click for info &nbsp;&nbsp;
+        // Modal Body
+            .container
+                #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                    .modal-dialog(role='document')
+                        .modal-content.message
+                            .modal-header
+                                h5#exampleModalLabel.modal-title 🤔 What and how can i upload...
+                                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                    span(aria-hidden='true') ×
+                            .modal-body(style='text-align: center;')
+                                | You can upload pictures in these formats:
+                                br
+                                strong   JPG, JPEG and PNG
+                                br
+                                br
+                                | You can contribuite to the history by downloading, filling and uploading this template:
+                                br
+                                br
+                                div(style='text-align: center;')
+                                    a(href='other/template.docx', download='')
+                                        div
+                                            img(src='http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-Word-icon.png', alt='template', style='height: 70px; width: 70px')
+                            .modal-footer
+                                | To download the template just click on the thumbnail!
+    // Page Content
+    .text-center.mb-4
+        h1 Upload
+    br
     .container
-        #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-            .modal-dialog(role='document')
-                .modal-content
-                    .modal-header
-                        h5#exampleModalLabel.modal-title 🤔 What and how can i upload...
-                        button.close(type='button', data-dismiss='modal', aria-label='Close')
-                            span(aria-hidden='true') ×
-                    .modal-body(style='text-align: center;')
-                        | You can upload pictures in these formats:
-                        br
-                        strong   JPG, JPEG and PNG
-                        br
-                        br
-                        | You can contribuite to the history by downloading, filling and uploading this template:
-                        br
-                        br
-                        div(style='text-align: center;')
-                            a(href='other/template.docx', download='')
-                                div
-                                    img(src='http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-Word-icon.png', alt='template', style='height: 70px; width: 70px')
-                    .modal-footer
-                        | To download the template just click on the thumbnail!
-// Page Content
-.text-center.mb-4
-    h1 Upload
-br
-.container
-    .row.justify-content-md-center
-        .col-md-8.mb-3
-            div(style='text-align: center;')
-                br
-                h5 I want to contribuite to this village:
-            form.was-validated(method='post' enctype='multipart/form-data')
-                label(for='form-2-first-name') Village:
-                select#form-3-select.custom-select.w-100(name='village' required='')
-                    option(value='nerezi') Nerezi
-                    option(value='d_lukovo') Dolno Lukovo
-                    option(value='g_lukovo') Gorno Lukovo
-                    option(value='modric') Modric
-                    option(value='piskupshtina') Piskupshtina
-                    option(value='jablanica') Jablanica
-                    option(value='drenok') Drenok
-                    option(value='lakavica') Lakavica
-                    option(value='bezevo') Bezevo
-                    option(value='borovec') Borovec
-                br
-                br
-                label(for='form-file-4') Picture/s or file/s
-                label.custom-file.w-100
-                    input#form-file-4.custom-file-input(type='file' name='file' multiple='multiple' required='')
-                    span.custom-file-control
+        .row.justify-content-md-center.message(style="margin: auto;")
+            .col-md-8.mb-3
                 div(style='text-align: center;')
                     br
+                    h5.rwhite I want to contribuite to this village:
+                form.was-validated(method='post' enctype='multipart/form-data')
+                    label.rwhite(for='form-2-first-name') Village:
+                    select.user-message(name='village' required='' style="opacity: 0.95;")
+                        option(value='nerezi') Nerezi
+                        option(value='d_lukovo') Dolno Lukovo
+                        option(value='g_lukovo') Gorno Lukovo
+                        option(value='modric') Modric
+                        option(value='piskupshtina') Piskupshtina
+                        option(value='jablanica') Jablanica
+                        option(value='drenok') Drenok
+                        option(value='lakavica') Lakavica
+                        option(value='bezevo') Bezevo
+                        option(value='borovec') Borovec
                     br
-                    button.btn.btn-pill.btn-success(type='submit' onclick='this.disabled=true;this.form.submit();' style='border-radius: 8px;')
-                        i.fa.fa-upload.mr-1
-                        |  Upload
-// footer
-br
-br
-div
-    p.text-muted.text-center.small.p-0.mb-4 &copy; Copyright 2018 &mdash; Aleksandar Gjoreski
+                    br
+                    label.rwhite(for='form-file-4') Picture/s or file/s
+                    label.custom-file.w-100
+                        input.user-message(type='file' name='file' multiple='multiple' required='')
+                        span.custom-file-control
+                    div(style='text-align: center;')
+                        br
+                        br
+                        button.btn.btn-pill.btn-success(type='submit' onclick='this.disabled=true;this.form.submit();' style='width: 230px;')
+                            i.fa.fa-upload.mr-1
+                            |  Upload
+    // footer
+    br
+    br
+    div
+        p.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') © Copyright 2018 — Aleksandar Gjoreski
 // JavaScript
-#fb-root
 script(async='' defer='' src='https://buttons.github.io/buttons.js')
 script(src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous')
 script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
