@@ -10,15 +10,18 @@ html.no-js(lang='en')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
         link(rel='stylesheet', href='css/shards.min.css')
+        link(rel='stylesheet', href='css/frost.css')
         link(rel='stylesheet', href='css/shards-demo.css?v=1.1.0')
         link(rel='shortcut icon', type='image/png', href='images/favico/favico.png')
         style(type='text/css').
             .message {
-                border-radius: 3px;
-                background-color: #d5fdd5;
+                border-radius: 10px;
+                /*background-color: #F8F8FF;*/
                 text-align: left;
                 padding: 50px;
                 width: 100%;
+                box-shadow: inset 0 0 100px 300px rgba(57, 57, 57, 0.6);
+                color: black;
             }
     body
         // Navbar
@@ -27,26 +30,27 @@ html.no-js(lang='en')
         // Page Content
         .text-center.mb-4
             br
-            div(style='background-color: yellow; padding: 25px;')
-                h5 To delete a message write in the adress bar:
-                br
-                h4(style='color: red;') .../peopleSayEdit/id
+            h2 People say about Dolni Drimkol...
         br
         div
             .container
+                .message(style="text-align: center; padding: auto;")
+                    .h3(style="font-weight: bold;") Instructions
+                    p(style="font-size: 20px; color: orange;") to delete add "/id" in the adress bar, example:
+                    p(style="font-size: 25px; color: orange;") http://80.211.7.75:3000/peopleSayEdit/4
                 each val in reply
                     .row.justify-content-md-center(style='padding: 20px;')
                         .message(style='padding: 20px;')
                             div
-                                h6(style='text-align: left;')
+                                h6.white(style='text-align: left;')
                                     strong #{val.nome}
-                                h6(style='text-align: left;')
+                                h6.white(style='text-align: left;')
                                     strong #{val.cognome}
-                                h6(style='text-align: left;')
+                                h6.white(style='text-align: left;')
                                     strong #{val.data}
-                                h5(style='border-bottom: 1px solid black; width: 100%; text-align: left; padding-bottom: 5px; color: red;')
-                                    strong id = #{val.id}
-                            h6
+                                h5(style='border-bottom: 1px solid orange; width: 100%; text-align: left; padding-bottom: 5px; color: orange;')
+                                    strong #{val.id}
+                            h6.white(style="width: 100%; overflow-wrap: break-word;")
                                 | #{val.message}
             br
             br
@@ -55,7 +59,7 @@ html.no-js(lang='en')
             div
                 br
                 br
-                p.text-muted.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%;') © Copyright 2018 — Aleksandar Gjoreski
+                p.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') © Copyright 2018 — Aleksandar Gjoreski
             // JavaScript
             #fb-root
             script(async='', defer='', src='https://buttons.github.io/buttons.js')

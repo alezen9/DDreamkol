@@ -41,6 +41,19 @@ var divNight = '<div class="welcome d-flex justify-content-center flex-column ni
                     <span></span>\
                     <span></span>\
                 </div>';
+    var leaves_small = '<div class="fallingLeaves">\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+                <span></span>\
+            </div>';
     var flower = '<div class="petal-wrapper fl1">\
                     <div class="petal"></div>\
                         <div class="petal"></div>\
@@ -76,7 +89,12 @@ var divNight = '<div class="welcome d-flex justify-content-center flex-column ni
         document.write(snow);
     }else if(month<12 && month>9){
         document.write(divAutumn)
-        document.write(leaves);
+        if(screen.width>813){
+            document.write(leaves);
+        }
+        else{
+            document.write(leaves_small);
+        }
     }else if(month<6 && month>3){
         document.write(divSpring)
         document.write(flower);

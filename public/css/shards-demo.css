@@ -76,6 +76,10 @@
 }
 
 @media (max-width: 575px) {
+  .shard{
+    width: 100px;
+    top: 200px;
+  }
   .welcome h1 {
     font-size: 5.90rem;
   }
