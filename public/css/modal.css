@@ -71,8 +71,15 @@
     text-transform: uppercase;
 }
 
-@media all and (max-width: 813){
+.sub{
+    width: 230px;
+}
+
+@media all and (max-width: 813px){
     .modalbox .box {
-        width: 80%;
+        min-width: 270px;
+    }
+    .sub{
+        width: 150px;
     }
 }
