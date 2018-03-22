@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>DDreamKol</title>
-    <meta name="description" content="Elegant website for storing data about some villages based on Bootstrap 4">
+    <meta name="description" content="This is Dolni Drimkol">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,15 +18,30 @@
     <link rel="stylesheet" href="css/flower.css">
     <link rel="stylesheet" href="css/home.css">
     <style>
+        .message{
+			border-radius: 10px;
+			/*background-color: #F8F8FF;*/
+			text-align: center;
+			padding: 50px;
+            width: 100%;
+            left: 50%;
+			box-shadow: inset 0 0 100px 300px rgba(	0, 0, 0,0.6);
+            color: white;
+			}
         @media all and (max-width: 580px){
             .shard{
                 width: 230px;
                 top: 70px;
             }
         }
+        @media all{
+            .page-content:before{
+                background: transparent;
+            }
+        }
     </style>
 </head>
-<body>
+<body class="background_all">
 <!-- loader-->
 <!--
 <div class="loader">
@@ -63,12 +78,13 @@
     </div>
 </div>
 <!-- Page Content-->
-<div class="page-content">
+<div class="mask"></div>
+<div class="page-content background_all">
     <!-- Content-->
     <div class="content clearfix">
-        <div id="introduction" class="container mb-5">
+        <div id="introduction" class="container mb-5" style="z-index: 3;">
             <div align="text-center" class="section-title col-lg-8 col-md-10 ml-auto mr-auto">
-                <p style="text-align: center;" class="lead">DDreamkol is a place where you can find pictures and hisotory information about villages of Dolni Drimkol. It's a database filled for the folk, by the folk and you can contribute too.</p>
+                <h5 style="text-align: center; color: black; padding-top: 40px;" class="lead">DDreamkol is a place where you can find pictures and hisotory information about villages of Dolni Drimkol. It's a database filled for the folk, by the folk and you can contribute too.</h5>
             </div>
         </div>
         <!--da qi iniziano i paesi-->
@@ -79,11 +95,15 @@
                     <script src="js/scripts/cards_home.js"></script>
                 </div>
             </div>
+            <!--footer-->
+            <script src="js/scripts/footer.js"></script>
+            <div><br/><br/>
+                <h5 style="position: relative; bottom: 0; width:100%; color: black;" class="text-center small p-0">© Copyright 2018 — Aleksandar Gjoreski</h5>
+            </div>
         </div>
     </div>
 </div>
-<!-- Footer-->
-<script src="js/scripts/footer.js"></script>
+
 <!-- JavaScript-->
 <div id="fb-root"></div>
 <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>

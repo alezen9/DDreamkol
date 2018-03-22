@@ -1,3 +1,21 @@
+        .background_all{
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: top;
+            background-image:url(../images/other/woods_transparent.png);
+            width: 100%;
+            height: 100%;
+        }
+        
+        .mask{
+            position: absolute;
+            height: 400px;
+            width: 100%;
+            z-index: 1;
+            background: linear-gradient(white, rgba(255,255,255, 0.01))
+        }
+
         #ale{
             filter:drop-shadow(8px 8px 10px gray);
             object-fit: cover;
