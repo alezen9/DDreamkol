@@ -1,4 +1,47 @@
-#ale{
+        p{font-size: 20px;}
+        .frost{
+          border-radius: 5px;
+          /*background-color: #F8F8FF;*/
+          padding: 20px;
+          width: 100%;
+          box-shadow: inset 0 0 100px 300px rgba(	57, 57, 57,0.6);
+          color: #ffae19;
+        }
+        .frost2{
+          border-radius: 5px;
+          /*background-color: #F8F8FF;*/
+          padding: 20px;
+          width: 100%;
+          box-shadow: inset 0 0 100px 300px rgba(173, 173, 173, 0.507);
+          color: black;
+          padding-bottom: 20px;
+          font-weight: 300;
+          overflow-wrap: break-word;
+        }
+        body{
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          background-position: top;
+          background-image:url(../images/other/apple_transparent_blurry.png);
+          width: 100%;
+          height: 100%; 
+        }
+        .tbl{
+          height: 100px;
+          width: 100%;
+          margin: auto;
+        }
+        /*
+        .line{
+          margin: auto;
+          width: 30%;
+          border-bottom: 2px solid orange;
+          margin-bottom: 30px;
+        }
+        */
+        
+        #ale{
           filter:drop-shadow(8px 8px 10px gray);
           object-fit: cover;
           border-radius: 2%;
@@ -35,10 +78,11 @@
         }
         .submenu {
           text-decoration: none;
-          color: #ccc;
+          color: #666;
           font: 15px/1 Helvetica, Verdana, sans-serif;
           text-transform: uppercase;
           -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
           margin: auto;
           padding: 10px;
         }
@@ -50,6 +94,18 @@
         .menu ul { display:inline-table; }
         .menu li { display:inline; }
 
-        .menu2 { text-align: center; }
+        
+        .menu2 { text-align: center; position: relative; left: -15px;}
         .menu2 ul { text-decoration: none;}
         .menu2 li { text-decoration: none; list-style: none;}
+        /*
+        .menu2 { width: 100%; overflow: hidden; text-align: center;}
+        .menu2 ul { text-decoration: none; list-style: none; position: relative; float: left; display: block; left: 50%; }
+        .menu2 li { text-decoration: none; list-style: none;}
+        .menu2 ul li { text-decoration: none; position: relative; float: left; display: block; right: 50%; }*/
+
+        @media all and (max-width: 400px){
+          p{font-size: 15px;}
+          h2{font-size: 25px;}
+          li{font-weight: 100;}
+        }
