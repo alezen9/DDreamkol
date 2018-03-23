@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0">
     <link rel="stylesheet" href="css/hpage.css">
     <link rel="shortcut icon" type="image/png" href="images/favico/favico.png">
-    <style type="text/css">
-      p{font-size: 20px;}
-    </style>
   </head>
   <body>
     <!-- Navbar-->
@@ -26,17 +23,17 @@
       <h1 style="padding-top: 30px; padding-bottom: 20px;">Drenok</h1>
       <div>
         <a href="/drenok_pic" style="height: 25px;">
-          <button style="border-radius: 8px;" type="button" href="/drenok_pic" class="btn btn-pill btn-outline-success"><i class="fa fa-image mr-1">&ensp;</i>&nbsp;&nbsp; See the pictures</button></a>
+          <button style="width: 230px;" type="button" href="/drenok_pic" class="btn btn-pill btn-success"><i class="fa fa-image mr-1">&ensp;</i>&nbsp;&nbsp; See the pictures</button></a>
         </div>
     </div>
     <!-- Page Content-->
-      <div id="cards" class="container mb-2" style="padding-bottom: 40px; padding-left: 40px; padding-right: 40px;">
+      <div class="container">
         <div>
           <details style="text-align: center;">
-            <summary class="btn btn-primary btn-pill">Click to open the map</summary>
+            <summary style="width: 230px;" class="btn btn-primary btn-pill">Click to open the map</summary>
             <br>
             <br>
-            <div style="border-radius: 2%">
+            <div style="border-radius: 5px;">
               <script type="text/javascript">
                 var x = screen.width;
                 if (x<813){
@@ -49,18 +46,18 @@
           </details>
           <br>
           <br>
-            <table class="table table-hover" style= "height: 100px; width: 60%; margin: auto;">
+            <table class="table table-hover tbl frost">
               <tbody>
                 <tr>
-                  <th scope="row" style="text-align: center; width: 50%;"><img src="https://png.icons8.com/ios/25/000000/height.png">&nbsp; Altitude</th>
-                  <td style="text-align: center;">~1080m</td>                  
+                  <th scope="row" style="text-align: center; width: 50%; border: none;"><img src="https://png.icons8.com/ios/25/ffae19/height.png">&nbsp; Altitude</th>
+                  <td style="text-align: center; border: none;">~1080m</td>                  
                 </tr>
                 <tr>
-                  <th scope="row" style="text-align: center;"><img src="https://png.icons8.com/ios/25/000000/crowd.png">&nbsp;&nbsp;Population</th>
+                  <th scope="row" style="text-align: center;"><img src="https://png.icons8.com/ios/25/ffae19/crowd.png">&nbsp;&nbsp;Population</th>
                   <td style="text-align: center;">~2 (2002)</td>                  
                 </tr>
                 <tr>
-                  <th scope="row" style="text-align: center;"><img src="https://png.icons8.com/ios/25/000000/mailbox-with-letter.png">&nbsp;&nbsp;Postal code</th>
+                  <th scope="row" style="text-align: center;"><img src="https://png.icons8.com/ios/25/ffae19/mailbox-with-letter.png">&nbsp;&nbsp;Postal code</th>
                   <td style="text-align: center;">6337</td>           
                 </tr>
               </tbody>
@@ -88,13 +85,13 @@
               }else{
                   var d = '<ul class="menu">\
                             <a href="#geo" style="text-decoration:none;">\
-                              <li class="submenu" style="border-right: 1px solid #ccc;">Geographical characteristichs</li>\
+                              <li class="submenu" style="border-right: 1px solid #666;">Geographical characteristichs</li>\
                             </a>\
                             <a href="#pop" style="text-decoration:none;">\
-                              <li class="submenu" style="border-right: 1px solid #ccc;">Population</li>\
+                              <li class="submenu" style="border-right: 1px solid #666;">Population</li>\
                             </a>\
                             <a href="#h" style="text-decoration:none;">\
-                              <li class="submenu" style="border-right: 1px solid #ccc;">Cultural-Historical features</li>\
+                              <li class="submenu" style="border-right: 1px solid #666;">Cultural-Historical features</li>\
                             </a>\
                             </a>\
                             <a href="#his" style="text-decoration:none;">\
@@ -105,20 +102,23 @@
               document.write(d);
             </script>
           </div>
-          <div class="container mb-2" style="padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 100px;">
-            <div id="geo" style="padding-bottom: 80px;">
+          <div class="container" style="padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 100px;">
+            <div id="geo" class="frost2" style="padding-bottom: 20px;">
               <h2 style="text-align: center;">Geographical characteristichs</h2><br>
               <p style="text-align:center;">N/A</p>
             </div>
-            <div id="pop" style="padding-bottom: 80px;">
+            <br><!--######################################################################################################################-->
+            <div id="pop" class="frost2" style="padding-bottom: 20px;">
               <h2 style="text-align: center;">Population</h2><br>
               <p style="text-align:center;">N/A</p>
             </div>
-            <div id="h" style="padding-bottom: 80px;">
+            <br><!--######################################################################################################################-->
+            <div id="h" class="frost2" style="padding-bottom: 20px;">
               <h2 style="text-align: center;">Cultural-Historical features</h2><br>
               <p style="text-align:center;">N/A</p>
             </div>
-            <div id="his" style="padding-bottom: 50px;">
+            <br><!--######################################################################################################################-->
+            <div id="his" class="frost2" style="padding-bottom: 20px;">
               <h2 style="text-align: center;">A bit of history</h2><br>
               <p style="text-align:center;">N/A</p>
             </div>
@@ -144,8 +144,8 @@
       </div>
       
       <!-- Footer-->
-      <div><br><br>
-        <p style="position: relative; bottom: 0; width:100%;" class="text-muted text-center small p-0 mb-4">© Copyright 2018 — Aleksandar Gjoreski</p>
+      <div><br/><br/>
+        <h5 style="position: relative; bottom: 0; width:100%; color: black;" class="text-center small p-0">© Copyright 2018 — Aleksandar Gjoreski</h5>
       </div>
     </div>
     <!-- JavaScript-->
