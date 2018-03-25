@@ -3,30 +3,40 @@ var footer = '\
                 <div class="text-center" style="padding-bottom: 70px;">\
                     <h3 class="text-white">Help us improve!</h3>\
                 </div>\
-                <div style="text-align: center; padding: auto; margin: auto;">\
+                <div style="text-align: center; margin: auto;">\
                     <div class="row">\
                     <!--credits-->\
-                    <a href="credits.html" class="btn btn-pill btn-primary mr-4" title="Attributions">\
-                        <img src="https://png.icons8.com/ios/15/ffffff/road-worker-filled.png">&ensp;\
-                        Attributions&ensp;\
-                    </a>\
+                    <div style="margin: 10px auto; padding: auto;">\
+                        <a href="credits.html" class="btn btn-pill btn-primary" title="Attributions">\
+                            <img src="https://png.icons8.com/ios/15/ffffff/road-worker-filled.png">&ensp;\
+                            Attributions&ensp;\
+                        </a>\
+                    </div>\
                     <!--feedback-->\
-                    <a href="https://goo.gl/forms/vFWb1KEqR7bV8g4H3" class="btn btn-pill btn-primary mr-4" title="Your feedback is important for us!">\
-                        <i class="fa fa-comment mr-1">&ensp;</i>\
-                        Your Feedback&ensp;\
-                    </a>\
+                    <div style="margin: 10px auto; padding: auto;">\
+                        <a href="https://goo.gl/forms/vFWb1KEqR7bV8g4H3" class="btn btn-pill btn-primary" title="Your feedback is important for us!">\
+                            <i class="fa fa-comment mr-1">&ensp;</i>\
+                            Your Feedback&ensp;\
+                        </a>\
+                    </div>\
                     <!--terms and conditions-->\
-                    <a href="tac.html" class="btn btn-pill btn-primary mr-4" title="Terms and conditions">\
-                        <img src="https://png.icons8.com/ios/15/ffffff/rules-filled.png">\
-                        &ensp;&ensp;Terms and conditions&ensp;\
-                    </a>\
+                    <div style="margin: 10px auto; padding: auto;">\
+                        <a href="tac.html" class="btn btn-pill btn-primary" title="Terms and conditions">\
+                            <img src="https://png.icons8.com/ios/15/ffffff/rules-filled.png">\
+                            &ensp;&ensp;Terms and conditions&ensp;\
+                        </a>\
+                    </div>\
                     <!--contacts-->\
-                    <button type="button" class="btn btn-pill btn-primary mr-4" data-toggle="tooltip" data-placement="top" title="something@else.com"><img src="https://png.icons8.com/ios/15/ffffff/secured-letter-filled.png">&ensp;&ensp;Contacts&ensp;</button>\
+                    <div style="margin: 10px auto; padding: auto;">\
+                        <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="something@else.com"><img src="https://png.icons8.com/ios/15/ffffff/secured-letter-filled.png">&ensp;&ensp;Contacts&ensp;</button>\
+                    </div>\
                     <!--share on facebook-->\
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://80.211.7.75:3000" class="btn btn-pill btn-primary mr-4" title="Share on Facebook">\
-                        <i class="fa fa-facebook mr-1"></i>\
-                        Share on Facebook\
-                    </a>\
+                    <div style="margin: 10px auto; padding: auto;">\
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://80.211.7.75:3000" class="btn btn-pill btn-primary" title="Share on Facebook">\
+                            <i class="fa fa-facebook mr-1"></i>\
+                            Share on Facebook\
+                        </a>\
+                    </div>\
                 </div>\
             </div>\
         </div>';
