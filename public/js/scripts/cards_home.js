@@ -61,8 +61,12 @@ var x = screen.width;
                                                         <h2 class="title"><a href="#">'+ paese[i] +'</a></h2>\
                                                     </div>\
                                                     <div style="text-align: center;">\
+                                                    <a href="'+ h_page[i] +'">\
                                                         <button style="width: 200px; margin: 15px;" type="button" href="'+ h_page[i] +'" class="btn btn-pill btn-primary"><img src="https://png.icons8.com/ios/20/ffffff/literature.png">&nbsp;&nbsp; Info</button>\
+                                                    </a>\
+                                                    <a href="'+ pic_page[i] +'">\
                                                         <button style="width: 200px; margin: 5px;" type="button" href="'+ pic_page[i] +'" class="btn btn-pill btn-primary"><img src="https://png.icons8.com/wired/20/ffffff/picture.png">&nbsp;&nbsp; Images</button>\
+                                                    </a>\
                                                     </div>\
                                                 </div>\
                                             </div>\
