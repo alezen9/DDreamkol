@@ -1,4 +1,4 @@
-
+/*
 @keyframes panoramic {
   0% {
     background-position-x: 25%;
@@ -10,6 +10,7 @@
     background-position-x: 25%;
   }
 }
+*/
 
 a {
   text-decoration: none;
@@ -74,6 +75,7 @@ h2 {
   background: url(../images/homepage/cover.jpg) center/cover no-repeat;
   width: 300px;
   border-radius: 10px;
+  /*
   background-position-x: 50%;
   animation-delay: 0s;
   animation-duration: 10s;
@@ -84,6 +86,7 @@ h2 {
   overflow: hidden;
   margin: 0 auto;
   will-change: background-position-x;
+  */
 }
 .paese .data {
   color: #fff;
