@@ -49,12 +49,10 @@
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    box-shadow:0 0 50px rgba(0,0,0,0.3);
 }
 /* back, initially hidden pane */
 .back {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
-    box-shadow:0 0 40px rgba(0,0,0,0.2);
 }

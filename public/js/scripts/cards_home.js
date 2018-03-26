@@ -36,22 +36,22 @@ var x = screen.width;
                                         <h' + n + ' style="color: white; filter:drop-shadow(8px 8px 10px black);">' + paese[i] + '</h' + n + '>\
                                       </div>\
                                     </div>\
-                                    <div class="back" style="border-radius: 10px;"><img id="ale" src="images/homepage/' + /*back[Math.floor(Math.random()*5)]*/ back[i] + '" width="' + w + '" height="' + h + '" style="filter:brightness(12%);">\
+                                    <div class="back" style="border-radius: 10px;"><img id="ale" src="images/homepage/' + /*back[Math.floor(Math.random()*5)]*/ back[i] + '" width="' + w + '" height="' + h + '" style="filter:brightness(25%);">\
                                       <div class="btn-block"  style="' + a + '">\
                                         <a href="' + h_page[i] + '">\
-                                          <button type="button" class="btn btn-pill btn-outline-primary al" href="' + h_page[i] + '"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>\
+                                          <button type="button" class="btn btn-pill btn-primary al" href="' + h_page[i] + '"><img src="https://png.icons8.com/ios/25/ffffff/literature.png">&nbsp;&nbsp; Info</button>\
                                         </a>\
                                         <br>\
                                         <br>\
                                         <a href="' + pic_page[i] + '">\
-                                          <button type="button" class="btn btn-pill btn-outline-primary al" href="'+ pic_page[i] + '"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>\
+                                          <button type="button" class="btn btn-pill btn-primary al" href="'+ pic_page[i] + '"><img src="https://png.icons8.com/wired/25/ffffff/picture.png">&nbsp;&nbsp; Images</button>\
                                         </a>\
                                       </div>\
                                     </div>\
                                   </div>\
                                 </div>';
 
-
+/*
                                 var card = '\
                                 <div class="paese card">\
                                         <div class="wrapper" style="background: url(../images/homepage/'+ cover[i] +') center/cover no-repeat;">\
@@ -73,5 +73,6 @@ var x = screen.width;
                                         </div>\
                                     </div>\
                                 ';
-                            document.write(card);
+                                */
+                            document.write(dad);
                         }
