@@ -248,7 +248,7 @@ router.get("/borovec_pic", (req, res) => {
       //console.log(file);
     }
     });
-  res.render("pic_page",{nome: 'Borovec',h_page: '/borovec_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Boroec',h_page: '/borovec_h',arr: list_pics});
   list_pics = [];
 });
 

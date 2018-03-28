@@ -31,6 +31,7 @@ var x = screen.width;
                             var dad = '\
                               <div class="flip-container">\
                                   <div class="flipper">\
+                                  <!--<img class="senka2" src="images/other/shadows_low.png" width ="'+ (w+80) +'" height="'+ (h-50) +'">-->\
                                     <div class="front" style="border-radius: 10px;"><img id="ale" src="images/homepage/' + cover[i] + '" width="' + w + '" height="' + h + '">\
                                       <div class="' + b + '">\
                                         <h' + n + ' style="color: white; filter:drop-shadow(8px 8px 10px black);">' + paese[i] + '</h' + n + '>\
