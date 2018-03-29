@@ -13,6 +13,9 @@ html.no-js(lang='en')
         link(rel='stylesheet', href='css/gallery.css')
         link(rel='stylesheet', href='css/shards-demo.css?v=1.1.0')
         link(rel='shortcut icon', type='image/png', href='images/favico/favico.png')
+        link(href='css/gallery/lity.css', rel='stylesheet')
+        script(src='js/gallery/jquery.js')
+        script(src='js/gallery/lity.min.js')
     body
         // Navbar
         div
@@ -29,10 +32,14 @@ html.no-js(lang='en')
         #cards.container.mb-2(style='padding-bottom: 1px')
             .example.col-md-12.ml-auto.mr-auto(style='width: 100%;')
                 .row
-                    each val in arr
+                    each val,index in arr
                         div(style='margin: auto; padding: 10px;')
-                            a(href=val, data-lightbox='roadtrip', data-title="Title of the picture here")
-                                img(src=val, class="resp", alt='Card image cap')
+                            if ((arrext[index] != '.mp4') && (arrext[index] != '.m4v'))
+                                a(href=val, data-lightbox='roadtrip', data-title="Title of the picture here")
+                                    img(src=val, class="resp", alt='Card image cap')
+                            else
+                                a(href=val, data-lity, data-lity-desc=val)
+                                    img(src='images/other/video.png', class="resp", alt='video')
             // Footer
             div
                 br

@@ -106,12 +106,14 @@ var in_path;
 var list_pics = [];
 var list_to_review = [];
 var list_files = [];
+var list_ext = [];
 //list invalid extension files
 var inv_files = [];
 //list to store checked images in v_manager
 var lista = [];
 //path used in v_manager 
 var public_path = path.join(lc + "/public/");
+var list_ext2 = [];
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
@@ -176,6 +178,7 @@ router.get("/1234v_manager", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/' + selo + '/img/' + file);
       //console.log(file);
+      list_ext2.push(path.extname(file));
     }
     });
     var testFolder3 = new_location + selo + '/to_review/';
@@ -183,6 +186,7 @@ router.get("/1234v_manager", (req, res) => {
     if(file != gitkeep){
       list_to_review.push('images/' + selo + '/to_review/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
     var testFolder2 = new_location + selo + '/h/';
@@ -192,11 +196,12 @@ router.get("/1234v_manager", (req, res) => {
         //console.log(file);
         }
       });
-  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arr_files: list_files, in_p: init_path});
+  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arr_files: list_files, in_p: init_path,arrext: list_ext2});
   list_pics = [];
   list_to_review = [];
   list_files = [];
   selo = "";
+  list_ext2 = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -206,11 +211,13 @@ router.get("/nerezi_pic", (req, res) => {
   fs.readdirSync(testFolder).forEach(file=>{
       if(file != gitkeep){
         list_pics.push('images/nerezi/img/' + file);
-        //console.log(file);
+        //console.log(path.extname(file));
+        list_ext.push(path.extname(file));
       }
     });
-  res.render("pic_page",{nome: 'Nerezi',h_page: '/nerezi_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Nerezi',h_page: '/nerezi_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route modric_pic page
@@ -220,10 +227,12 @@ router.get("/modric_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/modric/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Modric',h_page: '/modric_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Modric',h_page: '/modric_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route bezevo_pic page
@@ -233,10 +242,12 @@ router.get("/bezevo_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/bezevo/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Bezevo',h_page: '/bezevo_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Bezevo',h_page: '/bezevo_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route borovec_pic page
@@ -246,10 +257,12 @@ router.get("/borovec_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/borovec/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Boroec',h_page: '/borovec_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Boroec',h_page: '/borovec_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route d_lukovo_pic page
@@ -259,10 +272,12 @@ router.get("/d_lukovo_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/d_lukovo/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Dolno Lukovo',h_page: '/d_lukovo_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Dolno Lukovo',h_page: '/d_lukovo_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route g_lukovo_pic page
@@ -272,10 +287,12 @@ router.get("/g_lukovo_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/g_lukovo/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Gorno Lukovo',h_page: '/g_lukovo_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Gorno Lukovo',h_page: '/g_lukovo_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route drenok_pic page
@@ -285,10 +302,12 @@ router.get("/drenok_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/drenok/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Drenok',h_page: '/drenok_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Drenok',h_page: '/drenok_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route jablanica_pic page
@@ -298,10 +317,12 @@ router.get("/jablanica_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/jablanica/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Jablanica',h_page: '/jablanica_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Jablanica',h_page: '/jablanica_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route lakavica_pic page
@@ -311,10 +332,12 @@ router.get("/lakavica_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/lakavica/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Lakavica',h_page: '/lakavica_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Lakavica',h_page: '/lakavica_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 
 //route piskupshtina_pic page
@@ -324,10 +347,12 @@ router.get("/piskupshtina_pic", (req, res) => {
     if(file != gitkeep){
       list_pics.push('images/piskupshtina/img/' + file);
       //console.log(file);
+      list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Piskupshtina',h_page: '/piskupshtina_h',arr: list_pics});
+  res.render("pic_page",{nome: 'Piskupshtina',h_page: '/piskupshtina_h',arr: list_pics,arrext: list_ext});
   list_pics = [];
+  list_ext = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -404,7 +429,7 @@ router.post('/upload', function (req, res) {
         console.log('filebegin here');
         var fileType = path.extname(file.name);
         console.log(fileType);
-        if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
+        if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' )){
           right_loc = new_location + village + '/to_review';
           var exists = fs.existsSync(right_loc);
           if(exists){

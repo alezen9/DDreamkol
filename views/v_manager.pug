@@ -12,6 +12,9 @@ html.no-js(lang='en')
         link(rel='stylesheet', href='/css/shards.min.css')
         link(rel='stylesheet', href='/css/shards-demo.css?v=1.1.0')
         link(rel='shortcut icon', type='image/png', href='/images/favico/favico.png')
+        link(href='css/gallery/lity.css', rel='stylesheet')
+        script(src='js/gallery/jquery.js')
+        script(src='js/gallery/lity.min.js')
         style.
             img {
                 object-fit: cover;
@@ -68,7 +71,7 @@ html.no-js(lang='en')
                     br
                     form.checkbox(method='post', id='p_pub')
                         .row
-                            each val1 in arr_pics
+                            each val1,index in arr_pics
                                 div
                                     .checkbox(style='margin: auto; padding: 10px;')
                                         fieldset
@@ -76,9 +79,12 @@ html.no-js(lang='en')
                                                 input.custom-control-input(type='checkbox', name='p[]', value=val1)
                                                 span.custom-control-indicator
                                     div(style='margin: auto; padding: 10px;')
-                                        a(href=val1, data-lightbox='roadtrip')
-                                            div
+                                        if ((arrext[index] != '.mp4') && (arrext[index] != '.m4v'))
+                                            a(href=val1, data-lightbox='roadtrip', data-title=val1)
                                                 img(src=val1, alt='Card image cap', style='height: 100px; width: 100px')
+                                        else
+                                            a(href=val1, data-lity, data-lity-desc=val1)
+                                                img(src='images/other/video.png', alt='video', style='height: 100px; width: 100px')
                         .row.justify-content-md-center
                             .col-md-6.mb-3
                                 div(style='text-align: center;')
