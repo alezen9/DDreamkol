@@ -168,6 +168,28 @@ router.get("/update_init", (req, res) => {
 });
 
 
+//route manager
+router.get("/manager", (req, res) => {
+
+  var paesi = ["bezevo","borovec","drenok","d_lukovo","g_lukovo","jablanica","lakavica","modric","nerezi","piskupshtina"];
+  var indice;
+  var count = [];
+  var contatore = 0;
+  for(indice=0;indice<10;indice++){
+    var testFolder6 = new_location + paesi[indice] + '/to_review/';
+    fs.readdirSync(testFolder6).forEach(file=>{
+      if(file != gitkeep){
+        contatore++;
+      }
+    });
+    //console.log(paesi[indice] + ": " + contatore);
+    count[indice] = contatore;
+    contatore = 0;
+  }
+  res.render("manager",{array: count});
+  //res.sendFile(path.join(public_path + 'manager.html'));
+});
+
 //route v_manager page
 router.get("/1234v_manager", (req, res) => {
   
