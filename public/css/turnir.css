@@ -62,7 +62,7 @@
     .frost2{
       border-radius: 5px;
       /*background-color: #F8F8FF;*/
-      padding: 20px;
+      padding: 10px;
       width: 100%;
       box-shadow: inset 0 0 100px 300px rgba(173, 173, 173, 0.507);
       color: black;
@@ -139,25 +139,72 @@
     }
     .zoom:hover
     {
-        box-shadow: 0px 0px 30px #ccac00;
+        /*box-shadow: 0px 0px 30px #ccac00;*/
         z-index: 2;
         -webkit-transition: all 200ms ease-in;
-        -webkit-transform: scale(1.4);
+        -webkit-transform: scale(1.1);
         -ms-transition: all 200ms ease-in;
-        -ms-transform: scale(1.4);   
+        -ms-transform: scale(1.1);   
         -moz-transition: all 200ms ease-in;
-        -moz-transform: scale(1.4);
+        -moz-transform: scale(1.1);
         transition: all 200ms ease-in;
-        transform: scale(1.4);
-        border-radius: 5px;
+        transform: scale(1.1);
+        /*border-radius: 50%;*/
         z-index: 2;
-        background-color:  rgba(182, 185, 22, 0.521);
+        /*background-color:  rgba(182, 185, 22, 0.521);*/
     }
+    .zoom2
+    {
+        display:inline-block;
+        border:0;
+        width:500px;
+        position: relative;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(1); 
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(1); 
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1);
+        transition: all 200ms ease-in;
+        transform: scale(1);
+        margin: auto;
+        border-radius: 10px;  
+        object-fit: cover;
+        z-index: 1;
+
+    }
+    .zoom2:hover
+    {
+        /*box-shadow: 0px 0px 30px #ccac00;*/
+        z-index: 2;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(1.05);
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(1.05);   
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1.05);
+        transition: all 200ms ease-in;
+        transform: scale(1.05);
+        /*border-radius: 50%;*/
+        z-index: 2;
+        /*background-color:  rgba(182, 185, 22, 0.521);*/
+    }
+
+
     .bg{
       position: relative;
       height: 550px;
       background: linear-gradient(#212529, white);
       z-index: 0;
+    }
+    .bg1{
+      position: relative;
+      height: 550px;
+      background: transparent;
+      z-index: 0;
+      
+      transform: translateY(-30px);
+      transform: translateX(100px); 
     }
     .text-block {
             padding: 60px;

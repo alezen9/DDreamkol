@@ -16,75 +16,55 @@
     <link rel="stylesheet" href="css/player.css">
     <script src="js/player.js"></script>
     <link rel="stylesheet" href="css/tooltip.css">
-    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">-->
+    <link href="css/gallery/lity.css" rel="stylesheet">
+    <script src="js/gallery/jquery.js"></script>
+    <script src="js/gallery/lity.min.js"></script>
   </head>
   <body>
     <!-- Navbar-->
     <div id="navigationBar">
       <script src="js/scripts/navbar.js"></script>
-    </div>    
-    <div class="bg">
-      <br>
-      <h2 style="color: white; text-align: center;">Nerezi</h2>
-      <!-- Page Content-->
-        <!--==================================================================================================-->
-        <!--line up here-->
-        <div class="field">
-          <img class="foto" src="images/turnir/field2.png">
-          <div class="goalkeeper">
-            <span class="tool" data-tip="Nelcheski Bojan" tabindex="1" style="z-index: 4;">
-              <img id="p1" src="images/turnir/player.png">
-            </span>            
-          </div>
-          <div class="defence">
-            <span class="tool" data-tip="Bashoski Sashe" tabindex="1" style="z-index: 4;">
-              <img id="p2" src="images/turnir/player.png">
-            </span>            
-          </div>
-          <div class="defence" style="width: 78%;">
-            <span class="tool" data-tip="Karajovanoski Riste" tabindex="1" style="z-index: 4;">
-              <img id="p3" src="images/turnir/player.png">
-            </span>            
-          </div>
-          <div class="defence" style="width: 120%;">
-            <span class="tool" data-tip="Bajcheski Jovan" tabindex="1" style="z-index: 4;">
-              <img id="p4" src="images/turnir/player.png">
-            </span>            
-          </div>
-          <div class="central" style="width: 90%;">
-            <span class="tool" data-tip="Filkoski Teodor" tabindex="1" style="z-index: 4;">
-              <img id="p5" src="images/turnir/player.png">
-            </span>            
-          </div>
-          <div class="central" style="width: 110%;">
-            <span class="tool" data-tip="Gjoreski Naumche" tabindex="1" style="z-index: 4;">
-              <img id="p6" src="images/turnir/player.png">
-            </span>            
-          </div>
-          <div class="central-f" style="width: 73%;">
-            <span class="tool" data-tip="?" tabindex="1" style="z-index: 4;">
-              <img id="p7" src="images/turnir/player.png">
-            </span>            
-          </div>
-          <div class="central-f" style="width: 125%;">
-            <span class="tool" data-tip="Gjoreski Aleksandar" tabindex="1" style="z-index: 4;">
-              <img id="p8" src="images/turnir/player.png">
-            </span>           
-          </div>
-          <div class="striker">
-            <span class="tool" data-tip="Dalcheski Klime" tabindex="1" style="z-index: 4;">
-              <img id="p9" src="images/turnir/player.png">
-            </span>   
-          </div>
-        </div>
-      </div>
+    </div>
+    <br>
+      <h2 style="text-align: center;">Nerezi</h2>
 <!--==================================================================================================-->
-        <div id="cards" class="container mb-2" style="padding-bottom: 40px; padding-top: 70px;">
+        <div class="container" style="padding-bottom: 40px; padding-top: 40px;">
         <!--other content-->
+        <div class="row">
+          <a href="images/nerezi/team/2017.jpg" data-lightbox='roadtrip' data-title="2017 - Ratkushinoski Zoran, Bajcheski Jovan, Gjoreski Naumche, Bashoski Sashe, Alackoski Borce, Ratkushinoski Dushko, Karajovanoski Darko, Nelcheski Bojan, Bajcheski Bale, Karajovanoski Riste, Gjoreski Aleksandar">
+            <img class="zoom2" src="images/nerezi/team/2017.jpg">
+          </a>
+            <table class="table table-hover tbl frost" style="width: 400px;">
+                <tbody>
+                  <tr style="height:50px;">
+                    <th scope="row" style="padding-top: 15px; text-align: center; border-top: none;">Dolno Lukovo</th>
+                  </tr>
+                  <tr style="height:50px;">
+                    <th scope="row" style="padding-top: 15px; text-align: center;">Boroec</th>
+                  </tr>
+                  <tr style="height:50px;">
+                    <th scope="row" style="padding-top: 15px; text-align: center;">Jablanica</th>
+                  </tr>
+                  <tr style="height:50px;">
+                    <th scope="row" style="padding-top: 15px; text-align: center;">Bezevo</th>
+                  </tr>
+                  <tr style="height:50px;">
+                    <th scope="row" style="padding-top: 15px; text-align: center;">Drenok</th>
+                  </tr>
+                  <tr style="height:50px;">
+                    <th scope="row" style="padding-top: 15px; text-align: center;">Piskupshtina</th>
+                  </tr>
+                  <tr style="height:50px;">
+                    <th scope="row" style="padding-top: 15px; text-align: center;">Lakavica</th>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
         </div>
       <!-- Footer-->
-      <div><br><br>
-        <p style="position: relative; bottom: 0; width:100%;" class="text-muted text-center small p-0 mb-4">© Copyright 2018 — Aleksandar Gjoreski</p>
+      <div><br/><br/>
+        <h5 style="position: relative; bottom: 0; width:100%; color: black;" class="text-center small p-0">© Copyright 2018 — Aleksandar Gjoreski</h5>
       </div>
     <!-- JavaScript-->
     <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
@@ -93,7 +73,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="js/shards.min.js"></script>
     <script src="js/demo.min.js"></script>
-
     <script src="css/lightbox/js/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>

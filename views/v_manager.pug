@@ -37,7 +37,7 @@ html.no-js(lang='en')
                     br
                     form.checkbox(method='post', id='p_check')
                         .row
-                            each val in arr_rev
+                            each val,index in arr_rev
                                 div
                                     .checkbox
                                         fieldset
@@ -45,20 +45,23 @@ html.no-js(lang='en')
                                                 input.custom-control-input(type='checkbox', name='p[]', value=val)
                                                 span.custom-control-indicator
                                     div(style='margin: auto; padding: 10px;')
-                                        a(href=val, data-lightbox='roadtrip')
-                                            div
+                                        if ((arrext[index] != '.mp4') && (arrext[index] != '.m4v'))
+                                            a(href=val, data-lightbox='roadtrip', data-title=val1)
                                                 img(src=val, alt='Card image cap', style='height: 100px; width: 100px')
+                                        else
+                                            a(href=val, data-lity, data-lity-desc=val)
+                                                img(src='images/other/video.png', alt='video', style='height: 100px; width: 100px')
                         .row.justify-content-md-center
                             .col-md-6.mb-3
                                 div(style='text-align: center;')
                                     br
                                     br
                                     div(style='margin: auto; padding: 5px;')
-                                        button.btn.btn-pill.btn-danger(type='submit', name='sub', value='del', style='border-radius: 8px;')
+                                        button.btn.btn-pill.btn-danger(type='submit', name='sub', value='del', style='width: 230px;')
                                             i.fa.fa-close.mr-1
                                             |  Delete selected pictures
                                     div(style='margin: auto; padding: 5px;')
-                                        button.btn.btn-pill.btn-success(type='submit', name='sub', value='pub', style='border-radius: 8px;')
+                                        button.btn.btn-pill.btn-success(type='submit', name='sub', value='pub', style='width: 230px;')
                                             i.fa.fa-upload.mr-1
                                             |  Publish selected pictures
             br
@@ -90,7 +93,7 @@ html.no-js(lang='en')
                                 div(style='text-align: center;')
                                     br
                                     br
-                                    button.btn.btn-pill.btn-danger(type='submit', name='sub', value='del', style='border-radius: 8px;')
+                                    button.btn.btn-pill.btn-danger(type='submit', name='sub', value='del', style='width: 230px;')
                                         i.fa.fa-close.mr-1
                                         |  Delete selected pictures
             br

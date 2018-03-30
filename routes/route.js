@@ -442,20 +442,7 @@ router.post('/upload', function (req, res) {
             fsExtra.mkdir(right_loc);
             file.path = path.join(right_loc + '/' + uniqid() + fileType);
           }
-        }else if(fileType == '.pdf' ){
-          right_loc = new_location + village + '/h';
-          var exists2 = fs.existsSync(right_loc);
-          if(exists2){
-            console.log('folder exists!');
-          //rename the incoming file to the file's name
-          file.path = path.join(right_loc + '/' + uniqid() + fileType);
-          }else{
-            console.log('folder does not exists');
-            console.log('making that directory');
-            fsExtra.mkdir(right_loc);
-            file.path = right_loc + '/' + uniqid() + fileType;
-          }
-      }else{
+        }else{
         var exists3 = fs.existsSync(invalid_up_loc);
           if(exists3){
             console.log('folder exists!');
