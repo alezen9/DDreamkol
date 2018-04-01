@@ -117,16 +117,25 @@ var public_path = path.join(lc + "/public/");
 var list_ext2 = [];
 
 
+var toDelete = [];
+
 function converti(fileLocation){
   hbjs.spawn({ input: path.join(fileLocation), output: path.join(fileLocation + '.mp4') })
+  .on('begin', begin =>{
+    console.log("conversione iniziata");
+  })
   .on('error', err => {
     // invalid user input, no video found etc
     console.log("error converting " + err);
   })
   .on('progress', progress => {
-    if((progress.percentComplete == '20') || (progress.percentComplete == '50') || (progress.percentComplete == '80') || (progress.percentComplete == '100')){
-      console.log('file: %s',progress.percentComplete)
-    };
+      console.log('converting file: %s',progress.percentComplete)
+      if(progress.percentComplete == 100){
+      }
+  })
+  .on('end', end =>{
+    console.log("conversione finita");
+    fs.unlinkSync(fileLocation);
   })
 };
 
@@ -476,18 +485,14 @@ router.post('/upload', function (req, res) {
             console.log('folder exists!');
           //rename the incoming file to the file's name
             file.path = path.join(right_loc + '/' + uniqid() + fileType);
-            if((fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
-              converti(file.path);
-            }
+
           }else{
             console.log('folder does not exists');
             console.log('making that directory');
             fsExtra.mkdir(right_loc);
             file.path = path.join(right_loc + '/' + uniqid() + fileType);
-            var copia = file.path;
-            if((fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
-              converti(file.path);
-            }
+
+
           }
         }else{
         var exists3 = fs.existsSync(invalid_up_loc);
@@ -515,17 +520,30 @@ router.post('/upload', function (req, res) {
               }
               });
             }
-      var testFolder = path.join(right_loc + '/');
-      fs.readdirSync(testFolder).forEach(file=>{
+      var testFolder8 = path.join(right_loc + '/');
+      fs.readdirSync(testFolder8).forEach(file=>{
         if((file != gitkeep) && ((path.extname(file) == '.MOV' ) || (path.extname(file) == '.mov' ) || (path.extname(file) == '.mpeg' ) || (path.extname(file) == '.mpg' ) || (path.extname(file) == '.mkv' ) || (path.extname(file) == '.avi' ))){
           var filePath = path.join(right_loc  + '/' + file);
-          fs.unlinkSync(filePath);
-          console.log('removed video copy: ' + file + ' with extension: ' + path.extname(file));
+          console.log("filePath: " + filePath);
+          converti(filePath);
+          //console.log("video convertito");
+          //fsExtra.moveSync(path.join(filePath + ".mp4"), path.join(new_location + village + "/img/" + uniqid() + ".mp4"));
+          //fs.unlinkSync(filePath);
+          //console.log('removed video copy: ' + file + ' with extension: ' + path.extname(file));
         }
       });
             console.log("success!");
             res.redirect('/upload_succ');            
         });
+        /*
+    if(toDelete.length != 0){
+      toDelete.forEach(function(element) {
+        fs.unlinkSync(element);
+        console.log('removed original video');
+      });
+    }
+    toDelete = [];
+    */
 });
 //---------------------------------------------------------------------------------------------------------------------------------------
 //handling people say page form
