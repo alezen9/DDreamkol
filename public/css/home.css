@@ -4,18 +4,11 @@
             background-size: cover;
             background-position: top;
             background-image:url(../images/other/apple_transparent_blurry.png);
+
             width: 100%;
             height: 100%;
         }
         
-        .mask{
-            position: absolute;
-            height: 200px;
-            width: 100%;
-            z-index: 1;
-            background: linear-gradient(white, rgba(255,255,255, 0.01))
-        }
-
         #ale{
             filter:drop-shadow(8px 8px 10px gray);
             object-fit: cover;
@@ -63,19 +56,19 @@
         }
         .day-sky{
             z-index: 1;
-            background: linear-gradient(#87CEFA, white);
+            background: linear-gradient(rgb(135, 206, 250), rgba(255, 255, 255, 0));
         }
         .night-sky{
             z-index: 1;
-            background: linear-gradient(#212529, white);
+            background: linear-gradient(#212529, rgba(255, 255, 255, 0));
         }
         .autumn{
             z-index: 1;
-            background: linear-gradient(#cc8400 15%, yellow 80%, white 100%);
+            background: linear-gradient(#cc8500ce 15%, rgba(255, 255, 0, 0.281) 50%, rgba(255, 255, 255, 0) 100%);
         }
         .spring{
             z-index: 1;
-            background: linear-gradient(#87CEFA, white);
+            background: linear-gradient(rgba(135, 206, 250, 0.925), rgba(255, 255, 255, 0));
         }
         .fl1{
             margin-left: 55%;
