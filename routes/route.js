@@ -136,6 +136,7 @@ function converti(fileLocation){
   .on('end', end =>{
     console.log("conversione finita");
     fs.unlinkSync(fileLocation);
+    console.log("original deleted");
   })
 };
 
