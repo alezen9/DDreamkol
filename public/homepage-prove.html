@@ -10,15 +10,17 @@
     <link rel="stylesheet" href="css/shards.min.css" type="text/css">
     <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0" type="text/css">
     <link rel="shortcut icon" type="image/png" href="images/favico/favicon.ico">
-    <link rel="stylesheet" media="screen and (min-width: 813px)"  href="css/flip.css">
-    <link rel="stylesheet" media="screen and (max-width: 812px)" href="css/flip_small.css">
+    <!--<link rel="stylesheet" media="screen and (min-width: 813px)"  href="css/flip.css">
+    <link rel="stylesheet" media="screen and (max-width: 812px)" href="css/flip_small.css">-->
     <link rel="stylesheet" href="css/sun.css">
     <link rel="stylesheet" href="css/snow.css">
     <link rel="stylesheet" href="css/leaves.css">
     <link rel="stylesheet" href="css/flower.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/shadows.css">
-    <!--<link rel="stylesheet" href="css/cards2.css">-->
+    <link rel="stylesheet" href="css/news_home.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/cards3d.css">
     <style>
         .message{
 			border-radius: 10px;
@@ -84,13 +86,25 @@
             </div>
         </div>
         <!--da qi iniziano i paesi-->
-        <div id="cards" class="container mb-2" style="padding-bottom: 1px">
-            <div class="example col-md-12 ml-auto mr-auto">
-                <div class="row">
-                    <!--paesi=====================================================================================================================================-->
-                    <script src="js/scripts/cards_home.js"></script>
-                </div>
-            </div>
+        <div id="cards" class="container mb-2" style="padding-bottom: 1px"></div>
+            <div id="app" class="container">
+                <card data-image="https://images.unsplash.com/photo-1479660656269-197ebb83b540?dpr=2&auto=compress,format&fit=crop&w=1199&h=798&q=80&cs=tinysrgb&crop=">
+                  <h1 slot="header">Canyons</h1>
+                  <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </card>
+                <card data-image="https://images.unsplash.com/photo-1479659929431-4342107adfc1?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=">
+                  <h1 slot="header">Beaches</h1>
+                  <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </card>
+                <card data-image="https://images.unsplash.com/photo-1479644025832-60dabb8be2a1?dpr=2&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=">
+                  <h1 slot="header">Trees</h1>
+                  <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </card>
+                <card data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=">
+                  <h1 slot="header">Lakes</h1>
+                  <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </card>
+              </div>
             <!--footer-->
             <script src="js/scripts/footer.js"></script>
             <div><br/><br/>
@@ -108,5 +122,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script src="js/shards.min.js"></script>
 <script src="js/demo.min.js"></script>
+<script src="js/scripts/cards3d.js"></script>
 </body>
 </html>

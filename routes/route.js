@@ -5,6 +5,7 @@ var fs = require('fs');
 var formidable = require('formidable');
 var pug = require('pug');
 var util = require('util');
+const hbjs = require('handbrake-js');
 var fsExtra  = require('fs-extra');
 var uniqid = require('uniqid');
 var bodyParser = require('body-parser');
@@ -114,15 +115,27 @@ var lista = [];
 //path used in v_manager 
 var public_path = path.join(lc + "/public/");
 var list_ext2 = [];
+
+
+function converti(fileLocation){
+  hbjs.spawn({ input: path.join(fileLocation), output: path.join(fileLocation + '.mp4') })
+  .on('error', err => {
+    // invalid user input, no video found etc
+    console.log("error converting " + err);
+  })
+  .on('progress', progress => {
+    if((progress.percentComplete == '20') || (progress.percentComplete == '50') || (progress.percentComplete == '80') || (progress.percentComplete == '100')){
+      console.log('file: %s',progress.percentComplete)
+    };
+  })
+};
+
+
+
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
 router.get("/", (req, res) => {
-   // res.render("homepage");
-   //var date1 = new Date();
-  //var month1 = date1.getMonth();
-  //console.log(month1);
-  //console.log(date1);
    res.sendFile(path.join(public_path + 'homepage.html'));
 });
 
@@ -456,18 +469,25 @@ router.post('/upload', function (req, res) {
         console.log('filebegin here');
         var fileType = path.extname(file.name);
         console.log(fileType);
-        if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' )){
+        if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
           right_loc = new_location + village + '/to_review';
           var exists = fs.existsSync(right_loc);
           if(exists){
             console.log('folder exists!');
           //rename the incoming file to the file's name
             file.path = path.join(right_loc + '/' + uniqid() + fileType);
+            if((fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
+              converti(file.path);
+            }
           }else{
             console.log('folder does not exists');
             console.log('making that directory');
             fsExtra.mkdir(right_loc);
             file.path = path.join(right_loc + '/' + uniqid() + fileType);
+            var copia = file.path;
+            if((fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
+              converti(file.path);
+            }
           }
         }else{
         var exists3 = fs.existsSync(invalid_up_loc);
@@ -495,6 +515,14 @@ router.post('/upload', function (req, res) {
               }
               });
             }
+      var testFolder = path.join(right_loc + '/');
+      fs.readdirSync(testFolder).forEach(file=>{
+        if((file != gitkeep) && ((path.extname(file) == '.MOV' ) || (path.extname(file) == '.mov' ) || (path.extname(file) == '.mpeg' ) || (path.extname(file) == '.mpg' ) || (path.extname(file) == '.mkv' ) || (path.extname(file) == '.avi' ))){
+          var filePath = path.join(right_loc  + '/' + file);
+          fs.unlinkSync(filePath);
+          console.log('removed video copy: ' + file + ' with extension: ' + path.extname(file));
+        }
+      });
             console.log("success!");
             res.redirect('/upload_succ');            
         });

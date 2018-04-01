@@ -41,7 +41,7 @@
 }
 #rings div:nth-child(1){
 	animation-duration: 45s;
-	backgrond: rgba(255, 230, 84, 0.5);
+	background: rgba(255, 230, 84, 0.5);
 	width: 200px;
 	height: 200px;
 	margin: -100px 0 0 -100px;
@@ -93,7 +93,7 @@
 		-ms-transform: rotate(360deg);
 	}
 }
-@-o-keygrames rotateR{
+@-o-keyframes rotateR{
 	from{
 		-o-transform: rotate(0deg);
 	}
