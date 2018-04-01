@@ -1,6 +1,6 @@
 var date = new Date();
-var month = date.getMonth();
-//var month = 4;
+//var month = date.getMonth();
+var month = 4;
 //0=january-11=december
     
     var divNight = '<div class="welcome d-flex justify-content-center flex-column night-sky">';
