@@ -119,6 +119,10 @@ var list_ext2 = [];
 //route homepage
 router.get("/", (req, res) => {
    // res.render("homepage");
+   //var date1 = new Date();
+  //var month1 = date1.getMonth();
+  //console.log(month1);
+  //console.log(date1);
    res.sendFile(path.join(public_path + 'homepage.html'));
 });
 
@@ -218,12 +222,13 @@ router.get("/1234v_manager", (req, res) => {
         //console.log(file);
         }
       });
-  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arr_files: list_files, in_p: init_path,arrext: list_ext2});
+  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arr_files: list_files, in_p: init_path,arrext: list_ext2,arrext2: list_ext});
   list_pics = [];
   list_to_review = [];
   list_files = [];
   selo = "";
   list_ext2 = [];
+  list_ext = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------

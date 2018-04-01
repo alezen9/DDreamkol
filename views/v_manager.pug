@@ -37,7 +37,7 @@ html.no-js(lang='en')
                     br
                     form.checkbox(method='post', id='p_check')
                         .row
-                            each val,index in arr_rev
+                            each val,index2 in arr_rev
                                 div
                                     .checkbox
                                         fieldset
@@ -45,8 +45,8 @@ html.no-js(lang='en')
                                                 input.custom-control-input(type='checkbox', name='p[]', value=val)
                                                 span.custom-control-indicator
                                     div(style='margin: auto; padding: 10px;')
-                                        if ((arrext[index] != '.mp4') && (arrext[index] != '.m4v'))
-                                            a(href=val, data-lightbox='roadtrip', data-title=val1)
+                                        if ((arrext2[index2] != '.mp4') && (arrext2[index2] != '.m4v'))
+                                            a(href=val, data-lightbox='roadtrip', data-title=val)
                                                 img(src=val, alt='Card image cap', style='height: 100px; width: 100px')
                                         else
                                             a(href=val, data-lity, data-lity-desc=val)

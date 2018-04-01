@@ -1,4 +1,9 @@
-var divNight = '<div class="welcome d-flex justify-content-center flex-column night-sky">';
+var date = new Date();
+var month = date.getMonth();
+//var month = 4;
+//0=january-11=december
+    
+    var divNight = '<div class="welcome d-flex justify-content-center flex-column night-sky">';
     var divDay = '<div class="welcome d-flex justify-content-center flex-column day-sky">';
     var divAutumn = '<div class="welcome d-flex justify-content-center flex-column autumn">';
     var divSpring = '<div class="welcome d-flex justify-content-center flex-column spring">';
