@@ -102,7 +102,7 @@ var month = 4;
         }
     }else if(month<6 && month>3){
         document.write(divSpring)
-        document.write(flower);
+        //document.write(flower);
     }else{
         document.write(divDay)
         document.write(sun);

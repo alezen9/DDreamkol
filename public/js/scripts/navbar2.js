@@ -8,11 +8,11 @@ var navbar2 = '\
 	        </button>\
 	        <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown-2">\
 	            <ul class="navbar-nav mr-auto">\
-					<li class="nav-item">\
+					<!--<li class="nav-item">\
 						<a class="nav-link" href="/">Home\
 							<span class="sr-only">(current)</span>\
 						</a>\
-					</li>\
+					</li>-->\
 					<li class="nav-item">\
 	                    <a class="nav-link" href="tournament.html">Tournament\
 	                        <span class="sr-only">(current)</span>\
