@@ -58,14 +58,14 @@ function splitString(stringToSplit, separator) {
   //console.log('The original string is: "' + stringToSplit + '"');
   //console.log('The separator is: "' + separator + '"');
   //console.log('The array has ' + arrayOfStrings.length + ' elements: ');
-  console.log(arrayOfStrings);
+  //console.log(arrayOfStrings);
   if(arrayOfStrings.length == 1){
     //console.log(arrayOfStrings[0]);
     b = arrayOfStrings[0].substring(2);
     b = b.slice(0, -2);
     //console.log(b);
     arr.push(b);
-    console.log("b pushed into array: " + b);
+    //console.log("b pushed into array: " + b);
   }else{  
     for(var i=0;i<arrayOfStrings.length;i++){
       if(i==0){
@@ -75,19 +75,19 @@ function splitString(stringToSplit, separator) {
         //console.log(b);
         b = b.slice(0,-1);
         arr.push(b);
-        console.log("b pushed into array: " + b);
+        //console.log("b pushed into array: " + b);
       }else if(i==arrayOfStrings.length-1){
         //console.log(arrayOfStrings[i]);
         b = arrayOfStrings[i].substring(1);
         b = b.slice(0, -2);
         //console.log(b);
         arr.push(b);
-        console.log("b pushed into array: " + b);
+        //console.log("b pushed into array: " + b);
       }else{
         b = arrayOfStrings[i].substring(1);
         b = b.slice(0, -1);
         arr.push(b);
-        console.log("b pushed into array: " + b);
+        //console.log("b pushed into array: " + b);
       }
     }
   }
@@ -115,9 +115,8 @@ var lista = [];
 //path used in v_manager 
 var public_path = path.join(lc + "/public/");
 var list_ext2 = [];
-
-
 var toDelete = [];
+
 
 function converti(fileLocation){
   hbjs.spawn({ input: path.join(fileLocation), output: path.join(fileLocation + '.mp4') })
@@ -459,7 +458,7 @@ router.get("/piskupshtina_h", (req, res) => {
 //handling upload page form
 router.post('/upload', function (req, res) {
   var form = new formidable.IncomingForm();
-
+  var siFile = true;
   form.parse(req, function (err, fields, files){
     console.log('trying to upload');
     console.log('upload recived');
@@ -477,62 +476,72 @@ router.post('/upload', function (req, res) {
         console.log('filebegin here');
         var fileType = path.extname(file.name);
         console.log(fileType);
-        if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
-          right_loc = new_location + village + '/to_review';
-          var exists = fs.existsSync(right_loc);
-          if(exists){
-            console.log('folder exists!');
-          //rename the incoming file to the file's name
-            file.path = path.join(right_loc + '/' + uniqid() + fileType);
+        if(fileType == ""){
+          console.log("NO FILE");
+          siFile = false;
+        }
+        if(siFile){
+          if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
+            right_loc = new_location + village + '/to_review';
+            var exists = fs.existsSync(right_loc);
+            if(exists){
+              console.log('folder exists!');
+            //rename the incoming file to the file's name
+              file.path = path.join(right_loc + '/' + uniqid() + fileType);
 
+            }else{
+              console.log('folder does not exists');
+              console.log('making that directory');
+              fsExtra.mkdir(right_loc);
+              file.path = path.join(right_loc + '/' + uniqid() + fileType);
+            }
           }else{
-            console.log('folder does not exists');
-            console.log('making that directory');
-            fsExtra.mkdir(right_loc);
-            file.path = path.join(right_loc + '/' + uniqid() + fileType);
-
-
-          }
-        }else{
-        var exists3 = fs.existsSync(invalid_up_loc);
-          if(exists3){
-            console.log('folder exists!');
-            file.path = invalid_up_loc + '/' + uniqid() + fileType;
-          }else{
-            console.log('folder does not exists');
-            console.log('making that directory');
-            fsExtra.mkdir(invalid_up_loc);
-            file.path = invalid_up_loc + '/' + uniqid() + fileType;
-          }
+          var exists3 = fs.existsSync(invalid_up_loc);
+            if(exists3){
+              console.log('folder exists!');
+              file.path = invalid_up_loc + '/' + uniqid() + fileType;
+            }else{
+              console.log('folder does not exists');
+              console.log('making that directory');
+              fsExtra.mkdir(invalid_up_loc);
+              file.path = invalid_up_loc + '/' + uniqid() + fileType;
+            }
+        }
       }
 });
 
   form.on('end', function(fields, files) {
-    var exists4 = fs.existsSync(invalid_up_loc);
-      if(exists4){
-            var testFolder = path.join(invalid_up_loc + '/');
-            fs.readdirSync(testFolder).forEach(file=>{
-              if(file != gitkeep){
-              var filePath = path.join(invalid_up_loc  + '/' + file);
-              fs.unlinkSync(filePath);
-                console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
+    if(siFile){
+      var exists4 = fs.existsSync(invalid_up_loc);
+        if(exists4){
+              var testFolder = path.join(invalid_up_loc + '/');
+              fs.readdirSync(testFolder).forEach(file=>{
+                if(file != gitkeep){
+                var filePath = path.join(invalid_up_loc  + '/' + file);
+                fs.unlinkSync(filePath);
+                  console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
+                }
+                });
               }
-              });
-            }
-      var testFolder8 = path.join(right_loc + '/');
-      fs.readdirSync(testFolder8).forEach(file=>{
-        if((file != gitkeep) && ((path.extname(file) == '.MOV' ) || (path.extname(file) == '.mov' ) || (path.extname(file) == '.mpeg' ) || (path.extname(file) == '.mpg' ) || (path.extname(file) == '.mkv' ) || (path.extname(file) == '.avi' ))){
-          var filePath = path.join(right_loc  + '/' + file);
-          console.log("filePath: " + filePath);
-          converti(filePath);
-          //console.log("video convertito");
-          //fsExtra.moveSync(path.join(filePath + ".mp4"), path.join(new_location + village + "/img/" + uniqid() + ".mp4"));
-          //fs.unlinkSync(filePath);
-          //console.log('removed video copy: ' + file + ' with extension: ' + path.extname(file));
-        }
-      });
-            console.log("success!");
-            res.redirect('/upload_succ');            
+        var testFolder8 = path.join(right_loc + '/');
+        fs.readdirSync(testFolder8).forEach(file=>{
+          if((file != gitkeep) && ((path.extname(file) == '.MOV' ) || (path.extname(file) == '.mov' ) || (path.extname(file) == '.mpeg' ) || (path.extname(file) == '.mpg' ) || (path.extname(file) == '.mkv' ) || (path.extname(file) == '.avi' ))){
+            var filePath = path.join(right_loc  + '/' + file);
+            //console.log("filePath: " + filePath);
+            converti(filePath);
+            //console.log("video convertito");
+            //fsExtra.moveSync(path.join(filePath + ".mp4"), path.join(new_location + village + "/img/" + uniqid() + ".mp4"));
+            //fs.unlinkSync(filePath);
+            //console.log('removed video copy: ' + file + ' with extension: ' + path.extname(file));
+          }
+        });
+        console.log("success!");
+        res.redirect('/upload_succ');
+      }
+      else{
+        console.log("no files to be uploaded");
+        res.redirect('/');
+      }        
         });
         /*
     if(toDelete.length != 0){
@@ -640,25 +649,25 @@ router.post("/update_init", (req, res) => {
 //handling manager page form
 router.post('/1234v_manager', function (req, res) {
   var decision = req.body.sub;
-  console.log(req.body.sub);
+  console.log("decision: " + req.body.sub);
   lista = req.body.p;
   //console.log("lista: " + lista);
   var a = JSON.stringify(lista);
-  console.log("a = " + JSON.stringify(lista));
+  //console.log("a = " + JSON.stringify(lista));
   var l;
   var comma = ',';
   l = splitString(a,comma);
-  console.log("array l: " + l);
-  console.log("array l has " + l.length + " elements");
+  //console.log("array l: " + l);
+  //console.log("array l has " + l.length + " elements");
   if(decision == 'pub'){
     for(var j=0;j<l.length;j++){
       var da = path.join(public_path + l[j]);
-      console.log("before: " + da);
+      //console.log("before: " + da);
       var a = da.replace(/to_review/gi, "img");
-      console.log("after: " + a);
-      console.log("ready to move: " + da);
+      //console.log("after: " + a);
+      //console.log("ready to move: " + da);
       fsExtra.moveSync(da, a);
-      console.log("file moved");
+      console.log("file published");
     }
   }else if(decision == 'del'){
     for(var j=0;j<l.length;j++){

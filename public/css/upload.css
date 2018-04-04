@@ -1,0 +1,64 @@
+  .twoToneButton {
+    display: inline-block;
+    outline: none;
+    padding: 10px 20px;
+    line-height: 1.4;
+    position: relative;
+    -webkit-transition: padding-right 0.3s ease;
+    transition: padding-right 0.3s ease;
+    font-weight: 700;
+  }
+  
+  .twoToneButton.spinning {
+    padding-right: 40px;
+  }
+  .twoToneButton.spinning:after {
+    content: '';
+    right: 6px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-radius: 50%;
+    -webkit-animation: rotate360 .5s infinite linear, exist .1s forwards ease;
+            animation: rotate360 .5s infinite linear, exist .1s forwards ease;
+  }
+  .twoToneButton.spinning:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    right: 6px;
+    top: 50%;
+    position: absolute;
+    border: 2px solid #ffffff;
+    border-right: 3px solid #000000;
+    -webkit-animation: rotate360 .5s infinite linear, exist .1s forwards ease ;
+            animation: rotate360 .5s infinite linear, exist .1s forwards ease ;
+  }
+  @-webkit-keyframes rotate360 {
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate360 {
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes exist {
+    100% {
+      width: 15px;
+      height: 15px;
+      margin: -8px 5px 0 0;
+    }
+  }
+  @keyframes exist {
+    100% {
+      width: 15px;
+      height: 15px;
+      margin: -8px 5px 0 0;
+    }
+  }
