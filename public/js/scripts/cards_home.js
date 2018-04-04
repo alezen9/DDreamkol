@@ -24,7 +24,6 @@ var x = screen.width;
                         var cover = ['cover.jpg','cover.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','lakavica.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
                         var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
                         var h_page =  ['info_bezevo.html','info_borovec.html','info_drenok.html','info_d_lukovo.html','info_g_lukovo.html','info_jablanica.html','info_lakavica.html','info_modric.html','info_nerezi.html','info_piskupshtina.html'];
-                        //var back = ['back.jpeg','back2.jpg','back3.jpg','back4.jpg','back6.jpg'];
                         var back = ['cover.jpg','cover.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','lakavica.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
                         var i;
                         for(i = 0;i<10;i++){
@@ -51,29 +50,5 @@ var x = screen.width;
                                     </div>\
                                   </div>\
                                 </div>';
-
-/*
-                                var card = '\
-                                <div class="paese card">\
-                                        <div class="wrapper" style="background: url(../images/homepage/'+ cover[i] +') center/cover no-repeat;">\
-                                            <div class="data">\
-                                                <div class="content">\
-                                                    <div style="text-align: center;">\
-                                                        <h2 class="title"><a href="#">'+ paese[i] +'</a></h2>\
-                                                    </div>\
-                                                    <div style="text-align: center;">\
-                                                    <a href="'+ h_page[i] +'">\
-                                                        <button style="width: 200px; margin: 15px;" type="button" href="'+ h_page[i] +'" class="btn btn-pill btn-primary"><img src="https://png.icons8.com/ios/20/ffffff/literature.png">&nbsp;&nbsp; Info</button>\
-                                                    </a>\
-                                                    <a href="'+ pic_page[i] +'">\
-                                                        <button style="width: 200px; margin: 5px;" type="button" href="'+ pic_page[i] +'" class="btn btn-pill btn-primary"><img src="https://png.icons8.com/wired/20/ffffff/picture.png">&nbsp;&nbsp; Images</button>\
-                                                    </a>\
-                                                    </div>\
-                                                </div>\
-                                            </div>\
-                                        </div>\
-                                    </div>\
-                                ';
-                                */
                             document.write(dad);
                         }
