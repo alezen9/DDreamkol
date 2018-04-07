@@ -15,7 +15,7 @@ head
     link(rel='stylesheet' href='/css/shards-demo.css?v=1.1.0')
     link(rel='shortcut icon' type='/image/png' href='/images/favico/favico.png')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-    script(src='/js/scripts/upload.js')
+    //script(src='/js/scripts/upload.js')
     style.
         .message {
             border-radius: 10px;
@@ -88,7 +88,7 @@ body(style="background-image:url(../images/other/sunrise_transparent_blurry.png)
                     h5.rwhite I want to contribuite to this village:
                 form.was-validated(method='post' enctype='multipart/form-data')
                     label.rwhite(for='form-2-first-name') Village:
-                    select#form-3-select.custom-select.w-100(name='village' required='' style="opacity: 0.95; border-color: white; background-color: white; color: black;")
+                    select#form-3-select.custom-select.w-100(name='village', required, style="opacity: 0.95; border-color: white; background-color: white; color: black;")
                         option(value='nerezi') Nerezi
                         option(value='d_lukovo') Dolno Lukovo
                         option(value='g_lukovo') Gorno Lukovo
@@ -103,12 +103,13 @@ body(style="background-image:url(../images/other/sunrise_transparent_blurry.png)
                     br
                     label.rwhite(for='form-file-4') Picture/s - Video/s
                     label.custom-file.w-100
-                        input.user-message(type='file' name='file' multiple='multiple' required='')
+                        input.user-message(type='file', name='file', multiple='multiple', required)
                         span.custom-file-control
                     div(style='text-align: center;')
                         br
                         br
-                        button.btn.btn-pill.btn-success.sub.twoToneButton( type='submit' onclick='this.disabled=true;this.form.submit();')
+                        //button.btn.btn-pill.btn-success.sub.twoToneButton( type='submit', onclick='this.disabled=true;this.form.submit();')
+                        button.btn.btn-pill.btn-success.sub.twoToneButton( type='submit', onclick='this.disabled=true;this.form.submit();')
                             i.fa.fa-upload.mr-1
                             |  Upload
     // footer

@@ -8,6 +8,7 @@ var util = require('util');
 const hbjs = require('handbrake-js');
 var fsExtra  = require('fs-extra');
 var uniqid = require('uniqid');
+var ExifImage = require('exif').ExifImage;
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 var gitkeep = '.gitkeep';
@@ -119,8 +120,9 @@ var toDelete = [];
 
 
 function converti(fileLocation){
-  hbjs.spawn({ input: path.join(fileLocation), output: path.join(fileLocation + '.mp4') })
+  hbjs.spawn({input: path.join(fileLocation), output: path.join(fileLocation + '.mp4')})
   .on('begin', begin =>{
+    
     console.log("conversione iniziata");
   })
   .on('error', err => {
@@ -129,9 +131,13 @@ function converti(fileLocation){
   })
   .on('progress', progress => {
       console.log('converting file: %s',progress.percentComplete)
-      if(progress.percentComplete == 100){
-      }
-  })
+  })/*
+  .on('complete', complete =>{
+    hbjs.exec({ input: path.join(fileLocation + '.mp4'), output: path.join(fileLocation + 'rotated' + '.mp4'), rotate: 4, optimize: true }, function(err, stdout, stderr){
+      if (err) throw err
+      console.log('stdout')
+    })
+  })*/
   .on('end', end =>{
     console.log("conversione finita");
     fs.unlinkSync(fileLocation);
@@ -139,7 +145,18 @@ function converti(fileLocation){
   })
 };
 
-
+function orientation(file){
+  try {
+    new ExifImage({ image : file }, function (error, exifData) {
+        if (error)
+            console.log('Error: '+error.message);
+        else
+            console.log(exifData); // Do something with your data!
+    });
+} catch (error) {
+    console.log('Error: ' + error.message);
+}
+}
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -230,19 +247,15 @@ router.get("/1234v_manager", (req, res) => {
     var testFolder3 = new_location + selo + '/to_review/';
   fs.readdirSync(testFolder3).forEach(file=>{
     if(file != gitkeep){
+      if((path.extname(file) != '.mp4') && (path.extname(file) != '.m4v') && (path.extname(file) != '.jpeg') && (path.extname(file) != '.jpg') && (path.extname(file) != '.png')){
+        converti(testFolder3 + file);
+      }
       list_to_review.push('images/' + selo + '/to_review/' + file);
       //console.log(file);
       list_ext.push(path.extname(file));
     }
     });
-    var testFolder2 = new_location + selo + '/h/';
-    fs.readdirSync(testFolder2).forEach(file=>{
-        if((file != 'init.pdf')&&(file != gitkeep)) {
-        list_files.push('images/' + selo + '/h/' + file);
-        //console.log(file);
-        }
-      });
-  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arr_files: list_files, arrext: list_ext2,arrext2: list_ext});
+  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arrext: list_ext2,arrext2: list_ext});
   list_pics = [];
   list_to_review = [];
   list_files = [];
@@ -465,22 +478,22 @@ router.post('/upload', function (req, res) {
   });
 
   form.on('field', function(name, field) {
-    console.log('Got a field:', field);
-    console.log('Got a field name:', name);
+    //console.log('Got a field:', field);
+    //console.log('Got a field name:', name);
     village = field;
-    console.log('village: ' + village);
+    //console.log('village: ' + village);
   });
 
       /* this is where the renaming happens */
   form.on ('fileBegin', function(name, file){
-        console.log('filebegin here');
         var fileType = path.extname(file.name);
-        console.log(fileType);
+        //console.log(fileType);
         if(fileType == ""){
           console.log("NO FILE");
           siFile = false;
         }
         if(siFile){
+          console.log('filebegin here');
           if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
             right_loc = new_location + village + '/to_review';
             var exists = fs.existsSync(right_loc);
@@ -488,7 +501,6 @@ router.post('/upload', function (req, res) {
               console.log('folder exists!');
             //rename the incoming file to the file's name
               file.path = path.join(right_loc + '/' + uniqid() + fileType);
-
             }else{
               console.log('folder does not exists');
               console.log('making that directory');
@@ -522,7 +534,7 @@ router.post('/upload', function (req, res) {
                   console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
                 }
                 });
-              }
+        }/*
         var testFolder8 = path.join(right_loc + '/');
         fs.readdirSync(testFolder8).forEach(file=>{
           if((file != gitkeep) && ((path.extname(file) == '.MOV' ) || (path.extname(file) == '.mov' ) || (path.extname(file) == '.mpeg' ) || (path.extname(file) == '.mpg' ) || (path.extname(file) == '.mkv' ) || (path.extname(file) == '.avi' ))){
@@ -534,7 +546,7 @@ router.post('/upload', function (req, res) {
             //fs.unlinkSync(filePath);
             //console.log('removed video copy: ' + file + ' with extension: ' + path.extname(file));
           }
-        });
+        });*/
         console.log("success!");
         res.redirect('/upload_succ');
       }
