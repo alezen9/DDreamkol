@@ -268,7 +268,7 @@ router.get("/1234v_manager", (req, res) => {
           listtmbdel.push('images/' + selo + '/tmb/to_rev/' + file);
         }
     });
-    var testFolder5 = new_location + selo + '/tmb/publishe/';
+    var testFolder5 = new_location + selo + '/tmb/published/';
     fs.readdirSync(testFolder5).forEach(file=>{
         if(file != gitkeep){
           listtmbpub.push('images/' + selo + '/tmb/published/' + file);
