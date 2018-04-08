@@ -11,7 +11,8 @@ var uniqid = require('uniqid');
 var ExifImage = require('exif').ExifImage;
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
-var gitkeep = '.gitkeep';
+const gitkeep = '.gitkeep';
+var thumb = require('node-thumbnail').thumb;
 
 
 
@@ -116,7 +117,13 @@ var lista = [];
 //path used in v_manager 
 var public_path = path.join(lc + "/public/");
 var list_ext2 = [];
-var toDelete = [];
+var tothumbSRC = [];
+var tothumbDST = [];
+var tmbPath;
+
+var listtmb = [];
+var listtmbdel = [];
+var listtmbpub = [];
 
 
 function converti(fileLocation){
@@ -255,13 +262,27 @@ router.get("/1234v_manager", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arrext: list_ext2,arrext2: list_ext});
+    var testFolder2 = new_location + selo + '/tmb/to_rev/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmbdel.push('images/' + selo + '/tmb/to_rev/' + file);
+        }
+    });
+    var testFolder5 = new_location + selo + '/tmb/publishe/';
+    fs.readdirSync(testFolder5).forEach(file=>{
+        if(file != gitkeep){
+          listtmbpub.push('images/' + selo + '/tmb/published/' + file);
+        }
+    });
+  res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arrext: list_ext2,arrext2: list_ext, arrtmbdel: listtmbdel, arrtmbpub: listtmbpub});
   list_pics = [];
   list_to_review = [];
   list_files = [];
   selo = "";
   list_ext2 = [];
   list_ext = [];
+  listtmbdel = [];
+  listtmbpub = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -275,7 +296,13 @@ router.get("/nerezi_pic", (req, res) => {
         list_ext.push(path.extname(file));
       }
     });
-  res.render("pic_page",{nome: 'Nerezi',h_page: '/nerezi_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Nerezi',h_page: '/nerezi_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -290,7 +317,13 @@ router.get("/modric_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Modric',h_page: '/modric_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Modric',h_page: '/modric_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -305,7 +338,13 @@ router.get("/bezevo_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Bezevo',h_page: '/bezevo_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Bezevo',h_page: '/bezevo_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -320,7 +359,13 @@ router.get("/borovec_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Boroec',h_page: '/borovec_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Boroec',h_page: '/borovec_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -335,7 +380,13 @@ router.get("/d_lukovo_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Dolno Lukovo',h_page: '/d_lukovo_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Dolno Lukovo',h_page: '/d_lukovo_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -350,7 +401,13 @@ router.get("/g_lukovo_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Gorno Lukovo',h_page: '/g_lukovo_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Gorno Lukovo',h_page: '/g_lukovo_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -365,7 +422,13 @@ router.get("/drenok_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Drenok',h_page: '/drenok_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Drenok',h_page: '/drenok_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -380,7 +443,13 @@ router.get("/jablanica_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Jablanica',h_page: '/jablanica_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Jablanica',h_page: '/jablanica_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -395,7 +464,13 @@ router.get("/lakavica_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Lakavica',h_page: '/lakavica_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Lakavica',h_page: '/lakavica_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -410,7 +485,13 @@ router.get("/piskupshtina_pic", (req, res) => {
       list_ext.push(path.extname(file));
     }
     });
-  res.render("pic_page",{nome: 'Piskupshtina',h_page: '/piskupshtina_h',arr: list_pics,arrext: list_ext});
+    var testFolder2 = new_location + 'nerezi/tmb/published/';
+    fs.readdirSync(testFolder2).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/nerezi/tmb/published/' + file);
+        }
+    });
+  res.render("pic_page",{nome: 'Piskupshtina',h_page: '/piskupshtina_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
   list_pics = [];
   list_ext = [];
 });
@@ -501,6 +582,17 @@ router.post('/upload', function (req, res) {
               console.log('folder exists!');
             //rename the incoming file to the file's name
               file.path = path.join(right_loc + '/' + uniqid() + fileType);
+              //for thumbnails
+              tothumbSRC.push(file.path);
+              var tmbName;
+              tmbPath = path.join(new_location + village + '/tmb/to_rev/');
+              if((fileType == '.jpg') || (fileType == '.png')){
+                tmbName = file.path.substring(68);
+                tothumbDST.push(tmbPath + tmbName);
+              }else if(fileType == '.jpeg'){
+                tmbName = file.path.substring(67);
+                tothumbDST.push(tmbPath + tmbName);
+              }              
             }else{
               console.log('folder does not exists');
               console.log('making that directory');
@@ -547,23 +639,31 @@ router.post('/upload', function (req, res) {
             //console.log('removed video copy: ' + file + ' with extension: ' + path.extname(file));
           }
         });*/
+        //creating thumbnails
+        for(var i = 0;i<tothumbSRC.length;i++){
+          thumb({
+            source: tothumbSRC[i],
+            destination: tmbPath,
+            concurrency: 4,
+            width: 250,
+            suffix: ""
+          }, function(files, err, stdout, stderr) {
+            console.log('All done!');
+          });
+        }
+        //res
         console.log("success!");
         res.redirect('/upload_succ');
       }
       else{
+        //res
         console.log("no files to be uploaded");
         res.redirect('/');
       }        
         });
-        /*
-    if(toDelete.length != 0){
-      toDelete.forEach(function(element) {
-        fs.unlinkSync(element);
-        console.log('removed original video');
-      });
-    }
-    toDelete = [];
-    */
+    tothumbSRC = [];
+    tothumbDST = [];
+    tmbPath = "";
 });
 //---------------------------------------------------------------------------------------------------------------------------------------
 //handling people say page form
@@ -679,12 +779,18 @@ router.post('/1234v_manager', function (req, res) {
       //console.log("after: " + a);
       //console.log("ready to move: " + da);
       fsExtra.moveSync(da, a);
+      var tmbda = da.replace(/to_review/gi, path.join("tmb/to_rev"));
+      var tmba = da.replace(/to_review/gi, path.join("tmb/published"));
+      fsExtra.moveSync(tmbda, tmba);
       console.log("file published");
     }
   }else if(decision == 'del'){
     for(var j=0;j<l.length;j++){
       console.log("ready to delete: " + path.join(public_path + l[j]));
+      var delp = path.join(public_path + l[j]);
       fs.unlinkSync(path.join(public_path + l[j]));
+      var tmbdel = delp.replace(/to_review/gi, path.join("tmb/to_rev"));
+      fs.unlinkSync(tmbdel);
       console.log("file deleted");
     }
   }
