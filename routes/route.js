@@ -646,7 +646,8 @@ router.post('/upload', function (req, res) {
             destination: tmbPath,
             concurrency: 4,
             width: 250,
-            suffix: ""
+            suffix: "",
+            quiet: true
           }, function(files, err, stdout, stderr) {
             console.log('All done!');
           });
