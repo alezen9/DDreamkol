@@ -5,7 +5,7 @@
             background-position: top;
             background-image:url(../images/other/apple_transparent_blurry.png);
 
-            width: 100%;
+            width: auto;
             height: 100%;
         }
         
@@ -68,7 +68,8 @@
         }
         .spring{
             z-index: 1;
-            background: linear-gradient(rgba(135, 206, 250, 0.925), rgba(255, 255, 255, 0));
+            /*background: linear-gradient(rgba(135, 206, 250, 0.925), rgba(255, 255, 255, 0));*/
+            background: transparent;
         }
         .fl1{
             margin-left: 55%;

@@ -644,13 +644,26 @@ router.post('/upload', function (req, res) {
           thumb({
             source: tothumbSRC[i],
             destination: tmbPath,
+            width: 250,
+            concurrency: 8,
+            suffix: "",
+            quiet: true
+          }).then(function() {
+            console.log('Success');
+          }).catch(function(e) {
+            console.log('Error', e.toString());
+          });
+          /*
+          thumb({
+            source: tothumbSRC[i],
+            destination: tmbPath,
             concurrency: 4,
             width: 250,
             suffix: "",
             quiet: true
           }, function(files, err, stdout, stderr) {
             console.log('All done!');
-          });
+          });*/
         }
         //res
         console.log("success!");
