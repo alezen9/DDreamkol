@@ -19,8 +19,8 @@ body{
 img.resp {
   object-fit: cover;
   border-radius: 50%;
-  width: 250px;
-  height: 250px;
+  width: 170px;
+  height: 170px;
   filter: drop-shadow(5px 5px 3px black);
   z-index: 1;
 }
@@ -77,15 +77,15 @@ img.resp:hover {
        /*ipad*/
        @media all and (max-width: 1000px) and (min-width: 751px) {
         img.resp{
-          width: 200px;
-          height: 200px;
+          width: 130px;
+          height: 130px;
         }
       }
 
        /*ipad pro*/
        @media all and (max-width: 1080px) and (min-width: 1001px) {
         img.resp{
-          width: 200px;
-          height: 200px;
+          width: 150px;
+          height: 150px;
         }
       }
