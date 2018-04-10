@@ -638,7 +638,7 @@ router.post('/upload', function (req, res) {
             .resize(200, 200)
             .max()
             .toFile(tothumbDST[i])
-            console.log("thumbnail created");
+            console.log("thumbnail for " + tothumbSRC[i] + " created in " + tothumbDST[i]);
         }
         //res
         console.log("success!");
