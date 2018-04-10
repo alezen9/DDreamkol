@@ -556,7 +556,6 @@ router.post('/upload', function (req, res) {
           console.log('filebegin here');
           if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
             right_loc = new_location + village + '/to_review';
-            tmbPath = path.join(new_location + village + '/tmb/to_rev/');
             var exists = fs.existsSync(right_loc);
             if(exists){
               console.log('folder exists!');
@@ -564,21 +563,6 @@ router.post('/upload', function (req, res) {
               file.path = path.join(right_loc + '/' + uniqid() + fileType);
               //for thumbnails
               tothumbSRC.push(file.path);
-              var tmbName;
-              var existsTmb = fs.existsSync(tmbPath);
-              if(existsTmb){
-                if((fileType == '.jpg') || (fileType == '.png')){
-                  tmbName = file.path.substring(68);
-                  console.log(tmbName);
-                }else if(fileType == '.jpeg'){
-                  tmbName = file.path.substring(68);
-                  console.log(tmbName);
-                }
-              }else{
-                console.log('folder does not exists');
-                console.log('making that directory');
-                fsExtra.mkdir(tmbPath);
-              }
               tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev")));     
             }else{
               console.log('folder does not exists');
@@ -586,13 +570,7 @@ router.post('/upload', function (req, res) {
               fsExtra.mkdir(right_loc);
               file.path = path.join(right_loc + '/' + uniqid() + fileType);
               tothumbSRC.push(file.path);
-              var tmbName;
-              tmbPath = path.join(new_location + village + '/tmb/to_rev/');
-              if((fileType == '.jpg') || (fileType == '.png')){
-                tmbName = file.path.substring(68);
-              }else if(fileType == '.jpeg'){
-                tmbName = file.path.substring(67);
-              }  
+              tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev")));
             }
           }else{
           var exists3 = fs.existsSync(invalid_up_loc);
@@ -635,17 +613,18 @@ router.post('/upload', function (req, res) {
           }
         });*/
         //creating thumbnails
-        for(var i = 0;i<tothumbSRC.length;i++){
-          sharp(tothumbSRC[i])
-            .resize(200, 200)
-            .max()
-            .toFile(tothumbDST[i])
-            console.log("thumbnail for " + tothumbSRC[i] + " created in " + tothumbDST[i]);
+        if(tothumbSRC.length != 0){
+          for(var i = 0;i<tothumbSRC.length;i++){
+            sharp(tothumbSRC[i])
+              .resize(200, 200)
+              .max()
+              .toFile(tothumbDST[i])
+              console.log("thumbnail for " + tothumbSRC[i] + " created in " + tothumbDST[i]);
+          } 
         }
         //res
         console.log("success!");
         res.redirect('/upload_succ');
-        console.log(tothumbDST);
       }
       else{
         //res
@@ -709,7 +688,7 @@ router.post('/1234v_manager', function (req, res) {
   var decision = req.body.sub;
   console.log("decision: " + req.body.sub);
   lista = req.body.p;
-  //console.log("lista: " + lista);
+  console.log("lista: " + lista);
   var a = JSON.stringify(lista);
   //console.log("a = " + JSON.stringify(lista));
   var l;
@@ -722,11 +701,11 @@ router.post('/1234v_manager', function (req, res) {
       var da = path.join(public_path + l[j]);
       //console.log("before: " + da);
       var a = da.replace(/to_review/gi, "img");
+      var tmbda = path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev")));
+      var tmba = path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/published")));
       //console.log("after: " + a);
       //console.log("ready to move: " + da);
       fsExtra.moveSync(da, a);
-      var tmbda = da.replace(/to_review/gi, path.join("tmb/to_rev"));
-      var tmba = da.replace(/to_review/gi, path.join("tmb/published"));
       fsExtra.moveSync(tmbda, tmba);
       console.log("file published");
     }
@@ -735,8 +714,7 @@ router.post('/1234v_manager', function (req, res) {
       console.log("ready to delete: " + path.join(public_path + l[j]));
       var delp = path.join(public_path + l[j]);
       fs.unlinkSync(path.join(public_path + l[j]));
-      var tmbdel = delp.replace(/to_review/gi, path.join("tmb/to_rev"));
-      fs.unlinkSync(tmbdel);
+      fs.unlinkSync(path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev"))));
       console.log("file deleted");
     }
   }
