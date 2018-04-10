@@ -569,8 +569,10 @@ router.post('/upload', function (req, res) {
               if(existsTmb){
                 if((fileType == '.jpg') || (fileType == '.png')){
                   tmbName = file.path.substring(68);
+                  console.log(tmbName);
                 }else if(fileType == '.jpeg'){
                   tmbName = file.path.substring(67);
+                  console.log(tmbName);
                 }
               }else{
                 console.log('folder does not exists');
@@ -643,6 +645,7 @@ router.post('/upload', function (req, res) {
         //res
         console.log("success!");
         res.redirect('/upload_succ');
+        console.log(tothumbDST);
       }
       else{
         //res
