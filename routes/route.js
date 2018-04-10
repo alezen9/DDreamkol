@@ -579,7 +579,7 @@ router.post('/upload', function (req, res) {
                 console.log('making that directory');
                 fsExtra.mkdir(tmbPath);
               }
-              tothumbDST.push(tmbPath + tmbName);      
+              tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev")));     
             }else{
               console.log('folder does not exists');
               console.log('making that directory');
