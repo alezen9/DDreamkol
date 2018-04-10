@@ -571,7 +571,7 @@ router.post('/upload', function (req, res) {
                   tmbName = file.path.substring(68);
                   console.log(tmbName);
                 }else if(fileType == '.jpeg'){
-                  tmbName = file.path.substring(67);
+                  tmbName = file.path.substring(68);
                   console.log(tmbName);
                 }
               }else{
