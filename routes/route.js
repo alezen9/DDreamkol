@@ -11,7 +11,7 @@ const uniqid = require('uniqid');
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 const gitkeep = '.gitkeep';
-const thumb = require('node-thumbnail').thumb;
+const sharp = require('sharp');
 
 // local database
 var file_a;
@@ -136,6 +136,7 @@ var lista = [];                                                      // all sele
 var public_path = path.join(lc + "/public/");                        // public location
 var list_ext2 = [];                                                  // all published pics extensions of a village (in vmanager)
 var tothumbSRC = [];                                                 // list of all pictures to make thumbnail
+var tothumbDST = [];                                                 // destination for every thumbnail to make
 var tmbPath;                                                         // thumbnail destination path
 var listtmb = [];                                                    // list of thumbnails of published pics of a village
 var listtmbdel = [];                                                 // list of thumbnails to be deleted
@@ -183,9 +184,6 @@ router.get("/manage/:a", (req, res) => {
   }else{
     selo = String(req.params.a);
   }
-
-
-
   res.redirect("/1234v_manager");
 });
 
@@ -567,11 +565,19 @@ router.post('/upload', function (req, res) {
               //for thumbnails
               tothumbSRC.push(file.path);
               var tmbName;
-              if((fileType == '.jpg') || (fileType == '.png')){
-                tmbName = file.path.substring(68);
-              }else if(fileType == '.jpeg'){
-                tmbName = file.path.substring(67);
-              }              
+              var existsTmb = fs.existsSync(tmbPath);
+              if(existsTmb){
+                if((fileType == '.jpg') || (fileType == '.png')){
+                  tmbName = file.path.substring(68);
+                }else if(fileType == '.jpeg'){
+                  tmbName = file.path.substring(67);
+                }
+              }else{
+                console.log('folder does not exists');
+                console.log('making that directory');
+                fsExtra.mkdir(tmbPath);
+              }
+              tothumbDST.push(tmbPath + tmbName);      
             }else{
               console.log('folder does not exists');
               console.log('making that directory');
@@ -628,29 +634,11 @@ router.post('/upload', function (req, res) {
         });*/
         //creating thumbnails
         for(var i = 0;i<tothumbSRC.length;i++){
-          thumb({
-            source: tothumbSRC[i],
-            destination: tmbPath,
-            width: 170,
-            concurrency: 8,
-            suffix: "",
-            quiet: true
-          }).then(function() {
-            console.log('thumbnail created');
-          }).catch(function(e) {
-            console.log('Error', e.toString());
-          });
-          /*
-          thumb({
-            source: tothumbSRC[i],
-            destination: tmbPath,
-            concurrency: 4,
-            width: 250,
-            suffix: "",
-            quiet: true
-          }, function(files, err, stdout, stderr) {
-            console.log('All done!');
-          });*/
+          sharp(tothumbSRC[i])
+            .resize(200, 200)
+            .max()
+            .toFile(tothumbDST[i])
+            console.log("thumbnail created");
         }
         //res
         console.log("success!");
@@ -663,6 +651,7 @@ router.post('/upload', function (req, res) {
       }        
         });
     tothumbSRC = [];
+    tothumbDST = [];
 });
 //---------------------------------------------------------------------------------------------------------------------------------------
 //handling people say page form
