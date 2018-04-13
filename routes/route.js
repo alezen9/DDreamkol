@@ -688,7 +688,7 @@ router.post('/1234v_manager', function (req, res) {
   var decision = req.body.sub;
   console.log("decision: " + req.body.sub);
   lista = req.body.p;
-  console.log("lista: " + lista);
+  //console.log("lista: " + lista);
   var a = JSON.stringify(lista);
   //console.log("a = " + JSON.stringify(lista));
   var l;
@@ -699,22 +699,22 @@ router.post('/1234v_manager', function (req, res) {
   if(decision == 'pub'){
     for(var j=0;j<l.length;j++){
       var da = path.join(public_path + l[j]);
-      //console.log("before: " + da);
       var a = da.replace(/to_review/gi, "img");
-      var tmbda = path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev")));
-      var tmba = path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/published")));
-      //console.log("after: " + a);
-      //console.log("ready to move: " + da);
+      if(path.extname(l[j]) != '.mp4'){
+        var tmbda = path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev")));
+        var tmba = path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/published")));
+        fsExtra.moveSync(tmbda, tmba);
+      }
       fsExtra.moveSync(da, a);
-      fsExtra.moveSync(tmbda, tmba);
       console.log("file published");
     }
   }else if(decision == 'del'){
     for(var j=0;j<l.length;j++){
       console.log("ready to delete: " + path.join(public_path + l[j]));
-      var delp = path.join(public_path + l[j]);
+      if(path.extname(l[j]) != '.mp4'){
+        fs.unlinkSync(path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev"))));
+      }
       fs.unlinkSync(path.join(public_path + l[j]));
-      fs.unlinkSync(path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev"))));
       console.log("file deleted");
     }
   }
