@@ -4,8 +4,7 @@
             background-size: cover;
             background-position: top;
             background-image:url(../images/other/apple_transparent_blurry.png);
-            width: auto;
-            height: 100%;
+            height: auto;
         }
         
         #ale{
@@ -94,5 +93,13 @@
             .ressp{
                 width: 230px;
                 filter:drop-shadow(8px 8px 10px gray);
+            }
+        }
+        @media all and (max-width: 1081px) {
+            .background_all{
+                background-image: none;
+                background: #0042327a;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right,#00151080,#00503c8c,rgba(83, 59, 6, 0.527));  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right,#00151080,#00503c8c,rgba(83, 59, 6, 0.527)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             }
         }

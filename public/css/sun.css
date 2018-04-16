@@ -149,3 +149,16 @@
 		transform: rotate(0deg);
 	}
 }
+@media all and (min-width: 1px){
+	#sun {
+		transform-origin: 100% -145%;
+		transform: scale(0.5,0.5);
+	}
+}
+
+@media all and (min-width: 319px) and (max-width: 361px){
+	#sun {
+		transform-origin: 100% -70%;
+		transform: scale(0.5,0.5);
+	}
+}

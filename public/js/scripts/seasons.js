@@ -1,6 +1,6 @@
 var date = new Date();
 //var month = date.getMonth();
-var month = 4;
+var month = 8;
 //0=january-11=december
     
     var divNight = '<div class="welcome d-flex justify-content-center flex-column night-sky">';
@@ -8,7 +8,7 @@ var month = 4;
     var divAutumn = '<div class="welcome d-flex justify-content-center flex-column autumn">';
     var divSpring = '<div class="welcome d-flex justify-content-center flex-column spring">';
     var snow = '<div class="snow"></div>';
-    var sun = '<div id="sun" style="transform-origin: 100% -145%; transform: scale(0.5,0.5);">\
+    var sun = '<div id="sun">\
                     <div id="rings">\
                         <div></div>\
                         <div></div>\
