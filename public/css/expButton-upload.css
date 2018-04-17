@@ -10,7 +10,6 @@
   cursor: pointer;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  z-index: 10;
 }
 .share-btn .cta {
   position: absolute;

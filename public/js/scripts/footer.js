@@ -8,8 +8,8 @@ var footer = '\
                     <!--credits-->\
                     <div style="margin: 10px auto; padding: auto;">\
                         <a href="credits.html" class="btn btn-pill btn-primary" title="Attributions">\
-                            <img src="https://png.icons8.com/ios/15/ffffff/road-worker-filled.png">&ensp;\
-                            Attributions&ensp;\
+                            <img src="https://png.icons8.com/ios/15/ffffff/info-filled.png">&ensp;\
+                            About us&ensp;\
                         </a>\
                     </div>\
                     <!--feedback-->\
