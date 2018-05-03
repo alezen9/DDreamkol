@@ -91,41 +91,42 @@ function splitString(stringToSplit, separator) {
   return arr;
 }
 
-
-
-
-function converti(fileLocation){
-  hbjs.spawn({input: path.join(fileLocation), output: path.join(fileLocation + '.mp4')})
-  .on('begin', begin =>{
+function vmanager_load(imgFolder,trFolder,tmbpFolder,tmbtrFolder,ps){
+  fs.readdirSync(imgFolder).forEach(file=>{
+    if(file != gitkeep){
+      list_pics.push('images/' + ps + '/img/' + file);
+      list_ext2.push(path.extname(file));
+    }
+  });
     
-    console.log("conversione iniziata");
-  })
-  .on('error', err => {
-    // invalid user input, no video found etc
-    console.log("error converting " + err);
-  })
-  .on('progress', progress => {
-      console.log('converting file: %s',progress.percentComplete)
-  })/*
-  .on('complete', complete =>{
-    hbjs.exec({ input: path.join(fileLocation + '.mp4'), output: path.join(fileLocation + 'rotated' + '.mp4'), rotate: 4, optimize: true }, function(err, stdout, stderr){
-      if (err) throw err
-      console.log('stdout')
-    })
-  })*/
-  .on('end', end =>{
-    console.log("conversione finita");
-    fs.unlinkSync(fileLocation);
-    console.log("original deleted");
-  })
-};
-
+  fs.readdirSync(trFolder).forEach(file=>{
+    if(file != gitkeep){
+      if((path.extname(file) != '.mp4') && (path.extname(file) != '.m4v') && (path.extname(file) != '.jpeg') && (path.extname(file) != '.jpg') && (path.extname(file) != '.png')){
+        converti(trFolder + file);
+      }
+      list_to_review.push('images/' + ps + '/to_review/' + file);
+      list_ext.push(path.extname(file));
+    }
+  });
+    
+    fs.readdirSync(tmbtrFolder).forEach(file=>{
+        if(file != gitkeep){
+          listtmbdel.push('images/' + ps + '/tmb/to_rev/' + file);
+        }
+    });
+    
+    fs.readdirSync(tmbpFolder).forEach(file=>{
+        if(file != gitkeep){
+          listtmbpub.push('images/' + ps + '/tmb/published/' + file);
+        }
+    });    
+}
 
 // functions end -------------------------------------------------------------------------------------------------------------------------------------
 //global variables---------------------------------------------------------------------------------------------------------------------------
-var lc = path.join(__dirname + '/..');                              // DDreamkol path
-var new_location = lc + '/public/images/';                          // images location
-var invalid_up_loc = path.join(lc + '/upload_invalid');             // upload_invalid location
+const lc = path.join(__dirname + '/..');                              // DDreamkol path
+const new_location = lc + '/public/images/';                          // images location
+const invalid_up_loc = path.join(lc + '/upload_invalid');             // upload_invalid location
 var village = "";                                                   // used in upload page form handling
 var right_loc;                                                      // destination path to upload pictures
 var selo = "";                                                      // used in vmanager and manage/:a
@@ -214,36 +215,12 @@ router.get("/manager", (req, res) => {
 router.get("/1234v_manager", (req, res) => {
   
   var testFolder = new_location + selo + '/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/' + selo + '/img/' + file);
-      //console.log(file);
-      list_ext2.push(path.extname(file));
-    }
-    });
-    var toReviewFolder = new_location + selo + '/to_review/';
-  fs.readdirSync(toReviewFolder).forEach(file=>{
-    if(file != gitkeep){
-      if((path.extname(file) != '.mp4') && (path.extname(file) != '.m4v') && (path.extname(file) != '.jpeg') && (path.extname(file) != '.jpg') && (path.extname(file) != '.png')){
-        converti(toReviewFolder + file);
-      }
-      list_to_review.push('images/' + selo + '/to_review/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbTo_revFolder = new_location + selo + '/tmb/to_rev/';
-    fs.readdirSync(tmbTo_revFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmbdel.push('images/' + selo + '/tmb/to_rev/' + file);
-        }
-    });
-    var tmbPubFolder = new_location + selo + '/tmb/published/';
-    fs.readdirSync(tmbPubFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmbpub.push('images/' + selo + '/tmb/published/' + file);
-        }
-    });
+  var toReviewFolder = new_location + selo + '/to_review/';
+  var tmbPubFolder = new_location + selo + '/tmb/published/';
+  var tmbTo_revFolder = new_location + selo + '/tmb/to_rev/';
+  
+  vmanager_load(testFolder,toReviewFolder,tmbPubFolder,tmbTo_revFolder,selo);
+
   res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arrext: list_ext2,arrext2: list_ext, arrtmbdel: listtmbdel, arrtmbpub: listtmbpub});
   list_pics = [];
   list_to_review = [];
@@ -554,7 +531,7 @@ router.post('/upload', function (req, res) {
         }
         if(siFile){
           console.log('filebegin here');
-          if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mpeg' ) || (fileType == '.mpg' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
+          if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
             right_loc = new_location + village + '/to_review';
             var exists = fs.existsSync(right_loc);
             if(exists){
@@ -562,15 +539,20 @@ router.post('/upload', function (req, res) {
             //rename the incoming file to the file's name
               file.path = path.join(right_loc + '/' + uniqid() + fileType);
               //for thumbnails
-              tothumbSRC.push(file.path);
-              tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev")));     
+              if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
+                tothumbSRC.push(file.path);
+                tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev"))); 
+              }    
             }else{
               console.log('folder does not exists');
               console.log('making that directory');
               fsExtra.mkdir(right_loc);
               file.path = path.join(right_loc + '/' + uniqid() + fileType);
-              tothumbSRC.push(file.path);
-              tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev")));
+              //for thumbnails
+              if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
+                tothumbSRC.push(file.path);
+                tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev"))); 
+              }
             }
           }else{
           var exists3 = fs.existsSync(invalid_up_loc);
@@ -594,24 +576,12 @@ router.post('/upload', function (req, res) {
               var testFolder = path.join(invalid_up_loc + '/');
               fs.readdirSync(testFolder).forEach(file=>{
                 if(file != gitkeep){
-                var filePath = path.join(invalid_up_loc  + '/' + file);
-                fs.unlinkSync(filePath);
-                  console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
+                  var filePath = path.join(invalid_up_loc  + '/' + file);
+                  fs.unlinkSync(filePath);
+                    console.log('removed file: ' + file + ' with extension: ' + path.extname(file));
                 }
-                });
-        }/*
-        var testFolder8 = path.join(right_loc + '/');
-        fs.readdirSync(testFolder8).forEach(file=>{
-          if((file != gitkeep) && ((path.extname(file) == '.MOV' ) || (path.extname(file) == '.mov' ) || (path.extname(file) == '.mpeg' ) || (path.extname(file) == '.mpg' ) || (path.extname(file) == '.mkv' ) || (path.extname(file) == '.avi' ))){
-            var filePath = path.join(right_loc  + '/' + file);
-            //console.log("filePath: " + filePath);
-            converti(filePath);
-            //console.log("video convertito");
-            //fsExtra.moveSync(path.join(filePath + ".mp4"), path.join(new_location + village + "/img/" + uniqid() + ".mp4"));
-            //fs.unlinkSync(filePath);
-            //console.log('removed video copy: ' + file + ' with extension: ' + path.extname(file));
-          }
-        });*/
+              });
+        }
         //creating thumbnails
         if(tothumbSRC.length != 0){
           for(var i = 0;i<tothumbSRC.length;i++){
@@ -688,37 +658,64 @@ router.post('/1234v_manager', function (req, res) {
   var decision = req.body.sub;
   console.log("decision: " + req.body.sub);
   lista = req.body.p;
-  //console.log("lista: " + lista);
+  console.log("lista: " + lista);
   var a = JSON.stringify(lista);
-  //console.log("a = " + JSON.stringify(lista));
-  var l;
+  console.log("a = " + JSON.stringify(lista));
   var comma = ',';
-  l = splitString(a,comma);
-  //console.log("array l: " + l);
+  var l = splitString(a,comma);
+  console.log("array l: " + l);
   //console.log("array l has " + l.length + " elements");
   if(decision == 'pub'){
     for(var j=0;j<l.length;j++){
       var da = path.join(public_path + l[j]);
       var a = da.replace(/to_review/gi, "img");
-      if(path.extname(l[j]) != '.mp4'){
+      if((path.extname(l[j]) == '.jpg') || (path.extname(l[j]) == '.jpeg') || (path.extname(l[j]) == '.png')){
         var tmbda = path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev")));
         var tmba = path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/published")));
-        fsExtra.moveSync(tmbda, tmba);
+        //console.log("before moving thumbnail----------------------------");
+        //console.log("tmbda = " + tmbda);
+        //console.log("tmba = " + tmba);
+        //moving thumbnail to published folder if image (tmb/published)
+        fsExtra.move(tmbda, tmba, err =>{
+          if (err) return console.log("errore spostamento thumbnail da to_rev a publishe: " + err);
+        });
       }
-      fsExtra.moveSync(da, a);
+      //console.log("before moving something else----------------------------");
+      //console.log("da = " + da);
+      //console.log("a = " + a);
+      //moving HD picture or video to published folder (img)
+      fsExtra.move(da, a, err =>{
+        if (err) return console.log("errore spostamento file da to_review a img: " + err);
+      });
       console.log("file published");
     }
   }else if(decision == 'del'){
     for(var j=0;j<l.length;j++){
       console.log("ready to delete: " + path.join(public_path + l[j]));
-      if(path.extname(l[j]) != '.mp4'){
-        fs.unlinkSync(path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev"))));
+      if((path.extname(l[j]) == '.jpg') || (path.extname(l[j]) == '.jpeg') || (path.extname(l[j]) == '.png')){
+        fsExtra.remove(path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev"))), err =>{
+          if (err) return console.log("errore rimozione thumbnail da to_rev: " + err);
+        });
       }
-      fs.unlinkSync(path.join(public_path + l[j]));
+      fsExtra.remove(path.join(public_path + l[j]), err =>{
+        if (err) return console.log("errore rimozione file da to_review: " + err);
+      });
+      console.log("file deleted");
+    }
+  }else if(decision == 'delPub'){
+    for(var j=0;j<l.length;j++){
+      //console.log("ready to delete: " + path.join(public_path + l[j]));
+      if((path.extname(l[j]) == '.jpg') || (path.extname(l[j]) == '.jpeg') || (path.extname(l[j]) == '.png')){
+        fsExtra.remove(path.join(public_path + l[j].replace(/img/gi, path.join("tmb/published"))), err =>{
+          if (err) return console.log("errore rimozione thumbnail da published: " + err);
+        });
+      }
+      fsExtra.remove(path.join(public_path + l[j]), err =>{
+        if (err) return console.log("errore rimozione file da img: " + err);
+      });
       console.log("file deleted");
     }
   }
-  l = "";
   lista = [];
   res.redirect("/");
 });

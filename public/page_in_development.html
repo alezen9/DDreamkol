@@ -8,9 +8,7 @@
     <meta name="description" content="Elegant website for storing data about some villages based on Bootstrap 4">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/lightbox/css/lightbox.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/shards.min.css">
     <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0">
@@ -18,37 +16,23 @@
 
     <link rel="stylesheet" href="css/flip.css">
 <style>
-html, body{
-  height: 100%;
-}
-body { 
-      background-image: url(images/gifs/typing.gif) ;
-      background-position: center center;
-      background-repeat:  no-repeat;
-      background-attachment: fixed;
-      background-size:  cover;
-      background-color: #999;
-  
-}
-.wrapper {
-  height: 100%; 
-  width: 100%; 
-}
-
+  @import url('https://fonts.googleapis.com/css?family=Frijole');
+  body{
+    background: #108dc7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ef8e38, #108dc7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ef8e38, #108dc7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
 .message {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%; 
-  height:30%;
-  bottom: 0; 
-  display: block;
   position: absolute;
-  background-color: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 1.5em;
+  font-family: 'Frijole', cursive;
+  font-size: 20vh;
+  top: 50%;
 }
-
+@media all and (orientation: portrait){
+  .message{
+    font-size: 20vw;
+  }
+}
 </style>
 </head>
 
@@ -60,26 +44,7 @@ body {
 
 <!-- Page Content-->
 
-<!-- Cards -->
-
-<div class="wrapper">
-  <div class="message">
-    <h1 style="color: white; text-align: center;">Page in development</h1>    
-    <!--<p>With thanks to http://sixrevisions.com/css/responsive-background-image/ and 500px</p>-->
-    <p style="color: white; text-align: center;">&copy; Copyright 2018 — Aleksandar Gjoreski</p>
-  </div>
-</div>
-
-
-        
-
-<!-- footer 
-<div style="position: relative; bottom: 0; width:100%;">
-    <br>
-    <br>
-    <p class="text-muted text-center small p-0 mb-4">&copy; Copyright 2018 — Aleksandar Gjoreski</p>
-</div>
--->
+  <h1 class="message">Coming soon!</h1>
 
 <!-- JavaScript -->
 <div id="fb-root"></div>
@@ -89,6 +54,5 @@ body {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script src="js/shards.min.js"></script>
 <script src="js/demo.min.js"></script>
-<script src="css/lightbox/js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>

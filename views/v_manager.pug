@@ -12,13 +12,25 @@ html.no-js(lang='en')
         link(rel='stylesheet', href='/css/shards-demo.css?v=1.1.0')
         link(rel='stylesheet', href='css/gallery.css')
         link(rel='shortcut icon', type='image/png', href='/images/favico/favico.png')
+        link(href='js/swipe/strip.css', rel='stylesheet')
         link(href='css/gallery/lity.css', rel='stylesheet')
         script(src='js/gallery/jquery.js')
-        script(src='js/gallery/lity-min.js')
+        script(src='js/gallery/lity.min_noGllery.js')
+        style.
+            img.bgd{
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: -4;
+                object-fit: cover;
+            }
     body
         // Navbar
         div
             include includes/navbar.pug
+        // background image
+        img.bgd(src='images/other/apple_transparent_blurry.png')
         // Page Content
         .text-center.mb-4
             h1 #{paese}
@@ -40,13 +52,18 @@ html.no-js(lang='en')
                                             label.custom-control.custom-checkbox.d-block.my-2
                                                 input.custom-control-input(type='checkbox', name='p[]', value=val)
                                                 span.custom-control-indicator
+                                                if ((arrext2[index2] == '.mov') || (arrext2[index2] == '.MOV') || (arrext2[index2] == '.mkv') || (arrext2[index2] == '.avi'))
+                                                    span.badge.mr-3.badge-pill.badge-warning #{arrext2[index2]}
+                                                else
+                                                    span.badge.mr-3.badge-pill.badge-success #{arrext2[index2]}
                                     div(style='margin: auto; padding: 10px;')
                                         if ((arrext2[index2] != '.mp4') && (arrext2[index2] != '.m4v'))
-                                            a.rotate90(href=val, data-lity)
-                                                img(src=arrtmbdel[index2], alt=val,class="resp", style='height: 100px; width: 100px')
+                                            a(href=val, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
+                                                img(src=arrtmbdel[index2], alt=val,class="resp")
                                         else
-                                            a.rotate90(href=val, data-lity)
-                                                img(src='images/other/video2.png',class="resp", alt='video', style='height: 100px; width: 100px; filter: drop-shadow(5px 5px 3px orange);')
+                                            a(href=val, data-lity)
+                                                img(src='images/other/video3.svg',class="resp", alt='video', style='filter: drop-shadow(5px 5px 3px orange);')
+                                                p #{arrext2[index2]}
                         .row.justify-content-md-center
                             .col-md-6.mb-3
                                 div(style='text-align: center;')
@@ -78,19 +95,23 @@ html.no-js(lang='en')
                                             label.custom-control.custom-checkbox.d-block.my-2
                                                 input.custom-control-input(type='checkbox', name='p[]', value=val1)
                                                 span.custom-control-indicator
+                                                if ((arrext[index] == '.mov') || (arrext[index] == '.MOV') || (arrext[index] == '.mkv') || (arrext[index] == '.avi'))
+                                                    span.badge.mr-3.badge-pill.badge-warning #{arrext[index]}
+                                                else
+                                                    span.badge.mr-3.badge-pill.badge-success #{arrext[index]}
                                     div(style='margin: auto; padding: 10px;')
                                         if ((arrext[index] != '.mp4') && (arrext[index] != '.m4v'))
-                                            a(href=val1, data-lity)
-                                                img(src=arrtmbpub[index], alt=val,class="resp", style='height: 100px; width: 100px')
+                                            a(href=val1, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
+                                                img(src=arrtmbpub[index], alt=val,class="resp")
                                         else
                                             a(href=val1, data-lity)
-                                                img(src='images/other/video2.png', alt='video',class="resp", style='height: 100px; width: 100px; filter: drop-shadow(5px 5px 3px red);')
+                                                img(src='images/other/video3.svg', alt='video',class="resp", style='filter: drop-shadow(5px 5px 3px red);')
                         .row.justify-content-md-center
                             .col-md-6.mb-3
                                 div(style='text-align: center;')
                                     br
                                     br
-                                    button.btn.btn-pill.btn-danger(type='submit', name='sub', value='del', style='width: 230px;')
+                                    button.btn.btn-pill.btn-danger(type='submit', name='sub', value='delPub', style='width: 230px;')
                                         i.fa.fa-close.mr-1
                                         |  Delete selected pictures
             br
@@ -120,3 +141,4 @@ html.no-js(lang='en')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js', integrity='sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1', crossorigin='anonymous')
         script(src='/js/shards.min.js')
         script(src='/js/demo.min.js')
+        script(src='js/swipe/strip.pkgd.min.js')

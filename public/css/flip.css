@@ -1,3 +1,8 @@
+:root {
+    --cardWidth: 260px;
+    --cardHeight: 320px;
+}
+
 .flip-container {
     /* Rappresenta l'inclinazione prospettica, in questo caso della rotazione */
     -webkit-perspective: 800;
@@ -18,8 +23,8 @@
 .flip-container,
 .front,
 .back {
-    width: 321px;
-    height: 449px;
+    width: var(--cardWidth);
+    height: var(--cardHeight);
 }
 /* impostare velocità di transizione */
 .flipper {
@@ -49,10 +54,30 @@
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
+    box-shadow:0 0 50px rgb(0, 0, 0);
 }
 /* back, initially hidden pane */
 .back {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
+    box-shadow:0 0 40px rgba(0,0,0,0.2);
+}
+
+
+@media all and (max-width: 321px) {
+    .flip-container,
+    .front,
+    .back {
+        width: 135px;
+        height: 180px;
+    }
+}
+@media all and (min-width: 322px) and (max-width: 812px) {
+    .flip-container,
+    .front,
+    .back {
+        width: 150px;
+        height: 200px;
+    }
 }

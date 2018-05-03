@@ -8,8 +8,8 @@ var footer = '\
                     <!--credits-->\
                     <div style="margin: 10px auto; padding: auto;">\
                         <a href="credits.html" class="btn btn-pill btn-primary" title="Attributions">\
-                            <img src="https://png.icons8.com/ios/15/ffffff/info-filled.png">&ensp;\
-                            About us&ensp;\
+                            <i class="fas fa-info-circle"></i>\
+                            &ensp;About us&ensp;\
                         </a>\
                     </div>\
                     <!--feedback-->\
@@ -22,19 +22,21 @@ var footer = '\
                     <!--terms and conditions-->\
                     <div style="margin: 10px auto; padding: auto;">\
                         <a href="tac.html" class="btn btn-pill btn-primary" title="Terms and conditions">\
-                            <img src="https://png.icons8.com/ios/15/ffffff/rules-filled.png">\
-                            &ensp;&ensp;Terms and conditions&ensp;\
+                            <i class="fas fa-user-shield"></i>\
+                            &nbsp;&nbsp;Terms and conditions\
                         </a>\
                     </div>\
                     <!--contacts-->\
                     <div style="margin: 10px auto; padding: auto;">\
-                        <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="something@else.com"><img src="https://png.icons8.com/ios/15/ffffff/secured-letter-filled.png">&ensp;&ensp;Contacts&ensp;</button>\
+                        <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="something@else.com">\
+                        <i class="fas fa-envelope"></i>\
+                        &nbsp;Contacts&nbsp;</button>\
                     </div>\
                     <!--share on facebook-->\
                     <div style="margin: 10px auto; padding: auto;">\
                         <a href="https://www.facebook.com/sharer/sharer.php?u=http://80.211.7.75:3000" class="btn btn-pill btn-primary" title="Share on Facebook">\
-                            <i class="fa fa-facebook mr-1"></i>\
-                            Share on Facebook\
+                            <i class="fab fa-facebook-square"></i>\
+                            &nbsp;&nbsp;Share on Facebook\
                         </a>\
                     </div>\
                 </div>\
@@ -48,13 +50,15 @@ var footer_small='\
                 </div>\
                 <!--contacts-->\
                 <div style="text-align: center; padding: auto; margin: auto; padding: 10px;">\
-                    <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="something@else.com"><img src="https://png.icons8.com/ios/15/ffffff/secured-letter-filled.png">&ensp;&ensp;Contacts&ensp;</button>\
+                    <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="something@else.com">\
+                    <i class="fas fa-envelope"></i>\
+                    &nbsp;Contacts&nbsp;</button>\
                 </div>\
                 <!--credits-->\
                 <div style="text-align: center; padding: auto; margin: auto; padding: 10px;">\
                     <a href="credits.html" class="btn btn-pill btn-primary" title="Attributions">\
-                        <img src="https://png.icons8.com/ios/15/ffffff/road-worker-filled.png">&ensp;\
-                        Attributions&ensp;\
+                        <i class="fas fa-info-circle"></i>\
+                        &ensp;About us&ensp;\
                     </a>\
                 </div>\
                 <!--feedback-->\
@@ -67,15 +71,15 @@ var footer_small='\
                 <!--terms and conditions-->\
                 <div style="margin: auto; padding-bottom: 10px; padding-top: 10px;">\
                     <a href="tac.html" class="btn btn-pill btn-primary" title="Terms and conditions">\
-                        <img src="https://png.icons8.com/ios/15/ffffff/rules-filled.png">\
-                        &ensp;&ensp;Terms and conditions&ensp;\
+                        <i class="fas fa-user-shield"></i>\
+                        &nbsp;&nbsp;Terms and conditions\
                     </a>\
                 </div>\
                 <!--share on facebook-->\
                 <div style="text-align: center; padding: auto; margin: auto; padding: 10px;">\
                     <a href="https://www.facebook.com/sharer/sharer.php?u=http://80.211.7.75:3000" class="btn btn-pill btn-primary" title="Share on Facebook">\
-                        <i class="fa fa-facebook mr-1"></i>\
-                        Share on Facebook\
+                        <i class="fab fa-facebook-square"></i>\
+                        &nbsp;&nbsp;Share on Facebook\
                     </a>\
                 </div>\
             </div>';
