@@ -7,7 +7,7 @@ html.no-js(lang='en')
         meta(name='description', content='Elegant website for storing data about some villages based on Bootstrap 4')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
-        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.11/css/all.css', integrity='sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/', crossorigin='anonymous')
         link(rel='stylesheet', href='/css/shards.min.css')
         link(rel='stylesheet', href='/css/shards-demo.css?v=1.1.0')
         link(rel='stylesheet', href='css/gallery.css')
@@ -16,6 +16,7 @@ html.no-js(lang='en')
         link(href='css/gallery/lity.css', rel='stylesheet')
         script(src='js/gallery/jquery.js')
         script(src='js/gallery/lity.min_noGllery.js')
+        script(src='js/scripts/checkAll.js')
         style.
             img.bgd{
                 position: fixed;
@@ -43,6 +44,12 @@ html.no-js(lang='en')
                         br
                         h5 Pictures not published:
                     br
+                    div(style='margin: auto; width:120px;')
+                        label.custom-control.custom-checkbox.d-block.my-2
+                            input.custom-control-input(type='checkbox', id='p_check', onchange="selectAll(this)" , name='p[]')
+                            span.custom-control-indicator
+                            h6 Check All
+                    br
                     form.checkbox(method='post', id='p_check')
                         .row
                             each val,index2 in arr_rev
@@ -57,13 +64,12 @@ html.no-js(lang='en')
                                                 else
                                                     span.badge.mr-3.badge-pill.badge-success #{arrext2[index2]}
                                     div(style='margin: auto; padding: 10px;')
-                                        if ((arrext2[index2] != '.mp4') && (arrext2[index2] != '.m4v'))
-                                            a(href=val, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
+                                        if ((arrext2[index2] == '.jpg') || (arrext2[index2] == '.jpeg') || (arrext2[index2] == '.png'))
+                                            a(href=val, class="strip" data-strip-group="mygroup2" data-strip-group-options="loop: true")
                                                 img(src=arrtmbdel[index2], alt=val,class="resp")
                                         else
                                             a(href=val, data-lity)
                                                 img(src='images/other/video3.svg',class="resp", alt='video', style='filter: drop-shadow(5px 5px 3px orange);')
-                                                p #{arrext2[index2]}
                         .row.justify-content-md-center
                             .col-md-6.mb-3
                                 div(style='text-align: center;')
@@ -86,6 +92,12 @@ html.no-js(lang='en')
                         br
                         h5 Pictures published:
                     br
+                    div(style='margin: auto; width:120px;')
+                        label.custom-control.custom-checkbox.d-block.my-2
+                            input.custom-control-input(type='checkbox', id='p_pub', onchange="selectAll2(this)" , name='d[]')
+                            span.custom-control-indicator
+                            h6 Check All
+                    br
                     form.checkbox(method='post', id='p_pub')
                         .row
                             each val1,index in arr_pics
@@ -93,14 +105,14 @@ html.no-js(lang='en')
                                     .checkbox(style='margin: auto; padding: 10px;')
                                         fieldset
                                             label.custom-control.custom-checkbox.d-block.my-2
-                                                input.custom-control-input(type='checkbox', name='p[]', value=val1)
+                                                input.custom-control-input(type='checkbox', name='d[]', value=val1)
                                                 span.custom-control-indicator
                                                 if ((arrext[index] == '.mov') || (arrext[index] == '.MOV') || (arrext[index] == '.mkv') || (arrext[index] == '.avi'))
                                                     span.badge.mr-3.badge-pill.badge-warning #{arrext[index]}
                                                 else
                                                     span.badge.mr-3.badge-pill.badge-success #{arrext[index]}
                                     div(style='margin: auto; padding: 10px;')
-                                        if ((arrext[index] != '.mp4') && (arrext[index] != '.m4v'))
+                                        if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png'))
                                             a(href=val1, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
                                                 img(src=arrtmbpub[index], alt=val,class="resp")
                                         else

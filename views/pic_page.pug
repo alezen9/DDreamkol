@@ -45,7 +45,7 @@ html.no-js(lang='en')
                 .row
                     each val,index in arr
                         div(style='margin: auto; padding: 5px;')
-                            if ((arrext[index] != '.mp4') && (arrext[index] != '.m4v'))
+                            if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png'))
                                 a(href=val, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
                                     img(src=arrtmb[index], class="resp", alt=val)
                             else

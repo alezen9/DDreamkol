@@ -102,7 +102,6 @@ function vmanager_load(imgFolder,trFolder,tmbpFolder,tmbtrFolder,ps){
   fs.readdirSync(trFolder).forEach(file=>{
     if(file != gitkeep){
       if((path.extname(file) != '.mp4') && (path.extname(file) != '.m4v') && (path.extname(file) != '.jpeg') && (path.extname(file) != '.jpg') && (path.extname(file) != '.png')){
-        converti(trFolder + file);
       }
       list_to_review.push('images/' + ps + '/to_review/' + file);
       list_ext.push(path.extname(file));
@@ -657,7 +656,11 @@ router.get("/peopleSayEdit/:id",function(req,res){
 router.post('/1234v_manager', function (req, res) {
   var decision = req.body.sub;
   console.log("decision: " + req.body.sub);
-  lista = req.body.p;
+  if(req.body.p){
+    lista = req.body.p;
+  }else{
+    lista = req.body.d;
+  }
   console.log("lista: " + lista);
   var a = JSON.stringify(lista);
   console.log("a = " + JSON.stringify(lista));
