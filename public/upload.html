@@ -79,14 +79,14 @@
           </select><br><br>
           <label class="rwhite" for="form-file-4">Picture/s - Video/s</label>
           <label class="custom-file w-100">
-            <input id="myFile" class="user-message" type="file" name="file" multiple="multiple" required onchange="myFunction();"><span class="custom-file-control"></span>
+            <input id="myFile" class="user-message" type="file" name="file" multiple="multiple" required onchange="myFunction();"><span id="chsFiles" class="custom-file-control">Choose file/s...</span>
           </label>
           <div id="sub_btn" style="text-align: center"><br><br>
             <button class="btn btn-pill btn-success sub" type="submit" onclick="this.disabled=true;this.form.submit(); spinner();"><span id="btn_span"><i class="fa fa-upload mr-1"></i> Upload</span></button>
           </div>
         </form>
-        <p id="filesToUpload" class="filesToUp"></p>
-        <div id="upl" style=" text-align: center; display: none;">
+        <!--<p id="filesToUpload" class="filesToUp"></p>-->
+        <div id="upl" class="spinner">
           <img src="images/other/loading.svg">
         </div>
       </div>

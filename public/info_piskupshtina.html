@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/shards.min.css">
     <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0">
     <link rel="stylesheet" href="css/hpage.css">
@@ -32,22 +32,6 @@
     <!-- Page Content-->
       <div class="container">
         <div>
-          <details style="text-align: center;">
-            <summary style="width: 230px;" class="btn btn-primary btn-pill">Click to open the map</summary>
-            <br>
-            <br>
-            <div style="border-radius: 5px;">
-              <script type="text/javascript">
-                var x = screen.width;
-                if (x<813){
-                  document.write('<div id="googleMap" style="width:100%; height:250px; border-radius: 10px; box-shadow: 5px 10px 18px #888888;"></div>');
-                }else{
-                  document.write('<div id="googleMap" style="width:100%; height:550px; border-radius: 10px; box-shadow: 5px 10px 18px #888888;"></div>');
-                }
-              </script>
-            </div>
-          </details>
-          <br>
           <br>
           <div class="share-btn">
             <span class="cta">Bus</span>
@@ -61,7 +45,7 @@
               <li>14:20</li>
               <li>16:20</li>
               <li>18:25</li>
-              <span class="btn btn-pill btn-success" style="width: 100%;"><img src="https://png.icons8.com/ios/18/ffffff/marker-filled.png">&nbsp;&nbsp;&nbsp;(center)</span>
+              <span class="btn btn-pill btn-success" style="width: 100%;"><i class="fas fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Center</span>
             </ul>
           </div>
           <br>
@@ -85,42 +69,7 @@
             <br>
             <br>
             <br>
-            <script type="text/javascript">
-              var x = screen.width;
-              if (x<813){
-                  var d = '<ul class="menu2">\
-                            <a href="#geo" style="text-decoration:none;">\
-                              <li class="submenu">Geographical characteristichs</li>\
-                            </a>\
-                            <a href="#pop" style="text-decoration:none;">\
-                              <li class="submenu">Population</li>\
-                            </a>\
-                            <a href="#h" style="text-decoration:none;">\
-                              <li class="submenu">Cultural-Historical features</li>\
-                            </a>\
-                            <a href="#his" style="text-decoration:none;">\
-                              <li class="submenu">A bit of history</li>\
-                            </a>\
-                          </ul>';
-              }else{
-                  var d = '<ul class="menu">\
-                            <a href="#geo" style="text-decoration:none;">\
-                              <li class="submenu" style="border-right: 1px solid #666;">Geographical characteristichs</li>\
-                            </a>\
-                            <a href="#pop" style="text-decoration:none;">\
-                              <li class="submenu" style="border-right: 1px solid #666;">Population</li>\
-                            </a>\
-                            <a href="#h" style="text-decoration:none;">\
-                              <li class="submenu" style="border-right: 1px solid #666;">Cultural-Historical features</li>\
-                            </a>\
-                            </a>\
-                            <a href="#his" style="text-decoration:none;">\
-                              <li class="submenu">A bit of history</li>\
-                            </a>\
-                          </ul>';
-              }
-              document.write(d);
-            </script>
+            <script src="js/scripts/menuInfoPage.js"></script>
           </div>
           <div class="container" style="padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 100px;">
             <div id="geo" class="frost2" style="padding-bottom: 20px;">
@@ -140,27 +89,24 @@
             <br><!--######################################################################################################################-->
             <div id="his" class="frost2" style="padding-bottom: 20px;">
               <h2 style="text-align: center;">A bit of history</h2><br>
-              <p style="text-align:center;">N/A</p>
+              <p style="text-align:center;">
+                Селото е вовлечено во долината на Пискупската река, куќите се на двете страни од реката. Во селото има две маала: Грујовска на левата и Џеровска на десната страна на реката. Се на се има 24 куќи (...). Над селото, на десната страна од реката, под Кабач е црквата Св. Никола со селските гробишта. Под селото е Кошаре. Литија има за летен Св. Никола (9 Мај по старо). Тогаш и многу куќи во селото прославуваат. Селото слави и Преображение.<br>
+                Селото го основале, односно го обновиле, доселеници од Голо Брдо. Според кажувањата на денешните жители, синор (меѓа) на Пискупштина бил "балталукот" (област за која жителите на едно село имаат право на сечење дрва), напуштено место, на меѓата со селата на Јабланица, па така тие од Голо Брдо доаѓале и ја заземале земјата. Се верува дека старата Пискупштина се наоѓала во Старо Село, над Џеровска мала, (...). На границата накај Боровец се наоѓа Бигорската црква (...). На Деден некогаш имало село, а во поново време биле 'кошаре Јабланичана и Пискупштака'. На Станиште се наоѓа местото Гробишта со гробишта од чумата.<br>
+                На Краста е Калето. Некои велат дека тука се наоѓа дворецот на Кралот Марко, а други велат дека калето му припаѓа на Скендер-бег. Пониските села се рушевини на 'хана', шталите и гробиштата на турските војници на Мерсим-бег. Се зборува дека чифлигот бил сопственост на црквата Св. Никола во Нерези, па го зеле Турците: 1908 година селото Нерези го откупило и сега е селска сопственост.<br>
+              Џеровци - Избегале од Стеблево поради Турците. Тука дошол Петре, петтиот предок на Русо Џероски значи пред некои 150 години. <br>
+              Грујовци - Со гранката Бежановци. Од Стеблево дошол Живко, четврти предок на Дојчин Грујоски. Нивното подалечно потекло е од Подгорица во Црна Гора. Се претпоставува дека од таму доаѓаат и останатите Стеблевчани. Се зборува дека и Домазетовци во Јабланица, се нивна гранка: дека се потомци на синот единец на Живко. (...)<br>
+              Џутевци - Тие се исто така од Стеблево, од каде што дошол Дуко, четвртиот предок на Василиј Џутески. Нивното подалечно потекло е од Херцеговина. Нивните стари славеле Св. Атанасиј и Св. Архангел, (...).<br>
+                Анѓелковци - По потекло од Стеблево.<br>
+                Цацановци - Не се сите од еден род. Наум Цацаноски е по потекло од Глобочица и се презива Цацаноски по вујкото, а Трајко има потекло од Безево, тој е вистинскиот Цацаноски.<br>
+                (...)
+                Бешковци - Биле по потекло од Стеблево, (...). Славеле Св. Петка. Сега од нив во селото се останати само две куќи, но без машки членови; во едната од 1934 година е домазет Јован Чавкоски од Нерези. 
+                <p style="font-style: italic; font-size: 15px;">
+                  Оваа содржина е превземена од книгата M.,S., Filipovic, (1939), Debarski Drimkol, Skoplje: "Јужна Србија" . При преведувањето на македонски јазик беа изоставени некои зборови на поими, локации и историски податоци.
+                </p>
+              </p>
             </div>
           </div>
       </div>
-    
-
-
-
-        <!--prova Google maps funzionante-->
-          
-          <script>
-          function myMap() {
-          var mapProp= {
-              center:new google.maps.LatLng(41.32137, 20.607137),
-              zoom:14,
-              mapTypeId: google.maps.MapTypeId.HYBRID
-          };
-          var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-          }
-          </script>
-        
       </div>
       
       <!-- Footer-->
@@ -178,7 +124,6 @@
     <script src="js/demo.min.js"></script>
     <script src="js/scripts/expButton.js"></script>
     <script src="css/lightbox/js/lightbox-plus-jquery.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV5Dz9-60Z_Sij0kj-tq9DBsS-LcAEesY&callback=myMap"></script>
   </body>
 </html>
 
