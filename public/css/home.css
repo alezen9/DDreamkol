@@ -1,7 +1,7 @@
 :root {
     --cardWidth: 260px;
     --cardHeight: 320px;
-}    
+}
 .message{
     border-radius: 10px;
     /*background-color: #F8F8FF;*/

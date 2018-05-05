@@ -152,7 +152,8 @@ router.get("/", (req, res) => {
 
 //route upload page
 router.get("/upload", (req, res) => {
-  res.render("upload");
+  //res.render("upload");
+  res.sendFile(path.join(public_path + 'upload.html'));
 });
 
 
@@ -661,12 +662,12 @@ router.post('/1234v_manager', function (req, res) {
   }else{
     lista = req.body.d;
   }
-  console.log("lista: " + lista);
+  //console.log("lista: " + lista);
   var a = JSON.stringify(lista);
-  console.log("a = " + JSON.stringify(lista));
+  //console.log("a = " + JSON.stringify(lista));
   var comma = ',';
   var l = splitString(a,comma);
-  console.log("array l: " + l);
+  //console.log("array l: " + l);
   //console.log("array l has " + l.length + " elements");
   if(decision == 'pub'){
     for(var j=0;j<l.length;j++){
@@ -680,7 +681,11 @@ router.post('/1234v_manager', function (req, res) {
         //console.log("tmba = " + tmba);
         //moving thumbnail to published folder if image (tmb/published)
         fsExtra.move(tmbda, tmba, err =>{
-          if (err) return console.log("errore spostamento thumbnail da to_rev a publishe: " + err);
+          if (err){
+            return console.log("errore spostamento thumbnail da to_rev a publishe: " + err);
+          }else{
+            console.log("thumbnail moved");
+          }
         });
       }
       //console.log("before moving something else----------------------------");
@@ -688,35 +693,52 @@ router.post('/1234v_manager', function (req, res) {
       //console.log("a = " + a);
       //moving HD picture or video to published folder (img)
       fsExtra.move(da, a, err =>{
-        if (err) return console.log("errore spostamento file da to_review a img: " + err);
+        if (err){
+          return console.log("errore spostamento file da to_review a img: " + err);
+        }else{
+          console.log("file published"); 
+        }
       });
-      console.log("file published");
     }
   }else if(decision == 'del'){
     for(var j=0;j<l.length;j++){
       console.log("ready to delete: " + path.join(public_path + l[j]));
       if((path.extname(l[j]) == '.jpg') || (path.extname(l[j]) == '.jpeg') || (path.extname(l[j]) == '.png')){
         fsExtra.remove(path.join(public_path + l[j].replace(/to_review/gi, path.join("tmb/to_rev"))), err =>{
-          if (err) return console.log("errore rimozione thumbnail da to_rev: " + err);
+          if (err){
+            return console.log("errore rimozione thumbnail da to_rev: " + err);
+          }else{
+            console.log("thumbnail removed from to_rev"); 
+          }
         });
       }
       fsExtra.remove(path.join(public_path + l[j]), err =>{
-        if (err) return console.log("errore rimozione file da to_review: " + err);
+        if (err){
+          return console.log("errore rimozione file da to_review: " + err);
+        }else{
+          console.log("file deleted from to_review"); 
+        }
       });
-      console.log("file deleted");
     }
   }else if(decision == 'delPub'){
     for(var j=0;j<l.length;j++){
       //console.log("ready to delete: " + path.join(public_path + l[j]));
       if((path.extname(l[j]) == '.jpg') || (path.extname(l[j]) == '.jpeg') || (path.extname(l[j]) == '.png')){
         fsExtra.remove(path.join(public_path + l[j].replace(/img/gi, path.join("tmb/published"))), err =>{
-          if (err) return console.log("errore rimozione thumbnail da published: " + err);
+          if (err){
+            return console.log("errore rimozione thumbnail da published: " + err);
+          }else{
+            console.log("thumbnail removed from published"); 
+          }
         });
       }
       fsExtra.remove(path.join(public_path + l[j]), err =>{
-        if (err) return console.log("errore rimozione file da img: " + err);
+        if (err){
+          return console.log("errore rimozione file da img: " + err);
+        }else{
+          console.log("file deleted from img");
+        }
       });
-      console.log("file deleted");
     }
   }
   lista = [];

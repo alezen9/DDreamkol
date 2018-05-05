@@ -6,7 +6,7 @@
   <meta name="description" content="Elegant website for storing data about some villages based on Bootstrap 4">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
   <!--link(href='/css/lightbox/css/lightbox.min.css' rel='stylesheet')-->
   <link rel="stylesheet" href="css/shards.min.css">
   <link rel="stylesheet" href="css/frost.css">
@@ -14,8 +14,7 @@
   <link rel="stylesheet" href="css/upload.css">
   <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0">
   <link rel="shortcut icon" type="/image/png" href="images/favico/favico.png">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--script(src='/js/scripts/upload.js')-->
+  <script src='js/scripts/uploading.js'></script>
   <style>
     .message {
         border-radius: 10px;
@@ -53,31 +52,6 @@
       </div>
     </div>
     <div class="link-modal" id="linkmodal"><a href="#text">&nbsp;&nbsp; Click for info &nbsp;&nbsp;</a></div>
-    <!-- Modal Body
-    .container
-        #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-            .modal-dialog(role='document')
-                .modal-content.message
-                    .modal-header
-                        h5#exampleModalLabel.modal-title 🤔 What and how can i upload...
-                        button.close(type='button', data-dismiss='modal', aria-label='Close')
-                            span(aria-hidden='true') ×
-                    .modal-body(style='text-align: center;')
-                        | You can upload pictures in these formats:
-                        br
-                        strong   JPG, JPEG and PNG
-                        br
-                        br
-                        | You can contribuite to the history by downloading, filling and uploading this template:
-                        br
-                        br
-                        div(style='text-align: center;')
-                            a(href='other/template.docx', download='')
-                                div
-                                    img(src='http://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-Word-icon.png', alt='template', style='height: 70px; width: 70px')
-                    .modal-footer
-                        | To download the template just click on the thumbnail!
-    -->
   </div>
   <!-- Page Content-->
   <div class="text-center mb-4">
@@ -105,13 +79,17 @@
           </select><br><br>
           <label class="rwhite" for="form-file-4">Picture/s - Video/s</label>
           <label class="custom-file w-100">
-            <input class="user-message" type="file" name="file" multiple="multiple" required><span class="custom-file-control"></span>
+            <input id="myFile" class="user-message" type="file" name="file" multiple="multiple" required onchange="myFunction();"><span class="custom-file-control"></span>
           </label>
-          <div style="text-align: center"><br><br>
-            <!--button.btn.btn-pill.btn-success.sub.twoToneButton( type='submit', onclick='this.disabled=true;this.form.submit();')-->
-            <button class="btn btn-pill btn-success sub" type="submit" onclick="this.disabled=true;this.form.submit();"><i class="fa fa-upload mr-1"></i> Upload</button>
+          <div id="sub_btn" style="text-align: center"><br><br>
+            <button class="btn btn-pill btn-success sub" type="submit" onclick="this.disabled=true;this.form.submit(); spinner();"><span id="btn_span"><i class="fa fa-upload mr-1"></i> Upload</span></button>
           </div>
         </form>
+        <p id="filesToUpload" class="filesToUp"></p>
+        <div id="upl" style=" text-align: center; display: none;">
+          <img src="images/other/loading.svg">
+        </div>
+      </div>
       </div>
     </div>
   </div>
