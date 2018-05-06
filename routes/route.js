@@ -195,19 +195,30 @@ router.get("/manager", (req, res) => {
   var paesi = ["bezevo","borovec","drenok","d_lukovo","g_lukovo","jablanica","lakavica","modric","nerezi","piskupshtina"];
   var indice;
   var count = [];
-  var contatore = 0;
+  var countNO = [];
+  var contatoreOK = 0;
+  var contatoreNOok = 0;
   for(indice=0;indice<10;indice++){
     var testFolder6 = new_location + paesi[indice] + '/to_review/';
     fs.readdirSync(testFolder6).forEach(file=>{
       if(file != gitkeep){
-        contatore++;
+        if((path.extname(file) == ".mkv") || (path.extname(file) == ".mov") || (path.extname(file) == ".MOV") || (path.extname(file) == ".avi")){
+          contatoreNOok++;
+        }else{
+          contatoreOK++;
+        }
       }
     });
     //console.log(paesi[indice] + ": " + contatore);
-    count[indice] = contatore;
-    contatore = 0;
+    count[indice] = contatoreOK;
+    countNO[indice] = contatoreNOok;
+    //console.log(paesi[indice]);
+    //console.log("ok: " + contatoreOK);
+    //console.log("no ok: " + contatoreNOok);
+    contatoreOK = 0;
+    contatoreNOok = 0;
   }
-  res.render("manager",{array: count});
+  res.render("manager",{array: count, arrayNO: countNO});
   //res.sendFile(path.join(public_path + 'manager.html'));
 });
 
@@ -510,7 +521,7 @@ router.post('/upload', function (req, res) {
   var form = new formidable.IncomingForm();
   var siFile = true;
   form.parse(req, function (err, fields, files){
-    console.log('trying to upload');
+    //console.log('trying to upload');
     console.log('upload recived');
   });
 
@@ -530,12 +541,12 @@ router.post('/upload', function (req, res) {
           siFile = false;
         }
         if(siFile){
-          console.log('filebegin here');
+          //console.log('filebegin here');
           if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
             right_loc = new_location + village + '/to_review';
             var exists = fs.existsSync(right_loc);
             if(exists){
-              console.log('folder exists!');
+              //console.log('folder exists!');
             //rename the incoming file to the file's name
               file.path = path.join(right_loc + '/' + uniqid() + fileType);
               //for thumbnails
@@ -544,8 +555,8 @@ router.post('/upload', function (req, res) {
                 tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev"))); 
               }    
             }else{
-              console.log('folder does not exists');
-              console.log('making that directory');
+              //console.log('folder does not exists');
+              //console.log('making that directory');
               fsExtra.mkdir(right_loc);
               file.path = path.join(right_loc + '/' + uniqid() + fileType);
               //for thumbnails
@@ -557,11 +568,11 @@ router.post('/upload', function (req, res) {
           }else{
           var exists3 = fs.existsSync(invalid_up_loc);
             if(exists3){
-              console.log('folder exists!');
+              //console.log('folder exists!');
               file.path = invalid_up_loc + '/' + uniqid() + fileType;
             }else{
-              console.log('folder does not exists');
-              console.log('making that directory');
+              //console.log('folder does not exists');
+              //console.log('making that directory');
               fsExtra.mkdir(invalid_up_loc);
               file.path = invalid_up_loc + '/' + uniqid() + fileType;
             }
@@ -589,11 +600,11 @@ router.post('/upload', function (req, res) {
               .resize(200, 200)
               .max()
               .toFile(tothumbDST[i])
-              console.log("thumbnail for " + tothumbSRC[i] + " created in " + tothumbDST[i]);
+              //console.log("thumbnail for " + tothumbSRC[i] + " created in " + tothumbDST[i]);
           } 
         }
         //res
-        console.log("success!");
+        console.log("uploaded successfully");
         res.redirect('/upload_succ');
       }
       else{

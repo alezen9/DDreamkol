@@ -14,24 +14,16 @@ html.no-js(lang='en')
         link(rel='shortcut icon', type='image/png', href='/images/favico/favico.png')
         link(href='js/swipe/strip.css', rel='stylesheet')
         link(href='css/gallery/lity.css', rel='stylesheet')
+        link(href='css/managers.css', rel='stylesheet')
         script(src='js/gallery/jquery.js')
         script(src='js/gallery/lity.min_noGllery.js')
         script(src='js/scripts/checkAll.js')
-        style.
-            img.bgd{
-                position: fixed;
-                top: 0;
-                width: 100vw;
-                height: 100vh;
-                z-index: -4;
-                object-fit: cover;
-            }
     body
         // Navbar
         div
             include includes/navbar.pug
         // background image
-        img.bgd(src='images/other/apple_transparent_blurry.png')
+        img.bgd(src='images/other/sunrise_transparent_blurry.png')
         // Page Content
         .text-center.mb-4
             h1 #{paese}
@@ -128,18 +120,6 @@ html.no-js(lang='en')
                                         |  Delete selected pictures
             br
             br
-            br
-            div(class='frost3', style='text-align: center;')
-                .col-sm-12
-                    div
-                        br
-                        h5 Backup:
-                        p (backup.zip should be in "public" directory)
-                    br
-                    div(style='padding-bottom: 30px')
-                        a(href='backup.zip', download='')
-                            div
-                                img(src='images/other/winrar.png', class="resp", style='height: 150px; width: 150px')
         // Footer
         div
             br

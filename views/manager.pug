@@ -6,36 +6,18 @@ html.no-js(lang='en')
         title DDreamkol
         meta(name='description', content='Elegant website for storing data about some villages based on Bootstrap 4')
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        link(href='css/lightbox/css/lightbox.min.css', rel='stylesheet')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
-        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.11/css/all.css', integrity='sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/', crossorigin='anonymous')
         link(rel='stylesheet', href='css/shards.min.css')
         link(rel='stylesheet', href='css/shards-demo.css?v=1.1.0')
+        link(href='css/managers.css', rel='stylesheet')
         link(rel='shortcut icon', type='image/png', href='images/favico/favico.png')
-        style.
-            body {
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: cover;
-                background-position: top;
-                background-image: url(images/other/apple_transparent_blurry.png);
-                width: 100%;
-                height: 100%;
-            }
-
-            .message {
-                border-radius: 10px;
-                /*background-color: #F8F8FF;*/
-                padding: 50px;
-                margin: auto;
-                width: 100%;
-                box-shadow: inset 0 0 100px 300px rgba(57, 57, 57, 0.6);
-                color: black;
-            }
     body
         // Navbar
         div
             script(src='js/scripts/navbar.js')
+        // background image
+        img.bgd(src='images/other/sunrise_transparent_blurry.png')
         // Page Content
         .text-center.mb-4
             br
@@ -47,7 +29,7 @@ html.no-js(lang='en')
                     .col-md-8.mb-3
                         div(style='text-align: center; padding-bottom: 0px;')
                             a(href='/peopleSayEdit', style='height: 35px;')
-                                button.btn.btn-pill.btn-success(style='width: 230px;', type='button', href='/peopleSayEdit')
+                                button.btn.btn-pill.btn-success.ace-btn(type='button', href='/peopleSayEdit')
                                     i.fa.fa-comment.mr-1  
                                     |   People Say Edit
                         br
@@ -55,75 +37,119 @@ html.no-js(lang='en')
                         .row.message
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/bezevo', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/bezevo')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/bezevo')
+                                        i.fas.fa-image  
                                         |   Bezevo
-                                if array[0] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[0]}
+                                    div.notifications
+                                        if array[0] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[0]}
+                                        if arrayNO[0] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[0]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/borovec', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/borovec')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/borovec')
+                                        i.fas.fa-image  
                                         |   Boroec
-                                if array[1] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[1]}
+                                    div.notifications
+                                        if array[1] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[1]}
+                                        if arrayNO[1] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[1]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/drenok', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/drenok')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/drenok')
+                                        i.fas.fa-image  
                                         |   Drenok
-                                if array[2] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[2]}
+                                    div.notifications
+                                        if array[2] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[2]}
+                                        if arrayNO[2] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[2]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/dlukovo', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/dlukovo')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/dlukovo')
+                                        i.fas.fa-image  
                                         |   Dolno Lukovo
-                                if array[3] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[3]}
+                                    div.notifications
+                                        if array[3] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[3]}
+                                        if arrayNO[3] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[3]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/glukovo', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/glukovo')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/glukovo')
+                                        i.fas.fa-image  
                                         |   Gorno Lukovo
-                                if array[4] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[4]}
+                                    div.notifications
+                                        if array[4] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[4]}
+                                        if arrayNO[4] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[4]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/jablanica', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/jablanica')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/jablanica')
+                                        i.fas.fa-image  
                                         |   Jablanica
-                                if array[5] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[5]}
+                                    div.notifications
+                                        if array[5] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[5]}
+                                        if arrayNO[5] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[5]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/lakavica', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/lakavica')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/lakavica')
+                                        i.fas.fa-image  
                                         |   Lakavica
-                                if array[6] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[6]}
+                                    div.notifications
+                                        if array[6] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[6]}
+                                        if arrayNO[6] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[6]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/modric', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/modric')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/modric')
+                                        i.fas.fa-image  
                                         |   Modric
-                                if array[7] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[7]}
+                                    div.notifications
+                                        if array[7] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[7]}
+                                        if arrayNO[7] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[7]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/nerezi', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/nerezi')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/nerezi')
+                                        i.fas.fa-image  
                                         |   Nerezi
-                                if array[8] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[8]}
+                                    div.notifications
+                                        if array[8] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[8]}
+                                        if arrayNO[8] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[8]}
                             div(style='text-align: center; margin: 25px auto;')
                                 a(href='/manage/piskupshtina', style='height: 35px;')
-                                    button.btn.btn-pill.btn-primary(style='width: 230px;', type='button', href='/manage/piskupshtina')
-                                        i.fa.fa-image.mr-1  
+                                    button.btn.btn-pill.btn-primary.ace-btn(type='button', href='/manage/piskupshtina')
+                                        i.fas.fa-image  
                                         |   Piskupshtina
-                                if array[9] != 0
-                                    div(style='position: relative; background-color: red; color: white; border-radius: 30px; height: 30px; width: 30px; filter: drop-shadow(1px 1px 3px orange); bottom: 60px; left: 10px; font-size: 18px;') #{array[9]}
-            br
+                                    div.notifications
+                                        if array[9] != 0
+                                            span.badge.mr-3.badge-pill.badge-success #{array[9]}
+                                        if arrayNO[9] != 0
+                                            span.badge.mr-3.badge-pill.badge-warning #{arrayNO[9]}
+                        br
+                        br
+                        br
+                        div.message(style='text-align: center;')
+                            .col-sm-12
+                                div
+                                    br
+                                    h4 Backup
+                                    p (backup.zip should be in "public" directory)
+                                    p click the icon to download
+                                br
+                                div(style='padding-bottom: 30px')
+                                    a(href='backup.zip', download='')
+                                        div
+                                            img(src='images/other/winrar.png', class="resp", style='height: 150px; width: 150px')
             br
             br
             // footer
