@@ -138,6 +138,8 @@ var list_ext2 = [];                                                  // all publ
 var tothumbSRC = [];                                                 // list of all pictures to make thumbnail
 var tothumbDST = [];                                                 // destination for every thumbnail to make
 var tmbPath;                                                         // thumbnail destination path
+var tmp_img;                                                         // folder to store images on upload before rotating and moving to to_review
+var imgDST = [];                                                     // image destination (to_review folder) for when using sharp to autorotate
 var listtmb = [];                                                    // list of thumbnails of published pics of a village
 var listtmbdel = [];                                                 // list of thumbnails to be deleted
 var listtmbpub = [];                                                 // list thumbnails to move into published folder
@@ -530,6 +532,16 @@ router.post('/upload', function (req, res) {
     //console.log('Got a field name:', name);
     village = field;
     //console.log('village: ' + village);
+    right_loc = new_location + village + '/to_review';
+    var exists = fs.existsSync(right_loc);
+    if(!exists){
+      fsExtra.mkdir(right_loc);
+    }
+    tmp_img = new_location + village + '/tmp_img';
+    var existsTMP = fs.existsSync(tmp_img);
+    if(!existsTMP){
+      fsExtra.mkdir(tmp_img);
+    }
   });
 
       /* this is where the renaming happens */
@@ -542,29 +554,18 @@ router.post('/upload', function (req, res) {
         }
         if(siFile){
           //console.log('filebegin here');
-          if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
-            right_loc = new_location + village + '/to_review';
-            var exists = fs.existsSync(right_loc);
-            if(exists){
+          if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
               //console.log('folder exists!');
             //rename the incoming file to the file's name
-              file.path = path.join(right_loc + '/' + uniqid() + fileType);
+              file.path = path.join(tmp_img + '/' + uniqid() + fileType);
               //for thumbnails
               if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
                 tothumbSRC.push(file.path);
-                tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev"))); 
-              }    
-            }else{
-              //console.log('folder does not exists');
-              //console.log('making that directory');
-              fsExtra.mkdir(right_loc);
-              file.path = path.join(right_loc + '/' + uniqid() + fileType);
-              //for thumbnails
-              if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
-                tothumbSRC.push(file.path);
-                tothumbDST.push(file.path.replace(/to_review/gi, path.join("tmb/to_rev"))); 
+                tothumbDST.push(file.path.replace(/tmp_img/gi, path.join("tmb/to_rev"))); 
+                imgDST.push(file.path.replace(/tmp_img/gi, path.join("to_review"))); 
               }
-            }
+          }else if((fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
+            file.path = path.join(right_loc + '/' + uniqid() + fileType);
           }else{
           var exists3 = fs.existsSync(invalid_up_loc);
             if(exists3){
@@ -593,13 +594,32 @@ router.post('/upload', function (req, res) {
                 }
               });
         }
-        //creating thumbnails
+        //creating thumbnails and autorotated images
         if(tothumbSRC.length != 0){
           for(var i = 0;i<tothumbSRC.length;i++){
             sharp(tothumbSRC[i])
+              .rotate()
               .resize(200, 200)
               .max()
-              .toFile(tothumbDST[i])
+              .toFile(tothumbDST[i], (err, info) => {
+                if(err){
+                  console.log(err);
+                }                
+              })
+            sharp(tothumbSRC[i])
+              .rotate()
+              .toFile(imgDST[i], (err, info) => {
+                if(err){
+                  console.log(err);
+                }
+              })
+              fsExtra.remove(tothumbSRC[i], err =>{
+                if (err){
+                  return console.log("errore rimozione immagine da img_tmp: " + err);
+                }else{
+                  console.log("immagine rimossa da img_tmp"); 
+                }
+              });
               //console.log("thumbnail for " + tothumbSRC[i] + " created in " + tothumbDST[i]);
           } 
         }
@@ -615,6 +635,7 @@ router.post('/upload', function (req, res) {
         });
     tothumbSRC = [];
     tothumbDST = [];
+    imgDST = [];
 });
 //---------------------------------------------------------------------------------------------------------------------------------------
 //handling people say page form
