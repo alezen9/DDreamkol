@@ -594,6 +594,13 @@ router.post('/upload', function (req, res) {
           for(var i = 0;i<tothumbSRC.length;i++){
             sharp(tothumbSRC[i])
               .rotate()
+              .toFile(imgDST[i], (err, info) => {
+                if(err){
+                  console.log(err);
+                }
+              })
+            sharp(tothumbSRC[i])
+              .rotate()
               .resize(200, 200)
               .max()
               .toFile(tothumbDST[i], (err, info) => {
@@ -601,22 +608,17 @@ router.post('/upload', function (req, res) {
                   console.log(err);
                 }                
               })
-            sharp(tothumbSRC[i])
-              .rotate()
-              .toFile(imgDST[i], (err, info) => {
-                if(err){
-                  console.log(err);
-                }
-              })
-              fsExtra.remove(tothumbSRC[i], err =>{
-                if (err){
-                  return console.log("errore rimozione immagine da img_tmp: " + err);
-                }else{
-                  console.log("immagine rimossa da img_tmp"); 
-                }
-              });
               //console.log("thumbnail for " + tothumbSRC[i] + " created in " + tothumbDST[i]);
-          } 
+          }
+          tothumbSRC.forEach(immagine =>{
+            fsExtra.remove(immagine, err =>{
+              if (err){
+                return console.log("errore rimozione immagine da img_tmp: " + err);
+              }else{
+                console.log("immagine rimossa da img_tmp"); 
+              }
+            })
+          });
         }
         //res
         console.log("uploaded successfully");
