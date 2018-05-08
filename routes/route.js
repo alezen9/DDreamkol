@@ -533,15 +533,7 @@ router.post('/upload', function (req, res) {
     village = field;
     //console.log('village: ' + village);
     right_loc = new_location + village + '/to_review';
-    var exists = fs.existsSync(right_loc);
-    if(!exists){
-      fsExtra.mkdir(right_loc);
-    }
     tmp_img = new_location + village + '/tmp_img';
-    var existsTMP = fs.existsSync(tmp_img);
-    if(!existsTMP){
-      fsExtra.mkdir(tmp_img);
-    }
   });
 
       /* this is where the renaming happens */
@@ -555,7 +547,9 @@ router.post('/upload', function (req, res) {
         if(siFile){
           //console.log('filebegin here');
           if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
-              //console.log('folder exists!');
+            fsExtra.ensureDirSync(right_loc);
+            fsExtra.ensureDirSync(tmp_img);
+            //console.log('folder exists!');
             //rename the incoming file to the file's name
               file.path = path.join(tmp_img + '/' + uniqid() + fileType);
               //for thumbnails
@@ -565,6 +559,7 @@ router.post('/upload', function (req, res) {
                 imgDST.push(file.path.replace(/tmp_img/gi, path.join("to_review"))); 
               }
           }else if((fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
+            fsExtra.ensureDirSync(right_loc);
             file.path = path.join(right_loc + '/' + uniqid() + fileType);
           }else{
           var exists3 = fs.existsSync(invalid_up_loc);
