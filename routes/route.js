@@ -140,6 +140,7 @@ var tothumbDST = [];                                                 // destinat
 var tmbPath;                                                         // thumbnail destination path
 var tmp_img;                                                         // folder to store images on upload before rotating and moving to to_review
 var imgDST = [];                                                     // image destination (to_review folder) for when using sharp to autorotate
+var toDelete = [];                                                   // images to delete from tmp_img
 var listtmb = [];                                                    // list of thumbnails of published pics of a village
 var listtmbdel = [];                                                 // list of thumbnails to be deleted
 var listtmbpub = [];                                                 // list thumbnails to move into published folder
@@ -234,6 +235,17 @@ router.get("/1234v_manager", (req, res) => {
   
   vmanager_load(testFolder,toReviewFolder,tmbPubFolder,tmbTo_revFolder,selo);
 
+  toDelete.forEach(immagine =>{
+    fsExtra.remove(immagine, err =>{
+      if (err){
+        return console.log("errore rimozione immagine da img_tmp: " + err);
+      }else{
+        console.log("immagine rimossa da img_tmp"); 
+      }
+    })
+    console.log("deleted from tmp_img: " + immagine);
+  });
+
   res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arrext: list_ext2,arrext2: list_ext, arrtmbdel: listtmbdel, arrtmbpub: listtmbpub});
   list_pics = [];
   list_to_review = [];
@@ -242,6 +254,7 @@ router.get("/1234v_manager", (req, res) => {
   list_ext = [];
   listtmbdel = [];
   listtmbpub = [];
+  toDelete = [];
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -577,6 +590,7 @@ router.post('/upload', function (req, res) {
 });
 
   form.on('end', function(fields, files) {
+    var finito = false;
     if(siFile){
       var exists4 = fs.existsSync(invalid_up_loc);
         if(exists4){
@@ -594,31 +608,29 @@ router.post('/upload', function (req, res) {
           for(var i = 0;i<tothumbSRC.length;i++){
             sharp(tothumbSRC[i])
               .rotate()
-              .toFile(imgDST[i], (err, info) => {
-                if(err){
-                  console.log(err);
-                }
-              })
-            sharp(tothumbSRC[i])
-              .rotate()
               .resize(200, 200)
               .max()
               .toFile(tothumbDST[i], (err, info) => {
                 if(err){
                   console.log(err);
-                }                
+                }else{
+                  console.log("thumbnail created")
+                }           
               })
+
+            sharp(tothumbSRC[i])
+              .rotate()
+              .toFile(imgDST[i], (err, info) => {
+                if(err){
+                  console.log(err);
+                }else{
+                  console.log("image autorotated")
+                }
+              })
+              console.log(i + " " + finito);
               //console.log("thumbnail for " + tothumbSRC[i] + " created in " + tothumbDST[i]);
-          }
-          tothumbSRC.forEach(immagine =>{
-            fsExtra.remove(immagine, err =>{
-              if (err){
-                return console.log("errore rimozione immagine da img_tmp: " + err);
-              }else{
-                console.log("immagine rimossa da img_tmp"); 
-              }
-            })
-          });
+              toDelete.push(tothumbSRC[i]);
+          } 
         }
         //res
         console.log("uploaded successfully");
