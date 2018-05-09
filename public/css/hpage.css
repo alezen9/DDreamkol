@@ -77,7 +77,7 @@
         }
         .submenu {
           text-decoration: none;
-          color: #666;
+          color: rgb(32, 32, 32);
           font: 15px/1 Helvetica, Verdana, sans-serif;
           text-transform: uppercase;
           -webkit-transition: all 0.2s ease;
@@ -87,7 +87,7 @@
         }
         .submenu:hover {
           font-size: 100%;
-          color: #666;
+          color: rgb(29, 29, 29);;
         }
         .menu { text-align: center; }
         .menu ul { display:inline-table; }

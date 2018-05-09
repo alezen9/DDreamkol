@@ -85,9 +85,13 @@
             <button class="btn btn-pill btn-success sub" type="submit" onclick="this.disabled=true;this.form.submit(); spinner();"><span id="btn_span"><i class="fa fa-upload mr-1"></i> Upload</span></button>
           </div>
         </form>
-        <!--<p id="filesToUpload" class="filesToUp"></p>-->
+        <p id="warning" class="warning">
+          <i class="fas fa-exclamation-triangle"></i>
+          <br>
+          Large files may take a while!
+        </p>
         <div id="upl" class="spinner">
-          <img src="images/other/loading.svg">
+          <img src="images/other/loading-min.svg">
         </div>
       </div>
       </div>

@@ -13,11 +13,17 @@ var navbar2 = '\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
 					</li>\
-					<li class="nav-item">\
-	                    <a class="nav-link" href="tournament.html">Tournament\
-	                        <span class="sr-only">(current)</span>\
-	                    </a>\
-					</li>\
+					<li class="nav-item dropdown">\
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"\
+                           data-toggle="dropdown" aria-haspopup="true"\
+                           aria-expanded="false">\
+                            Tournaments\
+                        </a>\
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0,0,0,0.8); border: none; box-shadow: none;">\
+                            <a class="dropdown-item" href="page_in_development.html" style="color: white; background-color: transparent;">Dolnodrimkolski Ilindenski Sredbi</a>\
+                            <a class="dropdown-item" href="page_in_development.html" style="color: white; background-color: transparent;">Piskupshtina</a>\
+                        </div>\
+                    </li>\
 					<li class="nav-item">\
 	                    <a class="nav-link" href="page_in_development.html">About Dolni Drimkol\
 	                        <span class="sr-only">(current)</span>\

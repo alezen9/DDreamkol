@@ -5,7 +5,7 @@ const fs = require('fs');
 const formidable = require('formidable');
 const pug = require('pug');
 const util = require('util');
-const hbjs = require('handbrake-js');
+//const hbjs = require('handbrake-js');
 const fsExtra  = require('fs-extra');
 const uniqid = require('uniqid');
 const bodyParser = require('body-parser');
@@ -175,7 +175,7 @@ router.get("/peopleSayEdit", (req, res) => {
 
 //route upload_succ page
 router.get("/upload_succ", (req, res) => {
-  res.render("upload_succ");
+  res.sendFile(path.join(public_path + 'upload_succ.html'));
 });
 
 
@@ -243,7 +243,6 @@ router.get("/1234v_manager", (req, res) => {
         console.log("immagine rimossa da img_tmp"); 
       }
     })
-    console.log("deleted from tmp_img: " + immagine);
   });
 
   res.render("v_manager",{paese: selo, arr_rev: list_to_review, arr_pics: list_pics, arrext: list_ext2,arrext2: list_ext, arrtmbdel: listtmbdel, arrtmbpub: listtmbpub});

@@ -7,7 +7,7 @@ function spinner() {
 
 function myFunction(){
     var inputFile = document.getElementById("myFile");
-    //var p = document.getElementById("filesToUpload");
+    var p = document.getElementById("warning");
     var spanInputFiles = document.getElementById("chsFiles");
     var totSize = 0;
     var totEl = inputFile.files.length;
@@ -27,4 +27,7 @@ function myFunction(){
     //p.style.border = "3px solid rgba(255,213,130,0.46)";
     //p.innerHTML = txt;
     spanInputFiles.innerHTML = totEl + " " + f + " ready -  " + Math.ceil(totSize) + "mb";
+    if(totSize>30){
+        p.style.display = "block";
+    }
 }
