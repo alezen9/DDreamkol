@@ -51,12 +51,12 @@ html.no-js(lang='en')
                                             label.custom-control.custom-checkbox.d-block.my-2
                                                 input.custom-control-input(type='checkbox', name='p[]', value=val)
                                                 span.custom-control-indicator
-                                                if ((arrext2[index2] == '.mov') || (arrext2[index2] == '.MOV') || (arrext2[index2] == '.mkv') || (arrext2[index2] == '.avi'))
+                                                if ((arrext2[index2] == '.mov') || (arrext2[index2] == '.MOV') || (arrext2[index2] == '.mkv') || (arrext2[index2] == '.avi') || (arrext2[index2] == '.MKV') || (arrext2[index2] == '.AVI'))
                                                     span.badge.mr-3.badge-pill.badge-warning #{arrext2[index2]}
                                                 else
                                                     span.badge.mr-3.badge-pill.badge-success #{arrext2[index2]}
                                     div(style='margin: auto; padding: 10px;')
-                                        if ((arrext2[index2] == '.jpg') || (arrext2[index2] == '.jpeg') || (arrext2[index2] == '.png'))
+                                        if ((arrext2[index2] == '.jpg') || (arrext2[index2] == '.jpeg') || (arrext2[index2] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
                                             a(href=val, class="strip" data-strip-group="mygroup2" data-strip-group-options="loop: true")
                                                 img(src=arrtmbdel[index2], alt=val,class="resp")
                                         else

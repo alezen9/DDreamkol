@@ -21,7 +21,7 @@ var navbar2 = '\
                         </a>\
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0,0,0,0.8); border: none; box-shadow: none;">\
                             <a class="dropdown-item" href="page_in_development.html" style="color: white; background-color: transparent;">Dolnodrimkolski Ilindenski Sredbi</a>\
-                            <a class="dropdown-item" href="page_in_development.html" style="color: white; background-color: transparent;">Piskupshtina</a>\
+                            <a class="dropdown-item" href="page_in_development.html" style="color: white; background-color: transparent;">Prvomajski Turnir Piskupshtina</a>\
                         </div>\
                     </li>\
 					<li class="nav-item">\
