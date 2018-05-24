@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
-  <!--link(href='/css/lightbox/css/lightbox.min.css' rel='stylesheet')-->
   <link rel="stylesheet" href="css/shards.min.css">
   <link rel="stylesheet" href="css/frost.css">
   <link rel="stylesheet" href="css/modal.css">
@@ -82,7 +81,7 @@
             <input id="myFile" class="user-message" type="file" name="file" multiple="multiple" required onchange="myFunction();"><span id="chsFiles" class="custom-file-control">Choose file/s...</span>
           </label>
           <div id="sub_btn" style="text-align: center"><br><br>
-            <button class="btn btn-pill btn-success sub" type="submit" onclick="this.disabled=true;this.form.submit(); spinner();"><span id="btn_span"><i class="fa fa-upload mr-1"></i> Upload</span></button>
+            <button id="buttoon" class="btn btn-pill btn-success sub" type="submit" onclick="this.disabled=true;this.form.submit(); spinner();"><span id="btn_span"><i class="fa fa-upload mr-1"></i> Upload</span></button>
           </div>
         </form>
         <p id="warning" class="warning">
@@ -93,14 +92,17 @@
         <div id="upl" class="spinner">
           <img src="images/other/loading-min.svg">
         </div>
+        <!--<span style="text-align: center; font-weight: bold; font-size: 25px;" id="display"></span>
+        <div class="progress">
+            <div id="progress" class="progress-bar bg-primary" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <progress id="progress" value="0"></progress>-->
       </div>
       </div>
     </div>
   </div>
-  <!-- footer--><br><br>
-  <div>
-    <p class="text-center small p-0 mb-4" style="position: relative; bottom: 0; width:100%; color: black">© Copyright 2018 — Aleksandar Gjoreski</p>
-  </div>
+  <!-- Footer-->
+  <script src="js/scripts/footer2.js"></script>
 </body>
 <!-- JavaScript-->
 <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
