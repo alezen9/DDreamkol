@@ -45,7 +45,7 @@ html.no-js(lang='en')
                 .row
                     each val,index in arr
                         div(style='margin: auto; padding: 5px;')
-                            if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png'))
+                            if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
                                 a(href=val, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
                                     img(src=arrtmb[index], class="resp", alt=val)
                             else
@@ -55,7 +55,7 @@ html.no-js(lang='en')
         footer
             br
             br
-            h5.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') © Copyright 2018 — Aleksandar Gjoreski
+            h5.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') 2018 — Aleksandar Gjoreski
         // JavaScript
         #fb-root
         script(async='', defer='', src='https://buttons.github.io/buttons.js')

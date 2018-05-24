@@ -101,7 +101,7 @@ function vmanager_load(imgFolder,trFolder,tmbpFolder,tmbtrFolder,ps){
     
   fs.readdirSync(trFolder).forEach(file=>{
     if(file != gitkeep){
-      if((path.extname(file) != '.mp4') && (path.extname(file) != '.m4v') && (path.extname(file) != '.jpeg') && (path.extname(file) != '.jpg') && (path.extname(file) != '.png')){
+      if((path.extname(file) != '.mp4') && (path.extname(file) != '.MP4') && (path.extname(file) != '.m4v') && (path.extname(file) != '.M4V') && (path.extname(file) != '.jpeg') && (path.extname(file) != '.jpg') && (path.extname(file) != '.png') (path.extname(file) != '.JPEG') && (path.extname(file) != '.JPG') && (path.extname(file) != '.PNG')){
       }
       list_to_review.push('images/' + ps + '/to_review/' + file);
       list_ext.push(path.extname(file));
@@ -558,19 +558,19 @@ router.post('/upload', function (req, res) {
         }
         if(siFile){
           //console.log('filebegin here');
-          if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
+          if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.JPG' ) || (fileType == '.JPEG' ) || (fileType == '.PNG' )){
             fsExtra.ensureDirSync(right_loc);
             fsExtra.ensureDirSync(tmp_img);
             //console.log('folder exists!');
             //rename the incoming file to the file's name
               file.path = path.join(tmp_img + '/' + uniqid() + fileType);
               //for thumbnails
-              if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' )){
+              if((fileType == '.jpg' ) || (fileType == '.jpeg' ) || (fileType == '.png' ) || (fileType == '.JPG' ) || (fileType == '.JPEG' ) || (fileType == '.PNG' )){
                 tothumbSRC.push(file.path);
                 tothumbDST.push(file.path.replace(/tmp_img/gi, path.join("tmb/to_rev"))); 
                 imgDST.push(file.path.replace(/tmp_img/gi, path.join("to_review"))); 
               }
-          }else if((fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mkv' ) || (fileType == '.avi' )){
+          }else if((fileType == '.mp4' ) || (fileType == '.m4v' ) || (fileType == '.MP4' ) || (fileType == '.M4V' ) || (fileType == '.MOV' ) || (fileType == '.mov' ) || (fileType == '.mkv' ) || (fileType == '.avi' ) ||  (fileType == '.MKV' ) || (fileType == '.AVI' )){
             fsExtra.ensureDirSync(right_loc);
             file.path = path.join(right_loc + '/' + uniqid() + fileType);
           }else{
