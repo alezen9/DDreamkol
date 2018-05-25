@@ -607,7 +607,7 @@ router.post('/upload', function (req, res) {
           for(var i = 0;i<tothumbSRC.length;i++){
             sharp(tothumbSRC[i])
               .rotate()
-              .resize(200, 200)
+              .resize(300, 300)
               .max()
               .toFile(tothumbDST[i], (err, info) => {
                 if(err){

@@ -30,7 +30,7 @@ html.no-js(lang='en')
         div
             include includes/navbar.pug
         // background image
-        img.bgd(src='images/other/apple_transparent_blurry.png')
+        img.bgd(src='images/other/sunrise_transparent_blurry.png')
         .text-center.mb-4
             h1 #{nome}
             br
@@ -40,17 +40,15 @@ html.no-js(lang='en')
                         i.fas.fa-info-circle
                         |  &nbsp;&nbsp;Go to info
         // Page Content
-        #cards.container.mb-2(style='padding-bottom: 1px')
-            .example.col-md-12.ml-auto.mr-auto(style='width: 100%;')
-                .row
-                    each val,index in arr
-                        div(style='margin: auto; padding: 5px;')
-                            if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
-                                a(href=val, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
-                                    img(src=arrtmb[index], class="resp", alt=val)
-                            else
-                                a(href=val, type="video/mp4", data-lity)
-                                    img(src='images/other/video3.svg', class="resp", alt='video', style="filter: drop-shadow(5px 5px 3px red);")
+        .galleria
+            each val,index in arr
+                div(style='padding: 0.5px; box-shadow: 0 0 50px 5px rgba(	0, 0, 0,0.6); background-color: black;')
+                    if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
+                        a(href=val, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
+                            img(src=arrtmb[index], class="resp", alt=val)
+                    else
+                        a(href=val, type="video/mp4", data-lity)
+                            img(src='images/other/video3.svg', class="resp", alt='video', style="filter: drop-shadow(5px 5px 3px red);")
         // Footer
         footer
             br
