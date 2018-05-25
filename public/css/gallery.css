@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 50px;
+  margin: 70px 20px auto;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.589));
 }
 img.resp {
   object-fit: cover;
@@ -41,23 +42,32 @@ img.resp:hover {
       /*iphone se*/
       @media all and (max-width: 330px) {
         img.resp{
-          width: 70px;
-          height: 70px;
+          width: 100px;
+          height: 100px;
+        }
+        .galleria{
+          margin: 50px 0px auto;
         }
       }
 
        /*telefoni più grandi*/
        @media all and (max-width: 400px) and (min-width: 331px) {
         img.resp{
-          width: 90px;
-          height: 90px;
+          width: 110px;
+          height: 110px;
+        }
+        .galleria{
+          margin: 50px 0px auto;
         }
       }
 
        /*telefoni più grandi*/
        @media all and (max-width: 750px) and (min-width: 401px) {
         img.resp{
-          width: 100px;
-          height: 100px;
+          width: 130px;
+          height: 130px;
+        }
+        .galleria{
+          margin: 50px 0px auto;
         }
       }

@@ -42,7 +42,7 @@ html.no-js(lang='en')
         // Page Content
         .galleria
             each val,index in arr
-                div(style='padding: 0.5px; box-shadow: 0 0 50px 5px rgba(	0, 0, 0,0.6); background-color: black;')
+                div(style='padding: 2px; background-color: rgba(255,255,255,0.0); border-radius: 5px;')
                     if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
                         a(href=val, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
                             img(src=arrtmb[index], class="resp", alt=val)
