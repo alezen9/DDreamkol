@@ -152,6 +152,10 @@ router.get("/", (req, res) => {
    res.sendFile(path.join(public_path + 'homepage.html'));
 });
 
+//route news page
+router.get("/news", (req, res) => {
+  res.sendFile(path.join(public_path + 'news.html'));
+});
 
 //route upload page
 router.get("/upload", (req, res) => {

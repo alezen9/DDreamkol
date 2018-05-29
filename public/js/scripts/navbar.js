@@ -9,7 +9,7 @@ var navbar = '\
 	        <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown-2" style="text-align: center;">\
 	            <ul class="navbar-nav mr-auto">\
 					<li class="nav-item">\
-	                    <a class="nav-link" href="page_in_development.html">News\
+	                    <a class="nav-link" href="/news">News\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
 					</li>\
