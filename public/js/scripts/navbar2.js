@@ -6,7 +6,7 @@ var navbar2 = '\
 	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-2" aria-controls="navbarNavDropdown-2" aria-expanded="false" aria-label="Toggle navigation" style="border: none;">\
 	            <span class="navbar-toggler-icon"></span>\
 	        </button>\
-	        <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown-2">\
+	        <div class="collapse navbar-collapse mr-auto" id="navbarNavDropdown-2" style="text-align: center;">\
 	            <ul class="navbar-nav mr-auto">\
 					<li class="nav-item">\
 	                    <a class="nav-link" href="/news">News\

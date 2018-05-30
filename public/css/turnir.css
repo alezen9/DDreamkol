@@ -1,380 +1,98 @@
-    body{
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: top;
-      background-image:url(../images/other/football_transparent_blurry.png);
-      width: 100%;
-      height: 100%; 
-    }
+body{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image:url(../images/other/football_transparent_blurry.png);
+  width: 100%;
+  height: 100%; 
+}
 
-    .box {
-      width: 160px;
-      height: 160px;
-      text-align: center;
-      margin: auto;
-      background: transparent;
-      overflow: hidden;
-    }
-    .text {
-      text-align: center;
-      margin-top: 56px;
-      color: #000;
-      font-size: 1.0em;
-      font-family: sans-serif;
-      text-transform: uppercase;
-    }
-    .animated {
-      animation-duration: 2.5s;
-      animation-fill-mode: both;
-      animation-iteration-count: infinite;
-    }
-    @keyframes wobble {
-      0% {transform: translateX(0%);}
-      15% {transform: translateX(-25%) rotate(-5deg);}
-      30% {transform: translateX(20%) rotate(3deg);}
-      45% {transform: translateX(-15%) rotate(-3deg);}
-      60% {transform: translateX(10%) rotate(2deg);}
-      75% {transform: translateX(-5%) rotate(-1deg);}
-      100% {transform: translateX(0%);}
-    }
-    .wobble {
-      animation-name: wobble;
-    }
-    @keyframes pulse {
-      0% {transform: scale(1);}
-      50% {transform: scale(1.1);}
-      100% {transform: scale(1);}
-    }
-    .pulse {
-      animation-name: pulse;
-      animation-duration: 1s;
-    }
-    .frost{
-      /*background-color: #F8F8FF;*/
-      width: 100%;
-      box-shadow: inset 0 0 100px 300px rgba(43, 43, 43, 0.562);
-      color: #ffae19;
-      overflow-wrap: break-word;
-      padding: 20px;
-    }
+.box {
+  width: 160px;
+  height: 160px;
+  text-align: center;
+  margin: auto;
+  background: transparent;
+  overflow: hidden;
+}
+.animated {
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+@keyframes wobble {
+  0% {transform: translateX(0%);}
+  15% {transform: translateX(-25%) rotate(-5deg);}
+  30% {transform: translateX(20%) rotate(3deg);}
+  45% {transform: translateX(-15%) rotate(-3deg);}
+  60% {transform: translateX(10%) rotate(2deg);}
+  75% {transform: translateX(-5%) rotate(-1deg);}
+  100% {transform: translateX(0%);}
+}
+.wobble {
+  animation-name: wobble;
+}
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+.pulse {
+  animation-name: pulse;
+  animation-duration: 1s;
+}
+.frost{
+  width: 100%;
+  box-shadow: inset 0 0 100px 300px rgba(43, 43, 43, 0.562);
+  color: #ffae19;
+  overflow-wrap: break-word;
+  padding: 20px;
+}
 
-    .frost2{
-      border-radius: 5px;
-      /*background-color: #F8F8FF;*/
-      padding: 10px;
-      width: 100%;
-      box-shadow: inset 0 0 100px 300px rgba(173, 173, 173, 0.507);
-      color: black;
-      padding-bottom: 20px;
-      font-weight: 300;
-      overflow-wrap: break-word;
-    }
-    .tbl{
-      height: 100px;
-      width: 70%;
-      margin: auto;
-      border-radius: 10px;
-    }
+.teams{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.team{
+  min-width: 100%;
+  height: 400px;
+}
+.team:nth-child(even){
+  background: #83a4d4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+.team:nth-child(odd){
+  background: #00c8ff60;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0073ff73, #00c8ff60);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0073ff73, #00c8ff60); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
 
-    .primo{
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      -webkit-appearance: none;
-      -webkit-box-shadow: inset 0 0 100px 300px rgba(182, 185, 22, 0.521);
-      box-shadow: inset 0 0 100px 300px rgba(182, 185, 22, 0.521);
-    }
-    .secondo{
-      -webkit-appearance: none;
-      -webkit-box-shadow: inset 0 0 100px 300px rgba(171, 180, 180, 0.6);
-      box-shadow: inset 0 0 100px 300px rgba(171, 180, 180, 0.6);
-    }
-    .terzo{
-      -webkit-appearance: none;
-      -webkit-box-shadow: inset 0 0 100px 300px rgba(202, 108, 31, 0.473);
-      box-shadow: inset 0 0 100px 300px rgba(202, 108, 31, 0.473);
-    }
-    .riga{
-      -webkit-appearance: none;
-      -webkit-box-shadow: inset 0 0 100px 300px rgba(	57, 57, 57,0.6);
-      box-shadow: inset 0 0 100px 300px rgba(	57, 57, 57,0.6);
-      color: #ffae19;
-    }
-    .altro{
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      -webkit-appearance: none;
-      -webkit-box-shadow: inset 0 0 100px 300px rgba(0, 0, 0, 0.74);
-      box-shadow: inset 0 0 100px 300px rgba(0, 0, 0, 0.74);
-    }
+.tbl{
+  height: 100px;
+  width: 60%;
+  margin: auto;
+  border-radius: 10px;
+}
+.ico{
+  margin: 30px;
+}
+.trofei{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
-    .car{
-	      margin: auto;
-	      top: 30px;
-	      width: 85%;
-	      height: 550px;
-	      object-fit: cover;
-	      border-radius: 10px;
-    }
-    .zoom
-    {
-        display:inline-block;
-        border:0;
-        width:150px;
-        height:150px;
-        position: relative;
-        -webkit-transition: all 200ms ease-in;
-        -webkit-transform: scale(1); 
-        -ms-transition: all 200ms ease-in;
-        -ms-transform: scale(1); 
-        -moz-transition: all 200ms ease-in;
-        -moz-transform: scale(1);
-        transition: all 200ms ease-in;
-        transform: scale(1);
-        margin: auto;
-        border-radius: 20%;  
-        object-fit: cover;
-        z-index: 1;
-
-    }
-    .zoom:hover
-    {
-        /*box-shadow: 0px 0px 30px #ccac00;*/
-        z-index: 2;
-        -webkit-transition: all 200ms ease-in;
-        -webkit-transform: scale(1.1);
-        -ms-transition: all 200ms ease-in;
-        -ms-transform: scale(1.1);   
-        -moz-transition: all 200ms ease-in;
-        -moz-transform: scale(1.1);
-        transition: all 200ms ease-in;
-        transform: scale(1.1);
-        /*border-radius: 50%;*/
-        z-index: 2;
-        /*background-color:  rgba(182, 185, 22, 0.521);*/
-    }
-    .zoom2
-    {
-        display:inline-block;
-        border:0;
-        width:500px;
-        position: relative;
-        -webkit-transition: all 200ms ease-in;
-        -webkit-transform: scale(1); 
-        -ms-transition: all 200ms ease-in;
-        -ms-transform: scale(1); 
-        -moz-transition: all 200ms ease-in;
-        -moz-transform: scale(1);
-        transition: all 200ms ease-in;
-        transform: scale(1);
-        margin: auto;
-        border-radius: 10px;  
-        object-fit: cover;
-        z-index: 1;
-
-    }
-    .zoom2:hover
-    {
-        /*box-shadow: 0px 0px 30px #ccac00;*/
-        z-index: 2;
-        -webkit-transition: all 200ms ease-in;
-        -webkit-transform: scale(1.05);
-        -ms-transition: all 200ms ease-in;
-        -ms-transform: scale(1.05);   
-        -moz-transition: all 200ms ease-in;
-        -moz-transform: scale(1.05);
-        transition: all 200ms ease-in;
-        transform: scale(1.05);
-        /*border-radius: 50%;*/
-        z-index: 2;
-        /*background-color:  rgba(182, 185, 22, 0.521);*/
-    }
-
-
-    .bg{
-      position: relative;
-      height: 550px;
-      background: linear-gradient(#212529, white);
-      z-index: 0;
-    }
-    .bg1{
-      position: relative;
-      height: 550px;
-      background: transparent;
-      z-index: 0;
-      
-      transform: translateY(-30px);
-      transform: translateX(100px); 
-    }
-    .text-block {
-            padding: 60px;
-            position: absolute;
-            bottom: -20px;
-            right: -10px;
-            left: 0;
-            color: white;
-            background-color: rgba(0,0,0,0.6);
-        }
-    .teams{
-    	padding: 30px;
-    	margin: auto;
-    	text-align: center;
-    }
-    .field{
-        text-align: center;
-        margin: auto;
-        filter:drop-shadow(0px 15px 5px #49311c);
-      }
-      .goalkeeper{
-        padding: 60px;
-        position: absolute;
-        bottom: -80px;
-        width: 99%;
-      }
-      .defence{
-        padding: 60px;
-        position: absolute;
-        top: 370px;
-        width: 99%;
-      }
-      .central{
-        padding: 60px;
-        position: absolute;
-        top: 275px;
-        width: 99%;
-      }
-      .central-f{
-        padding: 60px;
-        position: absolute;
-        top: 210px;
-        width: 99%;
-      }
-      .striker{
-        padding: 60px;
-        position: absolute;
-        top: 130px;
-        width: 99%;
-      }
-    @media all and (min-width: 500px){
-      .men{
-        border-right: 1px solid #ccc;
-      }
-    }
-    @media all and (max-width: 500px) {
-        .car{
-          height: 230px;
-          width: 95%;
-          margin: auto;
-        }
-        .bg{
-        	height: 230px;
-        }
-        .zoom{
-        	height: 80px;
-        	width: 80px;
-        }
-        .zoom:hover{
-	        -webkit-transform: scale(1.6);
-	        -ms-transform: scale(1.6);   
-	        -moz-transform: scale(1.6);
-	        transform: scale(1.6);
-	    }
-        .text-block {
-            font-size: 15px;
-            padding: 30px;
-            position: absolute;
-            bottom: -20px;
-            left: 0;
-            right: -3px;
-            color: white;
-            background-color: rgba(0,0,0,0.6);
-        }
-        .tname{
-        	font-size: 15px;
-        }
-        .foto{
-            height: 210px;
-          }
-          .goalkeeper{
-            padding: 60px;
-            position: absolute;
-            bottom: -75px;
-            width: 99%;
-          }
-          .defence{
-            padding: 60px;
-            position: absolute;
-            top: 130px;
-            width: 99%;
-          }
-          .central{
-            padding: 60px;
-            position: absolute;
-            top: 90px;
-            width: 99%;
-          }
-          .central-f{
-            padding: 60px;
-            position: absolute;
-            top: 75px;
-            width: 99%;
-          }
-          .striker{
-            padding: 60px;
-            position: absolute;
-            top: 40px;
-            width: 99%;
-          }
-          .tbl{
-            width: 100%;
-          }
-    }
-    @media all and (max-width: 800px) and (min-width: 501px) {
-      .bg{
-        height: 500px;
-      }
-      .foto{
-        height: 400px;
-      }
-      .goalkeeper{
-        padding: 60px;
-        position: absolute;
-        bottom: 20px;
-        width: 99%;
-      }
-      .defence{
-        padding: 60px;
-        position: absolute;
-        top: 250px;
-        width: 99%;
-      }
-      .central{
-        padding: 60px;
-        position: absolute;
-        top: 180px;
-        width: 99%;
-      }
-      .central-f{
-        padding: 60px;
-        position: absolute;
-        top: 130px;
-        width: 99%;
-      }
-      .striker{
-        padding: 60px;
-        position: absolute;
-        top: 60px;
-        width: 99%;
-      }
-      .tbl{
-        width: 100%;
-      }
-    }
-    @media all and (max-width: 321px) {
-    	.tname{
-    		font-size: 10px;
-      }
-      .tbl{
-        width: 100%;
-      }
-    }
+@media all and (max-width: 813px){
+  .tbl{
+    width: 85%;
+  }
+  .team{
+    height: 250px;
+  }
+}

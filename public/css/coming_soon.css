@@ -1,0 +1,53 @@
+  @import url('https://fonts.googleapis.com/css?family=Righteous');
+
+  body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    background-image:url(../images/other/sunrise.svg);
+    width: 100%;
+    height: 100%;
+  }
+  .message{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cs {
+    font-family: 'Righteous', cursive;
+    font-size: 20vh;
+    font-weight: bold;
+    text-shadow: 0 0 30px rgba(37, 5, 11, 0.568);
+  }
+  .home{
+    position: relative;
+    margin: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dp{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .foto{
+    filter: drop-shadow(0 0 1.75rem rgba(220, 20, 60, 0.568));
+  }
+@media all and (orientation: portrait), (max-width: 767px){
+  .cs{
+    font-size: 13vw;
+  }
+  .foto{
+    position: absolute;
+    width: 75vw;
+    bottom: 0;
+  }
+}
