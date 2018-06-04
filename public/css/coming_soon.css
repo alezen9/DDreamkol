@@ -8,14 +8,6 @@
     background-repeat: no-repeat;
     height: 100%;
   }
-  img.bgd{
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -4;
-    object-fit: cover; 
-}
   .message{
     position: absolute;
     top: 50%;

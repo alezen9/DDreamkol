@@ -12,7 +12,7 @@ html.no-js(lang='en')
 		link(rel='stylesheet', href='css/shards-demo.css?v=1.1.0')
 		link(rel='stylesheet', href='css/peopleSay.css')
 		link(rel='shortcut icon', type='image/png', href='images/favico/favico.png')
-	body
+	body(onscroll="isInViewport(document.querySelectorAll('.poraki'));")
 		// Navbar
 		div
 			script(src='js/scripts/navbar.js')
@@ -43,7 +43,7 @@ html.no-js(lang='en')
 						br
 						div(style='text-align: center;')
 							button.btn.btn-pill.btn-success(type='submit')
-								i.fa.fa-upload.mr-1
+								i.far.fa-check-circle.mr-1
 								|  Submit message
 				br
 				br
@@ -51,7 +51,7 @@ html.no-js(lang='en')
 				h3(style="text-align: center;") Messages
 				each val in reply
 					.row.justify-content-md-center(style='padding: 20px;')
-						.message(style='padding: 20px;')
+						.message.poraki(style='padding: 20px;')
 							div
 								h6.orange(style='text-align: left;')
 									strong #{val.nome}
@@ -79,3 +79,4 @@ html.no-js(lang='en')
 			script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js', integrity='sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1', crossorigin='anonymous')
 			script(src='js/shards.min.js')
 			script(src='js/demo.min.js')
+			script(src='js/scripts/visibility.js')

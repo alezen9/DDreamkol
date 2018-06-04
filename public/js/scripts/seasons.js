@@ -1,3 +1,13 @@
+/*
+aggingere questi nella homepage prima
+<link rel="stylesheet" href="css/sun.css">
+<link rel="stylesheet" href="css/snow.css">
+<link rel="stylesheet" href="css/leaves.css">
+<link rel="stylesheet" href="css/flower.css">
+*/
+
+
+
 var date = new Date();
 //var month = date.getMonth();
 var month = 4;

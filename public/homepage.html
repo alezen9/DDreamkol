@@ -10,12 +10,9 @@
     <link rel="stylesheet" href="css/shards.min.css" type="text/css">
     <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0" type="text/css">
     <link rel="shortcut icon" type="image/png" href="images/favico/favicon.ico">
-    <link rel="stylesheet" href="css/flip.css">
-    <link rel="stylesheet" href="css/sun.css">
-    <link rel="stylesheet" href="css/snow.css">
-    <link rel="stylesheet" href="css/leaves.css">
-    <link rel="stylesheet" href="css/flower.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/flip.css">
+    <script src="js/scripts/visibility.js"></script>
     <style>
         @media all and (min-width: 581px) and (max-width: 1025px){
             .shard{
@@ -30,12 +27,7 @@
         }
     </style>
 </head>
-<body>
-<!-- loader-->
-<!--
-<div class="loader">
-    <div class="page-loader"></div>
-</div>-->
+<body onscroll="isInViewport(document.querySelectorAll('.flip-container'));">
 <!--Navbar-->
 <div>
     <script src="js/scripts/navbar.js"></script>
@@ -43,7 +35,9 @@
 <!--background image-->
 <img class="bgd" src="images/other/sunrise.svg">
 <!-- Welcome Section-->
-<script src="js/scripts/seasons.js"></script>
+<!--<script src="js/scripts/seasons.js"></script>-->
+<!--per usare le stagioni togliere la riga appena sotto (div spring)-->
+<div class="welcome d-flex justify-content-center flex-column spring">
     <!-- Floating Shards-->
     <img src="images/demo/logo.svg" alt="DDreamKol" class="shard logoSite"/>
     <div class="inner-wrapper mt-auto mb-auto">

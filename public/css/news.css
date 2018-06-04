@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 
+@keyframes slideInFromBottom {
+    0% {
+      transform: translateY(5%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-3%);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+
 body{
     background-color: #f9f7f1;
 }
@@ -104,7 +120,9 @@ a.povekje{
     display: none;
 }
 
-
+.slideM{
+    animation: 0.7s ease-out slideInFromBottom;
+  }
 
 
 

@@ -27,7 +27,7 @@ if (exists) {
   console.log('empty database');
   file_a = {
 			"users": [],
-			  "id": 0
+        "id": 0,
 			};
 }
 
@@ -662,7 +662,8 @@ router.post('/peopleSay', function (req, res) {
     cognome: utente_cognome,
     data: utente_data,
 		message: utente_message,
-		id: file_a.id
+    id: file_a.id,
+    cancella: "http://80.211.7.75:3000/peopleSayEdit/" + file_a.id
 	})
 	// update json
 	fs.writeFile('./data.json', JSON.stringify(file_a, null, 2), 'utf-8', function(err) {
