@@ -2,11 +2,11 @@
 
 @keyframes slideInFromBottom {
     0% {
-      transform: translateY(5%);
-      opacity: 0;
+      transform: translateY(2%);
+      opacity: 0.5;
     }
     50% {
-      transform: translateY(-3%);
+      transform: translateY(-1%);
       opacity: 0.8;
     }
     100% {

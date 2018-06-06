@@ -19,7 +19,7 @@
     opacity: 0;
   }
   50% {
-    transform: translateY(-15%);
+    transform: translateY(-5%);
     opacity: 0.8;
   }
   100% {

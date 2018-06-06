@@ -157,6 +157,11 @@ router.get("/news", (req, res) => {
   res.sendFile(path.join(public_path + 'news.html'));
 });
 
+//route gorno lukovo turnir page
+router.get("/ddis", (req, res) => {
+  res.sendFile(path.join(public_path + 'tournament_glukovo.html'));
+});
+
 //route upload page
 router.get("/upload", (req, res) => {
   //res.render("upload");

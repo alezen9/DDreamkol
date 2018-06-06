@@ -10,9 +10,18 @@
   }
 }
 
-
+img.bgd {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -4;
+  object-fit: cover;
+  opacity: 0.75;
+}
+/*
 html,body{
-  background-image:url(../images/other/sunrise.svg);
+  background-image:url(../images/turnir/field-min.jpg);
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -27,41 +36,38 @@ html,body{
   margin: auto;
   background: transparent;
   overflow: hidden;
-}
-.animated {
-  animation-duration: 2.5s;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
-}
-@keyframes wobble {
-  0% {transform: translateX(0%);}
-  15% {transform: translateX(-25%) rotate(-5deg);}
-  30% {transform: translateX(20%) rotate(3deg);}
-  45% {transform: translateX(-15%) rotate(-3deg);}
-  60% {transform: translateX(10%) rotate(2deg);}
-  75% {transform: translateX(-5%) rotate(-1deg);}
-  100% {transform: translateX(0%);}
-}
-.wobble {
-  animation-name: wobble;
-}
-@keyframes pulse {
-  0% {transform: scale(1);}
-  50% {transform: scale(1.1);}
-  100% {transform: scale(1);}
-}
-.pulse {
-  animation-name: pulse;
-  animation-duration: 1s;
-}
+}*/
+
 .frost{
-  width: 100%;
-  box-shadow: inset 0 0 100px 300px rgba(43, 43, 43, 0.562);
+  box-shadow: inset 0 0 100px 700px rgba(43, 43, 43, 0.562);
   color: #ffae19;
   overflow-wrap: break-word;
-  padding: 20px;
 }
-
+.data{
+  margin-top: 50px;
+  text-align: center;
+}
+.data h1 {
+	background-image: url(https://media.giphy.com/media/OK5LK5zLFfdm/giphy.gif);
+	background-size: contain;
+  color: transparent;
+  background-clip: text;
+	-moz-background-clip: text;
+	-webkit-background-clip: text;
+  line-height: 1.25;
+  font-weight: bold;
+  font-size: 8rem;
+  margin: 10px 0;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}
+.tab{
+  width: 70%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 50px;
+}
 .teams{
   padding-top: 50px;
   margin: auto;
@@ -74,40 +80,44 @@ html,body{
   overflow: hidden;
   border-radius: 10px;
 }
+/*
 .teams_bg{
   position: absolute;
-  background-image:url(../images/other/sunrise.svg);
+  background-image:url(../images/turnir/field-min.jpg);
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: grey;
+  background-color: rgba(128, 128, 128, 0.377);
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   z-index: 0;
-  filter: blur(15px);
-  
-}
+  filter: blur(5px);
+}*/
 .team{
   margin: auto;
   margin-bottom: 50px;
   width: 200px;
   height: 200px;
-  border: 1px solid crimson;
-  background-color: #ffae19;
-  border-radius: 50%;
   z-index: 1;
+  cursor: pointer;
 }
 .team:hover{
   animation: 0.3s ease-out zoom;
   transform: scale(1.05);
 }
+.stemma{
+  filter: drop-shadow(0 0 0.75rem white);
+  width: 200px;
+  height: auto;
+  padding: 20px;
+}
 
 .tbl{
   height: 100px;
-  width: 60%;
+  width: 90%;
   margin: auto;
   border-radius: 10px;
 }
@@ -115,18 +125,36 @@ html,body{
   margin: 30px;
 }
 .trofei{
-  width: 100%;
+  width: 70%;
   padding-top: 50px;
   padding-bottom: 50px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 50px;
 }
 
 @media all and (max-width: 813px){
+  .data h1 {
+    font-size: 5.5rem;
+  }
   .tbl{
     width: 85%;
   }
+  .teams,
+  .trofei,
+  .tab{
+    width: 95%;
+  }
+  .team{
+    width: 140px;
+    height: 140px;
+  }
+  .stemma{
+    width: 140px;
+  }
 }
 
-
+/*
 @keyframes slideDown {
   0%{
     transform: translateY(-40px);
@@ -165,7 +193,6 @@ html,body{
     opacity: 1;
   }
 }
-
 
 
 .carte{
@@ -234,3 +261,4 @@ html,body{
 .big-icon {
   font-size: 60px;
 }
+*/

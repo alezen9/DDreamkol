@@ -3,8 +3,10 @@ div
 		a(href='homepage.html')
 			img.mr-2(src='images/demo/shards-logo.svg', alt='Example Navbar 1', height='30px')
 		a.navbar-brand(style='margin-right: inherit; margin-left: 1rem;', href='/') DDreamKol
-		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown-2', aria-controls='navbarNavDropdown-2', aria-expanded='false', aria-label='Toggle navigation' style='border: none;')
-			span.navbar-toggler-icon
+		button.navbar-toggler.collapsed(type='button', data-toggle='collapse', data-target='#navbarNavDropdown-2', aria-controls='navbarNavDropdown-2', aria-expanded='false', aria-label='Toggle navigation' style='border: none;')
+			span
+			span
+			span
 		#navbarNavDropdown-2.collapse.navbar-collapse.mr-auto(style='text-align: center;')
 			ul.navbar-nav.mr-auto
 				li.nav-item
@@ -15,7 +17,7 @@ div
 					a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', \='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
 						| Tournaments
 					.dropdown-menu(aria-labelledby='navbarDropdownMenuLink', style='background-color: rgba(0,0,0,0.8); border: none; box-shadow: none;')
-						a.dropdown-item(href='page_in_development.html', style='color: white; background-color: transparent;') Dolnodrimkolski Ilindenski Sredbi
+						a.dropdown-item(href='/ddis', style='color: white; background-color: transparent;') Dolnodrimkolski Ilindenski Sredbi
 						a.dropdown-item(href='page_in_development.html', style='color: white; background-color: transparent;') Prvomajski Turnir Piskupshtina
 				li.nav-item
 					a.nav-link(href='page_in_development.html')
