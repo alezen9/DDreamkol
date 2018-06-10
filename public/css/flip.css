@@ -14,8 +14,7 @@
     margin-bottom: 30px;
 }
 /* ruota il pannello al mousehover */
-.flip-container:hover .flipper,
-.flip-container.hover .flipper {
+.flip-container:hover .flipper {
     -moz-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
@@ -175,6 +174,7 @@ img.slikaselo{
         font-size: 15px;
     }
 }*/
+
 
 @media all and (max-width: 812px) and (orientation: landscape) {
     .flip-container,

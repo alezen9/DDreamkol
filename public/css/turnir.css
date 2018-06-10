@@ -1,15 +1,3 @@
-@keyframes zoom {
-  0%{
-    transform: scale(1);
-  }
-  50%{
-    transform: scale(1.1);
-  }
-  100%{
-    transform: scale(1.05);
-  }
-}
-
 img.bgd {
   position: fixed;
   top: 0;
@@ -19,34 +7,122 @@ img.bgd {
   object-fit: cover;
   opacity: 0.75;
 }
-/*
-html,body{
-  background-image:url(../images/turnir/field-min.jpg);
-  background-size: cover;
-  background-position: top;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 100%;
-}
-
-.box {
-  width: 160px;
-  height: 160px;
-  text-align: center;
-  margin: auto;
-  background: transparent;
-  overflow: hidden;
-}*/
-
 .frost{
   box-shadow: inset 0 0 100px 700px rgba(43, 43, 43, 0.562);
   color: #ffae19;
   overflow-wrap: break-word;
 }
 .data{
+  margin: auto;
+  border-radius: 10px;
+  width: 70%;
+  height: 14rem;
   margin-top: 50px;
   text-align: center;
 }
+
+.data h1 {
+  color: #ffdf32;
+  line-height: 1.1;
+  font-weight: bold;
+  font-size: 8rem;
+  margin: 10px 0;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  mask-size: 200%;
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 1.5s linear infinite;
+}
+
+.data h4 {
+  color: #ffdf32;
+  line-height: 1.3;
+  letter-spacing: 20px;
+  font-weight: 200;
+  font-size: 1.3rem;
+  margin: 10px 0;
+  text-decoration: none;
+  position: relative;
+  text-shadow: 0 0 3px white;
+  mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  mask-size: 200%;
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  from { -webkit-mask-position: 150%; }
+  to { -webkit-mask-position: -50%; }
+}
+
+.news{
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
+  width: 70%;
+  margin-top: 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.marquee {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(233, 231, 231, 0.404);
+  font-size: 1.3rem;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 3;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: gold;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.363);
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 35s linear infinite;
+}
+.left_mask{
+  position: absolute;
+  left: -1%;
+  width: 1%;
+  height: 100%;
+  font-size: 1.5rem;
+  line-height: 3;
+  z-index: 3;
+  box-shadow: 10px 0 30px rgba(43, 43, 43, 0.562);
+}
+.right_mask{
+  position: absolute;
+  right: -1%;
+  width: 1%;
+  height: 100%;
+  font-size: 1.5rem;
+  line-height: 3;
+  z-index: 3;
+  box-shadow: -10px 0 30px rgba(43, 43, 43, 0.562);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+
+/*
 .data h1 {
 	background-image: url(https://media.giphy.com/media/OK5LK5zLFfdm/giphy.gif);
 	background-size: contain;
@@ -60,7 +136,7 @@ html,body{
   margin: 10px 0;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
-}
+}*/
 .tab{
   width: 70%;
   margin: auto;
@@ -80,22 +156,6 @@ html,body{
   overflow: hidden;
   border-radius: 10px;
 }
-/*
-.teams_bg{
-  position: absolute;
-  background-image:url(../images/turnir/field-min.jpg);
-  background-size: cover;
-  background-position: top;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-color: rgba(128, 128, 128, 0.377);
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-  filter: blur(5px);
-}*/
 .team{
   margin: auto;
   margin-bottom: 50px;
@@ -103,10 +163,6 @@ html,body{
   height: 200px;
   z-index: 1;
   cursor: pointer;
-}
-.team:hover{
-  animation: 0.3s ease-out zoom;
-  transform: scale(1.05);
 }
 .stemma{
   filter: drop-shadow(0 0 0.75rem white);
@@ -132,18 +188,104 @@ html,body{
   margin: auto;
   margin-top: 50px;
 }
+.team-name{
+  text-align: center;
+  text-shadow: 0 0 0.75rem white;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.pictures{
+  margin: auto;
+  margin-top: 50px;
+  width: 70%;
+  border-radius: 10px;
+}
+.galleria{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 50px;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.589));
+}
+img.resp {
+  object-fit: cover;
+  border-radius: 1px;
+  width: 200px;
+  height: 200px;
+  margin: 3px;
+  z-index: 1;
+}
+img.resp:hover,
+.team:hover{
+  -webkit-transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transform: scale(1.05);
+  -ms-transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  -ms-transform: scale(1.05);
+  -moz-transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  -moz-transform: scale(1.05);
+  transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: scale(1.05);/*
+  animation: 0.3s ease-out zoom;*/
+  transform: scale(1.05);
+  filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
+  z-index: 2;
+}
+.legenda{
+  width: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #ffae19;
+  cursor: pointer;
+}
+.winner{
+  border-radius: 50%;
+  box-shadow: inset 0 0 55px #ffae1994;
+}
+.tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  background-color: rgba(32, 32, 32, 0.651);
+  border-radius: 10px;
+}
+.tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before, .tooltip.bs-tooltip-top .arrow::before {
+  margin-left: -3px;
+  content: "";
+  border-width: 5px 5px 0;
+  border-top-color: transparent;
+}
 
 @media all and (max-width: 813px){
   .data h1 {
     font-size: 5.5rem;
+  }
+  .data h4 {
+    font-size: 1rem;
+    letter-spacing: 10px;
   }
   .tbl{
     width: 85%;
   }
   .teams,
   .trofei,
-  .tab{
+  .tab,
+  .pictures,
+  .news{
     width: 95%;
+    height: auto;
+  }
+  .data{
+    width: 95%;
+    height: 11rem;
   }
   .team{
     width: 140px;
@@ -152,113 +294,37 @@ html,body{
   .stemma{
     width: 140px;
   }
-}
-
-/*
-@keyframes slideDown {
-  0%{
-    transform: translateY(-40px);
-    opacity: 0;
-  }
-  50%{
-    transform: translateY(20px);
-    opacity: 0.5;
-  }
-  75%{
-    transform: translateY(-10px);
-    opacity: 0.75;
-  }
-  100%{
-    transform: translateY(0);
-    opacity: 1;
+  img.resp:hover,
+  .team:hover{
+    transform: none;
+    transition: none;
+    filter: none;
   }
 }
 
-
-@keyframes slideUp {
-  0%{
-    transform: translateY(40px);
-    opacity: 0;
+/*iphone se*/
+@media all and (max-width: 330px) {
+  img.resp{
+    width: 90px;
+    height: 90px;
   }
-  50%{
-    transform: translateY(-20px);
-    opacity: 0.5;
-  }
-  75%{
-    transform: translateY(10px);
-    opacity: 0.75;
-  }
-  100%{
-    transform: translateY(0);
-    opacity: 1;
+  .galleria{
+    margin: 50px 0px auto;
   }
 }
 
+  /*telefoni più grandi*/
+  @media all and (max-width: 400px) and (min-width: 331px) {
+  img.resp{
+    width: 110px;
+    height: 110px;
+  }
+}
 
-.carte{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  /*telefoni più grandi*/
+  @media all and (max-width: 750px) and (min-width: 401px) {
+  img.resp{
+    width: 110px;
+    height: 110px;
+  }
 }
-.carta{
-  background-image:url(../images/homepage/nerezi-big.jpeg);
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  margin: 10px;
-  width: 300px;
-  height: 400px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px black;
-}
-.carta:hover{
-  background-image:url(../images/homepage/nerezi-back.png);
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  margin: 10px;
-  width: 300px;
-  height: 400px;
-  border-radius: 10px;
-}
-.name{
-  width: 100%;
-  text-align: right;
-  font-weight: bold;
-  height: 50px;
-}
-.carta:hover .name{
-  display: none;
-}
-.info{
-  width: 300px;
-  height: 200px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border: none;
-  color: white;
-  display: none;
-}
-.carta:hover .info{
-  animation: 0.35s cubic-bezier(0.3,0.3,0.3,0.3) slideDown;
-  display: block;
-  z-index: 2;
-}
-.pics{
-  width: 300px;
-  height: 200px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border: none;
-  display: none;
-  color: white;
-}
-.carta:hover .pics{
-  animation: 0.35s cubic-bezier(0.3,0.3,0.3,0.3) slideUp;
-  display: block;
-  z-index: 2;
-}
-.big-icon {
-  font-size: 60px;
-}
-*/

@@ -11,17 +11,18 @@
     <link rel="stylesheet" href="css/shards.min.css">
     <link rel="stylesheet" href="css/shards-demo.css?v=1.1.0">
     <link rel="shortcut icon" type="image/png" href="images/favico/favico.png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="css/turnir.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="js/swipe/strip.css">
   </head>
   <body>
-    <!-- credit 50 anniversary image <a href='https://www.freepik.com/free-vector/50-years-celebrating-laurel-wreath_887308.htm'>Designed by Freepik</a>-->
     <!-- Navbar-->
     <div id="navigationBar">
       <script src="js/scripts/navbar.js"></script>
     </div>
     <!-- Warning Dismissible Alert -->
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -31,14 +32,23 @@
     </div>
     <!--background image-->
     <img class="bgd" src="images/turnir/gl_field.jpg">
-    <!-- 50 years -->
-    <!--
-    <div class="box">
-      <div class="animated pulse"><img src="images/turnir/50.png" width="160"></div>
-    </div>
-    -->
-    <div class="data">
+    <!--Data-->
+    <div class="data frost">
       <h1>28 July</h1>
+      <h4>50<sup>th</sup> ANNIVERSARY</h4>
+    </div>
+    <!--news scrolling-->
+    <div class="news frost">
+      <div class="left_mask"></div>
+      <div class="right_mask"></div>
+      <p class="marquee">
+        <span>
+          &emsp;&emsp; patot preku lukovo e prooden i sreden
+          &emsp;-&emsp; zdrepkite ke se odrzat nedela 15 juli vo skoloto vo dolno lukovo
+          &emsp;-&emsp; Drugi novosti ili potrebni komunikacii
+          &emsp;-&emsp; проба по кирилица
+        </span>
+      </p>
     </div>
     <!--Tournament bracket-->
     <div class="tab frost">
@@ -56,79 +66,66 @@
         <a href="#">
           <img class="stemma" src="images/turnir/na.svg">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
+        <h5 class="team-name">Bezevo</h5>
       </div>
       <div class="team">
         <a href="#">
           <img class="stemma" src="images/turnir/na.svg">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
+        <h5 class="team-name">Boroec</h5>
       </div>
       <div class="team">
         <a href="#">
           <img class="stemma" src="images/turnir/na.svg">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
+        <h5 class="team-name">Drenok</h5>
+      </div>
+      <div class="team">
+        <a href="#">
+          <img class="stemma" src="images/turnir/teams/dlukovo/logo.png">
+        </a>
+        <h5 class="team-name">Dolno Lukovo</h5>
       </div>
       <div class="team">
         <a href="#">
           <img class="stemma" src="images/turnir/na.svg">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
+        <h5 class="team-name">Gorno Lukovo</h5>
       </div>
       <div class="team">
         <a href="#">
           <img class="stemma" src="images/turnir/na.svg">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
+        <h5 class="team-name">Jablanica</h5>
       </div>
       <div class="team">
         <a href="#">
           <img class="stemma" src="images/turnir/na.svg">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
+        <h5 class="team-name">Lakavica</h5>
       </div>
       <div class="team">
         <a href="#">
           <img class="stemma" src="images/turnir/na.svg">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
-      </div>
-      <div class="team">
-        <a href="#">
-          <img class="stemma" src="images/turnir/na.svg">
-        </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
+        <h5 class="team-name">Modric</h5>
       </div>
       <div class="team">
         <a href="#">
           <img class="stemma" src="images/turnir/teams/nerezi/logo.png">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
-      </div>
+        <h5 class="team-name">Nerezi</h4>
+     </div>
       <div class="team">
         <a href="#">
           <img class="stemma" src="images/turnir/na.svg">
         </a>
-        <h5 style="text-align: center; text-shadow: 0 0 0.75rem white;">Team Name</h5>
+        <h5 class="team-name">Piskupshtina</h5>
+      </div>
+      <div class="legenda" data-toggle="tooltip" data-placement="top" title="Dolno Lukovo">
+        <h5>Last winner</h5>
       </div>
     </div>
-    <!-- card 
-    <div class="carte">
-      <div class="carta">
-        <h3 class="name">Nerezi</h3>
-        <a href="#">
-          <button type="button" class=" btn-outline-primary info">
-            <i class="fas fa-info-circle big-icon"></i>
-          </button>
-        </a>
-        <a href="#">
-          <button type="button" class=" btn-outline-success pics">
-            <i class="far fa-images big-icon"></i>
-          </button>
-        </a>
-      </div>
-    </div>-->
     <!-- tabella trofei -->
     <div class="trofei frost">
       <div style="width: 100%;">
@@ -183,6 +180,35 @@
         </tbody>
       </table>
     </div>
+    <div class=" pictures frost">
+      <!-- Warning Dismissible Alert -->
+      <div class="alert alert-warning alert-dismissible fade show" role="alert" style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          <div style="text-align: center;">
+            <i class="fa fa-warning"></i> <strong>Note:</strong> no pictures available yet, this is just an example
+          </div>
+      </div>
+      <h1 style="text-align: center; font-weight: 400; font-size: 2.5rem; margin-bottom: 50px; padding-top: 50px; color: black;">Last time. . .</h1>
+      <div class="galleria">
+        <a href="images/turnir/last_time/trka.jpg" class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true, hideOnClickOutside: true,preload: [1,2]">
+          <img class="resp" src="images/turnir/last_time/trka.jpg" >
+        </a>
+        <a href="images/turnir/last_time/trka.jpg" class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true, hideOnClickOutside: true,preload: [1,2]">
+          <img class="resp" src="images/turnir/last_time/trka.jpg" >
+        </a>
+        <a href="images/turnir/last_time/trka.jpg" class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true, hideOnClickOutside: true,preload: [1,2]">
+          <img class="resp" src="images/turnir/last_time/trka.jpg" >
+        </a>
+        <a href="images/turnir/last_time/trka.jpg" class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true, hideOnClickOutside: true,preload: [1,2]">
+          <img class="resp" src="images/turnir/last_time/trka.jpg" >
+        </a>
+        <a href="images/turnir/last_time/trka.jpg" class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true, hideOnClickOutside: true,preload: [1,2]">
+          <img class="resp" src="images/turnir/last_time/trka.jpg" >
+        </a>
+      </div>
+    </div>
     <!-- Footer-->
     <script src="js/scripts/footer2.js"></script>
     <!-- JavaScript-->
@@ -192,6 +218,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="js/shards.min.js"></script>
     <script src="js/demo.min.js"></script>
+    <script src="js/swipe/strip.pkgd.min.js"></script>
   </body>
 </html>
 
