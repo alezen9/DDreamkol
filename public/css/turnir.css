@@ -149,12 +149,14 @@ img.bgd {
   margin: auto;
   margin-top: 50px;
   width: 70%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
+}
+.teams_div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .team{
   margin: auto;
@@ -231,14 +233,13 @@ img.resp:hover,
   filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
   z-index: 2;
 }
-.legenda{
-  width: auto;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 10px;
-  margin: 50px;
-  display: flex;
-  justify-content: center;
+.legenda h5{
+  max-width: 260px;
+  line-height: 2.5;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 50px auto 50px auto;
+  text-align: center;
   border-radius: 10px;
   box-shadow: 0 0 25px #ffae19;
   cursor: pointer;

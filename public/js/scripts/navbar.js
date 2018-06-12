@@ -39,7 +39,7 @@ var navbar = '\
 	            </ul>\
 	            <div>\
 	            <a href="/upload">\
-	        	    <button style="width: 230px;" type="button" class="btn btn-pill btn-outline-success" href="/upload"><i class="fa fa-upload mr-1"></i> Contribute</button>\
+	        	    <button style="width: 230px;" type="button" class="btn btn-pill btn-outline-success" href="/upload"><i class="fa fa-upload mr-1"></i> Upload</button>\
 	            </a>\
 	            </div>\
 	        </div>\

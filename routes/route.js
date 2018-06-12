@@ -146,6 +146,32 @@ var listtmbdel = [];                                                 // list of 
 var listtmbpub = [];                                                 // list thumbnails to move into published folder
 //--------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
+// apis
+// return all pitures from a village by folder
+router.get("/api/ddis/:s", (req, res) => {
+  var pics = {
+    'anni': []
+  };
+  var godina;
+  var paese = req.params.s;
+  var testFolder = new_location + 'turnir/teams/' + paese + '/years/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      if(file != gitkeep){
+        var lista_foto = [];
+        lista_foto.push(file);
+        fs.readdirSync(testFolder + file + '/').forEach(file2=>{
+          lista_foto.push(file2);
+        });
+        pics.anni.push({
+          lista_foto
+        });
+      }
+    });
+
+    res.status(200).send(JSON.stringify(pics));
+});
+
+
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
 router.get("/", (req, res) => {
