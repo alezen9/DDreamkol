@@ -9,7 +9,7 @@ if(selo == "Dolno Lukovo"){
 }
 var sliki = document.querySelector('#otherPics');
 // for localhost http://localhost:3000/api/ddis/
-// for phone http://192.168.0.8:3000/api/ddis/
+// for phone (home) http://192.168.0.8:3000/api/ddis/
 // for server http://80.211.7.75:3000/api/ddis/
 fetch("http://80.211.7.75:3000/api/ddis/" + name)
     .then(response => response.json())
@@ -22,7 +22,7 @@ fetch("http://80.211.7.75:3000/api/ddis/" + name)
 
                 var foto = document.createElement("img");
                 foto.classList = "resp";
-                foto.src = "images/turnir/teams/" + name + "/years/" + element.lista_foto[0] + "/" + element.lista_foto[i];
+                foto.src = "images/turnir/teams/" + name + "/tmb/" + element.lista_foto[0] + "/" + element.lista_foto[i];
 
                 var anchor = document.createElement("a");
                 var att1 = document.createAttribute("data-strip-group");

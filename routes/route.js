@@ -121,6 +121,32 @@ function vmanager_load(imgFolder,trFolder,tmbpFolder,tmbtrFolder,ps){
     });    
 }
 
+//capitalize words in string
+var toTitleCase = function (str) {
+	str = str.toLowerCase().split(' ');
+	for (var i = 0; i < str.length; i++) {
+		str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+	}
+	return str.join(' ');
+}
+
+//pic page render
+function picPage(imeSelo){
+  var testFolder = new_location + imeSelo + '/img/';
+  fs.readdirSync(testFolder).forEach(file=>{
+      if(file != gitkeep){
+        list_pics.push('images/' + imeSelo + '/img/' + file);
+        list_ext.push(path.extname(file));
+      }
+    });
+    var tmbPicsFolder = new_location + imeSelo + '/tmb/published/';
+    fs.readdirSync(tmbPicsFolder).forEach(file=>{
+        if(file != gitkeep){
+          listtmb.push('images/' + imeSelo + '/tmb/published/' + file);
+        }
+    });
+}
+
 // functions end -------------------------------------------------------------------------------------------------------------------------------------
 //global variables---------------------------------------------------------------------------------------------------------------------------
 const lc = path.join(__dirname + '/..');                              // DDreamkol path
@@ -144,6 +170,8 @@ var toDelete = [];                                                   // images t
 var listtmb = [];                                                    // list of thumbnails of published pics of a village
 var listtmbdel = [];                                                 // list of thumbnails to be deleted
 var listtmbpub = [];                                                 // list thumbnails to move into published folder
+var lingua = "mkd";
+var picRoutes = ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
 //--------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // apis
@@ -152,30 +180,60 @@ router.get("/api/ddis/:s", (req, res) => {
   var pics = {
     'anni': []
   };
-  var godina;
   var paese = req.params.s;
+  var testFolder2 = path.join(new_location + 'turnir/teams/' + paese + '/tmb');
+  fsExtra.ensureDirSync(testFolder2);
   var testFolder = new_location + 'turnir/teams/' + paese + '/years/';
   fs.readdirSync(testFolder).forEach(file=>{
-      if(file != gitkeep){
-        var lista_foto = [];
-        lista_foto.push(file);
-        fs.readdirSync(testFolder + file + '/').forEach(file2=>{
-          lista_foto.push(file2);
-        });
-        pics.anni.push({
-          lista_foto
-        });
-      }
-    });
-
-    res.status(200).send(JSON.stringify(pics));
+    if(file != gitkeep){
+      var tmb_god = path.join(testFolder2 + "/" + file);
+      fsExtra.ensureDirSync(tmb_god);
+      var lista_foto = [];
+      lista_foto.push(file);
+      fs.readdirSync(testFolder + file + '/').forEach(file2=>{
+        if(!(fs.existsSync(path.join(tmb_god + "/" + file2)))){
+          sharp(testFolder + file + "/" + file2)
+          .rotate()
+          .resize(300, 300)
+          .max()
+          .toFile(tmb_god + "/" + file2, (err, info) => {
+            if(err){
+              console.log(err);
+            }          
+          })
+        }
+        lista_foto.push(file2);
+      });
+      pics.anni.push({
+        lista_foto
+      });
+    }
+  });
+  res.status(200).send(JSON.stringify(pics));
 });
 
-
+//set current page language
+router.get("/api/current/:info", (req, res) => {
+  var corrente = JSON.parse(req.params.info);
+  if(corrente.lang != lingua){
+    lingua = corrente.lang;
+    var obj = {"uguale": "no"};
+    res.send(JSON.stringify(obj)); 
+  }else{
+    var obj = {"uguale": "si"};
+    res.send(JSON.stringify(obj)); 
+  }
+});
+//--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
 router.get("/", (req, res) => {
-   res.sendFile(path.join(public_path + 'homepage.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_homepage.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'homepage.html')); 
+  }
+  console.log("lingua adesso: " + lingua);
 });
 
 //route news page
@@ -191,14 +249,37 @@ router.get("/ddis", (req, res) => {
 //route upload page
 router.get("/upload", (req, res) => {
   //res.render("upload");
+  console.log("lingua adesso: " + lingua);
   res.sendFile(path.join(public_path + 'upload.html'));
 });
 
 
 //route people say page
 router.get("/peopleSay", (req, res) => {
+  var titolo,subTitolo,fname,sname,testo,submit,poraki,noPoraki,testoP;
+  if(lingua == "eng"){
+    titolo ="This is what people say about Dolni Drimkol...";
+    subTitolo = "Submit a message to the community";
+    fname = "First name";
+    sname = "Last name";
+    testo = "Text";
+    testoP = "Text here";
+    submit = "Submit message";
+    poraki = "Messages";
+    noPoraki = "No messages yet";
+  }else{
+    titolo ="Што велат луѓето за Долни Дримкол...";
+    subTitolo = "Постирај порака";
+    fname = "Име";
+    sname = "Презиме";
+    testo = "Текст";
+    testoP = "Текст овде";
+    submit = "Постирај";
+    poraki = "Пораки";
+    noPoraki = "Нема пораки";
+  }
   var reply2 = file_a.users;
-  res.render("peopleSay",{reply: reply2});
+  res.render("peopleSay",{jazik: lingua,reply: reply2,titolo1: titolo, subTitolo1: subTitolo, fname1: fname, sname1: sname, testo1: testo, submit1: submit, poraki1: poraki, noPoraki1: noPoraki, testoP1: testoP});
 });
 
 
@@ -229,7 +310,6 @@ router.get("/manage/:a", (req, res) => {
 
 //route manager
 router.get("/manager", (req, res) => {
-
   var paesi = ["bezevo","borovec","drenok","d_lukovo","g_lukovo","jablanica","lakavica","modric","nerezi","piskupshtina"];
   var indice;
   var count = [];
@@ -292,221 +372,50 @@ router.get("/1234v_manager", (req, res) => {
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
-//route nerezi_pic page
-router.get("/nerezi_pic", (req, res) => {
-  var testFolder = new_location + 'nerezi/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-      if(file != gitkeep){
-        list_pics.push('images/nerezi/img/' + file);
-        //console.log(path.extname(file));
-        list_ext.push(path.extname(file));
+//route pic pages
+router.get(picRoutes, (req, res) => {
+  var nomePaese = req.originalUrl.slice(1, -4);
+  var nomePaeseCap;
+  var sela = ["bezevo","drenok","jablanica","lakavica","modric","nerezi","piskupshtina"];
+  var selaK = ["Безево","Дренок","Јабланица","Лакавица","Модрич","Нерези","Пискупштина"]
+  var infoPagina = "/" + nomePaese + "_h";
+  if(nomePaese == "g_lukovo"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Gorno Lukovo";
+    }else{
+      nomePaeseCap = "Горно Луково";
+    }
+  }else if(nomePaese == "d_lukovo"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Dolno Lukovo";
+    }else{
+      nomePaeseCap = "Долно Луково";
+    }
+  }else if(nomePaese == "borovec"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Boroec";
+    }else{
+      nomePaeseCap = "Бороец";
+    }
+  }else{
+    if(lingua == "eng"){
+      nomePaeseCap = toTitleCase(nomePaese);
+    }else{
+      for(var i=0; i<sela.length; i++){
+        if(sela[i] == nomePaese){
+          nomePaeseCap = selaK[i];
+        }
       }
-    });
-    var tmbPicsFolder = new_location + 'nerezi/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/nerezi/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Nerezi',h_page: '/nerezi_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route modric_pic page
-router.get("/modric_pic", (req, res) => {
-  var testFolder = new_location + 'modric/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/modric/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
     }
-    });
-    var tmbPicsFolder = new_location + 'modric/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/modric/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Modric',h_page: '/modric_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route bezevo_pic page
-router.get("/bezevo_pic", (req, res) => {
-  var testFolder = new_location + 'bezevo/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/bezevo/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbPicsFolder = new_location + 'bezevo/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/bezevo/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Bezevo',h_page: '/bezevo_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route borovec_pic page
-router.get("/borovec_pic", (req, res) => {
-  var testFolder = new_location + 'borovec/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/borovec/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbPicsFolder = new_location + 'borovec/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/borovec/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Boroec',h_page: '/borovec_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route d_lukovo_pic page
-router.get("/d_lukovo_pic", (req, res) => {
-  var testFolder = new_location + 'd_lukovo/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/d_lukovo/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbPicsFolder = new_location + 'd_lukovo/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/d_lukovo/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Dolno Lukovo',h_page: '/d_lukovo_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route g_lukovo_pic page
-router.get("/g_lukovo_pic", (req, res) => {
-  var testFolder = new_location + 'g_lukovo/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/g_lukovo/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbPicsFolder = new_location + 'g_lukovo/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/g_lukovo/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Gorno Lukovo',h_page: '/g_lukovo_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route drenok_pic page
-router.get("/drenok_pic", (req, res) => {
-  var testFolder = new_location + 'drenok/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/drenok/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbPicsFolder = new_location + 'drenok/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/drenok/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Drenok',h_page: '/drenok_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route jablanica_pic page
-router.get("/jablanica_pic", (req, res) => {
-  var testFolder = new_location + 'jablanica/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/jablanica/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbPicsFolder = new_location + 'jablanica/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/jablanica/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Jablanica',h_page: '/jablanica_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route lakavica_pic page
-router.get("/lakavica_pic", (req, res) => {
-  var testFolder = new_location + 'lakavica/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/lakavica/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbPicsFolder = new_location + 'lakavica/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/lakavica/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Lakavica',h_page: '/lakavica_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
-  list_pics = [];
-  list_ext = [];
-  listtmb = [];
-});
-
-//route piskupshtina_pic page
-router.get("/piskupshtina_pic", (req, res) => {
-  var testFolder = new_location + 'piskupshtina/img/';
-  fs.readdirSync(testFolder).forEach(file=>{
-    if(file != gitkeep){
-      list_pics.push('images/piskupshtina/img/' + file);
-      //console.log(file);
-      list_ext.push(path.extname(file));
-    }
-    });
-    var tmbPicsFolder = new_location + 'piskupshtina/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb.push('images/piskupshtina/tmb/published/' + file);
-        }
-    });
-  res.render("pic_page",{nome: 'Piskupshtina',h_page: '/piskupshtina_h',arr: list_pics,arrext: list_ext, arrtmb: listtmb});
+  }
+  var infobtn;
+  if(lingua == "mkd"){
+    infobtn = "Инфо";
+  }else{
+    infobtn = "Go to info";
+  }
+  picPage(nomePaese);
+  res.render("pic_page",{jazik: lingua,nome: nomePaeseCap,h_page: infoPagina,arr: list_pics,arrext: list_ext, arrtmb: listtmb,ii: infobtn});
   list_pics = [];
   list_ext = [];
   listtmb = [];

@@ -20,7 +20,10 @@ html.no-js(lang='en')
     body
         // Navbar
         div
-            include includes/navbar.pug
+            if(jazik == 'eng')
+                include includes/navbar.pug
+            else
+                include includes/mk_navbar.pug
         // background image
         img.bgd(src='images/other/sunrise.svg')
         .text-center.mb-4
@@ -30,7 +33,7 @@ html.no-js(lang='en')
                 a(href= h_page)
                     button.btn.btn-pill.btn-primary(type='button', href=h_page, style="width: 230px;")
                         i.fas.fa-info-circle
-                        |  &nbsp;&nbsp;Go to info
+                        |  &nbsp;&nbsp;#{ii}
         // Page Content
         .galleria
             each val,index in arr
@@ -45,7 +48,10 @@ html.no-js(lang='en')
         footer
             br
             br
-            h5.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') 2018 — Aleksandar Gjoreski
+            if(jazik == 'eng')
+                h5.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') 2018 — Aleksandar Gjoreski
+            else
+                h5.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') 2018 — Александар Ѓорески
         // JavaScript
         #fb-root
         script(async='', defer='', src='https://buttons.github.io/buttons.js')

@@ -16,40 +16,43 @@ html.no-js(lang='en')
 	body(onscroll="isInViewport(document.querySelectorAll('.poraki'));")
 		// Navbar
 		div
-			script(src='js/scripts/navbar.js')
+			if(jazik == 'eng')
+				include includes/navbar.pug
+			else
+				include includes/mk_navbar.pug
 		// background image
 		img.bgd(src='images/other/sunrise.svg')
 		// Page Content
 		.text-center.mb-4
 			br
-			h2 People say about Dolni Drimkol...
+			h2 #{titolo1}
 		br
 		div
 			.container
 				.message
 					div(style='text-align: center;')
-						h5.white Submit a message to the Dolni Drimkol community
+						h5.white #{subTitolo1}
 					form.was-validated(method='post')
-						label(for='form-2-first-name') First name
-						input.user-message(type='text', name='nome', placeholder='First name', required='')
+						label(for='form-2-first-name') #{fname1}
+						input.user-message(type='text', name='nome', placeholder=fname1, required='')
 						br
 						br
-						label(for='form-2-first-name') Last name
-						input.user-message(type='text', name='cognome', placeholder='Last name', required='')
+						label(for='form-2-first-name') #{sname1}
+						input.user-message(type='text', name='cognome', placeholder=sname1, required='')
 						br
 						br
-						label(for='form-2-first-name') Text
-						textarea.user-message(type='text', name='message', placeholder='Text here', required='', rows='5')
+						label(for='form-2-first-name') #{testo1}
+						textarea.user-message(type='text', name='message', placeholder=testoP1, required='', rows='5')
 						br
 						br
 						div(style='text-align: center;')
 							button.btn.btn-pill.btn-success(type='submit')
 								i.far.fa-check-circle.mr-1
-								|  Submit message
+								|  #{submit1}
 				br
 				br
 				br
-				h3(style="text-align: center;") Messages
+				h3(style="text-align: center;") #{poraki1}
 				each val in reply
 					.row.justify-content-md-center(style='padding: 20px;')
 						.message.poraki(style='padding: 20px;')
@@ -63,7 +66,7 @@ html.no-js(lang='en')
 							h6.white(style="width: 100%; overflow-wrap: break-word;")
 								| #{val.message}
 				else
-					h5(style="text-align: center; margin-top: 50px;") No messages yet
+					h5(style="text-align: center; margin-top: 50px;") #{noPoraki1}
 			br
 			br
 			br
@@ -71,7 +74,10 @@ html.no-js(lang='en')
 			div
 				br
 				br
-				p.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') 2018 — Aleksandar Gjoreski
+				if(jazik == 'eng')
+					h5.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') 2018 — Aleksandar Gjoreski
+				else
+					h5.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') 2018 — Александар Ѓорески
 			// JavaScript
 			#fb-root
 			script(async='', defer='', src='https://buttons.github.io/buttons.js')
