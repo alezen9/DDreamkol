@@ -61,8 +61,8 @@ function jazik (lingua){
 	//var current_page = window.location.pathname.split( '/' );
 	var current_lang = lingua;
 	var info = {"lang": current_lang};
-	var url = 'http://80.211.7.75:3000/api/current/' + JSON.stringify(info);
-	//var url = 'http://localhost:3000/api/current/' + JSON.stringify(info);
+	//var url = 'http://80.211.7.75:3000/api/current/' + JSON.stringify(info);
+	var url = 'http://localhost:3000/api/current/' + JSON.stringify(info);
 	fetch(url)
 		.then(res => res.json())
 		.then(data => {
