@@ -233,7 +233,7 @@ router.get("/", (req, res) => {
   }else{
     res.sendFile(path.join(public_path + 'homepage.html')); 
   }
-  console.log("lingua adesso: " + lingua);
+  //console.log("lingua adesso: " + lingua);
 });
 
 //route news page
@@ -243,14 +243,21 @@ router.get("/news", (req, res) => {
 
 //route gorno lukovo turnir page
 router.get("/ddis", (req, res) => {
-  res.sendFile(path.join(public_path + 'tournament_glukovo.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_tournament_glukovo.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'tournament_glukovo.html'));
+  }
 });
 
 //route upload page
 router.get("/upload", (req, res) => {
-  //res.render("upload");
-  console.log("lingua adesso: " + lingua);
-  res.sendFile(path.join(public_path + 'upload.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_upload.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'upload.html')); 
+  }
+  //console.log("lingua adesso: " + lingua);
 });
 
 
@@ -424,53 +431,92 @@ router.get(picRoutes, (req, res) => {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route nerezi_h page
 router.get("/nerezi_h", (req, res) => {
-  //res.render("nerezi_h");
-  res.sendFile(path.join(public_path + 'info_nerezi.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_nerezi.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_nerezi.html'));
+  }
 });
 
 //route modric_h page
 router.get("/modric_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_modric.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_modric.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_modric.html'));
+  }
 });
 
 //route bezevo_h page
 router.get("/bezevo_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_bezevo.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_bezevo.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_bezevo.html'));
+  }
 });
 
 //route borovec_h page
 router.get("/borovec_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_borovec.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_borovec.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_borovec.html'));
+  }
 });
 
 //route d_lukovo_h page
 router.get("/d_lukovo_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_d_lukovo.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_d_lukovo.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_d_lukovo.html'));
+  }
 });
 
 //route g_lukovo_h page
 router.get("/g_lukovo_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_g_lukovo.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_g_lukovo.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_g_lukovo.html'));
+  }
 });
 
 //route drenok_h page
 router.get("/drenok_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_drenok.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_drenok.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_drenok.html'));
+  }
 });
 
 //route jablanica_h page
 router.get("/jablanica_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_jablanica.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_jablanica.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_jablanica.html'));
+  }
 });
 
 //route lakavica_h page
 router.get("/lakavica_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_lakavica.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_lakavica.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_lakavica.html'));
+  }
 });
 
 //route piskupshtina_h page
 router.get("/piskupshtina_h", (req, res) => {
-  res.sendFile(path.join(public_path + 'info_piskupshtina.html'));
+  if(lingua == "mkd"){
+    res.sendFile(path.join(public_path + 'mk_info_piskupshtina.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'info_piskupshtina.html'));
+  }
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------

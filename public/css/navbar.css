@@ -60,16 +60,19 @@
     border: none;
     cursor: pointer;
 }
+.lang:hover{
+    transform: scale(1.1);
+}
 .lang:nth-child(1){
     background: url("../images/other/mkd.svg");
-    background-size: 200%;
+    background-size: 170%;
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: 0 0 10px 0.5px rgba(220, 20, 60, 0.76);
 }
 .lang:nth-child(2){
     background: url("../images/other/uk.svg");
-    background-size: 200%;
+    background-size: 170%;
     background-repeat: no-repeat;
     background-position: center;
     box-shadow: 0 0 10px 0.5px rgba(0, 0, 255, 0.76);

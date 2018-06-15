@@ -12,7 +12,7 @@ var paese = ['Bezevo','Boroec','Drenok','Dolno Lukovo','Gorno Lukovo','Jablanica
 //var cover = ['cover.jpg','cover.jpg','drenok-big.jpg','dlukovo-big.jpg','glukovo-big.jpg','jablanica-big.jpg','lakavica.jpg','modric-big.jpg','nerezi-big.jpeg','piskupshtina-big.jpg'];
 var cover = ['cover.png','cover.png','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.png','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
 var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
-var h_page =  ['info_bezevo.html','info_borovec.html','info_drenok.html','info_d_lukovo.html','info_g_lukovo.html','info_jablanica.html','info_lakavica.html','info_modric.html','info_nerezi.html','info_piskupshtina.html'];
+var h_page =  ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modric_h','/nerezi_h','/piskupshtina_h'];
 var back = ['cover.jpg','cover.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
 var i;
 for(i = 0;i<10;i++){

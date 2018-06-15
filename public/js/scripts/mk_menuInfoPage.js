@@ -2,32 +2,32 @@ var x = screen.width;
 if (x<813){
     var d = '<ul class="menu2">\
               <a href="#geo" style="text-decoration:none;">\
-                <li class="submenu">Geographical characteristichs</li>\
+                <li class="submenu">Географски карактеристики</li>\
               </a>\
               <a href="#pop" style="text-decoration:none;">\
-                <li class="submenu">Population</li>\
+                <li class="submenu">Демографија</li>\
               </a>\
               <a href="#h" style="text-decoration:none;">\
-                <li class="submenu">Cultural-Historical features</li>\
+                <li class="submenu">Културно-Исторични Одлики</li>\
               </a>\
               <a href="#his" style="text-decoration:none;">\
-                <li class="submenu">A bit of history</li>\
+                <li class="submenu">Малку Историја</li>\
               </a>\
             </ul>';
 }else{
     var d = '<ul class="menu">\
               <a href="#geo" style="text-decoration:none;">\
-                <li class="submenu" style="border-right: 1px solid #666;">Geographical characteristichs</li>\
+                <li class="submenu" style="border-right: 1px solid #666;">Географски карактеристики</li>\
               </a>\
               <a href="#pop" style="text-decoration:none;">\
-                <li class="submenu" style="border-right: 1px solid #666;">Population</li>\
+                <li class="submenu" style="border-right: 1px solid #666;">Демографија</li>\
               </a>\
               <a href="#h" style="text-decoration:none;">\
-                <li class="submenu" style="border-right: 1px solid #666;">Cultural-Historical features</li>\
+                <li class="submenu" style="border-right: 1px solid #666;">Културно-Исторични Одлики</li>\
               </a>\
               </a>\
               <a href="#his" style="text-decoration:none;">\
-                <li class="submenu">A bit of history</li>\
+                <li class="submenu">Малку Историја</li>\
               </a>\
             </ul>';
 }
