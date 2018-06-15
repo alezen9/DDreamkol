@@ -1,4 +1,11 @@
 var x = screen.width;
+var t = document.querySelector('#main').innerHTML;
+var paese;
+if(t == "DDreamKol"){
+  paese = ['Bezevo','Boroec','Drenok','Dolno Lukovo','Gorno Lukovo','Jablanica','Lakavica','Modric','Nerezi','Piskupshtina'];
+}else{
+  paese = ['Безево','Бороец','Дренок','Долно Луково','Горно Луково','Јабланица','Лакавица','Модрич','Нерези','Пискупштина'];
+}
 var n;
 var folder;
 if (x<813){
@@ -8,7 +15,6 @@ if (x<813){
     n=3;
     folder = "big/";
 }
-var paese = ['Bezevo','Boroec','Drenok','Dolno Lukovo','Gorno Lukovo','Jablanica','Lakavica','Modric','Nerezi','Piskupshtina'];
 //var cover = ['cover.jpg','cover.jpg','drenok-big.jpg','dlukovo-big.jpg','glukovo-big.jpg','jablanica-big.jpg','lakavica.jpg','modric-big.jpg','nerezi-big.jpeg','piskupshtina-big.jpg'];
 var cover = ['cover.png','cover.png','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.png','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
 var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
