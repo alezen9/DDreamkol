@@ -52,29 +52,3 @@ var navbar = '\
 	</div>\
 ';
 document.write(navbar);
-
-function lg(el){
-	jazik(el.value);
-}
-
-function jazik (lingua){
-	var current_lang = lingua;
-	var info = {"lang": current_lang};
-	var url = 'http://80.211.7.75:3000/api/current/' + JSON.stringify(info);
-	//var url = 'http://localhost:3000/api/current/' + JSON.stringify(info);
-	fetch(url)
-		.then(res => res.json())
-		.then(data => {
-			//console.log(data.uguale);
-			if(data.uguale == "no"){
-				location.reload();	
-			}else{
-				if(lingua == "eng"){
-					alert("You page is already in english.");	
-				}else{
-					alert("Вашата страна е веќе на македонски.");	
-				}
-			}
-		})
-		.catch(error => console.error('Error:', error));
-}

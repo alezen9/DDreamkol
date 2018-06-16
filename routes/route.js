@@ -12,6 +12,8 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 const gitkeep = '.gitkeep';
 const sharp = require('sharp');
+var cookieParser = require('cookie-parser');
+router.use(cookieParser());
 
 // local database
 var file_a;
@@ -170,7 +172,6 @@ var toDelete = [];                                                   // images t
 var listtmb = [];                                                    // list of thumbnails of published pics of a village
 var listtmbdel = [];                                                 // list of thumbnails to be deleted
 var listtmbpub = [];                                                 // list thumbnails to move into published folder
-var lingua = "mkd";
 var picRoutes = ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
 //--------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -211,7 +212,7 @@ router.get("/api/ddis/:s", (req, res) => {
   });
   res.status(200).send(JSON.stringify(pics));
 });
-
+/*
 //set current page language
 router.get("/api/current/:info", (req, res) => {
   var corrente = JSON.parse(req.params.info);
@@ -223,15 +224,22 @@ router.get("/api/current/:info", (req, res) => {
     var obj = {"uguale": "si"};
     res.send(JSON.stringify(obj)); 
   }
-});
+});*/
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
 router.get("/", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_homepage.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    console.log('Cookies: ', req.cookies.idioma);
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_homepage.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'homepage.html')); 
+    }
   }else{
-    res.sendFile(path.join(public_path + 'homepage.html')); 
+    console.log("nessun cookie");
+    res.sendFile(path.join(public_path + 'mk_homepage.html'));
   }
   //console.log("lingua adesso: " + lingua);
 });
@@ -243,27 +251,42 @@ router.get("/news", (req, res) => {
 
 //route gorno lukovo turnir page
 router.get("/ddis", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_tournament_glukovo.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_tournament_glukovo.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'tournament_glukovo.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'tournament_glukovo.html'));
+    res.sendFile(path.join(public_path + 'mk_tournament_glukovo.html'));
   }
 });
 
 //route upload page
 router.get("/upload", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_upload.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_upload.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'upload.html')); 
+    }
   }else{
-    res.sendFile(path.join(public_path + 'upload.html')); 
+    res.sendFile(path.join(public_path + 'mk_upload.html'));
   }
-  //console.log("lingua adesso: " + lingua);
 });
 
 
 //route people say page
 router.get("/peopleSay", (req, res) => {
   var titolo,subTitolo,fname,sname,testo,submit,poraki,noPoraki,testoP;
+  var lingua;
+  if(req.cookies.idioma){
+    lingua = req.cookies.idioma;
+  }else{
+    lingua = "mkd";
+  }
   if(lingua == "eng"){
     titolo ="This is what people say about Dolni Drimkol...";
     subTitolo = "Submit a message to the community";
@@ -386,6 +409,12 @@ router.get(picRoutes, (req, res) => {
   var sela = ["bezevo","drenok","jablanica","lakavica","modric","nerezi","piskupshtina"];
   var selaK = ["Безево","Дренок","Јабланица","Лакавица","Модрич","Нерези","Пискупштина"]
   var infoPagina = "/" + nomePaese + "_h";
+  var lingua;
+  if(req.cookies.idioma){
+    lingua = req.cookies.idioma;
+  }else{
+    lingua = "mkd";
+  }
   if(nomePaese == "g_lukovo"){
     if(lingua == "eng"){
       nomePaeseCap = "Gorno Lukovo";
@@ -431,91 +460,141 @@ router.get(picRoutes, (req, res) => {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route nerezi_h page
 router.get("/nerezi_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_nerezi.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_nerezi.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_nerezi.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_nerezi.html'));
+    res.sendFile(path.join(public_path + 'mk_info_nerezi.html'));
   }
 });
 
 //route modric_h page
 router.get("/modric_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_modric.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_modric.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_modric.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_modric.html'));
+    res.sendFile(path.join(public_path + 'mk_info_modric.html'));
   }
 });
 
 //route bezevo_h page
 router.get("/bezevo_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_bezevo.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_bezevo.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_bezevo.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_bezevo.html'));
+    res.sendFile(path.join(public_path + 'mk_info_bezevo.html'));
   }
 });
 
 //route borovec_h page
 router.get("/borovec_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_borovec.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_borovec.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_borovec.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_borovec.html'));
+    res.sendFile(path.join(public_path + 'mk_info_borovec.html'));
   }
 });
 
 //route d_lukovo_h page
 router.get("/d_lukovo_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_d_lukovo.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_d_lukovo.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_d_lukovo.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_d_lukovo.html'));
+    res.sendFile(path.join(public_path + 'mk_info_d_lukovo.html'));
   }
 });
 
 //route g_lukovo_h page
 router.get("/g_lukovo_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_g_lukovo.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_g_lukovo.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_g_lukovo.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_g_lukovo.html'));
+    res.sendFile(path.join(public_path + 'mk_info_g_lukovo.html'));
   }
 });
 
 //route drenok_h page
 router.get("/drenok_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_drenok.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_drenok.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_drenok.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_drenok.html'));
+    res.sendFile(path.join(public_path + 'mk_info_drenok.html'));
   }
 });
 
 //route jablanica_h page
 router.get("/jablanica_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_jablanica.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_jablanica.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_jablanica.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_jablanica.html'));
+    res.sendFile(path.join(public_path + 'mk_info_jablanica.html'));
   }
 });
 
 //route lakavica_h page
 router.get("/lakavica_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_lakavica.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_lakavica.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_lakavica.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_lakavica.html'));
+    res.sendFile(path.join(public_path + 'mk_info_lakavica.html'));
   }
 });
 
 //route piskupshtina_h page
 router.get("/piskupshtina_h", (req, res) => {
-  if(lingua == "mkd"){
-    res.sendFile(path.join(public_path + 'mk_info_piskupshtina.html'));
+  var lingua = req.cookies.idioma;
+  if(lingua){
+    if(lingua == "mkd"){
+      res.sendFile(path.join(public_path + 'mk_info_piskupshtina.html'));
+    }else{
+      res.sendFile(path.join(public_path + 'info_piskupshtina.html'));
+    }
   }else{
-    res.sendFile(path.join(public_path + 'info_piskupshtina.html'));
+    res.sendFile(path.join(public_path + 'mk_info_piskupshtina.html'));
   }
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
