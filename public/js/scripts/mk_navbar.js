@@ -22,7 +22,7 @@ var navbar = '\
 						   <span class="dricon"></span>\
                             Турнири\
                         </a>\
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0,0,0,0.8); border: none; box-shadow: none;">\
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: rgba(0,0,0,0.8); border: none; box-shadow: none; text-align: center;">\
                             <a class="dropdown-item" href="/ddis" style="color: white; background-color: transparent;">Д-дримколски Илинденски Средби</a>\
                             <a class="dropdown-item" href="page_in_development.html" style="color: white; background-color: transparent;">Првомајски Турнир Пискупштина</a>\
                         </div>\

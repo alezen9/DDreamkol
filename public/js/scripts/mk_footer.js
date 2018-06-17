@@ -1,7 +1,7 @@
 var footer = '\
 <div class="container message">\
                 <div class="text-center" style="padding-bottom: 70px;">\
-                    <h3 class="text-white">Help us improve!</h3>\
+                    <h3 class="text-white">Придонеси и ти!</h3>\
                 </div>\
                 <div style="text-align: center; margin: auto;">\
                     <div class="row">\
@@ -46,7 +46,7 @@ var footer = '\
 var footer_small='\
             <div class="container message">\
                 <div class="text-center" style="padding-bottom: 50px;">\
-                    <h3 class="text-white">Help us improve!</h3>\
+                    <h3 class="text-white">Придонеси и ти!</h3>\
                 </div>\
                 <!--contacts-->\
                 <div style="text-align: center; margin: auto; padding-top: 10px; padding-bottom: 10px;">\
