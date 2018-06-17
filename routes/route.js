@@ -176,7 +176,7 @@ var picRoutes = ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_
 var infoRoutes = ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modric_h','/nerezi_h','/piskupshtina_h'];
 
 var or_bezevo = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~810m","~55 (2002)","walk","Nerezi","Нерези"];
-var or_boroec = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~948m","~639 (2002)","na"];
+var or_borovec = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~948m","~679 (2002)","na"];
 var or_drenok = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~1080m","~2 (2002)","na"];
 var or_d_lukovo = ["06:05","08:25","12:15","14:50","16:50","18:55","06:30","13:15","18:50","~705m","~400 (2002)","si","at \"na most\"","на мост"];
 var or_g_lukovo = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~940m","~55 (2002)","walk","D. Lukovo","Д. Луково"];
@@ -184,7 +184,7 @@ var or_jablanica = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:
 var or_lakavica = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~1244m","~3 (2002)","na"];
 var or_modric = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~880m","~25 (2002)","na"];
 var or_nerezi = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~870m","~120 (2002)","si","at Vodoac - center","на Водоач - центар"];
-var or_piskupshtina = ["05:40","07:50","11:45","14:20","16:20","18:25","06:00","12:45","18:20","~687m","~55 (2002)","si","center","центар"];
+var or_piskupshtina = ["05:40","07:50","11:45","14:20","16:20","18:25","06:00","12:45","18:20","~687m","~182 (2002)","si","center","центар"];
 
 //--------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
@@ -446,6 +446,18 @@ router.get(picRoutes, (req, res) => {
     }else{
       nomePaeseCap = "Бороец";
     }
+  }else if(nomePaese == "borovec"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Boroec";
+    }else{
+      nomePaeseCap = "Бороец";
+    }
+  }else if(nomePaese == "lakavica"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Lakaica";
+    }else{
+      nomePaeseCap = "Лакаица";
+    }
   }else{
     if(lingua == "eng"){
       nomePaeseCap = toTitleCase(nomePaese);
@@ -477,7 +489,7 @@ router.get(infoRoutes, (req, res) => {
   var lingua;
   var nomePaese = req.originalUrl.slice(1, -2);
   var nomePaeseCap;
-  var sela = ["bezevo","drenok","jablanica","lakavica","modric","nerezi","piskupshtina"];
+  var sela = ["bezevo","drenok","jablanica","modric","nerezi","piskupshtina"];
   var selaK = ["Безево","Дренок","Јабланица","Лакавица","Модрич","Нерези","Пискупштина"]
   var paesi = ["bezevo","borovec","drenok","d_lukovo","g_lukovo","jablanica","lakavica","modric","nerezi","piskupshtina"];
   var pic_ref1 = "/" + nomePaese + "_pic";
@@ -504,6 +516,12 @@ router.get(infoRoutes, (req, res) => {
       nomePaeseCap = "Boroec";
     }else{
       nomePaeseCap = "Бороец";
+    }
+  }else if(nomePaese == "lakavica"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Lakaica";
+    }else{
+      nomePaeseCap = "Лакаица";
     }
   }else{
     if(lingua == "eng"){
@@ -558,13 +576,13 @@ router.get(infoRoutes, (req, res) => {
     lavorativi = "Пон - Саб";
     festivi = "Нед / Прз";
     x = "Висина";
-    y = "Популација"
+    y = "Население"
     z = "П. Број.";
     geo = "Географски карактеристики";
     cultural = "Културно-Исторични Одлики";
     history = "Малку историја";
   }
-  
+
   res.render("info_page",{
     jazik: lingua,
     paese: nomePaeseCap,

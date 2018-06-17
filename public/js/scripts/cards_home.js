@@ -2,9 +2,9 @@ var x = screen.width;
 var t = document.querySelector('#main').innerHTML;
 var paese;
 if(t == "DDreamKol"){
-  paese = ['Bezevo','Boroec','Drenok','Dolno Lukovo','Gorno Lukovo','Jablanica','Lakavica','Modric','Nerezi','Piskupshtina'];
+  paese = ['Bezevo','Boroec','Drenok','Dolno Lukovo','Gorno Lukovo','Jablanica','Lakaica','Modric','Nerezi','Piskupshtina'];
 }else{
-  paese = ['Безево','Бороец','Дренок','Долно Луково','Горно Луково','Јабланица','Лакавица','Модрич','Нерези','Пискупштина'];
+  paese = ['Безево','Бороец','Дренок','Долно Луково','Горно Луково','Јабланица','Лакаица','Модрич','Нерези','Пискупштина'];
 }
 var n;
 var folder;
