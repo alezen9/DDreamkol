@@ -173,6 +173,19 @@ var listtmb = [];                                                    // list of 
 var listtmbdel = [];                                                 // list of thumbnails to be deleted
 var listtmbpub = [];                                                 // list thumbnails to move into published folder
 var picRoutes = ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
+var infoRoutes = ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modric_h','/nerezi_h','/piskupshtina_h'];
+
+var or_bezevo = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~810m","~55 (2002)","walk","Nerezi","Нерези"];
+var or_boroec = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~948m","~639 (2002)","na"];
+var or_drenok = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~1080m","~2 (2002)","na"];
+var or_d_lukovo = ["06:05","08:25","12:15","14:50","16:50","18:55","06:30","13:15","18:50","~705m","~400 (2002)","si","at \"na most\"","на мост"];
+var or_g_lukovo = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~940m","~55 (2002)","walk","D. Lukovo","Д. Луково"];
+var or_jablanica = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~1087m","~553 (2002)","na"];
+var or_lakavica = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~1244m","~3 (2002)","na"];
+var or_modric = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~880m","~25 (2002)","na"];
+var or_nerezi = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~870m","~120 (2002)","si","at Vodoac - center","на Водоач - центар"];
+var or_piskupshtina = ["05:40","07:50","11:45","14:20","16:20","18:25","06:00","12:45","18:20","~687m","~55 (2002)","si","center","центар"];
+
 //--------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // apis
@@ -231,14 +244,14 @@ router.get("/api/current/:info", (req, res) => {
 router.get("/", (req, res) => {
   var lingua = req.cookies.idioma;
   if(lingua){
-    console.log('Cookies: ', req.cookies.idioma);
+    //console.log('Cookies: ', req.cookies.idioma);
     if(lingua == "mkd"){
       res.sendFile(path.join(public_path + 'mk_homepage.html'));
     }else{
       res.sendFile(path.join(public_path + 'homepage.html')); 
     }
   }else{
-    console.log("nessun cookie");
+    //console.log("nessun cookie");
     res.sendFile(path.join(public_path + 'mk_homepage.html'));
   }
   //console.log("lingua adesso: " + lingua);
@@ -459,144 +472,123 @@ router.get(picRoutes, (req, res) => {
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route nerezi_h page
-router.get("/nerezi_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_nerezi.html'));
+router.get(infoRoutes, (req, res) => {
+  var pcode = "6337";
+  var lingua;
+  var nomePaese = req.originalUrl.slice(1, -2);
+  var nomePaeseCap;
+  var sela = ["bezevo","drenok","jablanica","lakavica","modric","nerezi","piskupshtina"];
+  var selaK = ["Безево","Дренок","Јабланица","Лакавица","Модрич","Нерези","Пискупштина"]
+  var paesi = ["bezevo","borovec","drenok","d_lukovo","g_lukovo","jablanica","lakavica","modric","nerezi","piskupshtina"];
+  var pic_ref1 = "/" + nomePaese + "_pic";
+
+  if(req.cookies.idioma){
+    lingua = req.cookies.idioma;
+  }else{
+    lingua = "mkd";
+  }
+  if(nomePaese == "g_lukovo"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Gorno Lukovo";
     }else{
-      res.sendFile(path.join(public_path + 'info_nerezi.html'));
+      nomePaeseCap = "Горно Луково";
+    }
+  }else if(nomePaese == "d_lukovo"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Dolno Lukovo";
+    }else{
+      nomePaeseCap = "Долно Луково";
+    }
+  }else if(nomePaese == "borovec"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Boroec";
+    }else{
+      nomePaeseCap = "Бороец";
     }
   }else{
-    res.sendFile(path.join(public_path + 'mk_info_nerezi.html'));
+    if(lingua == "eng"){
+      nomePaeseCap = toTitleCase(nomePaese);
+    }else{
+      for(var i=0; i<sela.length; i++){
+        if(sela[i] == nomePaese){
+          nomePaeseCap = selaK[i];
+        }
+      }
+    }
   }
+  var bus,from,to,lavorativi,festivi,where,x,y,z,geo,cultural,history;
+  if(lingua == "eng"){
+    bus = "Bus";
+    if(nomePaeseCap == "Gorno Lukovo"){
+      from = "G. Lukovo";
+    }else if(nomePaeseCap == "Dolno Lukovo"){
+      from = "D. Lukovo";
+    }else{
+      from = nomePaeseCap; 
+    }
+    if((eval("or_" + nomePaese)[11] == "si") || (eval("or_" + nomePaese)[11] == "walk")){
+      where = eval("or_" + nomePaese)[12];
+    }else{
+      where = "N/A";
+    }
+    to = "Struga"
+    lavorativi = "Mon - Sat";
+    festivi = "Sun / Hol";
+    x = "Altitude";
+    y = "Population"
+    z = "Postal code";
+    geo = "Geographical characteristichs";
+    cultural = "Cultural-Historical features";
+    history = "A bit of history";
+  }else{
+    bus = "Бус";
+    if(nomePaeseCap == "Горно Луково"){
+      from = "Г. Луково";
+    }else if(nomePaeseCap == "Долно Луково"){
+      from = "Д. Луково";
+    }else{
+      from = nomePaeseCap; 
+    }
+    if((eval("or_" + nomePaese)[11] == "si") || (eval("or_" + nomePaese)[11] == "walk")){
+      where = eval("or_" + nomePaese)[13];
+    }else{
+      where = "N/A";
+    }
+    to = "Струга"
+    lavorativi = "Пон - Саб";
+    festivi = "Нед / Прз";
+    x = "Висина";
+    y = "Популација"
+    z = "П. Број.";
+    geo = "Географски карактеристики";
+    cultural = "Културно-Исторични Одлики";
+    history = "Малку историја";
+  }
+  
+  res.render("info_page",{
+    jazik: lingua,
+    paese: nomePaeseCap,
+    pic_ref:  pic_ref1,
+    bus: bus,
+    from: from,
+    to: to,
+    lavorativi: lavorativi,
+    festivi: festivi,
+    orari: eval("or_" + nomePaese),
+    where: where,
+    x: x,
+    x1: eval("or_" + nomePaese)[9],
+    y: y,
+    y1: eval("or_" + nomePaese)[10],
+    z: z,
+    z1: pcode,
+    geo: geo,
+    cultural: cultural,
+    history: history,
+    folderName: nomePaese
+  });
 });
 
-//route modric_h page
-router.get("/modric_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_modric.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_modric.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_modric.html'));
-  }
-});
-
-//route bezevo_h page
-router.get("/bezevo_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_bezevo.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_bezevo.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_bezevo.html'));
-  }
-});
-
-//route borovec_h page
-router.get("/borovec_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_borovec.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_borovec.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_borovec.html'));
-  }
-});
-
-//route d_lukovo_h page
-router.get("/d_lukovo_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_d_lukovo.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_d_lukovo.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_d_lukovo.html'));
-  }
-});
-
-//route g_lukovo_h page
-router.get("/g_lukovo_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_g_lukovo.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_g_lukovo.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_g_lukovo.html'));
-  }
-});
-
-//route drenok_h page
-router.get("/drenok_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_drenok.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_drenok.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_drenok.html'));
-  }
-});
-
-//route jablanica_h page
-router.get("/jablanica_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_jablanica.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_jablanica.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_jablanica.html'));
-  }
-});
-
-//route lakavica_h page
-router.get("/lakavica_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_lakavica.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_lakavica.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_lakavica.html'));
-  }
-});
-
-//route piskupshtina_h page
-router.get("/piskupshtina_h", (req, res) => {
-  var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_info_piskupshtina.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'info_piskupshtina.html'));
-    }
-  }else{
-    res.sendFile(path.join(public_path + 'mk_info_piskupshtina.html'));
-  }
-});
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //handling upload page form

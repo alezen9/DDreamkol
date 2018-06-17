@@ -55,9 +55,9 @@ function getCookie(cname) {
 }
 
 function checkCookie(a) {
-    var user=getCookie("idioma");
-    console.log(user);
-    if(!user){
+    var x = getCookie("idioma");
+    //console.log(x);
+    if(!x){
         if(a == "mkd"){
             alert("Вашата страна е веќе на македонски.");
         }else{
@@ -65,7 +65,7 @@ function checkCookie(a) {
            location.reload();
         }
     }
-    if (user == a) {
+    if (x == a) {
         if(a == "eng"){
             alert("You page is already in english.");
         }else{

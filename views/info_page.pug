@@ -1,0 +1,331 @@
+doctype html
+html.no-js(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='x-ua-compatible', content='ie=edge')
+		title DDreamKol
+		meta(name='description', content='Elegant website for storing data about some villages based on Bootstrap 4')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
+		link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.13/css/all.css', integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp', crossorigin='anonymous')
+		link(rel='stylesheet', href='css/shards.min.css')
+		link(rel='stylesheet', href='css/shards-demo.css?v=1.1.0')
+		link(rel='stylesheet', href='css/hpage.css')
+		link(rel='stylesheet', href='css/expButton.css')
+		link(rel='stylesheet', href='css/navbar.css')
+		link(rel='shortcut icon', type='image/png', href='images/favico/favico.png')
+	body
+		// Navbar
+		div
+			if(jazik == 'eng')
+				include includes/navbar.pug
+			else
+				include includes/mk_navbar.pug
+		// background image
+		img.bgd(src='images/other/sunrise.svg')
+		.text-center.mb-4
+			h1(style='padding-top: 30px; padding-bottom: 20px;') #{paese}
+			div
+				a(href=pic_ref, style='height: 25px;')
+					button.btn.btn-pill.btn-success(style='width: 230px;', type='button', href=pic_ref)
+						i.fa.fa-image.mr-1  
+						|    See the pictures
+		// Page Content
+		.container.mb-2
+			div
+				br
+				.share-btn
+					span.cta
+						i.fas.fa-bus
+						|    #{bus}
+					span.direction #{from} → #{to}
+					.close.ion-close-round X
+					ul.social
+						li(style='font-weight: 400;')
+							| #{lavorativi}
+							span #{festivi}
+						li
+							| #{orari[0]}
+							span #{orari[6]}
+						li
+							| #{orari[1]}
+							span #{orari[7]}
+						li
+							| #{orari[2]}
+							span #{orari[8]}
+						li #{orari[3]}
+						li #{orari[4]}
+						li #{orari[5]}
+						if(orari[11] == "si")
+							span.btn.btn-pill.btn-success(style='width: 100%;')
+								i.fas.fa-map-marker
+								|    &nbsp;&nbsp;&nbsp;#{where}
+						else if(orari[11] == "walk")
+							span.btn.btn-pill.btn-warning(style='width: 100%;')
+								i.fas.fa-walking
+								|    &nbsp;&nbsp;&#8594;&nbsp;&nbsp;#{where}
+						else
+							span.btn.btn-pill.btn-danger(style='width: 100%;')
+								i.fas.fa-map-marker
+								|    &nbsp;&nbsp;&nbsp;N/A
+				br
+				br
+				table.table.table-hover.tbl.frost
+					tbody
+						tr
+							th(scope='row', style='text-align: center; width: 50%; border: none;')
+								i.fas.fa-arrows-alt-v
+								|    #{x}
+							td(style='text-align: center; border: none;') #{x1}
+						tr
+							th(scope='row', style='text-align: center;')
+								i.fas.fa-users
+								|   #{y}
+							td(style='text-align: center;') #{y1}
+						tr
+							th(scope='row', style='text-align: center;')
+								i.fas.fa-envelope-open
+								|   #{z}
+							td(style='text-align: center;') #{z1}
+				br
+				br
+				br
+				if(jazik == 'eng')
+					script(src='js/scripts/menuInfoPage.js')
+				else
+					script(src='js/scripts/mk_menuInfoPage.js')
+			div(style='padding-bottom: 20px; padding-top: 100px;')
+				#geo.frost2(style='padding-bottom: 20px;')
+					h2(style='text-align: center;') #{geo}
+					br
+					if (folderName == "bezevo")
+						if (jazik == "eng")
+							include infos/bezevo/eng/geo.pug
+						else
+							include infos/bezevo/mkd/geo.pug
+					else if (folderName == "boroec")
+						if (jazik == "eng")
+							include infos/boroec/eng/geo.pug
+						else
+							include infos/boroec/mkd/geo.pug
+					else if (folderName == "drenok")
+						if (jazik == "eng")
+							include infos/drenok/eng/geo.pug
+						else
+							include infos/drenok/mkd/geo.pug
+					else if (folderName == "d_lukovo")
+						if (jazik == "eng")
+							include infos/d_lukovo/eng/geo.pug
+						else
+							include infos/d_lukovo/mkd/geo.pug
+					else if (folderName == "g_lukovo")
+						if (jazik == "eng")
+							include infos/g_lukovo/eng/geo.pug
+						else
+							include infos/g_lukovo/mkd/geo.pug
+					else if (folderName == "jablanica")
+						if (jazik == "eng")
+							include infos/jablanica/eng/geo.pug
+						else
+							include infos/jablanica/mkd/geo.pug
+					else if (folderName == "lakavica")
+						if (jazik == "eng")
+							include infos/lakavica/eng/geo.pug
+						else
+							include infos/lakavica/mkd/geo.pug
+					else if (folderName == "modric")
+						if (jazik == "eng")
+							include infos/modric/eng/geo.pug
+						else
+							include infos/modric/mkd/geo.pug
+					else if (folderName == "nerezi")
+						if (jazik == "eng")
+							include infos/nerezi/eng/geo.pug
+						else
+							include infos/nerezi/mkd/geo.pug
+					else
+						if (jazik == "eng")
+							include infos/piskupshtina/eng/geo.pug
+						else
+							include infos/piskupshtina/mkd/geo.pug
+				br
+				// ######################################################################################################################
+				// <div class="line"></div>
+				#pop.frost2
+					h2(style='text-align: center;') #{y}
+					br
+					if (folderName == "bezevo")
+						if (jazik == "eng")
+							include infos/bezevo/eng/pop.pug
+						else
+							include infos/bezevo/mkd/pop.pug
+					else if (folderName == "boroec")
+						if (jazik == "eng")
+							include infos/boroec/eng/pop.pug
+						else
+							include infos/boroec/mkd/pop.pug
+					else if (folderName == "drenok")
+						if (jazik == "eng")
+							include infos/drenok/eng/pop.pug
+						else
+							include infos/drenok/mkd/pop.pug
+					else if (folderName == "d_lukovo")
+						if (jazik == "eng")
+							include infos/d_lukovo/eng/pop.pug
+						else
+							include infos/d_lukovo/mkd/pop.pug
+					else if (folderName == "g_lukovo")
+						if (jazik == "eng")
+							include infos/g_lukovo/eng/pop.pug
+						else
+							include infos/g_lukovo/mkd/pop.pug
+					else if (folderName == "jablanica")
+						if (jazik == "eng")
+							include infos/jablanica/eng/pop.pug
+						else
+							include infos/jablanica/mkd/pop.pug
+					else if (folderName == "lakavica")
+						if (jazik == "eng")
+							include infos/lakavica/eng/pop.pug
+						else
+							include infos/lakavica/mkd/pop.pug
+					else if (folderName == "modric")
+						if (jazik == "eng")
+							include infos/modric/eng/pop.pug
+						else
+							include infos/modric/mkd/pop.pug
+					else if (folderName == "nerezi")
+						if (jazik == "eng")
+							include infos/nerezi/eng/pop.pug
+						else
+							include infos/nerezi/mkd/pop.pug
+					else
+						if (jazik == "eng")
+							include infos/piskupshtina/eng/pop.pug
+						else
+							include infos/piskupshtina/mkd/pop.pug
+				br
+				// ######################################################################################################################
+				#h.frost2
+					h2(style='text-align: center;') #{cultural}
+					br
+					if (folderName == "bezevo")
+						if (jazik == "eng")
+							include infos/bezevo/eng/cult.pug
+						else
+							include infos/bezevo/mkd/cult.pug
+					else if (folderName == "boroec")
+						if (jazik == "eng")
+							include infos/boroec/eng/cult.pug
+						else
+							include infos/boroec/mkd/cult.pug
+					else if (folderName == "drenok")
+						if (jazik == "eng")
+							include infos/drenok/eng/cult.pug
+						else
+							include infos/drenok/mkd/cult.pug
+					else if (folderName == "d_lukovo")
+						if (jazik == "eng")
+							include infos/d_lukovo/eng/cult.pug
+						else
+							include infos/d_lukovo/mkd/cult.pug
+					else if (folderName == "g_lukovo")
+						if (jazik == "eng")
+							include infos/g_lukovo/eng/cult.pug
+						else
+							include infos/g_lukovo/mkd/cult.pug
+					else if (folderName == "jablanica")
+						if (jazik == "eng")
+							include infos/jablanica/eng/cult.pug
+						else
+							include infos/jablanica/mkd/cult.pug
+					else if (folderName == "lakavica")
+						if (jazik == "eng")
+							include infos/lakavica/eng/cult.pug
+						else
+							include infos/lakavica/mkd/cult.pug
+					else if (folderName == "modric")
+						if (jazik == "eng")
+							include infos/modric/eng/cult.pug
+						else
+							include infos/modric/mkd/cult.pug
+					else if (folderName == "nerezi")
+						if (jazik == "eng")
+							include infos/nerezi/eng/cult.pug
+						else
+							include infos/nerezi/mkd/cult.pug
+					else
+						if (jazik == "eng")
+							include infos/piskupshtina/eng/cult.pug
+						else
+							include infos/piskupshtina/mkd/cult.pug
+				br
+				// ######################################################################################################################
+				#his.frost2
+					h2(style='text-align: center;') #{history}
+					br
+					if (folderName == "bezevo")
+						if (jazik == "eng")
+							include infos/bezevo/eng/his.pug
+						else
+							include infos/bezevo/mkd/his.pug
+					else if (folderName == "boroec")
+						if (jazik == "eng")
+							include infos/boroec/eng/his.pug
+						else
+							include infos/boroec/mkd/his.pug
+					else if (folderName == "drenok")
+						if (jazik == "eng")
+							include infos/drenok/eng/his.pug
+						else
+							include infos/drenok/mkd/his.pug
+					else if (folderName == "d_lukovo")
+						if (jazik == "eng")
+							include infos/d_lukovo/eng/his.pug
+						else
+							include infos/d_lukovo/mkd/his.pug
+					else if (folderName == "g_lukovo")
+						if (jazik == "eng")
+							include infos/g_lukovo/eng/his.pug
+						else
+							include infos/g_lukovo/mkd/his.pug
+					else if (folderName == "jablanica")
+						if (jazik == "eng")
+							include infos/jablanica/eng/his.pug
+						else
+							include infos/jablanica/mkd/his.pug
+					else if (folderName == "lakavica")
+						if (jazik == "eng")
+							include infos/lakavica/eng/his.pug
+						else
+							include infos/lakavica/mkd/his.pug
+					else if (folderName == "modric")
+						if (jazik == "eng")
+							include infos/modric/eng/his.pug
+						else
+							include infos/modric/mkd/his.pug
+					else if (folderName == "nerezi")
+						if (jazik == "eng")
+							include infos/nerezi/eng/his.pug
+						else
+							include infos/nerezi/mkd/his.pug
+					else
+						if (jazik == "eng")
+							include infos/piskupshtina/eng/his.pug
+						else
+							include infos/piskupshtina/mkd/his.pug
+		// Footer
+		if(jazik == 'eng')
+			script(src='js/scripts/footer2.js')
+		else
+			script(src='js/scripts/mk_footer2.js')
+		// JavaScript
+		#fb-root
+		script(async='', defer='', src='https://buttons.github.io/buttons.js')
+		script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js', integrity='sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4', crossorigin='anonymous')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js', integrity='sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1', crossorigin='anonymous')
+		script(src='js/shards.min.js')
+		script(src='js/demo.min.js')
+		script(src='js/scripts/expButton.js')
+		script(src='js/scripts/lingua.js')
