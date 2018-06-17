@@ -66,8 +66,39 @@ img.bgd {
     animation: 0.7s ease-out slideInFromBottom;
   }
 
+  a.ancoraggio1 > button, a.ancoraggio2 > button{
+    border: none;
+}
+a.ancoraggio1 > button:hover {
+    background:transparent;
+    border: none;
+    box-shadow: inset 0 0 145px 25px rgba(0, 255, 85, 0.63);
+}
+a.ancoraggio1 > button:hover > i {
+    transition: transform 0.4s ease;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px rgb(0, 78, 35));
+}
+a.ancoraggio2 > button:hover {
+    background: transparent;
+    border: none;
+    box-shadow: inset 0 0 145px 25px rgba(0, 174, 255, 0.63);
+}
+a.ancoraggio2 > button:hover > i {
+    transition: transform 0.4s ease;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px rgb(111, 0, 238));
+}
+
 @media all and (min-width: 479px) {
     .ressp{
         width: 230px;
+    }
+}
+@media all and (max-width: 813px) {
+    a.ancoraggio1 > button:hover > i,
+    a.ancoraggio2 > button:hover > i{
+        transform: none;
+        filter: none;
     }
 }

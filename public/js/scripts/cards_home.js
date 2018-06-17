@@ -16,10 +16,10 @@ if (x<813){
     folder = "big/";
 }
 //var cover = ['cover.jpg','cover.jpg','drenok-big.jpg','dlukovo-big.jpg','glukovo-big.jpg','jablanica-big.jpg','lakavica.jpg','modric-big.jpg','nerezi-big.jpeg','piskupshtina-big.jpg'];
-var cover = ['cover.png','cover.png','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.png','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
+var cover = ['cover.png','boroec.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.png','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
 var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
 var h_page =  ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modric_h','/nerezi_h','/piskupshtina_h'];
-var back = ['cover.jpg','cover.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
+var back = ['cover.jpg','boroec.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.jpg','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
 var i;
 for(i = 0;i<10;i++){
   var carta = '\
@@ -32,10 +32,10 @@ for(i = 0;i<10;i++){
         </div>\
         <div class="back" style="border-radius: 10px;"><img class="slikaselo" src="images/homepage/small/' + back[i] + '" style="filter:brightness(25%);">\
           <div class="btn-block">\
-            <a href="' + h_page[i] + '">\
+            <a class="ancoraggio1" href="' + h_page[i] + '">\
               <button type="button" class="btn btn-outline-success al binfo" href="' + h_page[i] + '"><i class="fas fa-info-circle big-icon"></i></button>\
             </a>\
-            <a href="' + pic_page[i] + '">\
+            <a class="ancoraggio2" href="' + pic_page[i] + '">\
               <button type="button" class="btn btn-outline-primary al bimg" href="'+ pic_page[i] + '"><i class="far fa-images big-icon"></i></button>\
             </a>\
           </div>\
