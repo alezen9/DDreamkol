@@ -490,8 +490,7 @@ router.get(infoRoutes, (req, res) => {
   var nomePaese = req.originalUrl.slice(1, -2);
   var nomePaeseCap;
   var sela = ["bezevo","drenok","jablanica","modric","nerezi","piskupshtina"];
-  var selaK = ["Безево","Дренок","Јабланица","Лакавица","Модрич","Нерези","Пискупштина"]
-  var paesi = ["bezevo","borovec","drenok","d_lukovo","g_lukovo","jablanica","lakavica","modric","nerezi","piskupshtina"];
+  var selaK = ["Безево","Дренок","Јабланица","Модрич","Нерези","Пискупштина"]
   var pic_ref1 = "/" + nomePaese + "_pic";
 
   if(req.cookies.idioma){
@@ -534,7 +533,7 @@ router.get(infoRoutes, (req, res) => {
       }
     }
   }
-  var bus,from,to,lavorativi,festivi,where,x,y,z,geo,cultural,history;
+  var bus,from,to,lavorativi,festivi,where,x,y,z,geo,cultural,history,pics;
   if(lingua == "eng"){
     bus = "Bus";
     if(nomePaeseCap == "Gorno Lukovo"){
@@ -555,6 +554,7 @@ router.get(infoRoutes, (req, res) => {
     x = "Altitude";
     y = "Population"
     z = "Postal code";
+    pics = "See the pictures";
     geo = "Geographical characteristichs";
     cultural = "Cultural-Historical features";
     history = "A bit of history";
@@ -578,6 +578,7 @@ router.get(infoRoutes, (req, res) => {
     x = "Висина";
     y = "Население"
     z = "П. Број.";
+    pics = "Види ги сликите";
     geo = "Географски карактеристики";
     cultural = "Културно-Исторични Одлики";
     history = "Малку историја";
@@ -594,6 +595,7 @@ router.get(infoRoutes, (req, res) => {
     festivi: festivi,
     orari: eval("or_" + nomePaese),
     where: where,
+    pics: pics,
     x: x,
     x1: eval("or_" + nomePaese)[9],
     y: y,
