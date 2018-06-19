@@ -19,6 +19,9 @@
 body{
     background: #bbb;
 }
+#main{
+    filter: drop-shadow(0 0 13px #F8F8FF);
+}
 .day-sky{
     z-index: 1;
     background: linear-gradient(rgb(135, 206, 250), rgba(255, 255, 255, 0));

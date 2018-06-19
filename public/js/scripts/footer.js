@@ -7,7 +7,7 @@ var footer = '\
                     <div class="row">\
                     <!--credits-->\
                     <div style="margin: 10px auto; padding: auto;">\
-                        <a href="attributions.html" class="btn btn-pill btn-primary" title="Attributions">\
+                        <a href="/about_us" class="btn btn-pill btn-primary" title="Attributions">\
                             <i class="fas fa-info-circle"></i>\
                             &ensp;About us&ensp;\
                         </a>\
@@ -56,7 +56,7 @@ var footer_small='\
                 </div>\
                 <!--credits-->\
                 <div style="text-align: center; margin: auto; padding-top: 10px; padding-bottom: 10px;">\
-                    <a href="attributions.html" class="btn btn-pill btn-primary" title="Attributions">\
+                    <a href="/about_us" class="btn btn-pill btn-primary" title="Attributions">\
                         <i class="fas fa-info-circle"></i>\
                         &ensp;About us&ensp;\
                     </a>\
