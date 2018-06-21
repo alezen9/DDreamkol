@@ -1,6 +1,6 @@
 var navbar2 = '\
 	<div>\
-		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0,0,0,0.8);">\
+		<nav class="navbar fixed-top navbar-expand-lg navbar-dark">\
 			<a href="/"><img src="images/demo/shards-logo.svg" alt="Example Navbar 1" class="mr-2" height="30px"></a>\
 	        <a class="navbar-brand" style="margin-right: inherit; margin-left: 1rem;" href="/">DDreamKol</a>\
 	        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-2" aria-controls="navbarNavDropdown-2" aria-expanded="false" aria-label="Toggle navigation" style="border: none;">\
@@ -46,3 +46,8 @@ var navbar2 = '\
 	</div>\
 ';
 document.write(navbar2);
+
+var h = document.querySelector('.navbar').offsetHeight;
+console.log(h);
+ var body = document.querySelector('body');
+ body.style.paddingTop = h + "px";

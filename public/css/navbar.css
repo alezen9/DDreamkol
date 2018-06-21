@@ -1,3 +1,8 @@
+nav.navbar{
+    background-color: rgba(0, 0, 0, 0.9);
+    /*-webkit-backdrop-filter: blur(20px);*/
+}
+
 .navbar-toggler:not(.collapsed) span:nth-child(1) {
     margin-top: 0px;
     -webkit-transform: rotate(135deg);
@@ -51,10 +56,13 @@
 #blang{
     padding: 10px;
 }
-.lang{
+#blang > button {
     width: 30px;
-    height: 25px;
-    border-radius: 7px;
+    height: 30px;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 1px white);
+}
+.lang{
     /*vertical-align: middle;*/
     margin: 0 10px 0 10px;
     border: none;
@@ -80,7 +88,11 @@
 .lang:focus{
     outline: 0;
 }
-
+@media all and (max-width: 813px){
+    .lang:hover{
+        transform: none;
+    }
+}
 /*
 .dropdown .dropdown-menu {
     max-height: 0;

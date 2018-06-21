@@ -232,18 +232,11 @@ router.get("/api/current/:info", (req, res) => {
 //route homepage
 router.get("/", (req, res) => {
   var lingua = req.cookies.idioma;
-  if(lingua){
-    //console.log('Cookies: ', req.cookies.idioma);
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_homepage.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'homepage.html')); 
-    }
-  }else{
-    //console.log("nessun cookie");
+  if((!lingua) || (lingua == "mkd")){
     res.sendFile(path.join(public_path + 'mk_homepage.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'homepage.html')); 
   }
-  //console.log("lingua adesso: " + lingua);
 });
 
 //route news page
@@ -259,28 +252,20 @@ router.get("/about_us", (req, res) => {
 //route gorno lukovo turnir page
 router.get("/ddis", (req, res) => {
   var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_tournament_glukovo.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'tournament_glukovo.html'));
-    }
-  }else{
+  if((!lingua) || (lingua == "mkd")){
     res.sendFile(path.join(public_path + 'mk_tournament_glukovo.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'tournament_glukovo.html')); 
   }
 });
 
 //route upload page
 router.get("/upload", (req, res) => {
   var lingua = req.cookies.idioma;
-  if(lingua){
-    if(lingua == "mkd"){
-      res.sendFile(path.join(public_path + 'mk_upload.html'));
-    }else{
-      res.sendFile(path.join(public_path + 'upload.html')); 
-    }
-  }else{
+  if((!lingua) || (lingua == "mkd")){
     res.sendFile(path.join(public_path + 'mk_upload.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'upload.html')); 
   }
 });
 

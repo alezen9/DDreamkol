@@ -1,5 +1,5 @@
 div
-	nav.navbar.navbar-expand-lg.navbar-dark(style='background-color: rgba(0,0,0,0.8);')
+	nav.navbar.fixed-top.navbar-expand-lg.navbar-dark
 		a(href='homepage.html')
 			img.mr-2(src='images/demo/shards-logo.svg', alt='Example Navbar 1', height='30px')
 		a.navbar-brand(style='margin-right: inherit; margin-left: 1rem;', href='/') DDreamKol
@@ -35,3 +35,8 @@ div
 					button.btn.btn-pill.btn-outline-success(type='button', href='/upload', style='width: 230px;')
 						i.fa.fa-upload.mr-1
 						|  Upload
+script.
+	var h = document.querySelector('.navbar').offsetHeight;
+	console.log(h);
+	var body = document.querySelector('body');
+	body.style.paddingTop = h + "px";
