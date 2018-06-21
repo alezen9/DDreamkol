@@ -31,13 +31,18 @@ img.bgd{
   margin: auto;
 }
 
-img.inTextRight{
+img.inTextRight,
+iframe.inTextRight{
   width: 400px;
   border-radius: 7px;
   float: right;
   filter: drop-shadow(0 0 2px white);
   padding: 2px;
   margin: 15px 0 15px 0;
+}
+iframe.inTextRight{
+  width: 80%;
+  margin: 15px 15px 15px 15px;
 }
 img.inTextLeft{
   width: 200px;
@@ -128,6 +133,11 @@ span.hide{
   img.inTextRight,
   img.inTextLeft{
     width: 100%;
+  }
+  iframe.inTextRight{
+    width: 100%;
+    min-height: 300px;
+    margin: 15px 0 15px 0;
   }
   .hide{
     display: none;
