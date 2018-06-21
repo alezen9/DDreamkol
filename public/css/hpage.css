@@ -36,13 +36,14 @@ iframe.inTextRight{
   width: 400px;
   border-radius: 7px;
   float: right;
-  filter: drop-shadow(0 0 2px white);
+  filter: drop-shadow(0 0 3px black);
   padding: 2px;
   margin: 15px 0 15px 0;
 }
 iframe.inTextRight{
   width: 80%;
   margin: 15px 15px 15px 15px;
+  box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.589);
 }
 img.inTextLeft{
   width: 200px;
@@ -138,6 +139,8 @@ span.hide{
     width: 100%;
     min-height: 300px;
     margin: 15px 0 15px 0;
+    box-shadow: 0 0 0 0 white;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.568));
   }
   .hide{
     display: none;
