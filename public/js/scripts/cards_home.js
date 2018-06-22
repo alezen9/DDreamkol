@@ -30,7 +30,7 @@ for(i = 0;i<10;i++){
             <h6 class="paeseCard">' + paese[i] + '</h6>\
           </div>\
         </div>\
-        <div class="back" style="border-radius: 10px;"><img class="slikaselo" src="images/homepage/small/' + back[i] + '" style="filter:brightness(25%);">\
+        <div class="back" style="border-radius: 10px;"><img class="slikaselo" src="images/homepage/small/' + back[i] + '">\
           <div class="btn-block">\
             <a class="ancoraggio1" href="' + h_page[i] + '">\
               <button type="button" class="btn btn-outline-success al binfo" href="' + h_page[i] + '"><i class="fas fa-info-circle big-icon"></i></button>\

@@ -25,6 +25,7 @@ li a {
   color: #ccc;
   font: 25px/1 Helvetica, Verdana, sans-serif;
   text-transform: uppercase;
+  transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
 

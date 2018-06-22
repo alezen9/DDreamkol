@@ -6,7 +6,6 @@
 .flip-container {
     /* Rappresenta l'inclinazione prospettica, in questo caso della rotazione */
     -webkit-perspective: 800;
-    -moz-perspective: 800;
     -ms-perspective: 800;
     perspective: 800;
     margin-right: auto;
@@ -15,7 +14,6 @@
 }
 /* ruota il pannello al mousehover */
 .flip-container:hover .flipper {
-    -moz-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
@@ -28,10 +26,8 @@
 /* impostare velocità di transizione */
 .flipper {
     -webkit-transition: 0.6s;
-    -moz-transition: 0.6s;
-    -ms-transition: 0.6s;
+    -o-transition: 0.6s;
     transition: 0.6s;
-    -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     position: relative;
@@ -40,7 +36,6 @@
 .front,
 .back {
     -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
     backface-visibility: hidden;
     position: absolute;
     top: 0;
@@ -51,32 +46,41 @@
 .front {
     z-index: 2;
     -webkit-transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    box-shadow:0 0 50px rgb(0, 0, 0);
+    -webkit-box-shadow:0 0 50px rgb(0, 0, 0);
+            box-shadow:0 0 50px rgb(0, 0, 0);
 }
 /* back, initially hidden pane */
 .back {
     -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
-    box-shadow:0 0 25px rgba(255, 255, 255, 0.705);
+    -webkit-box-shadow:0 0 25px rgba(255, 255, 255, 0.705);
+            box-shadow:0 0 25px rgba(255, 255, 255, 0.705);
 }
 
 
 img.slikaselo{
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-radius: 10px;
     width: var(--cardWidth);
     height: var(--cardHeight);
 }
+.back > img.slikaselo {
+    -webkit-filter:brightness(25%);
+    filter:brightness(25%);
+}
 .paeseCard{
     padding-top: 60%;
     color: white;
-    filter:drop-shadow(8px 8px 10px black);
+    -webkit-filter:drop-shadow(8px 8px 10px black);
+            filter:drop-shadow(8px 8px 10px black);
     font-size: 25px;
 }
 .text-block {
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.795)));
+    background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.795));
+    background: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.795));
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.795));
     position: absolute;
     bottom: 0;
@@ -111,70 +115,6 @@ img.slikaselo{
 .big-icon {
     font-size: 50px;
 }
-
-/*
-@media all and (max-width: 321px) {
-    .flip-container{
-        -webkit-perspective: 1000;
-        -moz-perspective: 1000;
-        -ms-perspective: 1000;
-        perspective: 1000;
-    }
-    .flip-container,
-    .front,
-    .back {
-        width: 135px;
-        height: 180px;
-    }
-    img.slikaselo{
-        width: 135px;
-        height: 180px;
-    }
-    .back img.slikaselo{
-        filter: brightness(30%);
-    }
-    .text-block {
-        bottom: 0;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .big-icon{
-        font-size: 32px;
-    }
-    .al{
-        height: 90px;
-    }
-    .paeseCard{
-        font-size: 15px;
-    }
-}
-@media all and (min-width: 322px) and (max-width: 812px) {
-    .flip-container,
-    .front,
-    .back {
-        width: 150px;
-        height: 200px;
-    }
-    img.slikaselo{
-        width: 150px;
-        height: 200px;   
-    }
-    .text-block {
-        bottom: 0;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .big-icon{
-        font-size: 32px;
-    }
-    .al{
-        height: 100px;
-    }
-    .paeseCard{
-        font-size: 15px;
-    }
-}*/
-
 
 @media all and (max-width: 812px) and (orientation: landscape) {
     .flip-container,

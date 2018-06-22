@@ -72,7 +72,7 @@ function checkCookie(a) {
             alert("Вашата страна е веќе на македонски.");
         }
     } else {
-           setCookie("idioma", a, 365);
-           location.reload();
+        setCookie("idioma", a, 365);
+        location.reload();
     }
 }
