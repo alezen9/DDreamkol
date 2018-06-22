@@ -13,11 +13,8 @@ html.no-js(lang='en')
         link(rel='stylesheet', href='css/gallery.css')
         link(href='css/navbar.css', rel='stylesheet')
         link(rel='shortcut icon', type='image/png', href='/images/favico/favico.png')
-        link(href='js/swipe/strip.css', rel='stylesheet')
-        link(href='css/gallery/lity.css', rel='stylesheet')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css')
         link(href='css/managers.css', rel='stylesheet')
-        script(src='js/gallery/jquery.js')
-        script(src='js/gallery/lity.min_noGllery.js')
         script(src='js/scripts/checkAll.js')
     body
         // Navbar
@@ -58,11 +55,11 @@ html.no-js(lang='en')
                                                     span.badge.mr-3.badge-pill.badge-success #{arrext2[index2]}
                                     div(style='margin: auto; padding: 10px;')
                                         if ((arrext2[index2] == '.jpg') || (arrext2[index2] == '.jpeg') || (arrext2[index2] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
-                                            a(href=val, class="strip" data-strip-group="mygroup2" data-strip-group-options="loop: true")
-                                                img(src=arrtmbdel[index2], alt=val,class="resp")
+                                            a(data-fancybox='gallery', href=val, data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
+                                                img(src=arrtmbdel[index2], class="resp", alt=val)
                                         else
-                                            a(href=val, data-lity)
-                                                img(src='images/other/video3.svg',class="resp", alt='video', style='filter: drop-shadow(5px 5px 3px orange);')
+                                            a(data-fancybox='gallery', href=val, data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen","download"]}')
+                                                img(src=arrtmbdel[index2],class="resp", alt='video', style='filter: drop-shadow(5px 5px 3px orange);')
                         .row.justify-content-md-center
                             .col-md-6.mb-3
                                 div(style='text-align: center;')
@@ -105,12 +102,12 @@ html.no-js(lang='en')
                                                 else
                                                     span.badge.mr-3.badge-pill.badge-success #{arrext[index]}
                                     div(style='margin: auto; padding: 10px;')
-                                        if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png'))
-                                            a(href=val1, class="strip" data-strip-group="mygroup" data-strip-group-options="loop: true")
-                                                img(src=arrtmbpub[index], alt=val,class="resp")
+                                        if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
+                                            a(data-fancybox='gallery1', href=val1, data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
+                                                img(src=arrtmbpub[index], class="resp", alt=val1)
                                         else
-                                            a(href=val1, data-lity)
-                                                img(src='images/other/video3.svg', alt='video',class="resp", style='filter: drop-shadow(5px 5px 3px red);')
+                                            a(data-fancybox='gallery1', href=val1, data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen","download"]}')
+                                                img(src=arrtmbpub[index],class="resp", alt='video', style='filter: drop-shadow(5px 5px 3px orange);')
                         .row.justify-content-md-center
                             .col-md-6.mb-3
                                 div(style='text-align: center;')
@@ -128,9 +125,10 @@ html.no-js(lang='en')
             p.text-center.small.p-0.mb-4(style='position: relative; bottom: 0; width:100%; color: black;') 2018 — Aleksandar Gjoreski
         // JavaScript
         #fb-root
+        script(async='', defer='', src='https://buttons.github.io/buttons.js')
         script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js', integrity='sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4', crossorigin='anonymous')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js', integrity='sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1', crossorigin='anonymous')
         script(src='/js/shards.min.js')
         script(src='/js/demo.min.js')
-        script(src='js/swipe/strip.pkgd.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js')

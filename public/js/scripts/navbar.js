@@ -55,6 +55,5 @@ var navbar = '\
 document.write(navbar);
 
 var h = document.querySelector('.navbar').offsetHeight;
-console.log(h);
  var body = document.querySelector('body');
  body.style.paddingTop = h + "px";

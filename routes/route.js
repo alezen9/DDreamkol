@@ -96,34 +96,32 @@ function splitString(stringToSplit, separator) {
 }
 
 //loading pictures for village manager page
-function vmanager_load(imgFolder,trFolder,tmbpFolder,tmbtrFolder,ps,list_pics1,list_ext1,list_ext21,list_to_review1,listtmbpub1, listtmbdel1){
+function vmanager_load(imgFolder,trFolder,ps,list_pics1,list_ext1,list_ext21,list_to_review1,listtmbpub1, listtmbdel1){
+  // publicated images
   fs.readdirSync(imgFolder).forEach(file=>{
     if(file != gitkeep){
+      if((path.extname(file) == '.mp4') || (path.extname(file) == '.MP4')){
+        listtmbpub1.push('images/other/video3.svg');
+      }else{
+        listtmbpub1.push('images/' + ps + '/tmb/published/' + file);
+      }
       list_pics1.push('images/' + ps + '/img/' + file);
       list_ext21.push(path.extname(file));
     }
   });
-    
+  
+  // to review images and extensions
   fs.readdirSync(trFolder).forEach(file=>{
     if(file != gitkeep){
-      if((path.extname(file) != '.mp4') && (path.extname(file) != '.MP4') && (path.extname(file) != '.m4v') && (path.extname(file) != '.M4V') && (path.extname(file) != '.jpeg') && (path.extname(file) != '.jpg') && (path.extname(file) != '.png') (path.extname(file) != '.JPEG') && (path.extname(file) != '.JPG') && (path.extname(file) != '.PNG')){
+      if((path.extname(file) != '.mp4') && (path.extname(file) != '.MP4') && (path.extname(file) != '.mov') && (path.extname(file) != '.MOV') && (path.extname(file) != '.m4v') && (path.extname(file) != '.M4V') && (path.extname(file) != '.mkv') && (path.extname(file) != '.MKV') && (path.extname(file) != '.avi') && (path.extname(file) != '.AVI')){
+        listtmbdel1.push('images/' + ps + '/tmb/to_rev/' + file);
+      }else{
+        listtmbdel1.push('images/other/video3.svg');
       }
       list_to_review1.push('images/' + ps + '/to_review/' + file);
       list_ext1.push(path.extname(file));
     }
-  });
-    
-    fs.readdirSync(tmbtrFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmbdel1.push('images/' + ps + '/tmb/to_rev/' + file);
-        }
-    });
-    
-    fs.readdirSync(tmbpFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmbpub1.push('images/' + ps + '/tmb/published/' + file);
-        }
-    });    
+  }); 
 }
 
 //capitalize words in string
@@ -139,17 +137,16 @@ var toTitleCase = function (str) {
 function picPage(imeSelo,list_pics1,list_ext1,listtmb1){
   var testFolder = new_location + imeSelo + '/img/';
   fs.readdirSync(testFolder).forEach(file=>{
-      if(file != gitkeep){
-        list_pics1.push('images/' + imeSelo + '/img/' + file);
-        list_ext1.push(path.extname(file));
+    if(file != gitkeep){
+      if((path.extname(file) == '.mp4') || (path.extname(file) == '.MP4')){
+        listtmb1.push('images/other/video3.svg');
+      }else{
+        listtmb1.push('images/' + imeSelo + '/tmb/published/' + file);
       }
-    });
-    var tmbPicsFolder = new_location + imeSelo + '/tmb/published/';
-    fs.readdirSync(tmbPicsFolder).forEach(file=>{
-        if(file != gitkeep){
-          listtmb1.push('images/' + imeSelo + '/tmb/published/' + file);
-        }
-    });
+      list_pics1.push('images/' + imeSelo + '/img/' + file);
+      list_ext1.push(path.extname(file));
+    }
+  });
 }
 
 // functions end -------------------------------------------------------------------------------------------------------------------------------------
@@ -367,8 +364,6 @@ router.get("/1234v_manager", (req, res) => {
   
   var testFolder = new_location + selo + '/img/';
   var toReviewFolder = new_location + selo + '/to_review/';
-  var tmbPubFolder = new_location + selo + '/tmb/published/';
-  var tmbTo_revFolder = new_location + selo + '/tmb/to_rev/';
   var list_pics = [];
   var list_to_review = [];
   var list_ext2 = [];
@@ -376,7 +371,7 @@ router.get("/1234v_manager", (req, res) => {
   var listtmbdel = [];
   var listtmbpub = [];
   
-  vmanager_load(testFolder,toReviewFolder,tmbPubFolder,tmbTo_revFolder,selo,list_pics,list_ext,list_ext2,list_to_review,listtmbpub, listtmbdel);
+  vmanager_load(testFolder,toReviewFolder,selo,list_pics,list_ext,list_ext2,list_to_review,listtmbpub, listtmbdel);
 
   toDelete.forEach(immagine =>{
     fsExtra.remove(immagine, err =>{
@@ -559,7 +554,7 @@ router.get(infoRoutes, (req, res) => {
     z = "П. Број.";
     pics = "Види ги сликите";
     geo = "Географски карактеристики";
-    cultural = "Културно-Исторични Одлики";
+    cultural = "Културно-Исторички Одлики";
     history = "Малку историја";
   }
 

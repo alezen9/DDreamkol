@@ -67,7 +67,7 @@ function checkCookie(a) {
     }
     if (x == a) {
         if(a == "eng"){
-            alert("You page is already in english.");
+            alert("Your page is already in english.");
         }else{
             alert("Вашата страна е веќе на македонски.");
         }
