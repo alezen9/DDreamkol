@@ -92,17 +92,39 @@ a.ancoraggio2 > button:hover > i {
     transform: scale(1.2);
     filter: drop-shadow(0 0 15px rgb(111, 0, 238));
 }
-
-@media all and (min-width: 479px) {
-    .ressp{
-        width: 230px;
-    }
+.ressp{
+    background-image: url('../images/other/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40px;
+    padding: 20px;
 }
+.inner-wrapper{
+    padding-top: 50px;
+}
+
 @media all and (max-width: 813px) {
     a.ancoraggio1 > button:hover > i,
     a.ancoraggio2 > button:hover > i{
         transform: none;
         filter: none;
+    }
+    .logoSite{
+        height: 55vh;
+        top: 10vh;
+    }
+    #main{
+        margin-top: 20vh;
+        font-size: 40px;
+    }
+    #main + p {
+        font-size: 12px;
+    }
+    .ressp{
+        background-size: 25px;
+    }
+    .action-links{
+        padding-top: 10vh;
     }
 }
 
