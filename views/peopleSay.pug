@@ -27,9 +27,20 @@ html.no-js(lang='en')
 			br
 			h2 #{titolo1}
 		br
+		.container
+			.message.disclaimer
+				h3 #{nota}
+				br
+				p #{nota1}
+				br
+				p.warning
+					i.fas.fa-exclamation-triangle
+					br
+					| &nbsp;&nbsp; #{warning}
+		br
 		div
 			.container
-				.message
+				.message.Form
 					div(style='text-align: center;')
 						h5.white #{subTitolo1}
 					form.was-validated(method='post')
@@ -55,7 +66,7 @@ html.no-js(lang='en')
 				h3(style="text-align: center;") #{poraki1}
 				each val in reply
 					.row.justify-content-md-center(style='padding: 20px;')
-						.message.poraki(style='padding: 20px;')
+						.message.poraki.tocco(style='padding: 20px;')
 							div
 								h6.orange(style='text-align: left;')
 									strong #{val.nome}
@@ -87,3 +98,4 @@ html.no-js(lang='en')
 			script(src='js/demo.min.js')
 			script(src='js/scripts/visibility.js')
 			script(src='js/scripts/lingua.js')
+			script(src='js/scripts/touchCards.js')

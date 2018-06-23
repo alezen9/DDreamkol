@@ -269,7 +269,7 @@ router.get("/upload", (req, res) => {
 
 //route people say page
 router.get("/peopleSay", (req, res) => {
-  var titolo,subTitolo,fname,sname,testo,submit,poraki,noPoraki,testoP;
+  var titolo,subTitolo,fname,sname,testo,submit,poraki,noPoraki,testoP,nota,nota1,warning;
   var lingua;
   if(req.cookies.idioma){
     lingua = req.cookies.idioma;
@@ -277,7 +277,10 @@ router.get("/peopleSay", (req, res) => {
     lingua = "mkd";
   }
   if(lingua == "eng"){
-    titolo ="This is what people say about Dolni Drimkol...";
+    nota = "Note"
+    nota1 = "Use this page to express yourself, if you want to share a tought about Dolni Drimkol this is the right place, just post a message";
+    warning = "Insults and/or bad behavior is strictly forbidden, the message/s will be deleat/ed and we will take apporpriate measures";
+    titolo ="Just say it!";
     subTitolo = "Submit a message to the community";
     fname = "First name";
     sname = "Last name";
@@ -287,7 +290,10 @@ router.get("/peopleSay", (req, res) => {
     poraki = "Messages";
     noPoraki = "No messages yet";
   }else{
-    titolo ="Што велат луѓето за Долни Дримкол...";
+    nota = "Внимание"
+    nota1 = "Цел на странава е споделувањето на мисли, факти, пораки и се тоа сто мозе да биде во текст форма... Зборот на вас!";
+    warning = "Секаков вид на навреди е строго забранет, пораката ке биде веднаш избришана и уредувачите ке преземе соодветни мерки";
+    titolo ="Па кази го веќе!";
     subTitolo = "Постирај порака";
     fname = "Име";
     sname = "Презиме";
@@ -298,7 +304,22 @@ router.get("/peopleSay", (req, res) => {
     noPoraki = "Нема пораки";
   }
   var reply2 = file_a.users;
-  res.render("peopleSay",{jazik: lingua,reply: reply2,titolo1: titolo, subTitolo1: subTitolo, fname1: fname, sname1: sname, testo1: testo, submit1: submit, poraki1: poraki, noPoraki1: noPoraki, testoP1: testoP});
+  res.render("peopleSay",{
+    jazik: lingua,
+    reply: reply2,
+    titolo1: titolo,
+    subTitolo1: subTitolo,
+    fname1: fname, 
+    sname1: sname, 
+    testo1: testo, 
+    submit1: submit, 
+    poraki1: poraki, 
+    noPoraki1: noPoraki, 
+    testoP1: testoP,
+    nota: nota,
+    nota1: nota1,
+    warning: warning
+  });
 });
 
 
