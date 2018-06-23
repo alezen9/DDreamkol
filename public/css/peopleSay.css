@@ -138,4 +138,7 @@ label,
   .message {
     padding: 20px;
   }
+  .disclaimer > p{
+    font-size: 0.9em;
+  }
 }
