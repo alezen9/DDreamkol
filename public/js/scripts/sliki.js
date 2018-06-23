@@ -11,7 +11,7 @@ var sliki = document.querySelector('#otherPics');
 // for localhost http://localhost:3000/api/ddis/
 // for phone (home) http://192.168.0.8:3000/api/ddis/
 // for server http://80.211.7.75:3000/api/ddis/
-fetch("http://80.211.7.75:3000/api/ddis/" + name)
+fetch("/api/ddis/" + name)
     .then(response => response.json())
     .then(data => {
         data.anni.slice().reverse().forEach(element => {
@@ -25,11 +25,11 @@ fetch("http://80.211.7.75:3000/api/ddis/" + name)
                 foto.src = "images/turnir/teams/" + name + "/tmb/" + element.lista_foto[0] + "/" + element.lista_foto[i];
 
                 var anchor = document.createElement("a");
-                var att1 = document.createAttribute("data-strip-group");
+                var att1 = document.createAttribute("data-fancybox");
                 att1.value = element.lista_foto[0];
-                var att2 = document.createAttribute("data-strip-group-options");
-                att2.value = "loop: true, hideOnClickOutside: true,preload: [1,2]";
-                anchor.classList = "strip";
+                var att2 = document.createAttribute("data-options");
+                att2.value = '{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}';
+                anchor.classList = "tocco";
                 anchor.href = "images/turnir/teams/" + name + "/years/" + element.lista_foto[0] + "/" + element.lista_foto[i];
                 anchor.setAttributeNode(att1);
                 anchor.setAttributeNode(att2);

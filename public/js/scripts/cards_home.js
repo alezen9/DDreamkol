@@ -44,24 +44,3 @@ for(i = 0;i<10;i++){
     </div>';
   document.write(carta);
 }
-/*
-//ontouchstart
-function touchs (el){
-  var cards = document.querySelectorAll(".flip-container");
-  console.log(cards.length + " cards present on the page");
-  cards.forEach(function (element, index) {
-    if(element === el){
-      console.log("cards number " + index + " activated the function");
-      element.classList.add("touched");
-    }
-  });
-}
-//ontouchend
-function touche (el){
-  var cards = document.querySelectorAll(".flip-container");
-  cards.forEach(function (element, index) {
-    if(element === el){
-      element.classList.remove("touched");
-    }
-  });
-}*/

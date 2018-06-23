@@ -29,6 +29,9 @@ img.bgd {
     margin: auto;
     border-radius: 10px;
 }
+.latest_pic > a:focus{
+    outline: 0;
+}
 .latest_pic img{
     border-radius: 50%;
     width: 25em;

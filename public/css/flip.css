@@ -2,7 +2,6 @@
     --cardWidth: 260px;
     --cardHeight: 320px;
 }
-
 .flip-container {
     /* Rappresenta l'inclinazione prospettica, in questo caso della rotazione */
     -webkit-perspective: 800;

@@ -1,3 +1,19 @@
+@keyframes resize {
+  from{
+      -webkit-transform: scale(1);
+              transform: scale(1);
+  }
+  to{
+      -webkit-transform: scale(0.95);
+              transform: scale(0.95);
+  }
+}
+.touched{
+  -webkit-transform: scale(0.95);
+              transform: scale(0.95);
+  -webkit-animation: resize 0.2s ease-out;
+          animation: resize 0.2s ease-out;
+}
 img.bgd {
   position: fixed;
   top: 0;
