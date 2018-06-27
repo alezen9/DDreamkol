@@ -4,13 +4,13 @@
 }
 @-webkit-keyframes slideInFromBottom {
     0% {
-        -webkit-transform: translateY(5%);
-                transform: translateY(5%);
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
         opacity: 0.8;
     }
     50% {
-        -webkit-transform: translateY(-1.5%);
-                transform: translateY(-1.5%);
+        -webkit-transform: translateY(-2.5%);
+                transform: translateY(-2.5%);
         opacity: 0.9;
     }
     100% {
@@ -21,13 +21,13 @@
 }
 @keyframes slideInFromBottom {
     0% {
-        -webkit-transform: translateY(5%);
-                transform: translateY(5%);
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
         opacity: 0.8;
     }
     50% {
-        -webkit-transform: translateY(-1.5%);
-                transform: translateY(-1.5%);
+        -webkit-transform: translateY(-2.5%);
+                transform: translateY(-2.5%);
         opacity: 0.9;
     }
     100% {
