@@ -27,7 +27,7 @@ var navbar2 = '\
                         </div>\
                     </li>\
 					<li class="nav-item">\
-	                    <a class="nav-link" href="page_in_development.html">About Dolni Drimkol\
+	                    <a class="nav-link" href="/dolnidrimkol">About Dolni Drimkol\
 	                        <span class="sr-only">(current)</span>\
 	                    </a>\
 					</li>\

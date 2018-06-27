@@ -85,7 +85,7 @@
 .share-btn .social li:nth-child(1) {
   color: #221717;
 }
-.share-btn .social li:nth-child(2),li:nth-child(3),li:nth-child(4),li:nth-child(5),li:nth-child(6),li:nth-child(7) {
+.share-btn .social li:nth-child(2),li:nth-child(3),li:nth-child(4),li:nth-child(5),li:nth-child(6),li:nth-child(7),li:nth-child(8),li:nth-child(9),li:nth-child(10) {
   color: #1a1a1a;
 }
 .clicked {
@@ -164,4 +164,19 @@
   -webkit-transition-delay: .45s;
        -o-transition-delay: .45s;
           transition-delay: .45s;
+}
+.share-btn.clicked .social li:nth-child(8) {
+  -webkit-transition-delay: .50s;
+       -o-transition-delay: .50s;
+          transition-delay: .50s;
+}
+.share-btn.clicked .social li:nth-child(9) {
+  -webkit-transition-delay: .55s;
+       -o-transition-delay: .55s;
+          transition-delay: .55s;
+}
+.share-btn.clicked .social li:nth-child(10) {
+  -webkit-transition-delay: .60s;
+       -o-transition-delay: .60s;
+          transition-delay: .60s;
 }

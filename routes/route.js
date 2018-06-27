@@ -211,19 +211,6 @@ router.get("/api/ddis/:s", (req, res) => {
   });
   res.status(200).send(JSON.stringify(pics));
 });
-/*
-//set current page language
-router.get("/api/current/:info", (req, res) => {
-  var corrente = JSON.parse(req.params.info);
-  if(corrente.lang != lingua){
-    lingua = corrente.lang;
-    var obj = {"uguale": "no"};
-    res.send(JSON.stringify(obj)); 
-  }else{
-    var obj = {"uguale": "si"};
-    res.send(JSON.stringify(obj)); 
-  }
-});*/
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //route homepage
@@ -239,6 +226,11 @@ router.get("/", (req, res) => {
 //route news page
 router.get("/news", (req, res) => {
   res.sendFile(path.join(public_path + 'news.html'));
+});
+
+//route about dolni drimkol page
+router.get("/dolnidrimkol", (req, res) => {
+  res.sendFile(path.join(public_path + 'about_dd.html'));
 });
 
 //route about us page
@@ -279,7 +271,7 @@ router.get("/peopleSay", (req, res) => {
   if(lingua == "eng"){
     nota = "Note"
     nota1 = "Use this page to express yourself, if you want to share a tought about Dolni Drimkol this is the right place, just post a message";
-    warning = "Insults and/or bad behavior is strictly forbidden, the message/s will be deleat/ed and we will take apporpriate measures";
+    warning = "Insults and/or bad behavior is strictly forbidden, the message/s will be deleted and we will take apporpriate measures";
     titolo ="Just say it!";
     subTitolo = "Submit a message to the community";
     fname = "First name";
