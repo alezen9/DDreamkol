@@ -85,7 +85,19 @@
 .share-btn .social li:nth-child(1) {
   color: #221717;
 }
-.share-btn .social li:nth-child(2),li:nth-child(3),li:nth-child(4),li:nth-child(5),li:nth-child(6),li:nth-child(7),li:nth-child(8),li:nth-child(9),li:nth-child(10) {
+.share-btn .social li:nth-child(2),
+li:nth-child(3),
+li:nth-child(4),
+li:nth-child(5),
+li:nth-child(6),
+li:nth-child(7),
+li:nth-child(8),
+li:nth-child(9),
+li:nth-child(10),
+li:nth-child(11),
+li:nth-child(12),
+li:nth-child(13),
+li:nth-child(14) {
   color: #1a1a1a;
 }
 .clicked {
@@ -179,4 +191,24 @@
   -webkit-transition-delay: .60s;
        -o-transition-delay: .60s;
           transition-delay: .60s;
+}
+.share-btn.clicked .social li:nth-child(11) {
+  -webkit-transition-delay: .65s;
+       -o-transition-delay: .65s;
+          transition-delay: .65s;
+}
+.share-btn.clicked .social li:nth-child(12) {
+  -webkit-transition-delay: .70s;
+       -o-transition-delay: .70s;
+          transition-delay: .70s;
+}
+.share-btn.clicked .social li:nth-child(13) {
+  -webkit-transition-delay: .75s;
+       -o-transition-delay: .75s;
+          transition-delay: .75s;
+}
+.share-btn.clicked .social li:nth-child(14) {
+  -webkit-transition-delay: .80s;
+       -o-transition-delay: .80s;
+          transition-delay: .80s;
 }
