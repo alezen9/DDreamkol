@@ -157,6 +157,23 @@ a.ancoraggio2 > button:hover > i {
     padding-top: 50px;
 }
 
+.tooltip-inner {
+    max-width: 200px;
+    padding: 1em;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 400;
+    text-align: center;
+    background-color: rgba(32, 32, 32, 0.651);
+    border-radius: 10px;
+  }
+  .tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before, .tooltip.bs-tooltip-top .arrow::before {
+    margin-left: -3px;
+    content: "";
+    border-width: 5px 5px 0;
+    border-top-color: transparent;
+  }
+
 @media all and (max-width: 813px) {
     a.ancoraggio1 > button:hover > i,
     a.ancoraggio2 > button:hover > i{

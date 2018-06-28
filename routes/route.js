@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 const gitkeep = '.gitkeep';
 const sharp = require('sharp');
+var nodemailer = require('nodemailer');
 var cookieParser = require('cookie-parser');
 router.use(cookieParser());
 
@@ -34,6 +35,31 @@ if (exists) {
 }
 
 // functions -------------------------------------------------------------------------------------------------------------------------------------
+//send email (subject)
+function sendEmail(text){
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'ddreamkol@gmail.com',
+      pass: 'dDreamkol123#'
+    }
+  });
+  var mailOptions = {
+    from: 'ddreamkol@gmail.com',
+    to: 'ddreamkol@gmail.com',
+    subject: 'New upload',
+    text: text
+  };
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      //console.log('Email sent: ' + info.response);
+    }
+  });
+}
+
+
 // format date
 function formatDate(date) {
   var monthNames = [
@@ -235,7 +261,12 @@ router.get("/dolnidrimkol", (req, res) => {
 
 //route about us page
 router.get("/about_us", (req, res) => {
-  res.sendFile(path.join(public_path + 'about_us.html'));
+  var lingua = req.cookies.idioma;
+  if((!lingua) || (lingua == "mkd")){
+    res.sendFile(path.join(public_path + 'mk_about_us.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'about_us.html')); 
+  }
 });
 
 //route gorno lukovo turnir page
@@ -708,6 +739,8 @@ router.post('/upload', function (req, res) {
       //res
       console.log("uploaded successfully");
       res.redirect('/upload_succ');
+      var text = "New upload for " + village;
+      sendEmail(text);
     }else{
       //res
       console.log("no files to be uploaded");

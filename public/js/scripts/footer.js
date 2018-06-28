@@ -28,7 +28,7 @@ var footer = '\
                     </div>\
                     <!--contacts-->\
                     <div style="margin: 10px auto; padding: auto;">\
-                        <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="something@else.com">\
+                        <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="ddreamkol@gmail.com">\
                         <i class="fas fa-envelope"></i>\
                         &nbsp;Contacts&nbsp;</button>\
                     </div>\
@@ -50,7 +50,7 @@ var footer_small='\
                 </div>\
                 <!--contacts-->\
                 <div style="text-align: center; margin: auto; padding-top: 10px; padding-bottom: 10px;">\
-                    <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="something@else.com">\
+                    <button type="button" class="btn btn-pill btn-primary" data-toggle="tooltip" data-placement="top" title="ddreamkol@gmail.com">\
                     <i class="fas fa-envelope"></i>\
                     &nbsp;Contacts&nbsp;</button>\
                 </div>\
