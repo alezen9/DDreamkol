@@ -1,13 +1,4 @@
 {
-  "users": [
-    {
-      "nome": "proca",
-      "cognome": "hsgbs",
-      "data": "23 June 2018 19:23:18",
-      "message": "hhhhh",
-      "id": 7,
-      "cancella": "http://80.211.7.75:3000/peopleSayEdit/7"
-    }
-  ],
-  "id": 7
+  "users": [],
+  "id": 16
 }

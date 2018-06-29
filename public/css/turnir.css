@@ -300,6 +300,7 @@ img.resp:hover,
   border-radius: 10px;
   -webkit-box-shadow: 0 0 25px #ffae19;
           box-shadow: 0 0 25px #ffae19;
+  color: rgb(230, 218, 152);
   cursor: pointer;
 }
 .winner{

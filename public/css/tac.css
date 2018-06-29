@@ -6,6 +6,9 @@ img.bgd {
     z-index: -4;
     object-fit: cover;
 }
+.cookie{
+    height: 1em;
+}
 .message {
     border-radius: 10px;
     text-align: left;

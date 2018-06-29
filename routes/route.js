@@ -12,8 +12,9 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 const gitkeep = '.gitkeep';
 const sharp = require('sharp');
-var nodemailer = require('nodemailer');
-var cookieParser = require('cookie-parser');
+//const nodemailer = require('nodemailer');
+//const xoauth2 = require('xoauth2');
+const cookieParser = require('cookie-parser');
 router.use(cookieParser());
 
 // local database
@@ -36,18 +37,24 @@ if (exists) {
 
 // functions -------------------------------------------------------------------------------------------------------------------------------------
 //send email (subject)
-function sendEmail(text){
+/*
+function sendEmail(subj,text){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
+    secure: false,
     auth: {
-      user: 'ddreamkol@gmail.com',
-      pass: 'dDreamkol123#'
+      xoauth2: xoauth2.createXOAuth2Generator({
+        user: 'agjoreski65@gmail.com',
+        clientId: '940157088770-e4uvdlafnma777iocu4497bn9qjm9la9.apps.googleusercontent.com',
+        clientSecret: 'VsvT70VttzXO01_hHPY2WvH9',
+        refreshToken: ''
+      })
     }
   });
   var mailOptions = {
-    from: 'ddreamkol@gmail.com',
+    from: '"Aleksandar Gjoreski" <ddreamkol@gmail.com',
     to: 'ddreamkol@gmail.com',
-    subject: 'New upload',
+    subject: subj,
     text: text
   };
   transporter.sendMail(mailOptions, function(error, info){
@@ -58,7 +65,7 @@ function sendEmail(text){
     }
   });
 }
-
+*/
 
 // format date
 function formatDate(date) {
@@ -316,7 +323,7 @@ router.get("/peopleSay", (req, res) => {
     nota = "Внимание"
     nota1 = "Цел на странава е споделувањето на мисли, факти, пораки и се тоа сто мозе да биде во текст форма... Зборот на вас!";
     warning = "Секаков вид на навреди е строго забранет, пораката ке биде веднаш избришана и уредувачите ке преземе соодветни мерки";
-    titolo ="Па кази го веќе!";
+    titolo ="Искажисе!";
     subTitolo = "Постирај порака";
     fname = "Име";
     sname = "Презиме";
@@ -739,8 +746,9 @@ router.post('/upload', function (req, res) {
       //res
       console.log("uploaded successfully");
       res.redirect('/upload_succ');
-      var text = "New upload for " + village;
-      sendEmail(text);
+      /*var text = "New upload for " + village;
+      var subj = "New upload";
+      sendEmail(subj,text);*/
     }else{
       //res
       console.log("no files to be uploaded");
@@ -770,6 +778,9 @@ router.post('/peopleSay', function (req, res) {
 		console.log('Succesfully added message from ' + utente_nome + ' ' + utente_cognome + ' on ' + utente_data);
 	})
   console.log("success!");
+  /*var text = utente_nome + " - " + utente_cognome + ": " + utente_message;
+  var subj = "New message";
+  sendEmail(subj,text);*/
   res.redirect('/peopleSay');
 });
 //---------------------------------------------------------------------------------------------------------------------------------------
