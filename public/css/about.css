@@ -1,3 +1,30 @@
+@-webkit-keyframes resize {
+    from{
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+    to{
+        -webkit-transform: scale(0.95);
+                transform: scale(0.95);
+    }
+}
+@keyframes resize {
+    from{
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+    to{
+        -webkit-transform: scale(0.98);
+                transform: scale(0.98);
+    }
+}
+.touched{
+    -webkit-transform: scale(0.98);
+                -ms-transform: scale(0.98);
+                transform: scale(0.98);
+    -webkit-animation: resize 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: resize 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 img.bgd{
     position: fixed;
     top: 0;
@@ -20,13 +47,13 @@ img.bgd{
 }
 .kombe{
     position: relative;
-    width: 100%;
-    height: 100px;
-    margin: 10px 0 10px 0;
+    width: 50%;
+    height: 500px;
+    margin: 50px auto 10px auto;
 }
 .message:first-child {
-    -webkit-box-shadow: inset 0 0 100px 3000px rgba(173, 173, 173, 0.507), 0 0 50px 10px rgba(255, 183, 115, 0.753);
-          box-shadow: inset 0 0 100px 3000px rgba(173, 173, 173, 0.507), 0 0 50px 10px rgba(255, 183, 115, 0.753);
+    -webkit-box-shadow: inset 0 0 100px 3000px rgba(173, 173, 173, 0.507), 0 0 50px 10px rgba(255, 255, 255, 0.753);
+          box-shadow: inset 0 0 100px 3000px rgba(173, 173, 173, 0.507), 0 0 50px 10px rgba(255, 255, 255, 0.753);
     margin: 20px 0 0 0;
 }
 .message:last-child {
@@ -46,21 +73,54 @@ img.bgd{
 .funFact{
     font-weight: 400;
 }
+.info{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.legenda{
+    position: relative;
+    width: 50%;
+    margin: 50px auto 10px auto;
+    text-align: center;
+}
+.legenda img{
+    width: auto;
+    max-height: 500px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 0 10px 2px rgba(68, 68, 68, 0.767);
+          box-shadow: 0 0 10px 2px rgba(66, 66, 66, 0.863);
+    -webkit-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -o-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.legenda img:hover{
+    -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+            transform: scale(1.02);
+}
 .share-btn.bmugri {
-    background-color: rgba(255, 190, 50, 0.603);
+    background-color: rgba(255, 190, 50, 0.9);
+    /*
     -webkit-box-shadow: 0 0 10px 2px rgba(255, 190, 50, 0.767);
-          box-shadow: 0 0 10px 2px rgba(255, 190, 50, 0.863);
-    left: 25%;
-    top: 50%;
+          box-shadow: 0 0 10px 2px rgba(255, 190, 50, 0.863);*/
+    left: 50%;
+    top: 25%;
     -webkit-transform: translateX(-50%) translateY(-50%);
         -ms-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
 }
 
 .share-btn.jablanica {
-    background-color: rgba(5, 206, 65, 0.603);
+    background-color: rgba(5, 206, 65, 0.9);
+    /*
     -webkit-box-shadow: 0 0 10px 2px rgba(5, 206, 65, 0.329);
-          box-shadow: 0 0 10px 2px rgba(5, 206, 65, 0.733);
+          box-shadow: 0 0 10px 2px rgba(5, 206, 65, 0.733);*/
     left: 50%;
     top: 50%;
     -webkit-transform: translateX(-50%) translateY(-50%);
@@ -68,11 +128,12 @@ img.bgd{
             transform: translateX(-50%) translateY(-50%);
 }
 .share-btn.modric {
-    background-color: rgba(0, 153, 255, 0.603);
+    background-color: rgba(0, 153, 255, 0.9);
+    /*
     -webkit-box-shadow: 0 0 10px 2px rgb(0, 153, 255);
-          box-shadow: 0 0 10px 2px rgb(0, 153, 255);
-    left: 75%;
-    top: 50%;
+          box-shadow: 0 0 10px 2px rgb(0, 153, 255);*/
+    left: 50%;
+    top: 75%;
     -webkit-transform: translateX(-50%) translateY(-50%);
         -ms-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%);
@@ -89,6 +150,9 @@ img.bgd{
 }
 .modric.clicked{
     height: 585px;
+}
+.jablanica.clicked{
+    height: 400px;
 }
 .to{
     font-weight: 200;
@@ -109,10 +173,29 @@ img.bgd{
     width: 85%;
     margin: auto;
 }
+a:focus{
+    outline: 0;
+}
 
 @media all and (max-width: 991px){
+    .info{
+        display: block;
+    }
+    .legenda{
+        width: 100%;
+
+    }
+    .legenda img{
+        width: 290px;
+        height: 332px;
+    }
+    .legenda img:hover{
+        transform: none;
+    }
     .kombe{
-        height: 200px;
+        width: 100%;
+        height: 250px;
+        margin: auto;
     }
     .share-btn.modric,
     .share-btn.jablanica,

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/expButton.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css"/>
 </head>
 <body>
 <!--Navbar-->
@@ -45,77 +46,82 @@
         </p>
     </div>
 
-    <div class="kombe">
-        <!--beli mugri-->
-        <div class="share-btn bmugri">
-            <span class="cta"><i class="fas fa-bus"></i>&nbsp;&nbsp;Бели Мугри</span>
-            <span class="direction">Струга</span>
-            <div class="close ion-close-round">X</div>
-            <ul class="social">
-                <li class="to">→&nbsp;&nbsp;&nbsp;Долно Луково (на мост)</li>
-                <li class="to">→&nbsp;&nbsp;&nbsp;Пискупштина</li>
-                <li class="to">→&nbsp;&nbsp;&nbsp;Нерези</li>
-                <li style="font-weight: 400;">Пон - Саб<span>Нед / Прз</span></li>
-                <li>07:05<span>07:25</span></li>
-                <li>11:00<span>14:00</span></li>
-                <li>13:35<span>19:50</span></li>
-                <li>15:35</li>
-                <li>17:45</li>
-                <li>19:50</li>
-                <span style="width: 100%;" class="btn btn-pill btn-success">
-                    <i class="fas fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Св. Петка
-                </span>
-            </ul>
-        </div>  
-        
-        <!--jablanica/boroec-->
-        <div class="share-btn jablanica">
-            <span class="cta"><i class="fas fa-bus"></i>&nbsp;&nbsp;Бор. - Јабл.</span>
-            <span class="direction">Струга</span>
-            <div class="close ion-close-round">X</div>
-            <ul class="social">
-                <li class="to">→&nbsp;&nbsp;&nbsp;Бороец</li>
-                <li class="to">→&nbsp;&nbsp;&nbsp;Јабланица</li>
-                <li class="to">→&nbsp;&nbsp;&nbsp;?</li>
-                <li style="font-weight: 400;">Пон - Саб<span>Нед / Прз</span></li>
-                <li>00:00<span>00:00</span></li>
-                <li>00:00<span>00:00</span></li>
-                <li>00:00<span>00:00</span></li>
-                <li>00:00</li>
-                <li>00:00</li>
-                <li>00:00</li>
-                <span style="width: 100%;" class="btn btn-pill btn-danger">
-                    <i class="fas fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Св. Петка
-                </span>
-            </ul>
-        </div>  
-
-        <!--za modric/debar-->
-        <div class="share-btn modric">
-            <span class="cta"><i class="fas fa-bus"></i>&nbsp;&nbsp;Мод. - Дре.</span>
-            <span class="direction">Струга&nbsp;→&nbsp;Дебар</span>
-            <div class="close ion-close-round">X</div>
-            <ul class="social">
-                <li class="to">→&nbsp;&nbsp;&nbsp;Модрич / Дренок (на пат)</li>
-                <div class="fine"></div>
-                <li class="company">Радика</li>
-                <li style="font-weight: 400;">Секојдневно</li>
-                <li>07:40</li>
-                <li>16:45</li>
-                <li>19:30</li>
-                <div class="fine"></div>
-                <li class="company">Хисари Газменд</li>
-                <li style="font-weight: 400;">Секојдневно</li>
-                <li>08:30<span>11:15</span></li>
-                <li>13:00<span>14:45</span></li>
-                <li>15:30<span>17:30</span></li>
-                <li>20:15</li>
-                <span style="width: 100%;" class="btn btn-pill btn-success">
-                    <i class="fas fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Св. Петка
-                </span>
-            </ul>
-        </div>  
+    <div class="info">
+    <div class="legenda tocco">
+        <a href="images/other/busMap.jpg" data-fancybox="gallery" data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}'>
+            <img src="images/other/busMap.jpg">
+        </a>
     </div>
+        <div class="kombe">
+                <!--beli mugri-->
+                <div class="share-btn bmugri">
+                    <span class="cta"><i class="fas fa-bus"></i>&nbsp;&nbsp;Бели Мугри</span>
+                    <span class="direction">Струга</span>
+                    <div class="close ion-close-round">X</div>
+                    <ul class="social">
+                        <li class="to">→&nbsp;&nbsp;&nbsp;Долно Луково (на мост)</li>
+                        <li class="to">→&nbsp;&nbsp;&nbsp;Пискупштина</li>
+                        <li class="to">→&nbsp;&nbsp;&nbsp;Нерези</li>
+                        <li style="font-weight: 400;">Пон - Саб<span>Нед / Прз</span></li>
+                        <li>07:05<span>07:25</span></li>
+                        <li>11:00<span>14:00</span></li>
+                        <li>13:35<span>19:50</span></li>
+                        <li>15:35</li>
+                        <li>17:45</li>
+                        <li>19:50</li>
+                        <span style="width: 100%;" class="btn btn-pill btn-success">
+                            <i class="fas fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Св. Петка
+                        </span>
+                    </ul>
+                </div>  
+                
+                <!--jablanica/boroec-->
+                <div class="share-btn jablanica">
+                    <span class="cta"><i class="fas fa-bus"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Кајшоски</span>
+                    <span class="direction">Струга</span>
+                    <div class="close ion-close-round">X</div>
+                    <ul class="social">
+                        <li class="to">→&nbsp;&nbsp;&nbsp;Бороец</li>
+                        <li class="to">→&nbsp;&nbsp;&nbsp;Јабланица</li>
+                        <li style="font-weight: 400;">Секојдневно</li>
+                        <li>07:10</li>
+                        <li>12:00</li>
+                        <li>16:00</li>
+                        <li>19:10</li>
+                        <span style="width: 100%;" class="btn btn-pill btn-success">
+                            <i class="fas fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Св. Петка
+                        </span>
+                    </ul>
+                </div>  
+        
+                <!--za modric/debar-->
+                <div class="share-btn modric">
+                    <span class="cta"><i class="fas fa-bus"></i>&nbsp;&nbsp;Мод. - Дре.</span>
+                    <span class="direction">Струга&nbsp;→&nbsp;Дебар</span>
+                    <div class="close ion-close-round">X</div>
+                    <ul class="social">
+                        <li class="to">→&nbsp;&nbsp;&nbsp;Модрич / Дренок (на пат)</li>
+                        <div class="fine"></div>
+                        <li class="company">Радика</li>
+                        <li style="font-weight: 400;">Секојдневно</li>
+                        <li>07:40</li>
+                        <li>16:45</li>
+                        <li>19:30</li>
+                        <div class="fine"></div>
+                        <li class="company">Хисари Газменд</li>
+                        <li style="font-weight: 400;">Секојдневно</li>
+                        <li>08:30<span>11:15</span></li>
+                        <li>13:00<span>14:45</span></li>
+                        <li>15:30<span>17:30</span></li>
+                        <li>20:15</li>
+                        <span style="width: 100%;" class="btn btn-pill btn-success">
+                            <i class="fas fa-map-marker"></i>&nbsp;&nbsp;&nbsp;Св. Петка
+                        </span>
+                    </ul>
+                </div>  
+            </div>
+    </div>
+    
 
     <div class="message">
         <div class="titolo">
@@ -146,5 +152,7 @@
 <script src="js/demo.min.js"></script>
 <script src="js/scripts/expButton2.js"></script>
 <script src="js/scripts/lingua.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+<script src="js/scripts/touchCards.js"></script>
 </body>
 </html>
