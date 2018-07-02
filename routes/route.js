@@ -190,8 +190,8 @@ const invalid_up_loc = path.join(lc + '/upload_invalid');            // upload_i
 var selo = "";                                                       // used in vmanager and manage/:a
 var public_path = path.join(lc + "/public/");                        // public location
 var toDelete = [];                                                   // images to delete from tmp_img
-var picRoutes = ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modric_pic','/nerezi_pic','/piskupshtina_pic'];
-var infoRoutes = ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modric_h','/nerezi_h','/piskupshtina_h'];
+var picRoutes = ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modrich_pic','/nerezi_pic','/piskupshtina_pic'];
+var infoRoutes = ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modrich_h','/nerezi_h','/piskupshtina_h'];
 
 // orari bus
 var or_bezevo = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~810m","~55 (2002)","walk","Nerezi","Нерези"];
@@ -201,7 +201,7 @@ var or_d_lukovo = ["06:05","08:25","12:15","14:50","16:50","18:55","06:30","13:1
 var or_g_lukovo = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~940m","~55 (2002)","walk","D. Lukovo","Д. Луково"];
 var or_jablanica = ["08:00","13:00","17:00","20:00","-","-","-","-","-","~1087m","~553 (2002)","na"];
 var or_lakavica = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~1244m","~3 (2002)","na"];
-var or_modric = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~880m","~25 (2002)","na"];
+var or_modrich = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00","~880m","~25 (2002)","na"];
 var or_nerezi = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~870m","~120 (2002)","si","at Vodoac - center","на Водоач - центар"];
 var or_piskupshtina = ["05:40","07:50","11:45","14:20","16:20","18:25","06:00","12:45","18:20","~687m","~182 (2002)","si","center","центар"];
 
@@ -380,7 +380,7 @@ router.get("/manage/:a", (req, res) => {
 
 //route manager
 router.get("/manager", (req, res) => {
-  var paesi = ["bezevo","borovec","drenok","d_lukovo","g_lukovo","jablanica","lakavica","modric","nerezi","piskupshtina"];
+  var paesi = ["bezevo","borovec","drenok","d_lukovo","g_lukovo","jablanica","lakavica","modrich","nerezi","piskupshtina"];
   var indice;
   var count = [];
   var countNO = [];
@@ -444,7 +444,7 @@ router.get("/1234v_manager", (req, res) => {
 router.get(picRoutes, (req, res) => {
   var nomePaese = req.originalUrl.slice(1, -4);
   var nomePaeseCap;
-  var sela = ["bezevo","drenok","jablanica","lakavica","modric","nerezi","piskupshtina"];
+  var sela = ["bezevo","drenok","jablanica","lakavica","modrich","nerezi","piskupshtina"];
   var selaK = ["Безево","Дренок","Јабланица","Лакавица","Модрич","Нерези","Пискупштина"]
   var infoPagina = "/" + nomePaese + "_h";
   var lingua;
@@ -514,7 +514,7 @@ router.get(infoRoutes, (req, res) => {
   var lingua;
   var nomePaese = req.originalUrl.slice(1, -2);
   var nomePaeseCap;
-  var sela = ["bezevo","drenok","jablanica","modric","nerezi","piskupshtina"];
+  var sela = ["bezevo","drenok","jablanica","modrich","nerezi","piskupshtina"];
   var selaK = ["Безево","Дренок","Јабланица","Модрич","Нерези","Пискупштина"]
   var pic_ref1 = "/" + nomePaese + "_pic";
 
