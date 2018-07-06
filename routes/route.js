@@ -205,6 +205,30 @@ var or_modrich = ["00:00","00:00","00:00","00:00","00:00","00:00","00:00","00:00
 var or_nerezi = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~870m","~120 (2002)","si","at Vodoac - center","на Водоач - центар"];
 var or_piskupshtina = ["05:40","07:50","11:45","14:20","16:20","18:25","06:00","12:45","18:20","~687m","~182 (2002)","si","center","центар"];
 
+// geo coordinates
+const geoC = [
+  //bezevo
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53810.482046397534!2d20.580565690235638!3d41.325597073387556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511dcd2cec7351%3A0x53e8f057a932549b!2sBezovo%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529569336233",
+  //boroec
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50722.38137281392!2d20.584286596360673!3d41.29519591171799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1350e20bc8eec5f5%3A0x223a354e484494c1!2sBoroec%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529569408352",
+  //drenok
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52242.03849071052!2d20.53587285320215!3d41.371149531761475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511b73a5c1a6b1%3A0xb5d1a30e63b2239!2sDrenok%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529569675504",
+  //d_lukovo
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51607.58888572925!2d20.575499737699797!3d41.34402701335433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511c1a0bc698f7%3A0xe7fdc103c83d7b74!2sLukovo%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529569225947",
+  //g_lukovo
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51607.58888572925!2d20.575499737699797!3d41.34402701335433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511c1a0bc698f7%3A0xe7fdc103c83d7b74!2sLukovo%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529569225947",
+  //jablanica
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d95988.24678827428!2d20.6707487!3d41.2515578!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511da144d64ecd%3A0x791228c1ea01a42e!2sJablanica%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529566625248",
+  //lakajca
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23945.4613892491!2d20.54853009394057!3d41.3237592108173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511d3778f7c7f5%3A0x466ae3aed7353204!2sLakaica%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529569985022",
+  //modrich
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52249.37282088545!2d20.530601735863105!3d41.36201550219177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511c7df158799d%3A0x178870435162e319!2sModrich%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529568666056",
+  //nerezi
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52279.92001666508!2d20.57497173451212!3d41.32395482444828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511c30b9262653%3A0xae260f1f5f06cfdf!2sNerezi%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529568849489",
+  //piskupshtina
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53829.0202346331!2d20.5937780609622!3d41.3031439803666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13511dd1c6ed408f%3A0x89e3eaa3e750e635!2sPiskupshtina%2C+Macedonia+(FYROM)!5e0!3m2!1sit!2sit!4v1529568987162"
+]
+
 //--------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
 // apis
@@ -514,6 +538,8 @@ router.get(picRoutes, (req, res) => {
 router.get(infoRoutes, (req, res) => {
   var pcode = "6337";
   var lingua;
+  var i = infoRoutes.indexOf(req.originalUrl);
+  var coordinata = geoC[i];
   var nomePaese = req.originalUrl.slice(1, -2);
   var nomePaeseCap;
   var sela = ["bezevo","drenok","jablanica","modrich","nerezi","piskupshtina"];
@@ -640,6 +666,7 @@ router.get(infoRoutes, (req, res) => {
     z: z,
     z1: pcode,
     geo: geo,
+    coordinata: coordinata,
     cultural: cultural,
     history: history,
     folderName: nomePaese

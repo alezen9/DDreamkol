@@ -7,13 +7,14 @@ html.no-js(lang='en')
 		meta(name='description', content='Elegant website for storing data about some villages based on Bootstrap 4')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
-		link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.13/css/all.css', integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp', crossorigin='anonymous')
+		link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.1.0/css/all.css', integrity='sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt', crossorigin='anonymous')
 		link(rel='stylesheet', href='css/shards.min.css')
 		link(rel='stylesheet', href='css/shards-demo.css?v=1.1.0')
 		link(rel='stylesheet', href='css/hpage.css')
 		link(rel='stylesheet', href='css/expButton.css')
 		link(rel='stylesheet', href='css/navbar.css')
 		link(rel='shortcut icon', type='image/png', href='images/favico/favico.png')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css')
 	body
 		// Navbar
 		div
@@ -97,6 +98,9 @@ html.no-js(lang='en')
 			div(style='padding-bottom: 20px; padding-top: 100px;')
 				#geo.frost2(style='padding-bottom: 20px;')
 					h2(style='text-align: center;') #{geo}
+					a.mappaA(data-fancybox='gallery', data-type='iframe', data-src=coordinata, href='javascript:;', data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
+						span.btn.btn-pill
+							i.fas.fa-map-marked-alt.mappa
 					br
 					if (folderName == "bezevo")
 						if (jazik == "eng")
@@ -327,3 +331,4 @@ html.no-js(lang='en')
 		script(src='js/demo.min.js')
 		script(src='js/scripts/expButton.js')
 		script(src='js/scripts/lingua.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js')

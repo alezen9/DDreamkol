@@ -99,7 +99,7 @@ header{
     width: 310px;
     height: 550px;
     background: inherit;
-    border-radius: 20px;
+    border-radius: 15px;
     -webkit-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     -o-transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
