@@ -69,14 +69,14 @@ var footer_small='\
                     </a>\
                 </div>\
                 <!--terms and conditions-->\
-                <div style="margin: auto; padding-bottom: 10px; padding-top: 10px;">\
+                <div style="text-align: center;margin: auto; padding-top: 10px; padding-bottom: 10px;">\
                     <a href="tac.html" class="btn btn-pill btn-primary" title="Terms and conditions">\
                         <i class="fas fa-user-shield"></i>\
                         &nbsp;&nbsp;Terms and conditions\
                     </a>\
                 </div>\
                 <!--share on facebook-->\
-                <div style="text-align: center; margin: auto; padding-top: 10px; padding-ottom: 10px;">\
+                <div style="text-align: center; margin: auto; padding-top: 10px; padding-bottom: 10px;">\
                     <a href="https://www.facebook.com/sharer/sharer.php?u=http://80.211.7.75:3000" class="btn btn-pill btn-primary" title="Share on Facebook">\
                         <i class="fab fa-facebook-square"></i>\
                         &nbsp;&nbsp;Share on Facebook\
