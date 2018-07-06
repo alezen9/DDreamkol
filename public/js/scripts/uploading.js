@@ -1,3 +1,6 @@
+var acceptedFormats = ["jpg","jpeg","png","mp4","m4v","mov","mkv","avi"];
+var flagOK = true;
+
 function spinner() {
     var circleDiv = document.getElementById("upl");
     var spanSubmitButton = document.getElementById("btn_span");
@@ -5,15 +8,27 @@ function spinner() {
     spanSubmitButton.innerHTML = "Uploading...";
 }
 
+
+function getFileExtension(filename) {
+    return filename.split('.').pop();
+}
+
 function myFunction(){
     var inputFile = document.getElementById("myFile");
     var p = document.getElementById("warning");
+    var pExt = document.getElementById("warningExtension");
     var spanInputFiles = document.getElementById("chsFiles");
     var totSize = 0;
     var totEl = inputFile.files.length;
     if ('files' in inputFile) {
         for (var i = 0; i < inputFile.files.length; i++) {
             var file = inputFile.files[i];
+            var fileExt = getFileExtension(file.name).toLowerCase();
+            if(!acceptedFormats.includes(fileExt)){
+                flagOK = false;
+            }else{
+                flagOK = true;
+            }
             totSize += file.size;
             //txt += "<strong> -" + file.name + "</strong><span>" + file.size + "</span><br>";
         }
@@ -29,5 +44,12 @@ function myFunction(){
     spanInputFiles.innerHTML = totEl + " " + f + " ready -  " + Math.ceil(totSize) + "mb";
     if(totSize>30){
         p.style.display = "block";
+    }
+    if(!flagOK){
+        document.querySelector("#buttoon").disabled = true;
+        pExt.style.display = "block";
+    }else{
+        document.querySelector("#buttoon").disabled = false;
+        pExt.style.display = "none";
     }
 }

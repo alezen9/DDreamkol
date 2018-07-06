@@ -25,7 +25,6 @@
     -webkit-animation: resize 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: resize 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-p{font-size: 20px;}
 img.bgd{
     position: fixed;
     top: 0;
@@ -65,11 +64,11 @@ img.bgd{
     margin-bottom: 2em;
 }
 .titolo > h4{
-    font-size: 2em;
+    font-size: 2.5em;
 }
 .message > p{
     font-weight: 200;
-    font-size: 1.05em;
+    font-size: 1.2em;
 }
 .funFact{
     font-weight: 400;
@@ -214,5 +213,12 @@ a:focus{
     }
     .share-btn.modric{
         top: 85%;
+    }
+    .titolo > h4{
+        font-size: 2em;
+    }
+    .message > p{
+        font-weight: 200;
+        font-size: 1.05em;
     }
 }

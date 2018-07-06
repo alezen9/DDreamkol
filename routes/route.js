@@ -497,18 +497,20 @@ router.get(picRoutes, (req, res) => {
       }
     }
   }
-  var infobtn;
+  var infobtn, noPics;
   if(lingua == "mkd"){
     infobtn = "Инфо";
+    noPics = "Нема слики, кликни на 'Прикачи' копчето за придонес";
   }else{
     infobtn = "Go to info";
+    noPics = "No pictures yet, click the 'Upload' button to contribute";
   }
   picPage(nomePaese,list_pics,list_ext,listtmb);
-  res.render("pic_page",{jazik: lingua,nome: nomePaeseCap,h_page: infoPagina,arr: list_pics,arrext: list_ext, arrtmb: listtmb,ii: infobtn});
+  res.render("pic_page",{jazik: lingua,nome: nomePaeseCap,h_page: infoPagina,arr: list_pics,arrext: list_ext, arrtmb: listtmb,ii: infobtn, noPics: noPics});
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
-//route nerezi_h page
+//route info pages
 router.get(infoRoutes, (req, res) => {
   var pcode = "6337";
   var lingua;

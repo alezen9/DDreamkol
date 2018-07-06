@@ -33,14 +33,18 @@ html.no-js(lang='en')
                         |  &nbsp;&nbsp;#{ii}
         // Page Content
         .galleria
-            each val,index in arr
-                div.slika.tocco(style='padding: 2px; background-color: rgba(255,255,255,0.0); border-radius: 5px;')
-                    if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
-                        a(data-fancybox='gallery', href=val, data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
-                            img(src=arrtmb[index], class="resp", alt=val)
-                    else
-                        a(data-fancybox='gallery', href=val, data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
-                            img(src='images/other/video3.svg', class="resp", alt='video', style="filter: drop-shadow(5px 5px 3px red);")
+            if(arr.length != 0)
+                each val,index in arr
+                    div.slika.tocco(style='padding: 2px; background-color: rgba(255,255,255,0.0); border-radius: 5px;')
+                        if ((arrext[index] == '.jpg') || (arrext[index] == '.jpeg') || (arrext[index] == '.png') || (arrext[index] == '.JPG') || (arrext[index] == '.JPEG') || (arrext[index] == '.PNG'))
+                            a(data-fancybox='gallery', href=val, data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
+                                img(src=arrtmb[index], class="resp", alt=val)
+                        else
+                            a(data-fancybox='gallery', href=val, data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
+                                img(src='images/other/video3.svg', class="resp", alt='video', style="filter: drop-shadow(5px 5px 3px red);")
+            else
+                .noPics
+                    h4 #{noPics}
         // Footer
         footer
             br

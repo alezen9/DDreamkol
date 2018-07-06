@@ -70,3 +70,7 @@ img.bgd {
   display: none;
   margin-top: 20px;
 }
+
+input{
+  cursor: pointer;
+}
