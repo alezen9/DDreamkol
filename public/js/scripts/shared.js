@@ -1,5 +1,5 @@
 //animation
-var pressElements = document.querySelectorAll('.tocco, .btn:not(.al), link-modal');
+var pressElements = document.querySelectorAll('.tocco, .btn:not(.al), .link-modal');
 
 pressElements.forEach(element => {
   element.addEventListener('touchstart',function() {touched(this)});
