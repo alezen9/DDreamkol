@@ -15,6 +15,7 @@ html.no-js(lang='en')
 		link(rel='stylesheet', href='css/navbar.css')
 		link(rel='shortcut icon', type='image/png', href='images/favico/favico.png')
 		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css')
+		link(rel='stylesheet', href='css/shared.css')
 	body
 		// Navbar
 		div
@@ -98,7 +99,7 @@ html.no-js(lang='en')
 			div(style='padding-bottom: 20px; padding-top: 100px;')
 				#geo.frost2(style='padding-bottom: 20px;')
 					h2(style='text-align: center;') #{geo}
-					a.mappaA(data-fancybox='gallery', data-type='iframe', data-src=coordinata, href='javascript:;', data-options='{"loop" : true, "animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
+					a.mappaA(data-fancybox='gallery', data-type='iframe', data-src=coordinata, href='javascript:;', data-options='{"animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
 						span.btn.btn-pill
 							i.fas.fa-map-marked-alt.mappa
 					br
@@ -330,5 +331,5 @@ html.no-js(lang='en')
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js', integrity='sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1', crossorigin='anonymous')
 		script(src='js/demo.min.js')
 		script(src='js/scripts/expButton.js')
-		script(src='js/scripts/lingua.js')
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js')
+		script(src='js/scripts/shared.js')

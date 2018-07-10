@@ -1,3 +1,45 @@
+//animation
+var pressElements = document.querySelectorAll('.tocco, .btn:not(.al), link-modal');
+
+pressElements.forEach(element => {
+  element.addEventListener('touchstart',function() {touched(this)});
+  element.addEventListener('touchend',function() {moved(this)});
+});
+
+
+function touched(el){
+  pressElements.forEach(function (element, index) {
+    if(element === el){
+      //console.log("pressElements number " + index + " activated the function");
+      /*
+      if (element.classList.contains('al')){
+        var figlio = element.children[0];
+        figlio.classList.add("touched");
+      }else{
+        element.classList.add("touched");
+      }*/
+      element.classList.add("touched");
+    }
+  });
+}
+
+function moved (el){
+  pressElements.forEach(function (element) {
+    if(element === el){
+      /*
+      if (element.classList.contains('al')){
+        var figlio = element.children[0];
+        figlio.classList.remove("touched");
+      }else{
+        element.classList.remove("touched");
+      }*/
+      element.classList.remove("touched");
+    }
+  });
+}
+
+//============================================================================================================//
+//lingua
 function lg(el){
 	jazik(el.value);
 }
@@ -5,31 +47,6 @@ function lg(el){
 function jazik (lingua){
     checkCookie(lingua);
 }
-
-
-/*
-function jazik (lingua){
-	var current_lang = checkCookie(lingua);
-	console.log(current_lang);
-	//var info = {"lang": current_lang};
-	//var url = 'http://80.211.7.75:3000/api/current/' + JSON.stringify(info);
-	//var url = 'http://localhost:3000/api/current/' + JSON.stringify(info);
-	/*fetch(url)
-		.then(res => res.json())
-		.then(data => {
-			console.log(data.uguale);
-			if(data.uguale == "no"){
-				location.reload();	
-			}else{
-				if(lingua == "eng"){
-					alert("You page is already in english.");	
-				}else{
-					alert("Вашата страна е веќе на македонски.");	
-				}
-			}
-		})
-		.catch(error => console.error('Error:', error));
-}*/
 
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();

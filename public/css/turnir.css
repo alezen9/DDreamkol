@@ -267,7 +267,7 @@ img.bgd {
 img.resp {
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 1px;
+  border-radius: 5px;
   width: 200px;
   height: 200px;
   margin: 3px;

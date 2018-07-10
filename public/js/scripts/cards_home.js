@@ -15,7 +15,6 @@ if (x<813){
     n=3;
     folder = "big/";
 }
-//var cover = ['cover.jpg','cover.jpg','drenok-big.jpg','dlukovo-big.jpg','glukovo-big.jpg','jablanica-big.jpg','lakavica.jpg','modric-big.jpg','nerezi-big.jpeg','piskupshtina-big.jpg'];
 var cover = ['cover.png','boroec.jpg','drenok.jpg','dlukovo.jpg','glukovo.jpg','jablanica.jpg','cover.png','modric.jpg','nerezi.jpeg','piskupshtina.jpg'];
 var pic_page =  ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modrich_pic','/nerezi_pic','/piskupshtina_pic'];
 var h_page =  ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modrich_h','/nerezi_h','/piskupshtina_h'];
