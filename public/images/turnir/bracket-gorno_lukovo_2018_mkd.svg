@@ -4841,12 +4841,12 @@
 <text
    id="text2345"
    class="st12 st18"
-   transform="matrix(0.8884 0 0 1 63.1665 424.6025)">Old field</text>
+   transform="matrix(0.8884 0 0 1 63.1665 424.6025)">Стар Терен</text>
 
 <text
    id="text2347"
    class="st12 st18"
-   transform="matrix(0.8884 0 0 1 63.1665 452.8701)">New field</text>
+   transform="matrix(0.8884 0 0 1 63.1665 452.8701)">Нов Терен</text>
 
 <g
    id="g2457">
@@ -8965,17 +8965,17 @@
 <text
    id="text4237"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 213.5122 413.7637)">Nerezi</text>
+   transform="matrix(1.0689 0 0 1 213.5122 413.7637)">Нерези</text>
 
 <text
    id="text4239"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 213.5122 434.7637)">Drenok</text>
+   transform="matrix(1.0689 0 0 1 213.5122 434.7637)">Дренок</text>
 
 <text
    id="text4241"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 213.5122 455.7637)">Bezevo</text>
+   transform="matrix(1.0689 0 0 1 213.5122 455.7637)">Безево</text>
 
 <radialGradient
    gradientUnits="userSpaceOnUse"
@@ -9070,17 +9070,17 @@
 <text
    id="text4276"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 325.5122 413.7637)">Jablanica</text>
+   transform="matrix(1.0689 0 0 1 325.5122 413.7637)">Јабланица</text>
 
 <text
    id="text4278"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 325.5122 434.7637)">Piskupshtina</text>
+   transform="matrix(1.0689 0 0 1 325.5122 434.7637)">Пискупштина</text>
 
 <text
    id="text4280"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 325.5122 455.7637)">Gorno Lukovo</text>
+   transform="matrix(1.0689 0 0 1 325.5122 455.7637)">Горно Луково</text>
 
 <radialGradient
    gradientUnits="userSpaceOnUse"
@@ -9175,17 +9175,17 @@
 <text
    id="text4315"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 430.5122 413.7637)">Dolno Lukovo</text>
+   transform="matrix(1.0689 0 0 1 430.5122 413.7637)">Долно Луково</text>
 
 <text
    id="text4317"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 430.5122 434.7637)">Lakavica</text>
+   transform="matrix(1.0689 0 0 1 430.5122 434.7637)">Лакаица</text>
 
 <text
    id="text4319"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 430.5122 455.7637)">Borovec</text>
+   transform="matrix(1.0689 0 0 1 430.5122 455.7637)">Бороец</text>
 
 <radialGradient
    gradientUnits="userSpaceOnUse"
@@ -9220,6 +9220,6 @@
 <text
    id="text4332"
    class="st12 st143"
-   transform="matrix(1.0689 0 0 1 531.5122 413.7637)">Modrich</text>
+   transform="matrix(1.0689 0 0 1 531.5122 413.7637)">Модрич</text>
 
 </svg>
