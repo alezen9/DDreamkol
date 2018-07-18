@@ -98,6 +98,9 @@ summary{
     border-radius: 10px;
     line-height: 2;
 }
+summary:focus{
+    outline: 0;
+}
 
 details summary::-webkit-details-marker {
     background: url(../images/other/arrow.svg) center no-repeat;
@@ -106,6 +109,13 @@ details summary::-webkit-details-marker {
 details[open] summary::-webkit-details-marker {
     background: url(../images/other/arrow-down.svg) center no-repeat;
     color: transparent;
+}
+
+.stemma{
+    width: 9em;
+    padding: .5em;
+    border-radius: 50%;
+    box-shadow: inset 0 0 150px 50px rgb(255, 255, 255), 0 0 30px 10px rgb(255, 255, 255);
 }
 
 @media all and (max-width: 813px){

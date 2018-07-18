@@ -31,11 +31,8 @@
     font-size: 2.5em;
 }
 .message > p{
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1.2em;
-}
-.funFact{
-    font-weight: 400;
 }
 .info{
     display: -webkit-box;
@@ -141,7 +138,35 @@ a:focus{
     outline: 0;
 }
 
-@media all and (max-width: 991px){
+.line{
+    margin: auto;
+    width: 80%;
+    padding-top: 20px;
+    border-top: 1px solid black;
+}
+
+.link{
+    text-decoration: none;
+    text-align: center;
+    
+  }
+  .link > p{
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 400;
+    color: black;
+  }
+  img.inTextRight{
+    width: 500px;
+    border-radius: 7px;
+    float: right;
+    -webkit-filter: drop-shadow(0 0 3px black);
+            filter: drop-shadow(0 0 3px black);
+    padding: 2px;
+    margin: 15px 0 15px 15px;
+  }
+
+  @media all and (max-width: 991px){
     .info{
         display: block;
     }
@@ -185,4 +210,7 @@ a:focus{
         font-weight: 200;
         font-size: 1.05em;
     }
+    img.inTextRight{
+    width: 100%;
+  }
 }

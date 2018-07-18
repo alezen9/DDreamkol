@@ -36,6 +36,48 @@ if (exists) {
 }
 
 // functions -------------------------------------------------------------------------------------------------------------------------------------
+// return all pitures from a village by folder TEAMS
+function getTeamPics(team){
+  var pics = {
+    'anni': []
+  };
+  var paese = team;
+  var testFolder2 = path.join(new_location + 'turnir/teams/' + paese + '/tmb');
+  fsExtra.ensureDirSync(testFolder2);
+  var testFolder = new_location + 'turnir/teams/' + paese + '/years/';
+  fs.readdirSync(testFolder).forEach(file=>{
+    if(file != gitkeep){
+      var tmb_god = path.join(testFolder2 + "/" + file);
+      fsExtra.ensureDirSync(tmb_god);
+      var lista_foto = [];
+      var lista_tmb = [];
+      lista_foto.push(file);
+      fs.readdirSync(testFolder + file + '/').forEach(file2=>{
+        if(!(fs.existsSync(path.join(tmb_god + "/" + file2)))){
+          sharp(testFolder + file + "/" + file2)
+          .rotate()
+          .resize(300, 300)
+          .max()
+          .toFile(tmb_god + "/" + file2, (err, info) => {
+            if(err){
+              console.log(err);
+            }          
+          })
+        }
+        //lista_foto.push(file2);
+        lista_foto.push('images/turnir/teams/' + team + '/years/' + file + '/' + file2);
+        lista_tmb.push('images/turnir/teams/' + team + '/tmb/' + file + '/' + file2);
+      });
+      pics.anni.push({
+        lista_foto,
+        lista_tmb
+      });
+    }
+  });
+  return(pics);
+}
+
+
 //send email (subject)
 /*
 function sendEmail(subj,text){
@@ -192,6 +234,7 @@ var public_path = path.join(lc + "/public/");                        // public l
 var toDelete = [];                                                   // images to delete from tmp_img
 var picRoutes = ['/bezevo_pic','/borovec_pic','/drenok_pic','/d_lukovo_pic','/g_lukovo_pic','/jablanica_pic','/lakavica_pic','/modrich_pic','/nerezi_pic','/piskupshtina_pic'];
 var infoRoutes = ['/bezevo_h','/borovec_h','/drenok_h','/d_lukovo_h','/g_lukovo_h','/jablanica_h','/lakavica_h','/modrich_h','/nerezi_h','/piskupshtina_h'];
+var teamsRoutes = ['/bezevo_team','/boroec_team','/drenok_team','/d_lukovo_team','/g_lukovo_team','/jablanica_team','/lakaica_team','/modrich_team','/nerezi_team','/piskupshtina_team'];
 
 // orari bus
 var or_bezevo = ["05:50","08:05","12:00","14:30","16:30","18:35","06:10","13:00","18:30","~810m","~55 (2002)","walk","Nerezi","Нерези"];
@@ -464,6 +507,76 @@ router.get("/1234v_manager", (req, res) => {
 });
 //--------------------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------------------------------
+//teams routes
+router.get(teamsRoutes, (req, res) => {
+  var nomePaese = req.originalUrl.slice(1, -5);
+  var lingua;
+  var nomePaeseCap;
+  var sela = ["bezevo","boroec","drenok","jablanica","lakavica","modrich","nerezi","piskupshtina"];
+  var selaK = ["Безево","Бороец","Дренок","Јабланица","Лакаица","Модрич","Нерези","Пискупштина"];
+  if(req.cookies.idioma){
+    lingua = req.cookies.idioma;
+  }else{
+    lingua = "mkd";
+  }
+  if(nomePaese == "g_lukovo"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Gorno Lukovo";
+    }else{
+      nomePaeseCap = "Горно Луково";
+    }
+  }else if(nomePaese == "d_lukovo"){
+    if(lingua == "eng"){
+      nomePaeseCap = "Dolno Lukovo";
+    }else{
+      nomePaeseCap = "Долно Луково";
+    }
+  }else{
+    if(lingua == "eng"){
+      nomePaeseCap = toTitleCase(nomePaese);
+    }else{
+      for(var i=0; i<sela.length; i++){
+        if(sela[i] == nomePaese){
+          nomePaeseCap = selaK[i];
+        }
+      }
+    }
+  }
+  var mainYear, mainPic,fotoDesc, nTitles, yearsTitles,yearsGallery = [];
+  if(lingua == "mkd"){
+    fotoDesc = "Раткушиноски Зоран, Бајчески Јован, Ѓорески Наумче, Башоски Саше, Алачкоски Борче, Раткушиноски Дуле  -  Карајованоски Дарко, Нелчески Бојан, Бајчески Бале, Карајованоски Ристе, Ѓорески Александар";
+    nTitles = "8 Титули";
+  }else{
+    fotoDesc = "Ratkushinoski Zoran, Bajcheski Jovan, Gjoreski Naumche, Bashoski Sashe, Alackoski Borche, Ratkushinoski Dule  -  Karajovanoski Darko, Nelcheski Bojan, Bajcheski Bale, Karajovanoski Riste, Gjoreski Aleksandar";
+    nTitles = "8 Titles";
+  }
+  mainYear = 2017;
+  mainPic = path.join("images/turnir/teams/" + nomePaese + "/2017.jpg");
+  firstTitle = 1983;
+  lastTitle = 2016;
+  yearsTitles = ["2015","2008","2007","2001","2000","1998"];
+  var data = getTeamPics(nomePaese);
+  data.anni.slice().reverse().forEach(element => {
+    yearsGallery.push(element.lista_foto.shift());
+  });
+  /*
+  res.sendFile(path.join(public_path + 'team_nerezi.html'));
+  */
+  res.render("teams", {
+    nome: nomePaeseCap,
+    mainYear: mainYear,
+    mainPic: mainPic,
+    fotoDesc: fotoDesc,
+    nTitles: nTitles,
+    lastTitle: lastTitle,
+    firstTitle: firstTitle,
+    yearsTitles: yearsTitles,
+    yearsGallery: yearsGallery,
+    data: data.anni.slice().reverse(),
+    jazik: lingua
+  });
+})
+
 //route pic pages
 router.get(picRoutes, (req, res) => {
   var nomePaese = req.originalUrl.slice(1, -4);
@@ -491,12 +604,6 @@ router.get(picRoutes, (req, res) => {
       nomePaeseCap = "Dolno Lukovo";
     }else{
       nomePaeseCap = "Долно Луково";
-    }
-  }else if(nomePaese == "borovec"){
-    if(lingua == "eng"){
-      nomePaeseCap = "Boroec";
-    }else{
-      nomePaeseCap = "Бороец";
     }
   }else if(nomePaese == "borovec"){
     if(lingua == "eng"){

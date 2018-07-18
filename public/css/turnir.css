@@ -214,8 +214,8 @@ img.bgd {
   cursor: pointer;
 }
 .stemma{
-  -webkit-filter: drop-shadow(0 0 0.75rem white);
-          filter: drop-shadow(0 0 0.75rem white);
+  -webkit-filter: drop-shadow(0 0 .75rem white);
+          filter: drop-shadow(0 0 .75rem white);
   width: 200px;
   height: auto;
   padding: 20px;
