@@ -550,7 +550,7 @@ router.get(teamsRoutes, (req, res) => {
     fotoDesc = "Angjelkoski Riste, Gjoreski Naumche, Ratkushinoski Zoran, Nelcheski Bojan, Bashoski Sashe, Alackoski Borche, Bajcheski Jovan, Ferukoski Denis, Markoski Bojan  -  Marenoski Dimitar, Karajovanoski Riste, Gjoreski Aleksandar, Ratkushinoski Dushko, Filkoski Teodor, Karajovanoski Darko";
     nTitles = "8 Titles";
   }
-  mainYear = 2017;
+  mainYear = 2018;
   mainPic = path.join("images/turnir/teams/" + nomePaese + "/2018.jpg");
   firstTitle = 1983;
   lastTitle = 2016;
