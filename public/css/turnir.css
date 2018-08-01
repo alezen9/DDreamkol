@@ -324,6 +324,14 @@ img.resp:hover,
   border-width: 5px 5px 0;
   border-top-color: transparent;
 }
+.pending{
+  text-align: center;
+  margin: 20px;
+}
+.pending h5{
+  color: white;
+  font-size: 1em;
+}
 
 @media all and (max-width: 813px){
   .data h1 {

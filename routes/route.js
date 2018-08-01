@@ -544,14 +544,14 @@ router.get(teamsRoutes, (req, res) => {
   }
   var mainYear, mainPic,fotoDesc, nTitles, yearsTitles,yearsGallery = [];
   if(lingua == "mkd"){
-    fotoDesc = "Раткушиноски Зоран, Бајчески Јован, Ѓорески Наумче, Башоски Саше, Алачкоски Борче, Раткушиноски Дуле  -  Карајованоски Дарко, Нелчески Бојан, Бајчески Бале, Карајованоски Ристе, Ѓорески Александар";
+    fotoDesc = "Анѓелкоски Ристе, Ѓорески Наумче, Раткушиноски Зоран, Нелчески Бојан, Башоски Саше, Алачкоски Борче, Бајчески Јован, Ферукоски Денис, Маркоски Бојан  -  Мареноски Димитар, Карајованоски Ристе, Ѓорески Александар, Раткушиноски Душко, Филкоски Теодор, Карајваноски Дарко";
     nTitles = "8 Титули";
   }else{
-    fotoDesc = "Ratkushinoski Zoran, Bajcheski Jovan, Gjoreski Naumche, Bashoski Sashe, Alackoski Borche, Ratkushinoski Dule  -  Karajovanoski Darko, Nelcheski Bojan, Bajcheski Bale, Karajovanoski Riste, Gjoreski Aleksandar";
+    fotoDesc = "Angjelkoski Riste, Gjoreski Naumche, Ratkushinoski Zoran, Nelcheski Bojan, Bashoski Sashe, Alackoski Borche, Bajcheski Jovan, Ferukoski Denis, Markoski Bojan  -  Marenoski Dimitar, Karajovanoski Riste, Gjoreski Aleksandar, Ratkushinoski Dushko, Filkoski Teodor, Karajovanoski Darko";
     nTitles = "8 Titles";
   }
   mainYear = 2017;
-  mainPic = path.join("images/turnir/teams/" + nomePaese + "/2017.jpg");
+  mainPic = path.join("images/turnir/teams/" + nomePaese + "/2018.jpg");
   firstTitle = 1983;
   lastTitle = 2016;
   yearsTitles = ["2015","2008","2007","2001","2000","1998"];
