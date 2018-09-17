@@ -8,7 +8,7 @@ if (x<813){
                 <li class="submenu">Демографија</li>\
               </a>\
               <a href="#h" style="text-decoration:none;">\
-                <li class="submenu">Културно-Исторични Одлики</li>\
+                <li class="submenu">Културно-Историски Одлики</li>\
               </a>\
               <a href="#his" style="text-decoration:none;">\
                 <li class="submenu">Малку Историја</li>\
@@ -23,7 +23,7 @@ if (x<813){
                 <li class="submenu" style="border-right: 1px solid #666;">Демографија</li>\
               </a>\
               <a href="#h" style="text-decoration:none;">\
-                <li class="submenu" style="border-right: 1px solid #666;">Културно-Исторични Одлики</li>\
+                <li class="submenu" style="border-right: 1px solid #666;">Културно-Историски Одлики</li>\
               </a>\
               </a>\
               <a href="#his" style="text-decoration:none;">\
