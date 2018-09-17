@@ -106,14 +106,18 @@
     height: 510px;
     z-index: 10;
     background-color: rgb(255, 251, 241);
-    -webkit-box-shadow: 0px 0px 30px 10px rgba(255, 115, 0, 0.185);
+    -webkit-box-shadow: 0px 0px 30px 10px rgba(255, 238, 0, 0.185);
             box-shadow: 0px 0px 30px 10px rgba(255, 115, 0, 0.185);
 }
 .modric.clicked{
     height: 585px;
+    -webkit-box-shadow: 0px 0px 30px 10px rgba(0, 174, 255, 0.185);
+            box-shadow: 0px 0px 30px 10px rgba(0, 174, 255, 0.185);
 }
 .jablanica.clicked{
     height: 400px;
+    -webkit-box-shadow: 0px 0px 30px 10px rgba(1, 255, 56, 0.185);
+            box-shadow: 0px 0px 30px 10px rgba(1, 255, 56, 0.185);
 }
 .to{
     font-weight: 200;

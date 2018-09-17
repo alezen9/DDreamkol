@@ -330,7 +330,12 @@ router.get("/news", (req, res) => {
 
 //route about dolni drimkol page
 router.get("/dolnidrimkol", (req, res) => {
-  res.sendFile(path.join(public_path + 'mk_about_dd.html'));
+  var lingua = req.cookies.idioma;
+  if((!lingua) || (lingua == "mkd")){
+    res.sendFile(path.join(public_path + 'mk_about_dd.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'about_dd.html')); 
+  }
 });
 
 //route about us page
