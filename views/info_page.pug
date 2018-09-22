@@ -72,7 +72,7 @@ html.no-js(lang='en')
 								|    &nbsp;&nbsp;&nbsp;N/A
 				br
 				br
-				table.table.table-hover.tbl.frost
+				table.table.table-hover.tbl.frost-tab
 					tbody
 						tr
 							th(scope='row', style='text-align: center; width: 50%; border: none;')
@@ -98,7 +98,7 @@ html.no-js(lang='en')
 					script(src='js/scripts/mk_menuInfoPage.js')
 			div(style='padding-bottom: 20px; padding-top: 100px;')
 				#geo.frost2(style='padding-bottom: 20px;')
-					h2(style='text-align: center;') #{geo}
+					h2 #{geo}
 					a.mappaA(data-fancybox='gallery', data-type='iframe', data-src=coordinata, href='javascript:;', data-options='{"animationDuration" : 100, "transitionEffect" : "zoom-in-out", "transitionDuration" : 100, "buttons": ["close","fullScreen"]}')
 						span.btn.btn-pill
 							i.fas.fa-map-marked-alt.mappa
@@ -157,7 +157,7 @@ html.no-js(lang='en')
 				// ######################################################################################################################
 				// <div class="line"></div>
 				#pop.frost2
-					h2(style='text-align: center;') #{y}
+					h2 #{y}
 					br
 					if (folderName == "bezevo")
 						if (jazik == "eng")
@@ -212,7 +212,7 @@ html.no-js(lang='en')
 				br
 				// ######################################################################################################################
 				#h.frost2
-					h2(style='text-align: center;') #{cultural}
+					h2 #{cultural}
 					br
 					if (folderName == "bezevo")
 						if (jazik == "eng")
@@ -267,7 +267,7 @@ html.no-js(lang='en')
 				br
 				// ######################################################################################################################
 				#his.frost2
-					h2(style='text-align: center;') #{history}
+					h2 #{history}
 					br
 					if (folderName == "bezevo")
 						if (jazik == "eng")

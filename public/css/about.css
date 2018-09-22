@@ -29,6 +29,9 @@
 }
 .titolo > h4{
     font-size: 2.5em;
+    text-shadow: 0 0 10px white;
+    text-align: center;
+    font-weight: 500;
 }
 .info-about > p{
     font-weight: 300;
@@ -208,7 +211,7 @@ a:focus{
         top: 85%;
     }
     .titolo > h4{
-        font-size: 2em;
+        font-size: 2.2em;
     }
     .info-about > p{
         font-weight: 200;

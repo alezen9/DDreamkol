@@ -8,6 +8,14 @@ img.bgd{
        object-fit: cover;
   }
 
+  .text-center > h1,
+  .text-center > h2,
+  .frost > div > h1,
+  .pictures > h1{
+      font-weight: 500;
+      text-shadow: 0 0 10px white;
+  }
+
   @-webkit-keyframes resize {
     from{
         -webkit-transform: scale(1);

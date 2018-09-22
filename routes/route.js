@@ -328,6 +328,16 @@ router.get("/news", (req, res) => {
   res.sendFile(path.join(public_path + 'news.html'));
 });
 
+//route tac page
+router.get("/tac", (req, res) => {
+  var lingua = req.cookies.idioma;
+  if((!lingua) || (lingua == "mkd")){
+    res.sendFile(path.join(public_path + 'mk_tac.html'));
+  }else{
+    res.sendFile(path.join(public_path + 'tac.html')); 
+  }
+});
+
 //route about dolni drimkol page
 router.get("/dolnidrimkol", (req, res) => {
   var lingua = req.cookies.idioma;
