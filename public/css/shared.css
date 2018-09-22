@@ -52,11 +52,7 @@ img.bgd{
     border: none;
     cursor: pointer;
 }
-.lang:hover{
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-            transform: scale(1.1);
-}
+
 .lang:nth-child(1){
     background: url("../images/other/mkd.svg");
     background-size: 200%;
@@ -76,7 +72,14 @@ img.bgd{
 .lang:focus{
     outline: 0;
 }
-
+.lang:hover{
+    -webkit-box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.589);
+            box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.589);
+    /*
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);*/
+}
 a:focus{
     outline: 0;
 }
@@ -111,6 +114,19 @@ a:focus{
   #toTop:hover {
     opacity: 1;
   }
+
+.message {
+  position: relative;
+  border-radius: 10px;
+  text-align: left;
+  padding: 50px;
+  width: 100%;
+  -webkit-box-shadow: inset 0 0 100px 3000px rgba(39, 39, 39, 0.664);
+          box-shadow: inset 0 0 100px 3000px rgba(39, 39, 39, 0.664);
+  color: white;
+  -webkit-animation: 0.7s ease-out slideInFromLeft;
+          animation: 0.7s ease-out slideInFromLeft;
+}
 
 
 

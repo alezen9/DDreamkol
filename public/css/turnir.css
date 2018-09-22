@@ -26,8 +26,8 @@ img.bgd {
   opacity: 0.75;
 }
 .frost{
-  -webkit-box-shadow: inset 0 0 100px 700px rgba(43, 43, 43, 0.562);
-          box-shadow: inset 0 0 100px 700px rgba(43, 43, 43, 0.562);
+  -webkit-box-shadow: inset 0 0 100px 700px rgba(0, 0, 0, 0.562);
+          box-shadow: inset 0 0 100px 700px rgba(0, 0, 0, 0.562);
   color: #ffae19;
   overflow-wrap: break-word;
 }

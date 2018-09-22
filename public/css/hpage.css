@@ -15,8 +15,8 @@ p{
   border-radius: 5px;
   padding: 20px;
   width: 100%;
-  -webkit-box-shadow: inset 0 0 100px 3000px rgba(173, 173, 173, 0.507);
-          box-shadow: inset 0 0 100px 3000px rgba(173, 173, 173, 0.507);
+  -webkit-box-shadow: inset 0 0 100px 3000px rgba(173, 173, 173, 0.507), 0 0 30px 1px rgba(0, 0, 0, 0.35);
+          box-shadow: inset 0 0 100px 3000px rgba(173, 173, 173, 0.507), 0 0 30px 1px rgba(0, 0, 0, 0.35);
   color: black;
   padding-bottom: 20px;
   font-weight: 300;
