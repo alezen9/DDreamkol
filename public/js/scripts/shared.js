@@ -1,3 +1,15 @@
+// google analythics
+var head = document.querySelector('head');
+var script1 = document.createElement('script');
+script1.setAttribute('src','https://www.googletagmanager.com/gtag/js?id=UA-129401556-1');
+script1_att = document.createAttribute('async');
+script1.setAttributeNode(script1_att);
+head.appendChild(script1);
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-129401556-1');
+
 //animation
 var pressElements = document.querySelectorAll('.tocco, .btn:not(.al), .link-modal');
 
@@ -98,10 +110,10 @@ function checkCookie(a) {
 //============================================================================================================//
 //scroll to top
 
-var btnTop = document.createElement("BUTTON");
+var btnTop = document.createElement("button");
 btnTop.setAttribute('id','toTop');
-var t = document.createTextNode("▲");
-btnTop.appendChild(t);
+//var t = document.createTextNode("▲");
+//btnTop.appendChild(t);
 document.body.appendChild(btnTop);
 /*
 toTop.addEventListener('click', () => window.scrollTo({

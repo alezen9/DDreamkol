@@ -3,17 +3,13 @@ const router = express.Router();
 const path = require('path'); 
 const fs = require('fs');
 const formidable = require('formidable');
-const pug = require('pug');
-const util = require('util');
-//const hbjs = require('handbrake-js');
+
 const fsExtra  = require('fs-extra');
 const uniqid = require('uniqid');
 const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({extended: true}));
 const gitkeep = '.gitkeep';
 const sharp = require('sharp');
-//const nodemailer = require('nodemailer');
-//const xoauth2 = require('xoauth2');
 const cookieParser = require('cookie-parser');
 router.use(cookieParser());
 
@@ -42,9 +38,9 @@ function getTeamPics(team){
     'anni': []
   };
   var paese = team;
-  var testFolder2 = path.join(new_location + 'turnir/teams/' + paese + '/tmb');
+  var testFolder2 = path.join(images_location + 'turnir/teams/' + paese + '/tmb');
   fsExtra.ensureDirSync(testFolder2);
-  var testFolder = new_location + 'turnir/teams/' + paese + '/years/';
+  var testFolder = images_location + 'turnir/teams/' + paese + '/years/';
   fs.readdirSync(testFolder).forEach(file=>{
     if(file != gitkeep){
       var tmb_god = path.join(testFolder2 + "/" + file);
@@ -76,38 +72,6 @@ function getTeamPics(team){
   });
   return(pics);
 }
-
-
-//send email (subject)
-/*
-function sendEmail(subj,text){
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    secure: false,
-    auth: {
-      xoauth2: xoauth2.createXOAuth2Generator({
-        user: 'agjoreski65@gmail.com',
-        clientId: '940157088770-e4uvdlafnma777iocu4497bn9qjm9la9.apps.googleusercontent.com',
-        clientSecret: 'VsvT70VttzXO01_hHPY2WvH9',
-        refreshToken: ''
-      })
-    }
-  });
-  var mailOptions = {
-    from: '"Aleksandar Gjoreski" <ddreamkol@gmail.com',
-    to: 'ddreamkol@gmail.com',
-    subject: subj,
-    text: text
-  };
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      //console.log('Email sent: ' + info.response);
-    }
-  });
-}
-*/
 
 // format date
 function formatDate(date) {
@@ -210,7 +174,7 @@ var toTitleCase = function (str) {
 
 //load images pic page
 function picPage(imeSelo,list_pics1,list_ext1,listtmb1){
-  var testFolder = new_location + imeSelo + '/img/';
+  var testFolder = images_location + imeSelo + '/img/';
   fs.readdirSync(testFolder).forEach(file=>{
     if(file != gitkeep){
       if((path.extname(file) == '.mp4') || (path.extname(file) == '.MP4')){
@@ -227,7 +191,7 @@ function picPage(imeSelo,list_pics1,list_ext1,listtmb1){
 // functions end -------------------------------------------------------------------------------------------------------------------------------------
 //global variables---------------------------------------------------------------------------------------------------------------------------
 const lc = path.join(__dirname + '/..');                             // DDreamkol path
-const new_location = lc + '/public/images/';                         // images location
+const images_location = lc + '/public/images/';                      // images location
 const invalid_up_loc = path.join(lc + '/upload_invalid');            // upload_invalid location
 var selo = "";                                                       // used in vmanager and manage/:a
 var public_path = path.join(lc + "/public/");                        // public location
@@ -281,9 +245,9 @@ router.get("/api/ddis/:s", (req, res) => {
     'anni': []
   };
   var paese = req.params.s;
-  var testFolder2 = path.join(new_location + 'turnir/teams/' + paese + '/tmb');
+  var testFolder2 = path.join(images_location + 'turnir/teams/' + paese + '/tmb');
   fsExtra.ensureDirSync(testFolder2);
-  var testFolder = new_location + 'turnir/teams/' + paese + '/years/';
+  var testFolder = images_location + 'turnir/teams/' + paese + '/years/';
   fs.readdirSync(testFolder).forEach(file=>{
     if(file != gitkeep){
       var tmb_god = path.join(testFolder2 + "/" + file);
@@ -469,7 +433,7 @@ router.get("/manager", (req, res) => {
   var contatoreOK = 0;
   var contatoreNOok = 0;
   for(indice=0;indice<10;indice++){
-    var testFolder6 = new_location + paesi[indice] + '/to_review/';
+    var testFolder6 = images_location + paesi[indice] + '/to_review/';
     fs.readdirSync(testFolder6).forEach(file=>{
       if(file != gitkeep){
         if((path.extname(file) == ".mkv") || (path.extname(file) == ".mov") || (path.extname(file) == ".MOV") || (path.extname(file) == ".avi")){
@@ -495,8 +459,8 @@ router.get("/manager", (req, res) => {
 //route v_manager page
 router.get("/1234v_manager", (req, res) => {
   
-  var testFolder = new_location + selo + '/img/';
-  var toReviewFolder = new_location + selo + '/to_review/';
+  var testFolder = images_location + selo + '/img/';
+  var toReviewFolder = images_location + selo + '/to_review/';
   var list_pics = [];
   var list_to_review = [];
   var list_ext2 = [];
@@ -817,8 +781,8 @@ router.post('/upload', function (req, res) {
     //console.log('Got a field name:', name);
     village = field;
     //console.log('village: ' + village);
-    right_loc = new_location + village + '/to_review';
-    tmp_img = new_location + village + '/tmp_img';
+    right_loc = images_location + village + '/to_review';
+    tmp_img = images_location + village + '/tmp_img';
   });
 
   /* this is where the renaming happens */
