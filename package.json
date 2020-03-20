@@ -2,13 +2,14 @@
   "name": "alex_ddreamkol",
   "version": "1.0.0",
   "description": "website to store and share infos about Dolni Drimkol",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
+    "node": "10.x.x",
+    "npm": "6.x.x"
   },
   "author": "Aleksandar Gjoreski",
   "license": "ISC",
